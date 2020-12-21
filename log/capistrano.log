@@ -3314,3 +3314,1060 @@ Cannot adopt OID in UCD-SNMP-MIB: laLoad ::= { laEntry 3 }
 Cannot adopt OID in UCD-SNMP-MIB: laNames ::= { laEntry 2 }
 Cannot adopt OID in UCD-SNMP-MIB: laIndex ::= { laEntry 1 }
  DEBUG [71fc3d58] 	Your requirements could not be resolved to an installable set of packages.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-12-21 15:08:24 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [09dcc4ae] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [09dcc4ae] Command: /usr/bin/env mkdir -p /tmp
+  INFO [09dcc4ae] Finished in 12.525 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-MedPlatform-production-thekernel.sh 0.0%
+  INFO Uploading /tmp/git-ssh-MedPlatform-production-thekernel.sh 100.0%
+  INFO [a5a4fdbe] Running /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thekernel.sh as root@gescomph.be
+ DEBUG [a5a4fdbe] Command: /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thekernel.sh
+  INFO [a5a4fdbe] Finished in 1.568 seconds with exit status 0 (successful).
+  INFO [8ef2cec6] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as root@gescomph.be
+ DEBUG [8ef2cec6] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [8ef2cec6] 	ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19	HEAD
+  INFO [8ef2cec6] Finished in 2.151 seconds with exit status 0 (successful).
+  INFO [4dbe506f] Running /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases as root@gescomph.be
+ DEBUG [4dbe506f] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases
+  INFO [4dbe506f] Finished in 1.569 seconds with exit status 0 (successful).
+  INFO [5790d98c] Running /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs as root@gescomph.be
+ DEBUG [5790d98c] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs
+  INFO [5790d98c] Finished in 1.587 seconds with exit status 0 (successful).
+ DEBUG [04483834] Running [ -f /var/www/medplatform/current/REVISION ] as root@gescomph.be
+ DEBUG [04483834] Command: [ -f /var/www/medplatform/current/REVISION ]
+ DEBUG [04483834] Finished in 1.525 seconds with exit status 1 (failed).
+ DEBUG [8380b64e] Running [ -f /var/www/medplatform/repo/HEAD ] as root@gescomph.be
+ DEBUG [8380b64e] Command: [ -f /var/www/medplatform/repo/HEAD ]
+ DEBUG [8380b64e] Finished in 1.589 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/medplatform/repo
+ DEBUG [8b9c1a9c] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [8b9c1a9c] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [8b9c1a9c] Finished in 1.546 seconds with exit status 0 (successful).
+  INFO [905aefa4] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as root@gescomph.be
+ DEBUG [905aefa4] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [905aefa4] Finished in 1.548 seconds with exit status 0 (successful).
+  INFO [ce34ebbc] Running /usr/bin/env git remote update --prune as root@gescomph.be
+ DEBUG [ce34ebbc] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [ce34ebbc] 	Fetching origin
+ DEBUG [ce34ebbc] 	From https://github.com/thkernel/medplatform
+   9e92fe7..ab6f859  master     -> master
+  INFO [ce34ebbc] Finished in 2.582 seconds with exit status 0 (successful).
+ DEBUG [6a29bab1] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [6a29bab1] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [6a29bab1] Finished in 1.551 seconds with exit status 0 (successful).
+  INFO [c68355e0] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221150848 as root@gescomph.be
+ DEBUG [c68355e0] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221150848 )
+  INFO [c68355e0] Finished in 1.522 seconds with exit status 0 (successful).
+  INFO [fd41ec27] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20201221150848 as root@gescomph.be
+ DEBUG [fd41ec27] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20201221150848 )
+  INFO [fd41ec27] Finished in 1.506 seconds with exit status 0 (successful).
+ DEBUG [609bf051] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [609bf051] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [609bf051] Finished in 1.503 seconds with exit status 0 (successful).
+ DEBUG [0044467b] Running /usr/bin/env git rev-list --max-count=1 master as root@gescomph.be
+ DEBUG [0044467b] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [0044467b] 	ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19
+ DEBUG [0044467b] Finished in 1.521 seconds with exit status 0 (successful).
+ DEBUG [ce48ad47] Running if test ! -d /var/www/medplatform/releases/20201221150848; then echo "Directory does not exist '/var/www/medplatform/releases/20201221150848'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [ce48ad47] Command: if test ! -d /var/www/medplatform/releases/20201221150848; then echo "Directory does not exist '/var/www/medplatform/releases/20201221150848'" 1>&2; false; fi
+ DEBUG [ce48ad47] Finished in 1.545 seconds with exit status 0 (successful).
+  INFO [2b25eb69] Running /usr/bin/env echo "ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19" > REVISION as root@gescomph.be
+ DEBUG [2b25eb69] Command: cd /var/www/medplatform/releases/20201221150848 && /usr/bin/env echo "ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19" > REVISION
+  INFO [2b25eb69] Finished in 1.529 seconds with exit status 0 (successful).
+  INFO [9bcaaf5f] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221150848/storage /var/www/medplatform/releases/20201221150848/storage/framework as root@gescomph.be
+ DEBUG [9bcaaf5f] Command: /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221150848/storage /var/www/medplatform/releases/20201221150848/storage/framework
+  INFO [9bcaaf5f] Finished in 1.488 seconds with exit status 0 (successful).
+ DEBUG [926937d4] Running [ -L /var/www/medplatform/releases/20201221150848/storage/app ] as root@gescomph.be
+ DEBUG [926937d4] Command: [ -L /var/www/medplatform/releases/20201221150848/storage/app ]
+ DEBUG [926937d4] Finished in 1.520 seconds with exit status 1 (failed).
+ DEBUG [6116a133] Running [ -d /var/www/medplatform/releases/20201221150848/storage/app ] as root@gescomph.be
+ DEBUG [6116a133] Command: [ -d /var/www/medplatform/releases/20201221150848/storage/app ]
+ DEBUG [6116a133] Finished in 1.497 seconds with exit status 0 (successful).
+  INFO [6cf771cc] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221150848/storage/app as root@gescomph.be
+ DEBUG [6cf771cc] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221150848/storage/app
+  INFO [6cf771cc] Finished in 1.530 seconds with exit status 0 (successful).
+  INFO [5fb3d677] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20201221150848/storage/app as root@gescomph.be
+ DEBUG [5fb3d677] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20201221150848/storage/app
+  INFO [5fb3d677] Finished in 1.532 seconds with exit status 0 (successful).
+ DEBUG [4094b97b] Running [ -L /var/www/medplatform/releases/20201221150848/storage/framework/cache ] as root@gescomph.be
+ DEBUG [4094b97b] Command: [ -L /var/www/medplatform/releases/20201221150848/storage/framework/cache ]
+ DEBUG [4094b97b] Finished in 1.576 seconds with exit status 1 (failed).
+ DEBUG [3d01bce9] Running [ -d /var/www/medplatform/releases/20201221150848/storage/framework/cache ] as root@gescomph.be
+ DEBUG [3d01bce9] Command: [ -d /var/www/medplatform/releases/20201221150848/storage/framework/cache ]
+ DEBUG [3d01bce9] Finished in 1.552 seconds with exit status 0 (successful).
+  INFO [5c0631ad] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221150848/storage/framework/cache as root@gescomph.be
+ DEBUG [5c0631ad] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221150848/storage/framework/cache
+  INFO [5c0631ad] Finished in 1.521 seconds with exit status 0 (successful).
+  INFO [14c927b5] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20201221150848/storage/framework/cache as root@gescomph.be
+ DEBUG [14c927b5] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20201221150848/storage/framework/cache
+  INFO [14c927b5] Finished in 1.521 seconds with exit status 0 (successful).
+ DEBUG [dcc3c379] Running [ -L /var/www/medplatform/releases/20201221150848/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [dcc3c379] Command: [ -L /var/www/medplatform/releases/20201221150848/storage/framework/sessions ]
+ DEBUG [dcc3c379] Finished in 1.517 seconds with exit status 1 (failed).
+ DEBUG [67f84b95] Running [ -d /var/www/medplatform/releases/20201221150848/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [67f84b95] Command: [ -d /var/www/medplatform/releases/20201221150848/storage/framework/sessions ]
+ DEBUG [67f84b95] Finished in 1.520 seconds with exit status 0 (successful).
+  INFO [18af6a89] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221150848/storage/framework/sessions as root@gescomph.be
+ DEBUG [18af6a89] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221150848/storage/framework/sessions
+  INFO [18af6a89] Finished in 1.555 seconds with exit status 0 (successful).
+  INFO [5cff4787] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20201221150848/storage/framework/sessions as root@gescomph.be
+ DEBUG [5cff4787] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20201221150848/storage/framework/sessions
+  INFO [5cff4787] Finished in 1.544 seconds with exit status 0 (successful).
+ DEBUG [3dc20614] Running [ -L /var/www/medplatform/releases/20201221150848/storage/framework/views ] as root@gescomph.be
+ DEBUG [3dc20614] Command: [ -L /var/www/medplatform/releases/20201221150848/storage/framework/views ]
+ DEBUG [3dc20614] Finished in 1.519 seconds with exit status 1 (failed).
+ DEBUG [3a62960b] Running [ -d /var/www/medplatform/releases/20201221150848/storage/framework/views ] as root@gescomph.be
+ DEBUG [3a62960b] Command: [ -d /var/www/medplatform/releases/20201221150848/storage/framework/views ]
+ DEBUG [3a62960b] Finished in 1.517 seconds with exit status 0 (successful).
+  INFO [22ecc09e] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221150848/storage/framework/views as root@gescomph.be
+ DEBUG [22ecc09e] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221150848/storage/framework/views
+  INFO [22ecc09e] Finished in 1.549 seconds with exit status 0 (successful).
+  INFO [d45aec19] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20201221150848/storage/framework/views as root@gescomph.be
+ DEBUG [d45aec19] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20201221150848/storage/framework/views
+  INFO [d45aec19] Finished in 1.530 seconds with exit status 0 (successful).
+ DEBUG [504c4a96] Running [ -L /var/www/medplatform/releases/20201221150848/storage/logs ] as root@gescomph.be
+ DEBUG [504c4a96] Command: [ -L /var/www/medplatform/releases/20201221150848/storage/logs ]
+ DEBUG [504c4a96] Finished in 1.530 seconds with exit status 1 (failed).
+ DEBUG [53b25667] Running [ -d /var/www/medplatform/releases/20201221150848/storage/logs ] as root@gescomph.be
+ DEBUG [53b25667] Command: [ -d /var/www/medplatform/releases/20201221150848/storage/logs ]
+ DEBUG [53b25667] Finished in 1.547 seconds with exit status 0 (successful).
+  INFO [fb387e81] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221150848/storage/logs as root@gescomph.be
+ DEBUG [fb387e81] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221150848/storage/logs
+  INFO [fb387e81] Finished in 1.503 seconds with exit status 0 (successful).
+  INFO [d18f5d04] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20201221150848/storage/logs as root@gescomph.be
+ DEBUG [d18f5d04] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20201221150848/storage/logs
+  INFO [d18f5d04] Finished in 1.525 seconds with exit status 0 (successful).
+ DEBUG [648cbb3e] Running if test ! -d /var/www/medplatform/releases/20201221150848; then echo "Directory does not exist '/var/www/medplatform/releases/20201221150848'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [648cbb3e] Command: if test ! -d /var/www/medplatform/releases/20201221150848; then echo "Directory does not exist '/var/www/medplatform/releases/20201221150848'" 1>&2; false; fi
+ DEBUG [648cbb3e] Finished in 1.530 seconds with exit status 0 (successful).
+  INFO [eba84bf3] Running /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader as root@gescomph.be
+ DEBUG [eba84bf3] Command: cd /var/www/medplatform/releases/20201221150848 && /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader
+ DEBUG [eba84bf3] 	MIB search path: /root/.snmp/mibs:/usr/share/snmp/mibs:/usr/share/snmp/mibs/iana:/usr/share/snmp/mibs/ietf:/usr/share/mibs/site:/usr/share/snmp/mibs:/usr/share/mibs/iana:/usr/share/mibs/ietf:/usr/share/mibs/netsnmp
+Cannot find module (SNMPv2-MIB): At line 0 in (none)
+Cannot find module (IF-MIB): At line 0 in (none)
+Cannot find module (IP-MIB): At line 0 in (none)
+Cannot find module (TCP-MIB): At line 0 in (none)
+Cannot find module (UDP-MIB): At line 0 in (none)
+Cannot find module (HOST-RESOURCES-MIB): At line 0 in (none)
+Cannot find module (NOTIFICATION-LOG-MIB): At line 0 in (none)
+Cannot find module (DISMAN-EVENT-MIB): At line 0 in (none)
+Cannot find module (DISMAN-SCHEDULE-MIB): At line 0 in (none)
+Cannot find module (HOST-RESOURCES-TYPES): At line 0 in (none)
+Cannot find module (MTA-MIB): At line 0 in (none)
+Cannot find module (NETWORK-SERVICES-MIB): At line 0 in (none)
+Cannot find module (SNMPv2-TC): At line 15 in /usr/share/snmp/mibs/UCD-DISKIO-MIB.txt
+Cannot find module (SNMPv2-SMI): At line 34 in /usr/share/snmp/mibs/UCD-SNMP-MIB.txt
+Cannot find module (SNMPv2-TC): At line 37 in /usr/share/snmp/mibs/UCD-SNMP-MIB.txt
+Did not find 'enterprises' in module #-1 (/usr/share/snmp/mibs/UCD-SNMP-MIB.txt)
+Did not find 'DisplayString' in module #-1 (/usr/share/snmp/mibs/UCD-SNMP-MIB.txt)
+Did not find 'TruthValue' in module #-1 (/usr/share/snmp/mibs/UCD-SNMP-MIB.txt)
+Unlinked OID in UCD-SNMP-MIB: ucdavis ::= { enterprises 2021 }
+Undefined identifier: enterprises near line 39 of /usr/share/snmp/mibs/UCD-SNMP-MIB.txt
+Did not find 'DisplayString' in module #-1 (/usr/share/snmp/mibs/UCD-DISKIO-MIB.txt)
+Did not find 'ucdExperimental' in module UCD-SNMP-MIB (/usr/share/snmp/mibs/UCD-DISKIO-MIB.txt)
+Unlinked OID in UCD-DISKIO-MIB: ucdDiskIOMIB ::= { ucdExperimental 15 }
+Undefined identifier: ucdExperimental near line 19 of /usr/share/snmp/mibs/UCD-DISKIO-MIB.txt
+Cannot find module (SNMPv2-TC): At line 10 in /usr/share/snmp/mibs/UCD-DLMOD-MIB.txt
+Did not find 'DisplayString' in module #-1 (/usr/share/snmp/mibs/UCD-DLMOD-MIB.txt)
+Did not find 'ucdExperimental' in module UCD-SNMP-MIB (/usr/share/snmp/mibs/UCD-DLMOD-MIB.txt)
+Unlinked OID in UCD-DLMOD-MIB: ucdDlmodMIB ::= { ucdExperimental 14 }
+Undefined identifier: ucdExperimental near line 13 of /usr/share/snmp/mibs/UCD-DLMOD-MIB.txt
+Cannot find module (SNMPv2-TC): At line 15 in /usr/share/snmp/mibs/LM-SENSORS-MIB.txt
+Did not find 'DisplayString' in module #-1 (/usr/share/snmp/mibs/LM-SENSORS-MIB.txt)
+Did not find 'ucdExperimental' in module UCD-SNMP-MIB (/usr/share/snmp/mibs/LM-SENSORS-MIB.txt)
+Unlinked OID in LM-SENSORS-MIB: lmSensors ::= { ucdExperimental 16 }
+Undefined identifier: ucdExperimental near line 32 of /usr/share/snmp/mibs/LM-SENSORS-MIB.txt
+Did not find 'ucdavis' in module UCD-SNMP-MIB (/usr/share/snmp/mibs/UCD-DEMO-MIB.txt)
+Unlinked OID in UCD-DEMO-MIB: ucdDemoMIB ::= { ucdavis 14 }
+Undefined identifier: ucdavis near line 7 of /usr/share/snmp/mibs/UCD-DEMO-MIB.txt
+Cannot find module (SNMP-TARGET-MIB): At line 0 in (none)
+Cannot find module (SNMP-FRAMEWORK-MIB): At line 9 in /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Cannot find module (SNMPv2-SMI): At line 8 in /usr/share/snmp/mibs/NET-SNMP-MIB.txt
+Did not find 'enterprises' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-MIB.txt)
+Unlinked OID in NET-SNMP-MIB: netSnmp ::= { enterprises 8072 }
+Undefined identifier: enterprises near line 10 of /usr/share/snmp/mibs/NET-SNMP-MIB.txt
+Cannot find module (SNMPv2-TC): At line 21 in /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Did not find 'SnmpAdminString' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt)
+Did not find 'netSnmpObjects' in module NET-SNMP-MIB (/usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt)
+Did not find 'netSnmpModuleIDs' in module NET-SNMP-MIB (/usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt)
+Did not find 'netSnmpNotifications' in module NET-SNMP-MIB (/usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt)
+Did not find 'netSnmpGroups' in module NET-SNMP-MIB (/usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt)
+Did not find 'DisplayString' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt)
+Did not find 'RowStatus' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt)
+Did not find 'TruthValue' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt)
+Unlinked OID in NET-SNMP-AGENT-MIB: nsAgentNotifyGroup ::= { netSnmpGroups 9 }
+Undefined identifier: netSnmpGroups near line 545 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsTransactionGroup ::= { netSnmpGroups 8 }
+Undefined identifier: netSnmpGroups near line 536 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsConfigGroups ::= { netSnmpGroups 7 }
+Undefined identifier: netSnmpGroups near line 515 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsCacheGroup ::= { netSnmpGroups 4 }
+Undefined identifier: netSnmpGroups near line 505 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsModuleGroup ::= { netSnmpGroups 2 }
+Undefined identifier: netSnmpGroups near line 495 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: netSnmpAgentMIB ::= { netSnmpModuleIDs 2 }
+Undefined identifier: netSnmpModuleIDs near line 24 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsTransactions ::= { netSnmpObjects 8 }
+Undefined identifier: netSnmpObjects near line 55 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsConfiguration ::= { netSnmpObjects 7 }
+Undefined identifier: netSnmpObjects near line 54 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsErrorHistory ::= { netSnmpObjects 6 }
+Undefined identifier: netSnmpObjects near line 53 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsCache ::= { netSnmpObjects 5 }
+Undefined identifier: netSnmpObjects near line 52 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsDLMod ::= { netSnmpObjects 4 }
+Undefined identifier: netSnmpObjects near line 51 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsExtensions ::= { netSnmpObjects 3 }
+Undefined identifier: netSnmpObjects near line 50 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsMibRegistry ::= { netSnmpObjects 2 }
+Undefined identifier: netSnmpObjects near line 49 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsVersion ::= { netSnmpObjects 1 }
+Undefined identifier: netSnmpObjects near line 48 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsNotifyRestart ::= { netSnmpNotifications 3 }
+Undefined identifier: netSnmpNotifications near line 482 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsNotifyShutdown ::= { netSnmpNotifications 2 }
+Undefined identifier: netSnmpNotifications near line 476 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Unlinked OID in NET-SNMP-AGENT-MIB: nsNotifyStart ::= { netSnmpNotifications 1 }
+Undefined identifier: netSnmpNotifications near line 470 of /usr/share/snmp/mibs/NET-SNMP-AGENT-MIB.txt
+Cannot find module (SNMP-MPD-MIB): At line 0 in (none)
+Cannot find module (SNMP-USER-BASED-SM-MIB): At line 0 in (none)
+Cannot find module (SNMP-FRAMEWORK-MIB): At line 0 in (none)
+Cannot find module (SNMP-VIEW-BASED-ACM-MIB): At line 0 in (none)
+Cannot find module (SNMP-COMMUNITY-MIB): At line 0 in (none)
+Cannot find module (IPV6-ICMP-MIB): At line 0 in (none)
+Cannot find module (IPV6-MIB): At line 0 in (none)
+Cannot find module (IPV6-TCP-MIB): At line 0 in (none)
+Cannot find module (IPV6-UDP-MIB): At line 0 in (none)
+Cannot find module (IP-FORWARD-MIB): At line 0 in (none)
+Cannot find module (SNMP-FRAMEWORK-MIB): At line 10 in /usr/share/snmp/mibs/NET-SNMP-PASS-MIB.txt
+Cannot find module (SNMP-FRAMEWORK-MIB): At line 10 in /usr/share/snmp/mibs/NET-SNMP-EXAMPLES-MIB.txt
+Cannot find module (SNMPv2-TC): At line 12 in /usr/share/snmp/mibs/NET-SNMP-EXAMPLES-MIB.txt
+Cannot find module (INET-ADDRESS-MIB): At line 13 in /usr/share/snmp/mibs/NET-SNMP-EXAMPLES-MIB.txt
+Did not find 'SnmpAdminString' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-EXAMPLES-MIB.txt)
+Did not find 'netSnmp' in module NET-SNMP-MIB (/usr/share/snmp/mibs/NET-SNMP-EXAMPLES-MIB.txt)
+Did not find 'RowStatus' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-EXAMPLES-MIB.txt)
+Did not find 'StorageType' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-EXAMPLES-MIB.txt)
+Did not find 'InetAddressType' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-EXAMPLES-MIB.txt)
+Did not find 'InetAddress' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-EXAMPLES-MIB.txt)
+Unlinked OID in NET-SNMP-EXAMPLES-MIB: netSnmpExamples ::= { netSnmp 2 }
+Undefined identifier: netSnmp near line 16 of /usr/share/snmp/mibs/NET-SNMP-EXAMPLES-MIB.txt
+Did not find 'SnmpAdminString' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-PASS-MIB.txt)
+Did not find 'netSnmpExamples' in module NET-SNMP-EXAMPLES-MIB (/usr/share/snmp/mibs/NET-SNMP-PASS-MIB.txt)
+Unlinked OID in NET-SNMP-PASS-MIB: netSnmpPassExamples ::= { netSnmpExamples 255 }
+Undefined identifier: netSnmpExamples near line 14 of /usr/share/snmp/mibs/NET-SNMP-PASS-MIB.txt
+Cannot find module (SNMPv2-TC): At line 16 in /usr/share/snmp/mibs/NET-SNMP-EXTEND-MIB.txt
+Did not find 'nsExtensions' in module NET-SNMP-AGENT-MIB (/usr/share/snmp/mibs/NET-SNMP-EXTEND-MIB.txt)
+Did not find 'DisplayString' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-EXTEND-MIB.txt)
+Did not find 'RowStatus' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-EXTEND-MIB.txt)
+Did not find 'StorageType' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-EXTEND-MIB.txt)
+Unlinked OID in NET-SNMP-EXTEND-MIB: nsExtendGroups ::= { nsExtensions 3 }
+Undefined identifier: nsExtensions near line 39 of /usr/share/snmp/mibs/NET-SNMP-EXTEND-MIB.txt
+Unlinked OID in NET-SNMP-EXTEND-MIB: nsExtendObjects ::= { nsExtensions 2 }
+Undefined identifier: nsExtensions near line 38 of /usr/share/snmp/mibs/NET-SNMP-EXTEND-MIB.txt
+Unlinked OID in NET-SNMP-EXTEND-MIB: netSnmpExtendMIB ::= { nsExtensions 1 }
+Undefined identifier: nsExtensions near line 19 of /usr/share/snmp/mibs/NET-SNMP-EXTEND-MIB.txt
+Cannot find module (SNMP-NOTIFICATION-MIB): At line 0 in (none)
+Cannot find module (SNMPv2-TM): At line 0 in (none)
+Cannot find module (SNMP-FRAMEWORK-MIB): At line 9 in /usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt
+Cannot find module (SNMP-VIEW-BASED-ACM-MIB): At line 16 in /usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt
+Cannot find module (SNMPv2-TC): At line 25 in /usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt
+Did not find 'SnmpAdminString' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt)
+Did not find 'netSnmpObjects' in module NET-SNMP-MIB (/usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt)
+Did not find 'netSnmpGroups' in module NET-SNMP-MIB (/usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt)
+Did not find 'vacmGroupName' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt)
+Did not find 'vacmAccessContextPrefix' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt)
+Did not find 'vacmAccessSecurityModel' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt)
+Did not find 'vacmAccessSecurityLevel' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt)
+Did not find 'DisplayString' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt)
+Did not find 'RowStatus' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt)
+Did not find 'StorageType' in module #-1 (/usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt)
+Unlinked OID in NET-SNMP-VACM-MIB: netSnmpVacmMIB ::= { netSnmpObjects 9 }
+Undefined identifier: netSnmpObjects near line 28 of /usr/share/snmp/mibs/NET-SNMP-VACM-MIB.txt
+Cannot adopt OID in UCD-SNMP-MIB: logMatchRegExCompilation ::= { logMatchEntry 101 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchErrorFlag ::= { logMatchEntry 100 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchCycle ::= { logMatchEntry 11 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchCount ::= { logMatchEntry 10 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchCounter ::= { logMatchEntry 9 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchCurrentCount ::= { logMatchEntry 8 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchCurrentCounter ::= { logMatchEntry 7 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchGlobalCount ::= { logMatchEntry 6 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchGlobalCounter ::= { logMatchEntry 5 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchRegEx ::= { logMatchEntry 4 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchFilename ::= { logMatchEntry 3 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchName ::= { logMatchEntry 2 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchIndex ::= { logMatchEntry 1 }
+Cannot adopt OID in NET-SNMP-VACM-MIB: nsVacmAccessEntry ::= { nsVacmAccessTable 1 }
+Cannot adopt OID in UCD-SNMP-MIB: extErrFixCmd ::= { extEntry 103 }
+Cannot adopt OID in UCD-SNMP-MIB: extErrFix ::= { extEntry 102 }
+Cannot adopt OID in UCD-SNMP-MIB: extOutput ::= { extEntry 101 }
+Cannot adopt OID in UCD-SNMP-MIB: extResult ::= { extEntry 100 }
+Cannot adopt OID in UCD-SNMP-MIB: extCommand ::= { extEntry 3 }
+Cannot adopt OID in UCD-SNMP-MIB: extNames ::= { extEntry 2 }
+Cannot adopt OID in UCD-SNMP-MIB: extIndex ::= { extEntry 1 }
+Cannot adopt OID in UCD-DEMO-MIB: ucdDemoPublic ::= { ucdDemoMIBObjects 1 }
+Cannot adopt OID in UCD-DLMOD-MIB: dlmodTable ::= { ucdDlmodMIB 2 }
+Cannot adopt OID in UCD-DLMOD-MIB: dlmodNextIndex ::= { ucdDlmodMIB 1 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExamples ::= { netSnmp 2 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpConformance ::= { netSnmp 5 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpNotificationPrefix ::= { netSnmp 4 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpExperimental ::= { netSnmp 9999 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpEnumerations ::= { netSnmp 3 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpObjects ::= { netSnmp 1 }
+Cannot adopt OID in UCD-SNMP-MIB: versionDoDebugging ::= { version 20 }
+Cannot adopt OID in UCD-SNMP-MIB: versionSavePersistentData ::= { version 13 }
+Cannot adopt OID in UCD-SNMP-MIB: versionRestartAgent ::= { version 12 }
+Cannot adopt OID in UCD-SNMP-MIB: versionUpdateConfig ::= { version 11 }
+Cannot adopt OID in UCD-SNMP-MIB: versionClearCache ::= { version 10 }
+Cannot adopt OID in UCD-SNMP-MIB: versionConfigureOptions ::= { version 6 }
+Cannot adopt OID in UCD-SNMP-MIB: versionIdent ::= { version 5 }
+Cannot adopt OID in UCD-SNMP-MIB: versionCDate ::= { version 4 }
+Cannot adopt OID in UCD-SNMP-MIB: versionDate ::= { version 3 }
+Cannot adopt OID in UCD-SNMP-MIB: versionTag ::= { version 2 }
+Cannot adopt OID in UCD-SNMP-MIB: versionIndex ::= { version 1 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleHeartbeatNotification ::= { netSnmpExampleNotificationPrefix 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsCacheStatus ::= { nsCacheEntry 3 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsCacheTimeout ::= { nsCacheEntry 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsCachedOID ::= { nsCacheEntry 1 }
+Cannot adopt OID in UCD-SNMP-MIB: unknown ::= { ucdSnmpAgent 255 }
+Cannot adopt OID in UCD-SNMP-MIB: dragonfly ::= { ucdSnmpAgent 17 }
+Cannot adopt OID in UCD-SNMP-MIB: macosx ::= { ucdSnmpAgent 16 }
+Cannot adopt OID in UCD-SNMP-MIB: aix ::= { ucdSnmpAgent 15 }
+Cannot adopt OID in UCD-SNMP-MIB: hpux11 ::= { ucdSnmpAgent 14 }
+Cannot adopt OID in UCD-SNMP-MIB: win32 ::= { ucdSnmpAgent 13 }
+Cannot adopt OID in UCD-SNMP-MIB: openbsd ::= { ucdSnmpAgent 12 }
+Cannot adopt OID in UCD-SNMP-MIB: bsdi ::= { ucdSnmpAgent 11 }
+Cannot adopt OID in UCD-SNMP-MIB: linux ::= { ucdSnmpAgent 10 }
+Cannot adopt OID in UCD-SNMP-MIB: irix ::= { ucdSnmpAgent 9 }
+Cannot adopt OID in UCD-SNMP-MIB: freebsd ::= { ucdSnmpAgent 8 }
+Cannot adopt OID in UCD-SNMP-MIB: netbsd1 ::= { ucdSnmpAgent 7 }
+Cannot adopt OID in UCD-SNMP-MIB: hpux10 ::= { ucdSnmpAgent 6 }
+Cannot adopt OID in UCD-SNMP-MIB: ultrix ::= { ucdSnmpAgent 5 }
+Cannot adopt OID in UCD-SNMP-MIB: osf ::= { ucdSnmpAgent 4 }
+Cannot adopt OID in UCD-SNMP-MIB: solaris ::= { ucdSnmpAgent 3 }
+Cannot adopt OID in UCD-SNMP-MIB: sunos4 ::= { ucdSnmpAgent 2 }
+Cannot adopt OID in UCD-SNMP-MIB: hpux9 ::= { ucdSnmpAgent 1 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendOutputGroup ::= { nsExtendGroups 2 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: n
+ DEBUG [eba84bf3] 	sExtendConfigGroup ::= { nsExtendGroups 1 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIOEntry ::= { diskIOTable 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsTransactionEntry ::= { nsTransactionTable 1 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpGroups ::= { netSnmpConformance 2 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpCompliances ::= { netSnmpConformance 1 }
+Cannot adopt OID in UCD-SNMP-MIB: mrModuleName ::= { mrEntry 2 }
+Cannot adopt OID in UCD-SNMP-MIB: mrIndex ::= { mrEntry 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsDebugTokenEntry ::= { nsDebugTokenTable 1 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendStatus ::= { nsExtendConfigEntry 21 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendStorage ::= { nsExtendConfigEntry 20 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendRunType ::= { nsExtendConfigEntry 7 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendExecType ::= { nsExtendConfigEntry 6 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendCacheTime ::= { nsExtendConfigEntry 5 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendInput ::= { nsExtendConfigEntry 4 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendArgs ::= { nsExtendConfigEntry 3 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendCommand ::= { nsExtendConfigEntry 2 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendToken ::= { nsExtendConfigEntry 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsModuleTable ::= { nsMibRegistry 1 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpPlaypen ::= { netSnmpExperimental 9999 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpIETFWGEntry ::= { netSnmpIETFWGTable 1 }
+Cannot adopt OID in UCD-SNMP-MIB: prErrFixCmd ::= { prEntry 103 }
+Cannot adopt OID in UCD-SNMP-MIB: prErrFix ::= { prEntry 102 }
+Cannot adopt OID in UCD-SNMP-MIB: prErrMessage ::= { prEntry 101 }
+Cannot adopt OID in UCD-SNMP-MIB: prErrorFlag ::= { prEntry 100 }
+Cannot adopt OID in UCD-SNMP-MIB: prCount ::= { prEntry 5 }
+Cannot adopt OID in UCD-SNMP-MIB: prMax ::= { prEntry 4 }
+Cannot adopt OID in UCD-SNMP-MIB: prMin ::= { prEntry 3 }
+Cannot adopt OID in UCD-SNMP-MIB: prNames ::= { prEntry 2 }
+Cannot adopt OID in UCD-SNMP-MIB: prIndex ::= { prEntry 1 }
+Cannot adopt OID in UCD-DLMOD-MIB: dlmodEntry ::= { dlmodTable 1 }
+Cannot adopt OID in UCD-SNMP-MIB: memSwapErrorMsg ::= { memory 101 }
+Cannot adopt OID in UCD-SNMP-MIB: memSwapError ::= { memory 100 }
+Cannot adopt OID in UCD-SNMP-MIB: memUsedRealTXT ::= { memory 17 }
+Cannot adopt OID in UCD-SNMP-MIB: memUsedSwapTXT ::= { memory 16 }
+Cannot adopt OID in UCD-SNMP-MIB: memCached ::= { memory 15 }
+Cannot adopt OID in UCD-SNMP-MIB: memBuffer ::= { memory 14 }
+Cannot adopt OID in UCD-SNMP-MIB: memShared ::= { memory 13 }
+Cannot adopt OID in UCD-SNMP-MIB: memMinimumSwap ::= { memory 12 }
+Cannot adopt OID in UCD-SNMP-MIB: memTotalFree ::= { memory 11 }
+Cannot adopt OID in UCD-SNMP-MIB: memAvailRealTXT ::= { memory 10 }
+Cannot adopt OID in UCD-SNMP-MIB: memTotalRealTXT ::= { memory 9 }
+Cannot adopt OID in UCD-SNMP-MIB: memAvailSwapTXT ::= { memory 8 }
+Cannot adopt OID in UCD-SNMP-MIB: memTotalSwapTXT ::= { memory 7 }
+Cannot adopt OID in UCD-SNMP-MIB: memAvailReal ::= { memory 6 }
+Cannot adopt OID in UCD-SNMP-MIB: memTotalReal ::= { memory 5 }
+Cannot adopt OID in UCD-SNMP-MIB: memAvailSwap ::= { memory 4 }
+Cannot adopt OID in UCD-SNMP-MIB: memTotalSwap ::= { memory 3 }
+Cannot adopt OID in UCD-SNMP-MIB: memErrorName ::= { memory 2 }
+Cannot adopt OID in UCD-SNMP-MIB: memIndex ::= { memory 1 }
+Cannot adopt OID in UCD-DEMO-MIB: ucdDemoMIBObjects ::= { ucdDemoMIB 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsModuleTimeout ::= { nsModuleEntry 6 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsModuleModes ::= { nsModuleEntry 5 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsModuleName ::= { nsModuleEntry 4 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsmRegistrationPriority ::= { nsModuleEntry 3 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsmRegistrationPoint ::= { nsModuleEntry 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsmContextName ::= { nsModuleEntry 1 }
+Cannot adopt OID in LM-SENSORS-MIB: lmMiscSensorsEntry ::= { lmMiscSensorsTable 1 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpNotificationObjects ::= { netSnmpNotificationPrefix 1 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpNotifications ::= { netSnmpNotificationPrefix 0 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassTable ::= { netSnmpPassExamples 2 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassOIDValue ::= { netSnmpPassExamples 99 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassGauge ::= { netSnmpPassExamples 6 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassCounter ::= { netSnmpPassExamples 5 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassIpAddress ::= { netSnmpPassExamples 4 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassTimeTicks ::= { netSnmpPassExamples 3 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassString ::= { netSnmpPassExamples 1 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpDomains ::= { netSnmpEnumerations 3 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpAgentOIDs ::= { netSnmpEnumerations 2 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmpModuleIDs ::= { netSnmpEnumerations 1 }
+Cannot adopt OID in LM-SENSORS-MIB: lmFanSensorsEntry ::= { lmFanSensorsTable 1 }
+Cannot adopt OID in LM-SENSORS-MIB: lmTempSensorsEntry ::= { lmTempSensorsTable 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsModuleGroup ::= { netSnmpGroups 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsCacheGroup ::= { netSnmpGroups 4 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsConfigGroups ::= { netSnmpGroups 7 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsTransactionGroup ::= { netSnmpGroups 8 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsAgentNotifyGroup ::= { netSnmpGroups 9 }
+Cannot adopt OID in UCD-SNMP-MIB: fileEntry ::= { fileTable 1 }
+Cannot adopt OID in NET-SNMP-VACM-MIB: nsVacmStatus ::= { nsVacmAccessEntry 5 }
+Cannot adopt OID in NET-SNMP-VACM-MIB: nsVacmStorageType ::= { nsVacmAccessEntry 4 }
+Cannot adopt OID in NET-SNMP-VACM-MIB: nsVacmViewName ::= { nsVacmAccessEntry 3 }
+Cannot adopt OID in NET-SNMP-VACM-MIB: nsVacmContextMatch ::= { nsVacmAccessEntry 2 }
+Cannot adopt OID in NET-SNMP-VACM-MIB: nsVacmAuthType ::= { nsVacmAccessEntry 1 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: netSnmpExtendMIB ::= { nsExtensions 1 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendObjects ::= { nsExtensions 2 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendGroups ::= { nsExtensions 3 }
+Cannot adopt OID in LM-SENSORS-MIB: lmVoltSensorsEntry ::= { lmVoltSensorsTable 1 }
+Cannot adopt OID in NET-SNMP-MIB: netSnmp ::= { enterprises 8072 }
+Cannot adopt OID in UCD-SNMP-MIB: ucdavis ::= { enterprises 2021 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIONWrittenX ::= { diskIOEntry 13 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIONReadX ::= { diskIOEntry 12 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIOLA15 ::= { diskIOEntry 11 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIOLA5 ::= { diskIOEntry 10 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIOLA1 ::= { diskIOEntry 9 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIOWrites ::= { diskIOEntry 6 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIOReads ::= { diskIOEntry 5 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIONWritten ::= { diskIOEntry 4 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIONRead ::= { diskIOEntry 3 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIODevice ::= { diskIOEntry 2 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIOIndex ::= { diskIOEntry 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsTransactionMode ::= { nsTransactionEntry 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsTransactionID ::= { nsTransactionEntry 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsDebugTokenStatus ::= { nsDebugTokenEntry 4 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsDebugTokenPrefix ::= { nsDebugTokenEntry 2 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: nsIETFWGChair2 ::= { netSnmpIETFWGEntry 3 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: nsIETFWGChair1 ::= { netSnmpIETFWGEntry 2 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: nsIETFWGName ::= { netSnmpIETFWGEntry 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsLoggingTable ::= { nsConfigLogging 1 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpHostsEntry ::= { netSnmpHostsTable 1 }
+Cannot adopt OID in UCD-DLMOD-MIB: dlmodStatus ::= { dlmodEntry 5 }
+Cannot adopt OID in UCD-DLMOD-MIB: dlmodError ::= { dlmodEntry 4 }
+Cannot adopt OID in UCD-DLMOD-MIB: dlmodPath ::= { dlmodEntry 3 }
+Cannot adopt OID in UCD-DLMOD-MIB: dlmodName ::= { dlmodEntry 2 }
+Cannot adopt OID in UCD-DLMOD-MIB: dlmodIndex ::= { dlmodEntry 1 }
+Cannot adopt OID in LM-SENSORS-MIB: lmMiscSensorsValue ::= { lmMiscSensorsEntry 3 }
+Cannot adopt OID in LM-SENSORS-MIB: lmMiscSensorsDevice ::= { lmMiscSensorsEntry 2 }
+Cannot adopt OID in LM-SENSORS-MIB: lmMiscSensorsIndex ::= { lmMiscSensorsEntry 1 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassEntry ::= { netSnmpPassTable 1 }
+Cannot adopt OID in LM-SENSORS-MIB: lmSensors ::= { ucdExperimental 16 }
+Cannot adopt OID in UCD-DLMOD-MIB: ucdDlmodMIB ::= { ucdExperimental 14 }
+Cannot adopt OID in UCD-DISKIO-MIB: ucdDiskIOMIB ::= { ucdExperimental 15 }
+Cannot adopt OID in UCD-SNMP-MIB: dskEntry ::= { dskTable 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: netSnmpAgentMIB ::= { netSnmpModuleIDs 2 }
+Cannot adopt OID in LM-SENSORS-MIB: lmFanSensorsValue ::= { lmFanSensorsEntry 3 }
+Cannot adopt OID in LM-SENSORS-MIB: lmFanSensorsDevice ::= { lmFanSensorsEntry 2 }
+Cannot adopt OID in LM-SENSORS-MIB: lmFanSensorsIndex ::= { lmFanSensorsEntry 1 }
+Cannot adopt OID in LM-SENSORS-MIB: lmTempSensorsValue ::= { lmTempSensorsEntry 3 }
+Cannot adopt OID in LM-SENSORS-MIB: lmTempSensorsDevice ::= { lmTempSensorsEntry 2 }
+Cannot adopt OID in LM-SENSORS-MIB: lmTempSensorsIndex ::= { lmTempSensorsEntry 1 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchTable ::= { logMatch 2 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchMaxEntries ::= { logMatch 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsLoggingEntry ::= { nsLoggingTable 1 }
+Cannot adopt OID in UCD-SNMP-MIB: fileErrorMsg ::= { fileEntry 101 }
+Cannot adopt OID in UCD-SNMP-MIB: fileErrorFlag ::= { fileEntry 100 }
+Cannot adopt OID in UCD-SNMP-MIB: fileMax ::= { fileEntry 4 }
+Cannot adopt OID in UCD-SNMP-MIB: fileSize ::= { fileEntry 3 }
+Cannot adopt OID in UCD-SNMP-MIB: fileName ::= { fileEntry 2 }
+Cannot adopt OID in UCD-SNMP-MIB: fileIndex ::= { fileEntry 1 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendOutput2Table ::= { nsExtendObjects 4 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendOutput1Table ::= { nsExtendObjects 3 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendConfigTable ::= { nsExtendObjects 2 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendNumEntries ::= { nsExtendObjects 1 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendOutput1Entry ::= { nsExtendOutput1Table 1 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuNumCpus ::= { systemStats 67 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawGuestNice ::= { systemStats 66 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawGuest ::= { systemStats 65 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawSteal ::= { systemStats 64 }
+Cannot adopt OID in UCD-SNMP-MIB: ssRawSwapOut ::= { systemStats 63 }
+Cannot adopt OID in UCD-SNMP-MIB: ssRawSwapIn ::= { systemStats 62 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawSoftIRQ ::= { systemStats 61 }
+Cannot adopt OID in UCD-SNMP-MIB: ssRawContexts ::= { systemStats 60 }
+Cannot adopt OID in UCD-SNMP-MIB: ssRawInterrupts ::= { systemStats 59 }
+Cannot adopt OID in UCD-SNMP-MIB: ssIORawReceived ::= { systemStats 58 }
+Cannot adopt OID in UCD-SNMP-MIB: ssIORawSent ::= { systemStats 57 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawInterrupt ::= { systemStats 56 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawKernel ::= { systemStats 55 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawWait ::= { systemStats 54 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawIdle ::= { systemStats 53 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawSystem ::= { systemStats 52 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawNice ::= { systemStats 51 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuRawUser ::= { systemStats 50 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuIdle ::= { systemStats 11 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuSystem ::= { systemStats 10 }
+Cannot adopt OID in UCD-SNMP-MIB: ssCpuUser ::= { systemStats 9 }
+Cannot adopt OID in UCD-SNMP-MIB: ssSysContext ::= { systemStats 8 }
+Cannot adopt OID in UCD-SNMP-MIB: ssSysInterrupts ::= { systemStats 7 }
+Cannot adopt OID in UCD-SNMP-MIB: ssIOReceive ::= { systemStats 6 }
+Cannot adopt OID in UCD-SNMP-MIB: ssIOSent ::= { systemStats 5 }
+Cannot adopt OID in UCD-SNMP-MIB: ssSwapOut ::= { systemStats 4 }
+Cannot adopt OID in UCD-SNMP-MIB: ssSwapIn ::= { systemStats 3 }
+Cannot adopt OID in UCD-SNMP-MIB: ssErrorName ::= { systemStats 2 }
+Cannot adopt OID in UCD-SNMP-MIB: ssIndex ::= { systemStats 1 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendOutput2Entry ::= { nsExtendOutput2Table 1 }
+Cannot adopt OID in UCD-SNMP-MIB: laEntry ::= { laTable 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsCacheTable ::= { nsCache 3 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsCacheEnabled ::= { nsCache 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsCacheDefaultTimeout ::= { nsCache 1 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatchEntry ::= { logMatchTable 1 }
+Cannot adopt OID in UCD-SNMP-MIB: extEntry ::= { extTable 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsConfigLogging ::= { nsConfiguration 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsConfigDebug ::= { nsConfiguration 1 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleString ::= { netSnmpExampleScalars 3 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleSleeper ::= { netSnmpExampleScalars 2 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleInteger ::= { netSnmpExampleScalars 1 }
+Cannot adopt OID in LM-SENSORS-MIB: lmVoltSensorsValue ::= { lmVoltSensorsEntry 3 }
+Cannot adopt OID in LM-SENSORS-MIB: lmVoltSensorsDevice ::= { lmVoltSensorsEntry 2 }
+Cannot adopt OID in LM-SENSORS-MIB: lmVoltSensorsIndex ::= { lmVoltSensorsEntry 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsCacheEntry ::= { nsCacheTable 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsDebugTokenTable ::= { nsConfigDebug 4 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsDebugDumpPdu ::= { nsConfigDebug 3 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsDebugOutputAll ::= { nsConfigDebug 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsDebugEnabled ::= { nsConfigDebug 1 }
+Cannot adopt OID in UCD-DEMO-MIB: ucdDemoPassphrase ::= { ucdDemoPublic 4 }
+Cannot adopt OID in UCD-DEMO-MIB: ucdDemoUserList ::= { ucdDemoPublic 3 }
+Cannot adopt OID in UCD-DEMO-MIB: ucdDemoPublicString ::= { ucdDemoPublic 2 }
+Cannot adopt OID in UCD-DEMO-MIB: ucdDemoResetKeys ::= { ucdDemoPublic 1 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleHeartbeatName ::= { netSnmpExampleNotificationObjects 2 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleHeartbeatRate ::= { netSnmpExampleNotificationObjects 1 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassExamples ::= { netSnmpExamples 255 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleNotifications ::= { netSnmpExamples 3 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleTables ::= { netSnmpExamples 2 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleScalars ::= { netSnmpExamples 1 }
+Cannot adopt OID in NET-SNMP-VACM-MIB: nsVacmAccessTable ::= { netSnmpVacmMIB 1 }
+Cannot adopt OID in UCD-SNMP-MIB: ucdShutdown ::= { ucdTraps 2 }
+Cannot adopt OID in UCD-SNMP-MIB: ucdStart ::= { ucdTraps 1 }
+Cannot adopt OID in LM-SENSORS-MIB: lmMiscSensorsTable ::= { lmSensors 5 }
+Cannot adopt OID in LM-SENSORS-MIB: lmVoltSensorsTable ::= { lmSensors 4 }
+Cannot adopt OID in LM-SENSORS-MIB: lmFanSensorsTable ::= { lmSensors 3 }
+Cannot adopt OID in LM-SENSORS-MIB: lmTempSensorsTable ::= { lmSensors 2 }
+Cannot adopt OID in LM-SENSORS-MIB: lmSensorsMIB ::= { lmSensors 1 }
+Cannot adopt OID in UCD-SNMP-MIB: mrEntry ::= { mrTable 1 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendConfigEntry ::= { nsExtendConfigTable 1 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpHostRowStatus ::= { netSnmpHostsEntry 5 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpHostStorage ::= { netSnmpHostsEntry 4 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpHostAddress ::= { netSnmpHostsEntry 3 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnm
+ DEBUG [eba84bf3] 	pHostAddressType ::= { netSnmpHostsEntry 2 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpHostName ::= { netSnmpHostsEntry 1 }
+Cannot adopt OID in UCD-SNMP-MIB: prEntry ::= { prTable 1 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleNotification ::= { netSnmpExampleNotifications 1 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleNotificationObjects ::= { netSnmpExampleNotifications 2 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpExampleNotificationPrefix ::= { netSnmpExampleNotifications 0 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpHostsTable ::= { netSnmpExampleTables 2 }
+Cannot adopt OID in NET-SNMP-EXAMPLES-MIB: netSnmpIETFWGTable ::= { netSnmpExampleTables 1 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassOID ::= { netSnmpPassEntry 3 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassInteger ::= { netSnmpPassEntry 2 }
+Cannot adopt OID in NET-SNMP-PASS-MIB: netSnmpPassIndex ::= { netSnmpPassEntry 1 }
+Cannot adopt OID in NET-SNMP-VACM-MIB: netSnmpVacmMIB ::= { netSnmpObjects 9 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsVersion ::= { netSnmpObjects 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsMibRegistry ::= { netSnmpObjects 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsExtensions ::= { netSnmpObjects 3 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsDLMod ::= { netSnmpObjects 4 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsCache ::= { netSnmpObjects 5 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsErrorHistory ::= { netSnmpObjects 6 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsConfiguration ::= { netSnmpObjects 7 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsTransactions ::= { netSnmpObjects 8 }
+Cannot adopt OID in UCD-DEMO-MIB: ucdDemoMIB ::= { ucdavis 14 }
+Cannot adopt OID in UCD-SNMP-MIB: logMatch ::= { ucdavis 16 }
+Cannot adopt OID in UCD-SNMP-MIB: fileTable ::= { ucdavis 15 }
+Cannot adopt OID in UCD-SNMP-MIB: ucdTraps ::= { ucdavis 251 }
+Cannot adopt OID in UCD-SNMP-MIB: systemStats ::= { ucdavis 11 }
+Cannot adopt OID in UCD-SNMP-MIB: mrTable ::= { ucdavis 102 }
+Cannot adopt OID in UCD-SNMP-MIB: snmperrs ::= { ucdavis 101 }
+Cannot adopt OID in UCD-SNMP-MIB: version ::= { ucdavis 100 }
+Cannot adopt OID in UCD-SNMP-MIB: laTable ::= { ucdavis 10 }
+Cannot adopt OID in UCD-SNMP-MIB: dskTable ::= { ucdavis 9 }
+Cannot adopt OID in UCD-SNMP-MIB: memory ::= { ucdavis 4 }
+Cannot adopt OID in UCD-SNMP-MIB: extTable ::= { ucdavis 8 }
+Cannot adopt OID in UCD-SNMP-MIB: prTable ::= { ucdavis 2 }
+Cannot adopt OID in UCD-SNMP-MIB: ucdSnmpAgent ::= { ucdavis 250 }
+Cannot adopt OID in UCD-SNMP-MIB: ucdExperimental ::= { ucdavis 13 }
+Cannot adopt OID in UCD-SNMP-MIB: ucdInternal ::= { ucdavis 12 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsModuleEntry ::= { nsModuleTable 1 }
+Cannot adopt OID in UCD-SNMP-MIB: dskErrorMsg ::= { dskEntry 101 }
+Cannot adopt OID in UCD-SNMP-MIB: dskErrorFlag ::= { dskEntry 100 }
+Cannot adopt OID in UCD-SNMP-MIB: dskUsedHigh ::= { dskEntry 16 }
+Cannot adopt OID in UCD-SNMP-MIB: dskUsedLow ::= { dskEntry 15 }
+Cannot adopt OID in UCD-SNMP-MIB: dskAvailHigh ::= { dskEntry 14 }
+Cannot adopt OID in UCD-SNMP-MIB: dskAvailLow ::= { dskEntry 13 }
+Cannot adopt OID in UCD-SNMP-MIB: dskTotalHigh ::= { dskEntry 12 }
+Cannot adopt OID in UCD-SNMP-MIB: dskTotalLow ::= { dskEntry 11 }
+Cannot adopt OID in UCD-SNMP-MIB: dskPercentNode ::= { dskEntry 10 }
+Cannot adopt OID in UCD-SNMP-MIB: dskPercent ::= { dskEntry 9 }
+Cannot adopt OID in UCD-SNMP-MIB: dskUsed ::= { dskEntry 8 }
+Cannot adopt OID in UCD-SNMP-MIB: dskAvail ::= { dskEntry 7 }
+Cannot adopt OID in UCD-SNMP-MIB: dskTotal ::= { dskEntry 6 }
+Cannot adopt OID in UCD-SNMP-MIB: dskMinPercent ::= { dskEntry 5 }
+Cannot adopt OID in UCD-SNMP-MIB: dskMinimum ::= { dskEntry 4 }
+Cannot adopt OID in UCD-SNMP-MIB: dskDevice ::= { dskEntry 3 }
+Cannot adopt OID in UCD-SNMP-MIB: dskPath ::= { dskEntry 2 }
+Cannot adopt OID in UCD-SNMP-MIB: dskIndex ::= { dskEntry 1 }
+Cannot adopt OID in UCD-DISKIO-MIB: diskIOTable ::= { ucdDiskIOMIB 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsLoggingGroup ::= { nsConfigGroups 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsDebugGroup ::= { nsConfigGroups 1 }
+Cannot adopt OID in UCD-SNMP-MIB: snmperrErrMessage ::= { snmperrs 101 }
+Cannot adopt OID in UCD-SNMP-MIB: snmperrErrorFlag ::= { snmperrs 100 }
+Cannot adopt OID in UCD-SNMP-MIB: snmperrNames ::= { snmperrs 2 }
+Cannot adopt OID in UCD-SNMP-MIB: snmperrIndex ::= { snmperrs 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsTransactionTable ::= { nsTransactions 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsLogStatus ::= { nsLoggingEntry 5 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsLogMaxLevel ::= { nsLoggingEntry 4 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsLogType ::= { nsLoggingEntry 3 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsLogToken ::= { nsLoggingEntry 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsLogLevel ::= { nsLoggingEntry 1 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendResult ::= { nsExtendOutput1Entry 4 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendOutNumLines ::= { nsExtendOutput1Entry 3 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendOutputFull ::= { nsExtendOutput1Entry 2 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendOutput1Line ::= { nsExtendOutput1Entry 1 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendOutLine ::= { nsExtendOutput2Entry 2 }
+Cannot adopt OID in NET-SNMP-EXTEND-MIB: nsExtendLineIndex ::= { nsExtendOutput2Entry 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsNotifyStart ::= { netSnmpNotifications 1 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsNotifyShutdown ::= { netSnmpNotifications 2 }
+Cannot adopt OID in NET-SNMP-AGENT-MIB: nsNotifyRestart ::= { netSnmpNotifications 3 }
+Cannot adopt OID in UCD-SNMP-MIB: laErrMessage ::= { laEntry 101 }
+Cannot adopt OID in UCD-SNMP-MIB: laErrorFlag ::= { laEntry 100 }
+Cannot adopt OID in UCD-SNMP-MIB: laLoadFloat ::= { laEntry 6 }
+Cannot adopt OID in UCD-SNMP-MIB: laLoadInt ::= { laEntry 5 }
+Cannot adopt OID in UCD-SNMP-MIB: laConfig ::= { laEntry 4 }
+Cannot adopt OID in UCD-SNMP-MIB: laLoad ::= { laEntry 3 }
+Cannot adopt OID in UCD-SNMP-MIB: laNames ::= { laEntry 2 }
+Cannot adopt OID in UCD-SNMP-MIB: laIndex ::= { laEntry 1 }
+ DEBUG [eba84bf3] 	Your requirements could not be resolved to an installable set of packages.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-12-21 15:14:36 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [371341f8] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [371341f8] Command: /usr/bin/env mkdir -p /tmp
+  INFO [371341f8] Finished in 9.708 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-MedPlatform-production-thekernel.sh 0.0%
+  INFO Uploading /tmp/git-ssh-MedPlatform-production-thekernel.sh 100.0%
+  INFO [b214e683] Running /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thekernel.sh as root@gescomph.be
+ DEBUG [b214e683] Command: /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thekernel.sh
+  INFO [b214e683] Finished in 1.531 seconds with exit status 0 (successful).
+  INFO [6bed5c29] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as root@gescomph.be
+ DEBUG [6bed5c29] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [6bed5c29] 	ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19	HEAD
+  INFO [6bed5c29] Finished in 2.245 seconds with exit status 0 (successful).
+  INFO [a6b2dc68] Running /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases as root@gescomph.be
+ DEBUG [a6b2dc68] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases
+  INFO [a6b2dc68] Finished in 1.527 seconds with exit status 0 (successful).
+  INFO [88b3b109] Running /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs as root@gescomph.be
+ DEBUG [88b3b109] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs
+  INFO [88b3b109] Finished in 1.517 seconds with exit status 0 (successful).
+ DEBUG [70de2861] Running [ -f /var/www/medplatform/current/REVISION ] as root@gescomph.be
+ DEBUG [70de2861] Command: [ -f /var/www/medplatform/current/REVISION ]
+ DEBUG [70de2861] Finished in 1.521 seconds with exit status 1 (failed).
+ DEBUG [bd76b94e] Running [ -f /var/www/medplatform/repo/HEAD ] as root@gescomph.be
+ DEBUG [bd76b94e] Command: [ -f /var/www/medplatform/repo/HEAD ]
+ DEBUG [bd76b94e] Finished in 1.529 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/medplatform/repo
+ DEBUG [7ebcbe9e] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [7ebcbe9e] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [7ebcbe9e] Finished in 1.525 seconds with exit status 0 (successful).
+  INFO [4521649d] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as root@gescomph.be
+ DEBUG [4521649d] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [4521649d] Finished in 1.628 seconds with exit status 0 (successful).
+  INFO [c6a79973] Running /usr/bin/env git remote update --prune as root@gescomph.be
+ DEBUG [c6a79973] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [c6a79973] 	Fetching origin
+  INFO [c6a79973] Finished in 2.545 seconds with exit status 0 (successful).
+ DEBUG [1fb1c952] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [1fb1c952] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [1fb1c952] Finished in 1.647 seconds with exit status 0 (successful).
+  INFO [65764217] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221151458 as root@gescomph.be
+ DEBUG [65764217] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221151458 )
+  INFO [65764217] Finished in 1.633 seconds with exit status 0 (successful).
+  INFO [3ad6583d] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20201221151458 as root@gescomph.be
+ DEBUG [3ad6583d] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20201221151458 )
+  INFO [3ad6583d] Finished in 1.941 seconds with exit status 0 (successful).
+ DEBUG [43c5e8ec] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [43c5e8ec] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [43c5e8ec] Finished in 1.661 seconds with exit status 0 (successful).
+ DEBUG [806550a2] Running /usr/bin/env git rev-list --max-count=1 master as root@gescomph.be
+ DEBUG [806550a2] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [806550a2] 	ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19
+ DEBUG [806550a2] Finished in 2.052 seconds with exit status 0 (successful).
+ DEBUG [0cece611] Running if test ! -d /var/www/medplatform/releases/20201221151458; then echo "Directory does not exist '/var/www/medplatform/releases/20201221151458'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [0cece611] Command: if test ! -d /var/www/medplatform/releases/20201221151458; then echo "Directory does not exist '/var/www/medplatform/releases/20201221151458'" 1>&2; false; fi
+ DEBUG [0cece611] Finished in 1.779 seconds with exit status 0 (successful).
+  INFO [097ba3a0] Running /usr/bin/env echo "ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19" > REVISION as root@gescomph.be
+ DEBUG [097ba3a0] Command: cd /var/www/medplatform/releases/20201221151458 && /usr/bin/env echo "ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19" > REVISION
+  INFO [097ba3a0] Finished in 1.662 seconds with exit status 0 (successful).
+  INFO [31e2fa7c] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221151458/storage /var/www/medplatform/releases/20201221151458/storage/framework as root@gescomph.be
+ DEBUG [31e2fa7c] Command: /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221151458/storage /var/www/medplatform/releases/20201221151458/storage/framework
+  INFO [31e2fa7c] Finished in 1.780 seconds with exit status 0 (successful).
+ DEBUG [4eedf700] Running [ -L /var/www/medplatform/releases/20201221151458/storage/app ] as root@gescomph.be
+ DEBUG [4eedf700] Command: [ -L /var/www/medplatform/releases/20201221151458/storage/app ]
+ DEBUG [4eedf700] Finished in 1.778 seconds with exit status 1 (failed).
+ DEBUG [8c40a3cd] Running [ -d /var/www/medplatform/releases/20201221151458/storage/app ] as root@gescomph.be
+ DEBUG [8c40a3cd] Command: [ -d /var/www/medplatform/releases/20201221151458/storage/app ]
+ DEBUG [8c40a3cd] Finished in 1.553 seconds with exit status 0 (successful).
+  INFO [552ff202] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221151458/storage/app as root@gescomph.be
+ DEBUG [552ff202] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221151458/storage/app
+  INFO [552ff202] Finished in 1.564 seconds with exit status 0 (successful).
+  INFO [33af293f] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20201221151458/storage/app as root@gescomph.be
+ DEBUG [33af293f] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20201221151458/storage/app
+  INFO [33af293f] Finished in 1.669 seconds with exit status 0 (successful).
+ DEBUG [8c781eb6] Running [ -L /var/www/medplatform/releases/20201221151458/storage/framework/cache ] as root@gescomph.be
+ DEBUG [8c781eb6] Command: [ -L /var/www/medplatform/releases/20201221151458/storage/framework/cache ]
+ DEBUG [8c781eb6] Finished in 1.568 seconds with exit status 1 (failed).
+ DEBUG [334979fa] Running [ -d /var/www/medplatform/releases/20201221151458/storage/framework/cache ] as root@gescomph.be
+ DEBUG [334979fa] Command: [ -d /var/www/medplatform/releases/20201221151458/storage/framework/cache ]
+ DEBUG [334979fa] Finished in 1.655 seconds with exit status 0 (successful).
+  INFO [b2c86fcf] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221151458/storage/framework/cache as root@gescomph.be
+ DEBUG [b2c86fcf] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221151458/storage/framework/cache
+  INFO [b2c86fcf] Finished in 1.596 seconds with exit status 0 (successful).
+  INFO [bd3b66be] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20201221151458/storage/framework/cache as root@gescomph.be
+ DEBUG [bd3b66be] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20201221151458/storage/framework/cache
+  INFO [bd3b66be] Finished in 1.628 seconds with exit status 0 (successful).
+ DEBUG [bbd906b1] Running [ -L /var/www/medplatform/releases/20201221151458/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [bbd906b1] Command: [ -L /var/www/medplatform/releases/20201221151458/storage/framework/sessions ]
+ DEBUG [bbd906b1] Finished in 1.634 seconds with exit status 1 (failed).
+ DEBUG [c7e86224] Running [ -d /var/www/medplatform/releases/20201221151458/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [c7e86224] Command: [ -d /var/www/medplatform/releases/20201221151458/storage/framework/sessions ]
+ DEBUG [c7e86224] Finished in 1.618 seconds with exit status 0 (successful).
+  INFO [6bf66b1e] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221151458/storage/framework/sessions as root@gescomph.be
+ DEBUG [6bf66b1e] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221151458/storage/framework/sessions
+  INFO [6bf66b1e] Finished in 1.556 seconds with exit status 0 (successful).
+  INFO [15d5debd] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20201221151458/storage/framework/sessions as root@gescomph.be
+ DEBUG [15d5debd] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20201221151458/storage/framework/sessions
+  INFO [15d5debd] Finished in 1.567 seconds with exit status 0 (successful).
+ DEBUG [388b9354] Running [ -L /var/www/medplatform/releases/20201221151458/storage/framework/views ] as root@gescomph.be
+ DEBUG [388b9354] Command: [ -L /var/www/medplatform/releases/20201221151458/storage/framework/views ]
+ DEBUG [388b9354] Finished in 1.546 seconds with exit status 1 (failed).
+ DEBUG [c3a5bcee] Running [ -d /var/www/medplatform/releases/20201221151458/storage/framework/views ] as root@gescomph.be
+ DEBUG [c3a5bcee] Command: [ -d /var/www/medplatform/releases/20201221151458/storage/framework/views ]
+ DEBUG [c3a5bcee] Finished in 1.528 seconds with exit status 0 (successful).
+  INFO [923ead19] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221151458/storage/framework/views as root@gescomph.be
+ DEBUG [923ead19] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221151458/storage/framework/views
+  INFO [923ead19] Finished in 1.539 seconds with exit status 0 (successful).
+  INFO [88d48d56] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20201221151458/storage/framework/views as root@gescomph.be
+ DEBUG [88d48d56] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20201221151458/storage/framework/views
+  INFO [88d48d56] Finished in 1.561 seconds with exit status 0 (successful).
+ DEBUG [999bde12] Running [ -L /var/www/medplatform/releases/20201221151458/storage/logs ] as root@gescomph.be
+ DEBUG [999bde12] Command: [ -L /var/www/medplatform/releases/20201221151458/storage/logs ]
+ DEBUG [999bde12] Finished in 1.627 seconds with exit status 1 (failed).
+ DEBUG [79a8bfda] Running [ -d /var/www/medplatform/releases/20201221151458/storage/logs ] as root@gescomph.be
+ DEBUG [79a8bfda] Command: [ -d /var/www/medplatform/releases/20201221151458/storage/logs ]
+ DEBUG [79a8bfda] Finished in 1.603 seconds with exit status 0 (successful).
+  INFO [1b9cd54b] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221151458/storage/logs as root@gescomph.be
+ DEBUG [1b9cd54b] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221151458/storage/logs
+  INFO [1b9cd54b] Finished in 1.583 seconds with exit status 0 (successful).
+  INFO [ac60e902] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20201221151458/storage/logs as root@gescomph.be
+ DEBUG [ac60e902] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20201221151458/storage/logs
+  INFO [ac60e902] Finished in 1.571 seconds with exit status 0 (successful).
+ DEBUG [69a121a4] Running if test ! -d /var/www/medplatform/releases/20201221151458; then echo "Directory does not exist '/var/www/medplatform/releases/20201221151458'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [69a121a4] Command: if test ! -d /var/www/medplatform/releases/20201221151458; then echo "Directory does not exist '/var/www/medplatform/releases/20201221151458'" 1>&2; false; fi
+ DEBUG [69a121a4] Finished in 1.556 seconds with exit status 0 (successful).
+  INFO [837d041e] Running /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader as root@gescomph.be
+ DEBUG [837d041e] Command: cd /var/www/medplatform/releases/20201221151458 && /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader
+  INFO [837d041e] Finished in 24.424 seconds with exit status 0 (successful).
+  INFO [e4548a30] Running /usr/bin/env chmod u+x artisan as root@gescomph.be
+ DEBUG [e4548a30] Command: cd /var/www/medplatform/releases/20201221151458 && /usr/bin/env chmod u+x artisan
+  INFO [e4548a30] Finished in 1.529 seconds with exit status 0 (successful).
+  INFO [fd974430] Running /usr/bin/env php artisan migrate as root@gescomph.be
+ DEBUG [fd974430] Command: cd /var/www/medplatform/releases/20201221151458 && /usr/bin/env php artisan migrate
+ DEBUG [fd974430] 	**************************************
+*     Application In Production!     *
+**************************************
+
+ Do you really wish to run this command? (yes/no) [no]:
+ > 
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-12-21 15:24:45 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [11754f4d] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [11754f4d] Command: /usr/bin/env mkdir -p /tmp
+  INFO [11754f4d] Finished in 12.354 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-MedPlatform-production-thekernel.sh 0.0%
+  INFO Uploading /tmp/git-ssh-MedPlatform-production-thekernel.sh 100.0%
+  INFO [85982818] Running /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thekernel.sh as root@gescomph.be
+ DEBUG [85982818] Command: /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thekernel.sh
+  INFO [85982818] Finished in 1.577 seconds with exit status 0 (successful).
+  INFO [fafec0e2] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as root@gescomph.be
+ DEBUG [fafec0e2] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [fafec0e2] 	ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19	HEAD
+  INFO [fafec0e2] Finished in 2.303 seconds with exit status 0 (successful).
+  INFO [5d3f2828] Running /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases as root@gescomph.be
+ DEBUG [5d3f2828] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases
+  INFO [5d3f2828] Finished in 1.572 seconds with exit status 0 (successful).
+  INFO [e17521bf] Running /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs as root@gescomph.be
+ DEBUG [e17521bf] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs
+  INFO [e17521bf] Finished in 1.637 seconds with exit status 0 (successful).
+ DEBUG [a57e273c] Running [ -f /var/www/medplatform/current/REVISION ] as root@gescomph.be
+ DEBUG [a57e273c] Command: [ -f /var/www/medplatform/current/REVISION ]
+ DEBUG [a57e273c] Finished in 1.665 seconds with exit status 1 (failed).
+ DEBUG [ba78fcb4] Running [ -f /var/www/medplatform/repo/HEAD ] as root@gescomph.be
+ DEBUG [ba78fcb4] Command: [ -f /var/www/medplatform/repo/HEAD ]
+ DEBUG [ba78fcb4] Finished in 1.666 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/medplatform/repo
+ DEBUG [9ae64bdf] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [9ae64bdf] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [9ae64bdf] Finished in 1.608 seconds with exit status 0 (successful).
+  INFO [a48703b9] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as root@gescomph.be
+ DEBUG [a48703b9] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [a48703b9] Finished in 1.638 seconds with exit status 0 (successful).
+  INFO [19d87d37] Running /usr/bin/env git remote update --prune as root@gescomph.be
+ DEBUG [19d87d37] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [19d87d37] 	Fetching origin
+  INFO [19d87d37] Finished in 2.446 seconds with exit status 0 (successful).
+ DEBUG [03335fa6] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [03335fa6] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [03335fa6] Finished in 1.595 seconds with exit status 0 (successful).
+  INFO [7394b302] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221152510 as root@gescomph.be
+ DEBUG [7394b302] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221152510 )
+  INFO [7394b302] Finished in 1.632 seconds with exit status 0 (successful).
+  INFO [40ee9fc2] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20201221152510 as root@gescomph.be
+ DEBUG [40ee9fc2] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20201221152510 )
+  INFO [40ee9fc2] Finished in 1.996 seconds with exit status 0 (successful).
+ DEBUG [6377e9cf] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [6377e9cf] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [6377e9cf] Finished in 1.497 seconds with exit status 0 (successful).
+ DEBUG [80362563] Running /usr/bin/env git rev-list --max-count=1 master as root@gescomph.be
+ DEBUG [80362563] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [80362563] 	ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19
+ DEBUG [80362563] Finished in 1.849 seconds with exit status 0 (successful).
+ DEBUG [2d998f03] Running if test ! -d /var/www/medplatform/releases/20201221152510; then echo "Directory does not exist '/var/www/medplatform/releases/20201221152510'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [2d998f03] Command: if test ! -d /var/www/medplatform/releases/20201221152510; then echo "Directory does not exist '/var/www/medplatform/releases/20201221152510'" 1>&2; false; fi
+ DEBUG [2d998f03] Finished in 1.523 seconds with exit status 0 (successful).
+  INFO [b17beaff] Running /usr/bin/env echo "ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19" > REVISION as root@gescomph.be
+ DEBUG [b17beaff] Command: cd /var/www/medplatform/releases/20201221152510 && /usr/bin/env echo "ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19" > REVISION
+  INFO [b17beaff] Finished in 1.536 seconds with exit status 0 (successful).
+  INFO [c7ea2041] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221152510/storage /var/www/medplatform/releases/20201221152510/storage/framework as root@gescomph.be
+ DEBUG [c7ea2041] Command: /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221152510/storage /var/www/medplatform/releases/20201221152510/storage/framework
+  INFO [c7ea2041] Finished in 1.537 seconds with exit status 0 (successful).
+ DEBUG [09f1cba4] Running [ -L /var/www/medplatform/releases/20201221152510/storage/app ] as root@gescomph.be
+ DEBUG [09f1cba4] Command: [ -L /var/www/medplatform/releases/20201221152510/storage/app ]
+ DEBUG [09f1cba4] Finished in 1.517 seconds with exit status 1 (failed).
+ DEBUG [01a09791] Running [ -d /var/www/medplatform/releases/20201221152510/storage/app ] as root@gescomph.be
+ DEBUG [01a09791] Command: [ -d /var/www/medplatform/releases/20201221152510/storage/app ]
+ DEBUG [01a09791] Finished in 1.505 seconds with exit status 0 (successful).
+  INFO [816f8767] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152510/storage/app as root@gescomph.be
+ DEBUG [816f8767] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152510/storage/app
+  INFO [816f8767] Finished in 1.520 seconds with exit status 0 (successful).
+  INFO [11f9c0ca] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20201221152510/storage/app as root@gescomph.be
+ DEBUG [11f9c0ca] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20201221152510/storage/app
+  INFO [11f9c0ca] Finished in 1.518 seconds with exit status 0 (successful).
+ DEBUG [24f23ee2] Running [ -L /var/www/medplatform/releases/20201221152510/storage/framework/cache ] as root@gescomph.be
+ DEBUG [24f23ee2] Command: [ -L /var/www/medplatform/releases/20201221152510/storage/framework/cache ]
+ DEBUG [24f23ee2] Finished in 1.528 seconds with exit status 1 (failed).
+ DEBUG [c6778647] Running [ -d /var/www/medplatform/releases/20201221152510/storage/framework/cache ] as root@gescomph.be
+ DEBUG [c6778647] Command: [ -d /var/www/medplatform/releases/20201221152510/storage/framework/cache ]
+ DEBUG [c6778647] Finished in 1.519 seconds with exit status 0 (successful).
+  INFO [8948cf53] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152510/storage/framework/cache as root@gescomph.be
+ DEBUG [8948cf53] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152510/storage/framework/cache
+  INFO [8948cf53] Finished in 1.554 seconds with exit status 0 (successful).
+  INFO [c2c02f8c] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20201221152510/storage/framework/cache as root@gescomph.be
+ DEBUG [c2c02f8c] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20201221152510/storage/framework/cache
+  INFO [c2c02f8c] Finished in 1.509 seconds with exit status 0 (successful).
+ DEBUG [c6522fdf] Running [ -L /var/www/medplatform/releases/20201221152510/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [c6522fdf] Command: [ -L /var/www/medplatform/releases/20201221152510/storage/framework/sessions ]
+ DEBUG [c6522fdf] Finished in 1.533 seconds with exit status 1 (failed).
+ DEBUG [d8536d5c] Running [ -d /var/www/medplatform/releases/20201221152510/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [d8536d5c] Command: [ -d /var/www/medplatform/releases/20201221152510/storage/framework/sessions ]
+ DEBUG [d8536d5c] Finished in 1.516 seconds with exit status 0 (successful).
+  INFO [d95a0be2] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152510/storage/framework/sessions as root@gescomph.be
+ DEBUG [d95a0be2] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152510/storage/framework/sessions
+  INFO [d95a0be2] Finished in 1.534 seconds with exit status 0 (successful).
+  INFO [9034d9bd] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20201221152510/storage/framework/sessions as root@gescomph.be
+ DEBUG [9034d9bd] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20201221152510/storage/framework/sessions
+  INFO [9034d9bd] Finished in 1.510 seconds with exit status 0 (successful).
+ DEBUG [c770e3ea] Running [ -L /var/www/medplatform/releases/20201221152510/storage/framework/views ] as root@gescomph.be
+ DEBUG [c770e3ea] Command: [ -L /var/www/medplatform/releases/20201221152510/storage/framework/views ]
+ DEBUG [c770e3ea] Finished in 1.523 seconds with exit status 1 (failed).
+ DEBUG [68944246] Running [ -d /var/www/medplatform/releases/20201221152510/storage/framework/views ] as root@gescomph.be
+ DEBUG [68944246] Command: [ -d /var/www/medplatform/releases/20201221152510/storage/framework/views ]
+ DEBUG [68944246] Finished in 1.519 seconds with exit status 0 (successful).
+  INFO [82fba653] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152510/storage/framework/views as root@gescomph.be
+ DEBUG [82fba653] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152510/storage/framework/views
+  INFO [82fba653] Finished in 1.559 seconds with exit status 0 (successful).
+  INFO [e6d0c6e3] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20201221152510/storage/framework/views as root@gescomph.be
+ DEBUG [e6d0c6e3] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20201221152510/storage/framework/views
+  INFO [e6d0c6e3] Finished in 1.549 seconds with exit status 0 (successful).
+ DEBUG [15f8f75a] Running [ -L /var/www/medplatform/releases/20201221152510/storage/logs ] as root@gescomph.be
+ DEBUG [15f8f75a] Command: [ -L /var/www/medplatform/releases/20201221152510/storage/logs ]
+ DEBUG [15f8f75a] Finished in 1.536 seconds with exit status 1 (failed).
+ DEBUG [c2ff51dd] Running [ -d /var/www/medplatform/releases/20201221152510/storage/logs ] as root@gescomph.be
+ DEBUG [c2ff51dd] Command: [ -d /var/www/medplatform/releases/20201221152510/storage/logs ]
+ DEBUG [c2ff51dd] Finished in 1.565 seconds with exit status 0 (successful).
+  INFO [04dec73e] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152510/storage/logs as root@gescomph.be
+ DEBUG [04dec73e] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152510/storage/logs
+  INFO [04dec73e] Finished in 1.559 seconds with exit status 0 (successful).
+  INFO [3ab6810e] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20201221152510/storage/logs as root@gescomph.be
+ DEBUG [3ab6810e] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20201221152510/storage/logs
+  INFO [3ab6810e] Finished in 1.514 seconds with exit status 0 (successful).
+ DEBUG [03631d23] Running if test ! -d /var/www/medplatform/releases/20201221152510; then echo "Directory does not exist '/var/www/medplatform/releases/20201221152510'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [03631d23] Command: if test ! -d /var/www/medplatform/releases/20201221152510; then echo "Directory does not exist '/var/www/medplatform/releases/20201221152510'" 1>&2; false; fi
+ DEBUG [03631d23] Finished in 1.532 seconds with exit status 0 (successful).
+  INFO [dc8090cf] Running /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader as root@gescomph.be
+ DEBUG [dc8090cf] Command: cd /var/www/medplatform/releases/20201221152510 && /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader
+  INFO [dc8090cf] Finished in 5.755 seconds with exit status 0 (successful).
+  INFO [4683330c] Running /usr/bin/env chmod u+x artisan as root@gescomph.be
+ DEBUG [4683330c] Command: cd /var/www/medplatform/releases/20201221152510 && /usr/bin/env chmod u+x artisan
+  INFO [4683330c] Finished in 1.604 seconds with exit status 0 (successful).
+  INFO [e38f32db] Running /usr/bin/env php artisan migrate as root@gescomph.be
+ DEBUG [e38f32db] Command: cd /var/www/medplatform/releases/20201221152510 && /usr/bin/env php artisan migrate
+ DEBUG [e38f32db] 	**************************************
+*     Application In Production!     *
+**************************************
+
+ Do you really wish to run this command? (yes/no) [no]:
+ > 
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-12-21 15:29:34 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [fa22963b] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [fa22963b] Command: /usr/bin/env mkdir -p /tmp
+  INFO [fa22963b] Finished in 13.225 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-MedPlatform-production-thekernel.sh 0.0%
+  INFO Uploading /tmp/git-ssh-MedPlatform-production-thekernel.sh 100.0%
+  INFO [5d77429e] Running /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thekernel.sh as root@gescomph.be
+ DEBUG [5d77429e] Command: /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thekernel.sh
+  INFO [5d77429e] Finished in 1.497 seconds with exit status 0 (successful).
+  INFO [81079eaa] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as root@gescomph.be
+ DEBUG [81079eaa] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [81079eaa] 	ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19	HEAD
+  INFO [81079eaa] Finished in 1.842 seconds with exit status 0 (successful).
+  INFO [4e6262dc] Running /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases as root@gescomph.be
+ DEBUG [4e6262dc] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases
+  INFO [4e6262dc] Finished in 1.528 seconds with exit status 0 (successful).
+  INFO [9b325677] Running /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs as root@gescomph.be
+ DEBUG [9b325677] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs
+  INFO [9b325677] Finished in 1.592 seconds with exit status 0 (successful).
+ DEBUG [a531e2e2] Running [ -f /var/www/medplatform/current/REVISION ] as root@gescomph.be
+ DEBUG [a531e2e2] Command: [ -f /var/www/medplatform/current/REVISION ]
+ DEBUG [a531e2e2] Finished in 1.520 seconds with exit status 1 (failed).
+ DEBUG [a7ae4b47] Running [ -f /var/www/medplatform/repo/HEAD ] as root@gescomph.be
+ DEBUG [a7ae4b47] Command: [ -f /var/www/medplatform/repo/HEAD ]
+ DEBUG [a7ae4b47] Finished in 1.596 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/medplatform/repo
+ DEBUG [f9361274] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [f9361274] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [f9361274] Finished in 1.530 seconds with exit status 0 (successful).
+  INFO [f4e4f13f] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as root@gescomph.be
+ DEBUG [f4e4f13f] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [f4e4f13f] Finished in 1.607 seconds with exit status 0 (successful).
+  INFO [7ef3a136] Running /usr/bin/env git remote update --prune as root@gescomph.be
+ DEBUG [7ef3a136] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [7ef3a136] 	Fetching origin
+  INFO [7ef3a136] Finished in 2.401 seconds with exit status 0 (successful).
+ DEBUG [11e41beb] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [11e41beb] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [11e41beb] Finished in 1.565 seconds with exit status 0 (successful).
+  INFO [7d98541b] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221152958 as root@gescomph.be
+ DEBUG [7d98541b] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221152958 )
+  INFO [7d98541b] Finished in 1.613 seconds with exit status 0 (successful).
+  INFO [01d92a26] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20201221152958 as root@gescomph.be
+ DEBUG [01d92a26] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20201221152958 )
+  INFO [01d92a26] Finished in 1.914 seconds with exit status 0 (successful).
+ DEBUG [fe72ef48] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [fe72ef48] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [fe72ef48] Finished in 1.595 seconds with exit status 0 (successful).
+ DEBUG [cc0448f5] Running /usr/bin/env git rev-list --max-count=1 master as root@gescomph.be
+ DEBUG [cc0448f5] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [cc0448f5] 	ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19
+ DEBUG [cc0448f5] Finished in 1.972 seconds with exit status 0 (successful).
+ DEBUG [098b5022] Running if test ! -d /var/www/medplatform/releases/20201221152958; then echo "Directory does not exist '/var/www/medplatform/releases/20201221152958'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [098b5022] Command: if test ! -d /var/www/medplatform/releases/20201221152958; then echo "Directory does not exist '/var/www/medplatform/releases/20201221152958'" 1>&2; false; fi
+ DEBUG [098b5022] Finished in 1.585 seconds with exit status 0 (successful).
+  INFO [02fe1b91] Running /usr/bin/env echo "ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19" > REVISION as root@gescomph.be
+ DEBUG [02fe1b91] Command: cd /var/www/medplatform/releases/20201221152958 && /usr/bin/env echo "ab6f859e0d0e07ec2d3b37093c86d66cb66c8d19" > REVISION
+  INFO [02fe1b91] Finished in 1.566 seconds with exit status 0 (successful).
+  INFO [a5ab8c7e] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221152958/storage /var/www/medplatform/releases/20201221152958/storage/framework as root@gescomph.be
+ DEBUG [a5ab8c7e] Command: /usr/bin/env mkdir -p /var/www/medplatform/releases/20201221152958/storage /var/www/medplatform/releases/20201221152958/storage/framework
+  INFO [a5ab8c7e] Finished in 1.603 seconds with exit status 0 (successful).
+ DEBUG [c1c86ca7] Running [ -L /var/www/medplatform/releases/20201221152958/storage/app ] as root@gescomph.be
+ DEBUG [c1c86ca7] Command: [ -L /var/www/medplatform/releases/20201221152958/storage/app ]
+ DEBUG [c1c86ca7] Finished in 1.503 seconds with exit status 1 (failed).
+ DEBUG [38ed91d4] Running [ -d /var/www/medplatform/releases/20201221152958/storage/app ] as root@gescomph.be
+ DEBUG [38ed91d4] Command: [ -d /var/www/medplatform/releases/20201221152958/storage/app ]
+ DEBUG [38ed91d4] Finished in 1.488 seconds with exit status 0 (successful).
+  INFO [30382bc1] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152958/storage/app as root@gescomph.be
+ DEBUG [30382bc1] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152958/storage/app
+  INFO [30382bc1] Finished in 1.494 seconds with exit status 0 (successful).
+  INFO [2390cacd] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20201221152958/storage/app as root@gescomph.be
+ DEBUG [2390cacd] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20201221152958/storage/app
+  INFO [2390cacd] Finished in 1.510 seconds with exit status 0 (successful).
+ DEBUG [f8c801d5] Running [ -L /var/www/medplatform/releases/20201221152958/storage/framework/cache ] as root@gescomph.be
+ DEBUG [f8c801d5] Command: [ -L /var/www/medplatform/releases/20201221152958/storage/framework/cache ]
+ DEBUG [f8c801d5] Finished in 1.498 seconds with exit status 1 (failed).
+ DEBUG [d3d0501e] Running [ -d /var/www/medplatform/releases/20201221152958/storage/framework/cache ] as root@gescomph.be
+ DEBUG [d3d0501e] Command: [ -d /var/www/medplatform/releases/20201221152958/storage/framework/cache ]
+ DEBUG [d3d0501e] Finished in 1.666 seconds with exit status 0 (successful).
+  INFO [674eb857] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152958/storage/framework/cache as root@gescomph.be
+ DEBUG [674eb857] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152958/storage/framework/cache
+  INFO [674eb857] Finished in 1.649 seconds with exit status 0 (successful).
+  INFO [d5eaeedd] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20201221152958/storage/framework/cache as root@gescomph.be
+ DEBUG [d5eaeedd] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20201221152958/storage/framework/cache
+  INFO [d5eaeedd] Finished in 1.527 seconds with exit status 0 (successful).
+ DEBUG [6c92e289] Running [ -L /var/www/medplatform/releases/20201221152958/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [6c92e289] Command: [ -L /var/www/medplatform/releases/20201221152958/storage/framework/sessions ]
+ DEBUG [6c92e289] Finished in 1.488 seconds with exit status 1 (failed).
+ DEBUG [582aa057] Running [ -d /var/www/medplatform/releases/20201221152958/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [582aa057] Command: [ -d /var/www/medplatform/releases/20201221152958/storage/framework/sessions ]
+ DEBUG [582aa057] Finished in 1.515 seconds with exit status 0 (successful).
+  INFO [647a1bae] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152958/storage/framework/sessions as root@gescomph.be
+ DEBUG [647a1bae] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152958/storage/framework/sessions
+  INFO [647a1bae] Finished in 1.517 seconds with exit status 0 (successful).
+  INFO [1f617dd9] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20201221152958/storage/framework/sessions as root@gescomph.be
+ DEBUG [1f617dd9] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20201221152958/storage/framework/sessions
+  INFO [1f617dd9] Finished in 1.501 seconds with exit status 0 (successful).
+ DEBUG [43c14f29] Running [ -L /var/www/medplatform/releases/20201221152958/storage/framework/views ] as root@gescomph.be
+ DEBUG [43c14f29] Command: [ -L /var/www/medplatform/releases/20201221152958/storage/framework/views ]
+ DEBUG [43c14f29] Finished in 1.502 seconds with exit status 1 (failed).
+ DEBUG [32cedc9b] Running [ -d /var/www/medplatform/releases/20201221152958/storage/framework/views ] as root@gescomph.be
+ DEBUG [32cedc9b] Command: [ -d /var/www/medplatform/releases/20201221152958/storage/framework/views ]
+ DEBUG [32cedc9b] Finished in 1.501 seconds with exit status 0 (successful).
+  INFO [b395739f] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152958/storage/framework/views as root@gescomph.be
+ DEBUG [b395739f] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152958/storage/framework/views
+  INFO [b395739f] Finished in 1.586 seconds with exit status 0 (successful).
+  INFO [a1d794b1] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20201221152958/storage/framework/views as root@gescomph.be
+ DEBUG [a1d794b1] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20201221152958/storage/framework/views
+  INFO [a1d794b1] Finished in 1.535 seconds with exit status 0 (successful).
+ DEBUG [7aa4ab6e] Running [ -L /var/www/medplatform/releases/20201221152958/storage/logs ] as root@gescomph.be
+ DEBUG [7aa4ab6e] Command: [ -L /var/www/medplatform/releases/20201221152958/storage/logs ]
+ DEBUG [7aa4ab6e] Finished in 1.516 seconds with exit status 1 (failed).
+ DEBUG [ac817190] Running [ -d /var/www/medplatform/releases/20201221152958/storage/logs ] as root@gescomph.be
+ DEBUG [ac817190] Command: [ -d /var/www/medplatform/releases/20201221152958/storage/logs ]
+ DEBUG [ac817190] Finished in 1.511 seconds with exit status 0 (successful).
+  INFO [5b64ba52] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152958/storage/logs as root@gescomph.be
+ DEBUG [5b64ba52] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201221152958/storage/logs
+  INFO [5b64ba52] Finished in 1.520 seconds with exit status 0 (successful).
+  INFO [30e4a621] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20201221152958/storage/logs as root@gescomph.be
+ DEBUG [30e4a621] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20201221152958/storage/logs
+  INFO [30e4a621] Finished in 1.502 seconds with exit status 0 (successful).
+ DEBUG [48b62250] Running if test ! -d /var/www/medplatform/releases/20201221152958; then echo "Directory does not exist '/var/www/medplatform/releases/20201221152958'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [48b62250] Command: if test ! -d /var/www/medplatform/releases/20201221152958; then echo "Directory does not exist '/var/www/medplatform/releases/20201221152958'" 1>&2; false; fi
+ DEBUG [48b62250] Finished in 1.572 seconds with exit status 0 (successful).
+  INFO [25258115] Running /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader as root@gescomph.be
+ DEBUG [25258115] Command: cd /var/www/medplatform/releases/20201221152958 && /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader
+  INFO [25258115] Finished in 4.767 seconds with exit status 0 (successful).
+  INFO [8089efe3] Running /usr/bin/env chmod u+x artisan as root@gescomph.be
+ DEBUG [8089efe3] Command: cd /var/www/medplatform/releases/20201221152958 && /usr/bin/env chmod u+x artisan
+  INFO [8089efe3] Finished in 1.511 seconds with exit status 0 (successful).
+  INFO [7eb70fca] Running /usr/bin/env php artisan migrate as root@gescomph.be
+ DEBUG [7eb70fca] Command: cd /var/www/medplatform/releases/20201221152958 && /usr/bin/env php artisan migrate
+ DEBUG [7eb70fca] 	**************************************
+*     Application In Production!     *
+**************************************
+
+ Do you really wish to run this command? (yes/no) [no]:
+ > 
