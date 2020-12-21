@@ -22,6 +22,8 @@ namespace :composer do
         on roles(:composer) do
             within release_path do
                 execute :composer, "install --no-dev --quiet --prefer-dist --optimize-autoloader"
+                execute :chmod, "u+x artisan" # make artisan executable
+                execute :php, "artisan migrate" # run migrations
             end
         end
     end
