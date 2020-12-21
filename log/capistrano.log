@@ -1,0 +1,6 @@
+# Logfile created on 2020-12-21 13:10:38 +0000 by logger.rb/56815
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-12-21 13:10:38 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [3484fc65] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [3484fc65] Command: /usr/bin/env mkdir -p /tmp
