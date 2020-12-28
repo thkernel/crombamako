@@ -35,9 +35,7 @@ Route::get('/about',['as' => 'about', function () {
     return view('pages/about');
 }]);
 
-Route::get('/opportunities',['as' => 'opportunities', function () {
-    return view('opportunities/index');
-}]);
+
 
 Route::get('/contact-us',['as' => 'contact_us', function () {
     return view('pages/contact_us');

@@ -11,7 +11,7 @@
           <ul class="navbar-nav mr-auto order-1">
            
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('opportunities') }}">Opportinutés</a>
+              <a class="nav-link" href="{{ route('opportunities.index') }}">Opportinutés</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ route('blog') }}">Blog</a>
