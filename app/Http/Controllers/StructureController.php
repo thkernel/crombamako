@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Structure;
+use App\Models\StructureType;
 use Illuminate\Http\Request;
 
 class StructureController extends Controller
@@ -27,7 +28,8 @@ class StructureController extends Controller
     public function create()
     {
         //
-        return view('structures.create');
+        $structure_types =  StructureType::all();
+        return view('structures.create', compact(['structure_types']));
     }
 
     /**
@@ -39,6 +41,21 @@ class StructureController extends Controller
     public function store(Request $request)
     {
         //
+        $request['user_id'] = current_user()->id;
+     
+
+        $request->validate([
+            'name' => 'required',
+
+        ]);
+
+        
+
+        Structure::create($request->all());
+
+   
+        return redirect()->route('structures.index')
+            ->with('success','Structure created successfully.');
     }
 
     /**
@@ -61,6 +78,7 @@ class StructureController extends Controller
     public function edit(Structure $structure)
     {
         //
+        return view('structures.edit',compact('structure'));
     }
 
     /**
@@ -73,6 +91,20 @@ class StructureController extends Controller
     public function update(Request $request, Structure $structure)
     {
         //
+        $request->validate([
+            'structure_type_id' => 'required',   
+            'name' => 'required',   
+
+        ]);
+
+  
+        $structure->update($request->all());
+
+  
+
+        return redirect()->route('structures.index')
+
+                        ->with('success','Structure updated successfully');
     }
 
     /**
@@ -84,5 +116,7 @@ class StructureController extends Controller
     public function destroy(Structure $structure)
     {
         //
+        Structure::where('id',$id)->delete();
+        return redirect()->back()->with('success','Delete Successfully');
     }
 }

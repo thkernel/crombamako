@@ -24,7 +24,7 @@ namespace :composer do
                 execute :composer, "install --no-dev --quiet --prefer-dist --optimize-autoloader"
                 execute :chmod, "u+x artisan" # make artisan executable
                 #execute :php, "artisan migrate:install" run migrations
-                execute :php, "artisan migrate --no-interaction --force" # run migrations
+                #execute :php, "artisan migrate --no-interaction --force" # run migrations
             end
         end
     end
