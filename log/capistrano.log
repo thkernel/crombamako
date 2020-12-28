@@ -5016,3 +5016,162 @@ Cannot adopt OID in UCD-SNMP-MIB: laIndex ::= { laEntry 1 }
   INFO [1e408931] Running /usr/bin/env echo "Branch master (at 04058796deebaad49554c982de9042562d3da4d5) deployed as release 20201228125330 by thkernel" >> /var/www/medplatform/revisions.log as root@gescomph.be
  DEBUG [1e408931] Command: cd /var/www/medplatform/releases && /usr/bin/env echo "Branch master (at 04058796deebaad49554c982de9042562d3da4d5) deployed as release 20201228125330 by thkernel" >> /var/www/medplatform/revisions.log
   INFO [1e408931] Finished in 0.437 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2020-12-28 12:59:36 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [1d7a396e] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [1d7a396e] Command: /usr/bin/env mkdir -p /tmp
+  INFO [1d7a396e] Finished in 9.363 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-MedPlatform-production-thkernel.sh 0.0%
+  INFO Uploading /tmp/git-ssh-MedPlatform-production-thkernel.sh 100.0%
+  INFO [0eb4108e] Running /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thkernel.sh as root@gescomph.be
+ DEBUG [0eb4108e] Command: /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thkernel.sh
+  INFO [0eb4108e] Finished in 0.383 seconds with exit status 0 (successful).
+  INFO [a14864aa] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as root@gescomph.be
+ DEBUG [a14864aa] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thkernel.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [a14864aa] 	1d8a96e0d456b06fd1a51f5d83fb348f6c18c0c0	HEAD
+  INFO [a14864aa] Finished in 0.911 seconds with exit status 0 (successful).
+  INFO [7eed4b63] Running /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases as root@gescomph.be
+ DEBUG [7eed4b63] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases
+  INFO [7eed4b63] Finished in 0.392 seconds with exit status 0 (successful).
+  INFO [ad4f926f] Running /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs as root@gescomph.be
+ DEBUG [ad4f926f] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs
+  INFO [ad4f926f] Finished in 0.385 seconds with exit status 0 (successful).
+ DEBUG [c7e9f049] Running [ -f /var/www/medplatform/current/REVISION ] as root@gescomph.be
+ DEBUG [c7e9f049] Command: [ -f /var/www/medplatform/current/REVISION ]
+ DEBUG [c7e9f049] Finished in 0.379 seconds with exit status 1 (failed).
+ DEBUG [a77b7716] Running [ -f /var/www/medplatform/repo/HEAD ] as root@gescomph.be
+ DEBUG [a77b7716] Command: [ -f /var/www/medplatform/repo/HEAD ]
+ DEBUG [a77b7716] Finished in 0.374 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/medplatform/repo
+ DEBUG [ae573414] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [ae573414] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [ae573414] Finished in 0.386 seconds with exit status 0 (successful).
+  INFO [8a67227e] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as root@gescomph.be
+ DEBUG [8a67227e] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thkernel.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [8a67227e] Finished in 0.410 seconds with exit status 0 (successful).
+  INFO [390b1081] Running /usr/bin/env git remote update --prune as root@gescomph.be
+ DEBUG [390b1081] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thkernel.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [390b1081] 	Fetching origin
+ DEBUG [390b1081] 	From https://github.com/thkernel/medplatform
+   0405879..1d8a96e  master     -> master
+  INFO [390b1081] Finished in 1.337 seconds with exit status 0 (successful).
+ DEBUG [271f60a3] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [271f60a3] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [271f60a3] Finished in 0.383 seconds with exit status 0 (successful).
+  INFO [af6a9f9d] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20201228125949 as root@gescomph.be
+ DEBUG [af6a9f9d] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thkernel.sh" ; /usr/bin/env mkdir -p /var/www/medplatform/releases/20201228125949 )
+  INFO [af6a9f9d] Finished in 0.369 seconds with exit status 0 (successful).
+  INFO [d1a88cbc] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20201228125949 as root@gescomph.be
+ DEBUG [d1a88cbc] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thkernel.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20201228125949 )
+  INFO [d1a88cbc] Finished in 1.178 seconds with exit status 0 (successful).
+ DEBUG [a84f628b] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [a84f628b] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [a84f628b] Finished in 0.389 seconds with exit status 0 (successful).
+ DEBUG [f9ba8713] Running /usr/bin/env git rev-list --max-count=1 master as root@gescomph.be
+ DEBUG [f9ba8713] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thkernel.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [f9ba8713] 	1d8a96e0d456b06fd1a51f5d83fb348f6c18c0c0
+ DEBUG [f9ba8713] Finished in 0.392 seconds with exit status 0 (successful).
+ DEBUG [17ce5a95] Running if test ! -d /var/www/medplatform/releases/20201228125949; then echo "Directory does not exist '/var/www/medplatform/releases/20201228125949'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [17ce5a95] Command: if test ! -d /var/www/medplatform/releases/20201228125949; then echo "Directory does not exist '/var/www/medplatform/releases/20201228125949'" 1>&2; false; fi
+ DEBUG [17ce5a95] Finished in 0.386 seconds with exit status 0 (successful).
+  INFO [2fb905a2] Running /usr/bin/env echo "1d8a96e0d456b06fd1a51f5d83fb348f6c18c0c0" > REVISION as root@gescomph.be
+ DEBUG [2fb905a2] Command: cd /var/www/medplatform/releases/20201228125949 && /usr/bin/env echo "1d8a96e0d456b06fd1a51f5d83fb348f6c18c0c0" > REVISION
+  INFO [2fb905a2] Finished in 0.408 seconds with exit status 0 (successful).
+  INFO [caf821fc] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20201228125949/storage /var/www/medplatform/releases/20201228125949/storage/framework as root@gescomph.be
+ DEBUG [caf821fc] Command: /usr/bin/env mkdir -p /var/www/medplatform/releases/20201228125949/storage /var/www/medplatform/releases/20201228125949/storage/framework
+  INFO [caf821fc] Finished in 0.387 seconds with exit status 0 (successful).
+ DEBUG [6e84098b] Running [ -L /var/www/medplatform/releases/20201228125949/storage/app ] as root@gescomph.be
+ DEBUG [6e84098b] Command: [ -L /var/www/medplatform/releases/20201228125949/storage/app ]
+ DEBUG [6e84098b] Finished in 0.408 seconds with exit status 1 (failed).
+ DEBUG [06726543] Running [ -d /var/www/medplatform/releases/20201228125949/storage/app ] as root@gescomph.be
+ DEBUG [06726543] Command: [ -d /var/www/medplatform/releases/20201228125949/storage/app ]
+ DEBUG [06726543] Finished in 0.388 seconds with exit status 0 (successful).
+  INFO [1b9e2628] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201228125949/storage/app as root@gescomph.be
+ DEBUG [1b9e2628] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201228125949/storage/app
+  INFO [1b9e2628] Finished in 0.410 seconds with exit status 0 (successful).
+  INFO [e79e7dd4] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20201228125949/storage/app as root@gescomph.be
+ DEBUG [e79e7dd4] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20201228125949/storage/app
+  INFO [e79e7dd4] Finished in 0.395 seconds with exit status 0 (successful).
+ DEBUG [0af65311] Running [ -L /var/www/medplatform/releases/20201228125949/storage/framework/cache ] as root@gescomph.be
+ DEBUG [0af65311] Command: [ -L /var/www/medplatform/releases/20201228125949/storage/framework/cache ]
+ DEBUG [0af65311] Finished in 0.362 seconds with exit status 1 (failed).
+ DEBUG [7b28f53e] Running [ -d /var/www/medplatform/releases/20201228125949/storage/framework/cache ] as root@gescomph.be
+ DEBUG [7b28f53e] Command: [ -d /var/www/medplatform/releases/20201228125949/storage/framework/cache ]
+ DEBUG [7b28f53e] Finished in 0.372 seconds with exit status 0 (successful).
+  INFO [d4c4b10c] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201228125949/storage/framework/cache as root@gescomph.be
+ DEBUG [d4c4b10c] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201228125949/storage/framework/cache
+  INFO [d4c4b10c] Finished in 0.383 seconds with exit status 0 (successful).
+  INFO [f997cf4b] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20201228125949/storage/framework/cache as root@gescomph.be
+ DEBUG [f997cf4b] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20201228125949/storage/framework/cache
+  INFO [f997cf4b] Finished in 0.399 seconds with exit status 0 (successful).
+ DEBUG [142baf17] Running [ -L /var/www/medplatform/releases/20201228125949/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [142baf17] Command: [ -L /var/www/medplatform/releases/20201228125949/storage/framework/sessions ]
+ DEBUG [142baf17] Finished in 0.385 seconds with exit status 1 (failed).
+ DEBUG [05072112] Running [ -d /var/www/medplatform/releases/20201228125949/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [05072112] Command: [ -d /var/www/medplatform/releases/20201228125949/storage/framework/sessions ]
+ DEBUG [05072112] Finished in 0.391 seconds with exit status 0 (successful).
+  INFO [c6f1c006] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201228125949/storage/framework/sessions as root@gescomph.be
+ DEBUG [c6f1c006] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201228125949/storage/framework/sessions
+  INFO [c6f1c006] Finished in 0.348 seconds with exit status 0 (successful).
+  INFO [90126604] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20201228125949/storage/framework/sessions as root@gescomph.be
+ DEBUG [90126604] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20201228125949/storage/framework/sessions
+  INFO [90126604] Finished in 0.388 seconds with exit status 0 (successful).
+ DEBUG [c76c2ab1] Running [ -L /var/www/medplatform/releases/20201228125949/storage/framework/views ] as root@gescomph.be
+ DEBUG [c76c2ab1] Command: [ -L /var/www/medplatform/releases/20201228125949/storage/framework/views ]
+ DEBUG [c76c2ab1] Finished in 0.380 seconds with exit status 1 (failed).
+ DEBUG [be06b2af] Running [ -d /var/www/medplatform/releases/20201228125949/storage/framework/views ] as root@gescomph.be
+ DEBUG [be06b2af] Command: [ -d /var/www/medplatform/releases/20201228125949/storage/framework/views ]
+ DEBUG [be06b2af] Finished in 0.395 seconds with exit status 0 (successful).
+  INFO [31eaac94] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201228125949/storage/framework/views as root@gescomph.be
+ DEBUG [31eaac94] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201228125949/storage/framework/views
+  INFO [31eaac94] Finished in 0.384 seconds with exit status 0 (successful).
+  INFO [8b82d3a0] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20201228125949/storage/framework/views as root@gescomph.be
+ DEBUG [8b82d3a0] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20201228125949/storage/framework/views
+  INFO [8b82d3a0] Finished in 0.391 seconds with exit status 0 (successful).
+ DEBUG [d1133d72] Running [ -L /var/www/medplatform/releases/20201228125949/storage/logs ] as root@gescomph.be
+ DEBUG [d1133d72] Command: [ -L /var/www/medplatform/releases/20201228125949/storage/logs ]
+ DEBUG [d1133d72] Finished in 0.377 seconds with exit status 1 (failed).
+ DEBUG [ef0d1ff1] Running [ -d /var/www/medplatform/releases/20201228125949/storage/logs ] as root@gescomph.be
+ DEBUG [ef0d1ff1] Command: [ -d /var/www/medplatform/releases/20201228125949/storage/logs ]
+ DEBUG [ef0d1ff1] Finished in 0.382 seconds with exit status 0 (successful).
+  INFO [0f678238] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20201228125949/storage/logs as root@gescomph.be
+ DEBUG [0f678238] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20201228125949/storage/logs
+  INFO [0f678238] Finished in 0.383 seconds with exit status 0 (successful).
+  INFO [7d99732c] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20201228125949/storage/logs as root@gescomph.be
+ DEBUG [7d99732c] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20201228125949/storage/logs
+  INFO [7d99732c] Finished in 0.391 seconds with exit status 0 (successful).
+ DEBUG [0aa69abd] Running if test ! -d /var/www/medplatform/releases/20201228125949; then echo "Directory does not exist '/var/www/medplatform/releases/20201228125949'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [0aa69abd] Command: if test ! -d /var/www/medplatform/releases/20201228125949; then echo "Directory does not exist '/var/www/medplatform/releases/20201228125949'" 1>&2; false; fi
+ DEBUG [0aa69abd] Finished in 0.387 seconds with exit status 0 (successful).
+  INFO [a203c3ce] Running /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader as root@gescomph.be
+ DEBUG [a203c3ce] Command: cd /var/www/medplatform/releases/20201228125949 && /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader
+  INFO [a203c3ce] Finished in 7.728 seconds with exit status 0 (successful).
+  INFO [2f4ddc5e] Running /usr/bin/env chmod u+x artisan as root@gescomph.be
+ DEBUG [2f4ddc5e] Command: cd /var/www/medplatform/releases/20201228125949 && /usr/bin/env chmod u+x artisan
+  INFO [2f4ddc5e] Finished in 0.396 seconds with exit status 0 (successful).
+  INFO [5c134bfe] Running /usr/bin/env chmod -R ug+rwx /var/www/medplatform/shared/storage/ /var/www/medplatform/releases/20201228125949/bootstrap/cache/ as root@gescomph.be
+ DEBUG [5c134bfe] Command: /usr/bin/env chmod -R ug+rwx /var/www/medplatform/shared/storage/ /var/www/medplatform/releases/20201228125949/bootstrap/cache/
+  INFO [5c134bfe] Finished in 0.387 seconds with exit status 0 (successful).
+  INFO [e9307d56] Running /usr/bin/env chgrp -R www-data /var/www/medplatform/shared/storage/ /var/www/medplatform/releases/20201228125949/bootstrap/cache/ as root@gescomph.be
+ DEBUG [e9307d56] Command: /usr/bin/env chgrp -R www-data /var/www/medplatform/shared/storage/ /var/www/medplatform/releases/20201228125949/bootstrap/cache/
+  INFO [e9307d56] Finished in 0.400 seconds with exit status 0 (successful).
+  INFO [3e35981e] Running /usr/bin/env cp /var/www/secrets/.env /var/www/medplatform/releases/20201228125949/.env as root@gescomph.be
+ DEBUG [3e35981e] Command: /usr/bin/env cp /var/www/secrets/.env /var/www/medplatform/releases/20201228125949/.env
+  INFO [3e35981e] Finished in 0.386 seconds with exit status 0 (successful).
+  INFO [6962ac2e] Running /usr/bin/env ln -s /var/www/medplatform/releases/20201228125949 /var/www/medplatform/releases/current as root@gescomph.be
+ DEBUG [6962ac2e] Command: /usr/bin/env ln -s /var/www/medplatform/releases/20201228125949 /var/www/medplatform/releases/current
+  INFO [6962ac2e] Finished in 0.384 seconds with exit status 0 (successful).
+  INFO [8e3c3e1e] Running /usr/bin/env mv /var/www/medplatform/releases/current /var/www/medplatform as root@gescomph.be
+ DEBUG [8e3c3e1e] Command: /usr/bin/env mv /var/www/medplatform/releases/current /var/www/medplatform
+  INFO [8e3c3e1e] Finished in 0.422 seconds with exit status 0 (successful).
+ DEBUG [5c094b9d] Running /usr/bin/env ls -x /var/www/medplatform/releases as root@gescomph.be
+ DEBUG [5c094b9d] Command: /usr/bin/env ls -x /var/www/medplatform/releases
+ DEBUG [5c094b9d] 	20201228125949
+ DEBUG [5c094b9d] Finished in 0.394 seconds with exit status 0 (successful).
+ DEBUG [f3483ac0] Running if test ! -d /var/www/medplatform/releases; then echo "Directory does not exist '/var/www/medplatform/releases'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [f3483ac0] Command: if test ! -d /var/www/medplatform/releases; then echo "Directory does not exist '/var/www/medplatform/releases'" 1>&2; false; fi
+ DEBUG [f3483ac0] Finished in 0.382 seconds with exit status 0 (successful).
+  INFO [41f76025] Running /usr/bin/env echo "Branch master (at 1d8a96e0d456b06fd1a51f5d83fb348f6c18c0c0) deployed as release 20201228125949 by thkernel" >> /var/www/medplatform/revisions.log as root@gescomph.be
+ DEBUG [41f76025] Command: cd /var/www/medplatform/releases && /usr/bin/env echo "Branch master (at 1d8a96e0d456b06fd1a51f5d83fb348f6c18c0c0) deployed as release 20201228125949 by thkernel" >> /var/www/medplatform/revisions.log
+  INFO [41f76025] Finished in 0.414 seconds with exit status 0 (successful).
