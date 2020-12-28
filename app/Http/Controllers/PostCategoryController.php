@@ -15,6 +15,8 @@ class PostCategoryController extends Controller
     public function index()
     {
         //
+        $post_categories =  PostCategory::orderBy('id', 'desc')->paginate(10)->setPath('post_categories');
+        return view("post_categories.index", compact(['post_categories']) );
     }
 
     /**
@@ -25,6 +27,7 @@ class PostCategoryController extends Controller
     public function create()
     {
         //
+        return view('post_categories.create');
     }
 
     /**
@@ -36,6 +39,19 @@ class PostCategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $request['user_id'] = current_user()->id;
+        $request->validate([
+            'name' => 'required',
+
+        ]);
+
+  
+
+        PostCategory::create($request->all());
+
+   
+        return redirect()->route('post_categories.index')
+            ->with('success','Speciality created successfully.');
     }
 
     /**
@@ -55,9 +71,11 @@ class PostCategoryController extends Controller
      * @param  \App\Models\PostCategory  $postCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(PostCategory $postCategory)
+    public function edit(PostCategory $post_category)
     {
         //
+        return view('post_categories.edit',compact('post_category'));
+
     }
 
     /**
@@ -67,9 +85,23 @@ class PostCategoryController extends Controller
      * @param  \App\Models\PostCategory  $postCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, PostCategory $postCategory)
+    public function update(Request $request, PostCategory $post_category)
     {
         //
+        //
+        $request->validate([
+        'name' => 'required',   
+
+        ]);
+
+  
+        $post_category->update($request->all());
+
+  
+
+        return redirect()->route('post_categories.index')
+
+                        ->with('success','PostCategory updated successfully');
     }
 
     /**
@@ -78,8 +110,10 @@ class PostCategoryController extends Controller
      * @param  \App\Models\PostCategory  $postCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PostCategory $postCategory)
+    public function destroy($id)
     {
         //
+        PostCategory::where('id',$id)->delete();
+        return redirect()->back()->with('success','Delete Successfully');
     }
 }
