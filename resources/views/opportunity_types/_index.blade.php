@@ -1,22 +1,21 @@
-@foreach($structures as $structure)
+@foreach($opportunity_types as $opportunity_type)
     <tr>
-        <td>{{$structure->structure_type->name}}</td>
-    <td>{{$structure->name}}</td>
+    <td>{{$opportunity_type->name}}</td>
     
 <td>
 	    <div class="action-buttons">
 			
 
- <a  href="{{ route('structures.edit', $structure->id) }}">
+ <a  href="{{ route('opportunity_types.edit', $opportunity_type->id) }}">
     <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
     Modifier
  </a>
 
 
 
-<form action="{{ route('structures.destroy', $structure->id)}}" method="post">
+<form action="{{ route('opportunity_types.destroy', $opportunity_type->id)}}" method="post">
                             @csrf @method('DELETE')
-                            <a href="route('structures.destroy', $structure->id)"
+                            <a href="route('opportunity_type.destroy', $opportunity_type->id)"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>

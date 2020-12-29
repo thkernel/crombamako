@@ -80,7 +80,7 @@ class OpportunityController extends Controller
     public function edit(Opportunity $opportunity)
     {
         //
-        $opportunity_types =  OpprotunityType::all();
+        $opportunity_types =  OpportunityType::all();
         return view('opportunities.edit', compact(['opportunity_types', 'opportunity']));
     }
 

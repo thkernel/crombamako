@@ -18,7 +18,7 @@
 
         <div class="pull-left">
 
-            <h2>Modification - Type de structure</h2>
+            <h2>Modification - Type d'opportunité</h2>
 
         </div>
 
@@ -56,7 +56,7 @@
 
    
 
-<form action="{{ route('structure_types.update',$structure_type->id) }}" method="POST">
+<form action="{{ route('opportunity_types.update',$opportunity_type->id) }}" method="POST">
 
     @csrf
     @method('PUT')
@@ -71,7 +71,7 @@
 
                 <strong>Nom:</strong>
 
-                <input type="text" name="name" value="{{ $structure_type->name }}" class="form-control" placeholder="Nom" reauired>
+                <input type="text" name="name" value="{{ $opportunity_type->name }}" class="form-control" placeholder="Nom" reauired>
 
             </div>
 

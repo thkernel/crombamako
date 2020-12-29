@@ -1,4 +1,18 @@
-<div class="row">
+@extends("layouts.dashboard")
+
+@section("content")
+<div class="container main-container">
+
+
+
+<div class="br-pagebody mg-b-30">
+  <div class="br-section-wrapper">
+    <div class="headers mg-b-5">
+      
+
+    </div>
+    <div class="section-body">
+		<div class="row">
 
     <div class="col-lg-12 margin-tb">
 
@@ -41,10 +55,10 @@
 
    
 
-<form action="{{ route('structures.store') }}" method="POST">
+<form action="{{ route('structures.update',$structure->id) }}" method="POST">
 
     @csrf
-
+    @method('PUT')
   
 
      <div class="row">
@@ -52,7 +66,8 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
 
              <div class="form-group">
-                <select name="structure_type_id" class="form-control" required="">
+                <select name="structure_type_id" class="form-control" required>
+                    <option selected="selected"> {{ $structure->structure_type_id }} </option>
                     <option disabled selected value> Sélectionner </option>
                     @foreach($structure_types as $structure_type)
                         <option value = "{{ $structure_type->id }}">{{ $structure_type->name }}</option>
@@ -64,7 +79,7 @@
 
                 <strong>Nom:</strong>
 
-                <input type="text" name="name" class="form-control" placeholder="Nom" reauired>
+                <input type="text" name="name" value="{{ $structure->name }}" class="form-control" placeholder="Nom" reauired>
 
             </div>
 
@@ -73,45 +88,47 @@
 
                 <strong>Adresse:</strong>
 
-                <input type="text" name="address" class="form-control" placeholder="Adresse" reauired>
+                <input type="text" name="address" value="{{ $structure->address }}" class="form-control" placeholder="Adresse" reauired>
 
             </div>
             <div class="form-group">
                 <strong>Ville:</strong>
-                <input type="text" name="locality" class="form-control" placeholder="Ville">
+                <input type="text" name="locality" value="{{ $structure->locality }}" class="form-control" placeholder="Ville">
             </div>
 
             <div class="form-group">
 
                 <strong>Téléphone:</strong>
 
-                <input type="text" name="phone" class="form-control" placeholder="Téléphone" reauired>
+                <input type="text" name="phone" value="{{ $structure->phone }}" class="form-control" placeholder="Téléphone" reauired>
 
             </div>
             <div class="form-group">
                 <strong>Email:</strong>
-                <input type="text" name="email" class="form-control" placeholder="Email">
+                <input type="text" name="email" value="{{ $structure->email }}" class="form-control" placeholder="Email">
             </div>
             <div class="form-group">
                 <strong>Site web:</strong>
-                <input type="text" name="website" class="form-control" placeholder="Site web">
+                <input type="text" name="website" value="{{ $structure->website }}" class="form-control" placeholder="Site web">
             </div>
 
             <div class="form-group">
                 <strong>Latitude:</strong>
-                <input type="number" name="latitude" class="form-control" placeholder="Latitude">
+                <input type="number" name="latitude" value="{{ $structure->latitude }}" class="form-control" placeholder="Latitude">
             </div>
 
             <div class="form-group">
                 <strong>Longitude:</strong>
-                <input type="number" name="longitude" class="form-control" placeholder="Longitude">
+                <input type="number" name="longitude" value="{{ $structure->longitude }}" class="form-control" placeholder="Longitude">
             </div>
+
+            
 
             <div class="form-group">
 
                 <strong>Description:</strong>
 
-                <textarea class="form-control"  name="description" placeholder="Description"></textarea>
+                <textarea class="form-control"  name="description" placeholder="Description">{{ $structure->description }}</textarea>
 
             </div>
 
@@ -133,7 +150,7 @@
          <div class="col-xs-12 col-sm-12 col-md-12">
 
         <div class="form-group text-right">
-            <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Enregistrer</button>
+            <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Modifier</button>
    </div>
   </div>
 
@@ -142,3 +159,13 @@
    
 
 </form>
+    </div>
+
+
+
+
+</div>
+</div>
+</div>
+
+@endsection

@@ -1,6 +1,6 @@
 @foreach($opportunities as $opportunity)
     <tr>
-        <td>{{$opportunity->opportunity_type_id}}</td>
+        <td>{{$opportunity->opportunity_type->name}}</td>
     <td>{{$opportunity->title}}</td>
     
 <td>

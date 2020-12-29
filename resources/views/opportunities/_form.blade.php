@@ -70,10 +70,14 @@
 
 
         
+            
+
             <div class="form-group">
-                <strong>Contenu:</strong>
-                <textarea rows="8" name="content" class="form-control" placeholder="Contenu">
-                </textarea>
+
+                <strong>Contenue:</strong>
+
+                <textarea class="form-control"  row="8" name="content" placeholder="Contenu"></textarea>
+
             </div>
 
             

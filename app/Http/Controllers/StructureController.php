@@ -78,7 +78,8 @@ class StructureController extends Controller
     public function edit(Structure $structure)
     {
         //
-        return view('structures.edit',compact('structure'));
+        $structure_types =  StructureType::all();
+        return view('structures.edit', compact(['structure_types', 'structure']));
     }
 
     /**

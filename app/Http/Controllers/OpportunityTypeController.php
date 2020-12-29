@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\OpprotunityType;
+use App\Models\OpportunityType;
 use Illuminate\Http\Request;
 
 class OpportunityTypeController extends Controller
@@ -15,7 +15,8 @@ class OpportunityTypeController extends Controller
     public function index()
     {
         //
-        
+        $opportunity_types =  OpportunityType::orderBy('id', 'desc')->paginate(10)->setPath('opportunity_types');
+        return view("opportunity_types.index", compact(['opportunity_types']) );
     }
 
     /**
@@ -26,6 +27,7 @@ class OpportunityTypeController extends Controller
     public function create()
     {
         //
+        return view('opportunity_types.create');
     }
 
     /**
@@ -37,6 +39,24 @@ class OpportunityTypeController extends Controller
     public function store(Request $request)
     {
         //
+
+        $request['user_id'] = current_user()->id;
+     
+
+        $request->validate([
+            'name' => 'required',
+            'user_id' => 'required',
+
+        ]);
+
+        
+
+        OpportunityType::create($request->all());
+
+   
+        return redirect()->route('opportunity_types.index')
+            ->with('success','OpportunityType created successfully.');
+
     }
 
     /**
@@ -45,7 +65,7 @@ class OpportunityTypeController extends Controller
      * @param  \App\Models\OpprotunityType  $opprotunityType
      * @return \Illuminate\Http\Response
      */
-    public function show(OpprotunityType $opprotunityType)
+    public function show(OpportunityType $opportunity_type)
     {
         //
     }
@@ -56,9 +76,12 @@ class OpportunityTypeController extends Controller
      * @param  \App\Models\OpprotunityType  $opprotunityType
      * @return \Illuminate\Http\Response
      */
-    public function edit(OpprotunityType $opprotunityType)
+    public function edit(OpportunityType $opportunity_type)
     {
         //
+
+        return view('opportunity_types.edit',compact('opportunity_type'));
+
     }
 
     /**
@@ -68,9 +91,25 @@ class OpportunityTypeController extends Controller
      * @param  \App\Models\OpprotunityType  $opprotunityType
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, OpprotunityType $opprotunityType)
+    public function update(Request $request, OpportunityType $opportunity_type)
     {
         //
+
+        $request->validate([
+        'name' => 'required', 
+        
+
+        ]);
+
+  
+        $opportunity_type->update($request->all());
+
+  
+
+        return redirect()->route('opportunity_types.index')
+
+                        ->with('success','OpportunityType updated successfully');
+
     }
 
     /**
@@ -79,8 +118,10 @@ class OpportunityTypeController extends Controller
      * @param  \App\Models\OpprotunityType  $opprotunityType
      * @return \Illuminate\Http\Response
      */
-    public function destroy(OpprotunityType $opprotunityType)
+    public function destroy($id)
     {
         //
+        OpportunityType::where('id',$id)->delete();
+        return redirect()->back()->with('success','Delete Successfully');
     }
 }

@@ -69,7 +69,7 @@
 
             <div class="form-group">
                 <select name="opportunity_type_id"  class="form-control" required>
-                    <option selected="selected"> {{ $post->post_category_id }} </option>
+                    <option selected="selected"> {{ $opportunity->opportunity_type_id }} </option>
                     <option disabled> Sélectionner </option>
                     @foreach($opportunity_types as $opportunity_type)
                         <option value = "{{ $opportunity_type->id }}">{{ $opportunity_type->name }}</option>
@@ -87,7 +87,7 @@
 
              <div class="form-group">
                 <strong>Contenu:</strong>
-                <textarea rows="8" name="content" value="{{ $opportunity->content }}" class="form-control" placeholder="Contenu">
+                <textarea rows="8" name="content"  class="form-control" placeholder="Contenu">{{ $opportunity->content }}
                 </textarea>
             </div>
 

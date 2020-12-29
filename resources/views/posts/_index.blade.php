@@ -1,6 +1,6 @@
 @foreach($posts as $post)
     <tr>
-        <td>{{$post->post_category_id}}</td>
+        <td>{{$post->post_category->name}}</td>
     <td>{{$post->title}}</td>
     
 <td>
