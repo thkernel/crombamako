@@ -15,6 +15,7 @@ class OpportunityTypeController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**

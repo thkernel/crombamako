@@ -64,14 +64,14 @@ Route::get('/dashboard', function () {
     return view('dashboard/index');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('roles', RoleController::class);
-Route::resource('users', UserController::class);
-Route::resource('profiles', 'ProfileController');
-Route::resource('specialities', SpecialityController::class);
-Route::resource('opportunity_types', OpportunityTypeController::class);
-Route::resource('opportunities', OpportunityController::class);
-Route::resource('post_categories', PostCategoryController::class);
-Route::resource('posts', PostController::class);
-Route::resource('structure_types', StructureTypeController::class);
-Route::resource('structures', StructureController::class);
+Route::resource('roles', RoleController::class)->middleware(['auth']);
+Route::resource('users', UserController::class)->middleware(['auth']);
+Route::resource('profiles', 'ProfileController')->middleware(['auth']);
+Route::resource('specialities', SpecialityController::class)->middleware(['auth']);
+Route::resource('opportunity_types', OpportunityTypeController::class)->middleware(['auth']);
+Route::resource('opportunities', OpportunityController::class)->middleware(['auth']);
+Route::resource('post_categories', PostCategoryController::class)->middleware(['auth']);
+Route::resource('posts', PostController::class)->middleware(['auth']);
+Route::resource('structure_types', StructureTypeController::class)->middleware(['auth']);
+Route::resource('structures', StructureController::class)->middleware(['auth']);
 require __DIR__.'/auth.php';
