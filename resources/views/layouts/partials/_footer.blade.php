@@ -5,7 +5,7 @@
 			<div class="col-md-4 footer-widget">
 				<h4 class="footer-widget-title">A propos</h4>
 				<p class="footer-widget-content">
-					MedPortal est une base de données nationale des médecins et structure sanitaires du Mali.
+					eSanté est une base de données nationale des médecins et structure sanitaires du Mali.
 				</p>
 			</div>
 			

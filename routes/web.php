@@ -11,6 +11,7 @@ use App\Http\Controllers\PostCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\OpportunityTypeController;
 use App\Http\Controllers\OpportunityController;
+use App\Http\Controllers\ContactFormController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,6 +65,9 @@ Route::get('/dashboard', function () {
     return view('dashboard/index');
 })->middleware(['auth'])->name('dashboard');
 
+
+
+
 Route::resource('roles', RoleController::class)->middleware(['auth']);
 Route::resource('users', UserController::class)->middleware(['auth']);
 Route::resource('profiles', 'ProfileController')->middleware(['auth']);
@@ -74,4 +78,6 @@ Route::resource('post_categories', PostCategoryController::class)->middleware(['
 Route::resource('posts', PostController::class)->middleware(['auth']);
 Route::resource('structure_types', StructureTypeController::class)->middleware(['auth']);
 Route::resource('structures', StructureController::class)->middleware(['auth']);
+Route::resource('contact_forms', ContactFormController::class);
+
 require __DIR__.'/auth.php';

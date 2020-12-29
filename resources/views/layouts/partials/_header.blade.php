@@ -17,7 +17,7 @@
               <a class="nav-link" href="{{ route('blog') }}">Blog</a>
             </li>
              <li class="nav-item">
-              <a class="nav-link" href="{{ route('contact_us') }}">Contactez-nous</a>
+              <a class="nav-link" href="{{ route('contact_forms.create') }}">Contactez-nous</a>
             </li>
             
            

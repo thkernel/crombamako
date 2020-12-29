@@ -12,7 +12,7 @@
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-        <title>Medplatform</title>
+        <title>eSanté</title>
 
        
     </head>
