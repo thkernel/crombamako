@@ -17,7 +17,7 @@ class CreateLocalitiesTable extends Migration
             $table->id();
             $table->string('uid')->nullable();
             $table->string('name');
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

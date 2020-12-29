@@ -1,10 +1,24 @@
-<div class="row">
+@extends("layouts.dashboard")
+
+@section("content")
+<div class="container main-container">
+
+
+
+<div class="br-pagebody mg-b-30">
+  <div class="br-section-wrapper">
+    <div class="headers mg-b-5">
+      
+
+    </div>
+    <div class="section-body">
+		<div class="row">
 
     <div class="col-lg-12 margin-tb">
 
         <div class="pull-left">
 
-            <h2>Nouvelle spécialité</h2>
+            <h2>Modification - Localité</h2>
 
         </div>
 
@@ -41,9 +55,10 @@
 
    
 
-<form action="{{ route('specialities.store') }}" method="POST">
+<form action="{{ route('localities.update',$locality->id) }}" method="POST">
 
     @csrf
+    @method('PUT')
 
   
 
@@ -55,7 +70,7 @@
 
                 <strong>Nom:</strong>
 
-                <input type="text" name="name" class="form-control" placeholder="Nom" reauired>
+                <input type="text" name="name" value="{{ $locality->name }}" class="form-control" placeholder="Nom" reauired>
 
             </div>
 
@@ -76,7 +91,7 @@
          <div class="col-xs-12 col-sm-12 col-md-12">
 
         <div class="form-group text-right">
-            <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Enregistrer</button>
+            <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Modifier</button>
    </div>
   </div>
 
@@ -85,3 +100,13 @@
    
 
 </form>
+    </div>
+
+
+
+
+</div>
+</div>
+</div>
+
+@endsection

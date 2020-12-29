@@ -4,7 +4,7 @@
 
         <div class="pull-left">
 
-            <h2>Nouvel - Article</h2>
+            <h2>Nouvelle - Localité</h2>
 
         </div>
 
@@ -41,7 +41,7 @@
 
    
 
-<form action="{{ route('posts.store') }}" method="POST">
+<form action="{{ route('localities.store') }}" method="POST">
 
     @csrf
 
@@ -52,32 +52,12 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
 
             <div class="form-group">
-                <select name="post_category_id" class="form-control" required>
-                    <option disabled selected value> Sélectionner </option>
-                    @foreach($post_categories as $post_category)
-                        <option value = "{{ $post_category->id }}">{{ $post_category->name }}</option>
-                    @endforeach
-                    </select>
-            </div>
 
-            <div class="form-group">
+                <strong>Nom:</strong>
 
-                <strong>Titre:</strong>
-
-                <input type="text" name="title" class="form-control" placeholder="Titre de l'article" reauired>
+                <input type="text" name="name" class="form-control" placeholder="Nom" reauired>
 
             </div>
-
-
-        
-            <div class="form-group">
-                <strong>Contenu:</strong>
-                <textarea rows="8" name="content" class="form-control" placeholder="Contenu">
-                </textarea>
-            </div>
-
-            
-
 
         </div>
 <!--

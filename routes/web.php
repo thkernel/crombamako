@@ -12,6 +12,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\OpportunityTypeController;
 use App\Http\Controllers\OpportunityController;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\LocalityController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -79,5 +80,5 @@ Route::resource('posts', PostController::class)->middleware(['auth']);
 Route::resource('structure_types', StructureTypeController::class)->middleware(['auth']);
 Route::resource('structures', StructureController::class)->middleware(['auth']);
 Route::resource('contact_forms', ContactFormController::class);
-
+Route::resource('localities', LocalityController::class);
 require __DIR__.'/auth.php';

@@ -106,6 +106,9 @@
           <li class="sub-item">
                 <a class="sub-link" href="{{ route('specialities.index') }}">Spécialités</a>
             </li>
+            <li class="sub-item">
+                <a class="sub-link" href="{{ route('localities.index') }}">Localités</a>
+            </li>
         
            
 
