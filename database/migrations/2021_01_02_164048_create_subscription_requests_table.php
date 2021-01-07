@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfilesTable extends Migration
+class CreateSubscriptionRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('subscription_requests', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->nullable();
             $table->string('first_name')->nullable();
@@ -21,15 +21,20 @@ class CreateProfilesTable extends Migration
             $table->string('civility')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
-            //$table->string('locality');
+            $table->string('street')->nullable();
+            $table->string('door')->nullable();
+            $table->string('email')->unique();
+            $table->integer('locality_id')->unsigned();
+            $table->foreign('locality_id')->references('id')->on('localities');
             $table->integer('speciality_id')->unsigned();
             $table->foreign('speciality_id')->references('id')->on('specialities');
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->text('description');
+            $table->integer('structure_id')->nullable()->unsigned();
+            $table->foreign('structure_id')->references('id')->on('structures');
+            $table->text('description')->nullable();
             $table->string('status');
-
-            $table->timestamps();
+            
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 
@@ -40,6 +45,6 @@ class CreateProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('subscription_requests');
     }
 }

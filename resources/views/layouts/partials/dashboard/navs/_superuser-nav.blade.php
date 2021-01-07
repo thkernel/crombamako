@@ -3,7 +3,7 @@
 <ul class="br-sideleft-menu">
   <li class="br-menu-item">
     
-    <a class="br-menu-link" href="{{ route('dashboard') }}">
+    <a class="br-menu-link" href="{{ route('dashboard_path') }}">
       <i class="fa fa-home tx-20"></i><span class="menu-item-label"> Tableau de bord</span>
     </a>
 
@@ -22,8 +22,47 @@
   <li class="br-menu-item">
     
 
-    <a class="br-menu-link" href="{{ route('dashboard') }}">
-      <i class="fa fa-users tx-20" aria-hidden="true"></i> <span class="menu-item-label">Médecins</span>
+    <a class="br-menu-link" href="{{ route('subscription_requests.index') }}">
+      <i class="fa fa-list-alt tx-20" aria-hidden="true"></i> <span class="menu-item-label">Préinscriptions</span>
+    
+    </a>
+
+  </li><!-- br-menu-item -->
+  <li class="br-menu-item">
+    
+
+    <a class="br-menu-link" href="{{ route('doctors.index') }}">
+      <i class="fa fa-user-md tx-20" aria-hidden="true"></i> <span class="menu-item-label">Médecins</span>
+    
+    </a>
+
+  </li><!-- br-menu-item -->
+
+  <li class="br-menu-item">
+    
+
+    <a class="br-menu-link" href="{{ route('contributions.index') }}">
+      <i class="fa fa-money tx-20" aria-hidden="true"></i> <span class="menu-item-label">Cotisations</span>
+    
+    </a>
+
+  </li><!-- br-menu-item -->
+
+  <li class="br-menu-item">
+    
+
+    <a class="br-menu-link" href="{{ route('certificate_requests.index') }}">
+      <i class="fa fa-certificate tx-20" aria-hidden="true"></i> <span class="menu-item-label">Demandes de certification</span>
+    
+    </a>
+
+  </li><!-- br-menu-item -->
+
+  <li class="br-menu-item">
+    
+
+    <a class="br-menu-link" href="{{ route('visit_summaries.index') }}">
+      <i class="fa fa-newspaper-o tx-20" aria-hidden="true"></i> <span class="menu-item-label">Résumés des visites</span>
     
     </a>
 
@@ -50,29 +89,45 @@
           </ul>
         </li>
 
+    <li class="br-menu-item">
+      <a href="#" class="br-menu-link with-sub ">
+        <i class="fa fa-file-o tx-20"></i>
+        <span class="menu-item-label">Articles</span>
+      </a><!-- br-menu-link -->
+      <ul class="br-menu-sub">
+        <li class="sub-item">
+          <a class="sub-link" href="{{ route('post_categories.index') }}">Catégories</a>
 
-  
-
-
-
-        <li class="br-menu-item">
-          <a href="#" class="br-menu-link with-sub ">
-            <i class="fa fa-file-o tx-20"></i>
-            <span class="menu-item-label">Articles</span>
-          </a><!-- br-menu-link -->
-          <ul class="br-menu-sub">
-            <li class="sub-item">
-              <a class="sub-link" href="{{ route('post_categories.index') }}">Catégories</a>
-
-            </li>
-
-            <li class="sub-item">
-              <a class="sub-link" href="{{ route('posts.index') }}">Articles</a>
-
-            </li>
-
-          </ul>
         </li>
+
+        <li class="sub-item">
+          <a class="sub-link" href="{{ route('posts.index') }}">Articles</a>
+
+        </li>
+
+      </ul>
+    </li>
+
+
+    <li class="br-menu-item">
+      <a href="#" class="br-menu-link with-sub ">
+        <i class="fa fa-bar-chart tx-20"></i>
+        <span class="menu-item-label">Statistiques</span>
+      </a><!-- br-menu-link -->
+      <ul class="br-menu-sub">
+        <li class="sub-item">
+          <a class="sub-link" href="{{ route('post_categories.index') }}">Médecins</a>
+
+        </li>
+
+        <li class="sub-item">
+          <a class="sub-link" href="{{ route('posts.index') }}">Structures</a>
+
+        </li>
+
+      </ul>
+    </li>
+
 
      
 
@@ -103,11 +158,25 @@
                 <a class="sub-link" href="{{ route('structure_types.index') }}">Types de structures</a>
             </li>
 
+            <li class="sub-item">
+                <a class="sub-link" href="{{ route('structure_categories.index') }}">Catégories de structure</a>
+            </li>
+
+
+
           <li class="sub-item">
                 <a class="sub-link" href="{{ route('specialities.index') }}">Spécialités</a>
             </li>
             <li class="sub-item">
                 <a class="sub-link" href="{{ route('localities.index') }}">Localités</a>
+            </li>
+
+            <li class="sub-item">
+                <a class="sub-link" href="{{ route('certificate_types.index') }}">Types de certificat</a>
+            </li>
+
+            <li class="sub-item">
+                <a class="sub-link" href="{{ route('logs.index') }}">Logs</a>
             </li>
         
            

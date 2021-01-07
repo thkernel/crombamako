@@ -10,5 +10,5 @@ class Speciality extends Model
     use HasFactory;
 
     //protected $nullable = ['uid'];
-    protected $fillable = ['name'];
+    protected $fillable = ['name','user_id'];
 }

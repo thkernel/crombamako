@@ -15,7 +15,7 @@
 
 <form action="{{ route('specialities.destroy', $speciality->id)}}" method="post">
                             @csrf @method('DELETE')
-                            <a href="route('speciality.destroy', $speciality->id)"
+                            <a href="route('specialities.destroy', $speciality->id)"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>

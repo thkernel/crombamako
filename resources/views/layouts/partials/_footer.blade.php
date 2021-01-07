@@ -30,10 +30,10 @@
 					<ul>
 						
 					
-						<li><a href="{{ route('blog') }}">Blog</a></li>
-						<li><a href="{{ route('faq') }}">FAQ</a></li>
-						<li><a href="{{ route('cgu') }}">Conditions d'utilisation</a></li>
-						<li><a href="{{ route('privacy_policy') }}">Politique de confidentialité</a></li>
+						<li><a href="{{ route('blog_path') }}">Blog</a></li>
+						<li><a href="{{ route('faq_path') }}">FAQ</a></li>
+						<li><a href="{{ route('cgu_path') }}">Conditions d'utilisation</a></li>
+						<li><a href="{{ route('privacy_policy_path') }}">Politique de confidentialité</a></li>
 					
 					</ul>
 					

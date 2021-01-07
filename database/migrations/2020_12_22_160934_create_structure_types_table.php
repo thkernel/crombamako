@@ -16,12 +16,14 @@ class CreateStructureTypesTable extends Migration
         Schema::create('structure_types', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->nullable();
-            $table->string('name');
+            $table->string('slug')->unique();
+            $table->string('name')->unique();
             $table->text('description')->nullable();
             $table->string('status')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

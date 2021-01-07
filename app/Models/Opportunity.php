@@ -10,7 +10,7 @@ use App\Models\OpportunityType;
 class Opportunity extends Model
 {
     use HasFactory;
-        protected $fillable = ['opportunity_type_id','title','content',  'user_id'];
+        protected $fillable = ['opportunity_type_id','title','content', 'thumbnail',  'user_id'];
 
 
 public function opportunity_type(){

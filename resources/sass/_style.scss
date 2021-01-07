@@ -346,8 +346,12 @@ a.btn-primary:visited {
     height: 100%;
     left: 0;
     top: 0;
-    background-color:
-    rgba(0, 124, 194, 0.57);
+    /*background-color:
+    rgba(0, 124, 194, 0.57);*/
+
+    background-color: rgba(102, 227, 32, 0.57);
+
+
 }
 
 .hero-content{
@@ -560,8 +564,9 @@ section{
 }
 img.contact-img{
     /*width: 400px !important;*/
-    height: 365px;
-width: 300px !important;
+    /*height: 365px;*/
+/*width: 300px !important;*/
+width: 100% !important;
 }
 
 .text-gray-soft {
@@ -719,8 +724,8 @@ section{
 }
 
 .contact-img img {
-    width: 250px !important;
-    height: 300px !important;
+   /* width: 250px !important;*/
+   /* height: 300px !important;*/
 }
 
 .required:after { 

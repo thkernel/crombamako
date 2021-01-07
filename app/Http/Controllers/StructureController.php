@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Structure;
 use App\Models\StructureType;
+use App\Models\StructureCategory;
+use App\Models\Locality;
 use Illuminate\Http\Request;
 
 class StructureController extends Controller
@@ -16,8 +18,13 @@ class StructureController extends Controller
     public function index()
     {
         //
+        
+       
+
         $structures =  Structure::orderBy('id', 'desc')->paginate(10)->setPath('structure_types');
+        activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("structures.index", compact(['structures']) );
+
     }
 
     /**
@@ -28,8 +35,13 @@ class StructureController extends Controller
     public function create()
     {
         //
+        $structure = new Structure;
         $structure_types =  StructureType::all();
-        return view('structures.create', compact(['structure_types']));
+        $structure_categories =  StructureCategory::all();
+        $localities =  Locality::all();
+
+        
+        return view('structures.create', compact(['structure','structure_types', 'structure_categories','localities']));
     }
 
     /**

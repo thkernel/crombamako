@@ -17,6 +17,7 @@ class PostController extends Controller
     {
         //
         $posts =  Post::orderBy('id', 'desc')->paginate(10)->setPath('posts');
+        activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("posts.index", compact(['posts']) );
     }
 
@@ -49,9 +50,14 @@ class PostController extends Controller
             'title' => 'required',
             'post_category_id' => 'required',
 
+
         ]);
 
-        
+        if ($request->hasFile('thumbnail')){
+            $fileName = time().'.'.$request->file('thumbnail')->extension();  
+            $request->file('thumbnail')->move(public_path('storage'), $fileName);
+            $request['thumbnail'] = $fileName;
+        }
 
         Post::create($request->all());
 
@@ -101,7 +107,11 @@ class PostController extends Controller
 
         ]);
 
-  
+        if ($request->hasFile('thumbnail')){
+            $fileName = time().'.'.$request->file('thumbnail')->extension();  
+            $request->file('thumbnail')->move(public_path('storage'), $fileName);
+            $request['thumbnail'] = $fileName;
+        }
         $post->update($request->all());
 
   

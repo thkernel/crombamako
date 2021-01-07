@@ -2,6 +2,7 @@
     <tr>
         <td>{{$post->post_category->name}}</td>
     <td>{{$post->title}}</td>
+   
     
 <td>
 	    <div class="action-buttons">

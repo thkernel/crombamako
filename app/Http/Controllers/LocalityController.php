@@ -16,6 +16,7 @@ class LocalityController extends Controller
     {
         //
         $localities =  Locality::orderBy('id', 'desc')->paginate(10)->setPath('localities');
+        activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("localities.index", compact(['localities']) );
     }
 
@@ -40,6 +41,7 @@ class LocalityController extends Controller
     {
         //
         $request['status'] = "enable";
+        $request['user_id'] = current_user()->id;
         $request->validate([
             'name' => 'required',
 

@@ -16,6 +16,7 @@ class StructureTypeController extends Controller
     {
         //
         $structure_types =  StructureType::orderBy('id', 'desc')->paginate(10)->setPath('structure_types');
+        activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("structure_types.index", compact(['structure_types']) );
     }
 
@@ -27,7 +28,8 @@ class StructureTypeController extends Controller
     public function create()
     {
         //
-        return view('structure_types.create');
+        $structure_type =  new StructureType;
+        return view('structure_types.create', compact(['structure_type']));
     }
 
     /**

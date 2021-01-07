@@ -16,6 +16,7 @@ class RoleController extends Controller
     {
         //
         $roles =  Role::orderBy('id', 'desc')->paginate(10)->setPath('roles');
+        activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("roles.index", compact(['roles']) );
     }
 
@@ -27,7 +28,8 @@ class RoleController extends Controller
     public function create()
     {
         //
-        return view('roles.create');
+        $role = new Role;
+        return view('roles.create', compact(['role']));
     }
 
     /**

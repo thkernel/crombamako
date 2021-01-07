@@ -17,6 +17,7 @@ class OpportunityController extends Controller
     {
         //
         $opportunities =  Opportunity::orderBy('id', 'desc')->paginate(10)->setPath('opportunities');
+        activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("opportunities.index", compact(['opportunities']) );
         
     }

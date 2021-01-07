@@ -2,7 +2,7 @@
     <!-- <a class="nav-link" href="#">Link</a> -->
    
 
-    <a class="btn btn-link" href="{{ route('home') }}">
+    <a class="btn btn-link" href="{{ route('home_path') }}">
         <i class="fa fa-home" aria-hidden="true"></i>
         Retour au site
     </a>

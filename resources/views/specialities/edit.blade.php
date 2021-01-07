@@ -24,7 +24,6 @@
 
         <div class="pull-right">
 
-            <a class="btn btn-primary" href="{{ route('specialities.index') }}"> Retour</a>
 
         </div>
 
@@ -63,38 +62,34 @@
 
   
 
-     <div class="row">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
 
+            @include('specialities/_form')
+        </div>
+    </div>
+    <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
 
             <div class="form-group">
 
                 <strong>Nom:</strong>
 
-                <input type="text" name="name" value="{{ $speciality->name }}" class="form-control" placeholder="Nom" reauired>
+                <input type="text" name="name" value="{{ old('name') ?? $speciality->name }}" class="form-control" placeholder="Nom" reauired>
+
+                {!! $errors->!!}
 
             </div>
 
-        </div>
-<!--
+
+    </div>
+
         <div class="col-xs-12 col-sm-12 col-md-12">
 
-            <div class="form-group">
-
-                <strong>Detail:</strong>
-
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
-
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Modifier</button>
             </div>
-
         </div>
--->
-         <div class="col-xs-12 col-sm-12 col-md-12">
-
-        <div class="form-group text-right">
-            <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Modifier</button>
-   </div>
-  </div>
 
     </div>
 

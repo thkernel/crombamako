@@ -6,11 +6,12 @@
 
         <!-- Scripts -->
 
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <script defer src="{{ asset('js/app.js') }}"  data-turbolinks-track="true"></script>
+        
 
         <!-- Styles -->
 
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
 
         <title>eSanté</title>
 

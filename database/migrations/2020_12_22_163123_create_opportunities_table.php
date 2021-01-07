@@ -15,17 +15,18 @@ class CreateOpportunitiesTable extends Migration
     {
         Schema::create('opportunities', function (Blueprint $table) {
             $table->id();
-            $table->string('uid')->nullable();
-            $table->string('slug')->nullable();
+            $table->string('uid')->unique()->nullable();
+            $table->string('slug')->unique();
             $table->integer('opportunity_type_id')->unsigned();
             $table->foreign('opportunity_type_id')->references('id')->on('opportunity_types');
-            $table->string('title');
+            $table->string('title')->unique();
             $table->text('content')->nullable();
             $table->string('status')->nullable();
             $table->string('thumbnail')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->timestamps();
+            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

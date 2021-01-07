@@ -16,6 +16,7 @@ class PostCategoryController extends Controller
     {
         //
         $post_categories =  PostCategory::orderBy('id', 'desc')->paginate(10)->setPath('post_categories');
+        activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("post_categories.index", compact(['post_categories']) );
     }
 

@@ -12,7 +12,7 @@
 							<!-- Cabinet médicaux, Poly Pharmacies,  Hôpiptaux ... -->
 						</p>
 						<p>
-						
+							@include('search/partials/_search_bar')
 						</p>
 					</div>
 				</div>

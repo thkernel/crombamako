@@ -1,144 +1,121 @@
 <div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
 
-    <div class="col-lg-12 margin-tb">
-
-        <div class="pull-left">
-
-            <h2>Nouvelle - Structure</h2>
-
-        </div>
-
-        <div class="pull-right">
-
+            <label for="name" class="required">Nom:</label>
+            <input type="text" name="name" class="form-control" placeholder="Nom" value="{{  old('name') ?? $structure->name }}">
+                        {!! $errors->first('name', '<p class="error">:message</p>') !!}
 
         </div>
-
     </div>
-
 </div>
 
-   
+<div class="row">
+    <div class="col-md-6">
 
-@if ($errors->any())
-
-    <div class="alert alert-danger">
-
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
-
-        <ul>
-
-            @foreach ($errors->all() as $error)
-
-                <li>{{ $error }}</li>
-
-            @endforeach
-
-        </ul>
-
+        <div class="form-group">
+            <label for="structure_type_id" class="required">Type:</label>
+            <select name="structure_type_id" id="structure_type_id" class="form-control" required>
+                <option disabled selected value> Sélectionner </option>
+                @foreach($structure_types as $structure_type)
+                    <option value = "{{ $structure_type->id }}">{{ $structure_type->name }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
 
-@endif
+    <div class="col-md-6">
 
-   
-
-<form action="{{ route('structures.store') }}" method="POST">
-
-    @csrf
-
-  
-
-     <div class="row">
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-             <div class="form-group">
-                <select name="structure_type_id" class="form-control" required="">
-                    <option disabled selected value> Sélectionner </option>
-                    @foreach($structure_types as $structure_type)
-                        <option value = "{{ $structure_type->id }}">{{ $structure_type->name }}</option>
-                    @endforeach
-                    </select>
-            </div>
-
-            <div class="form-group">
-
-                <strong>Nom:</strong>
-
-                <input type="text" name="name" class="form-control" placeholder="Nom" reauired>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <strong>Adresse:</strong>
-
-                <input type="text" name="address" class="form-control" placeholder="Adresse" reauired>
-
-            </div>
-            <div class="form-group">
-                <strong>Ville:</strong>
-                <input type="text" name="locality" class="form-control" placeholder="Ville">
-            </div>
-
-            <div class="form-group">
-
-                <strong>Téléphone:</strong>
-
-                <input type="text" name="phone" class="form-control" placeholder="Téléphone" reauired>
-
-            </div>
-            <div class="form-group">
-                <strong>Email:</strong>
-                <input type="text" name="email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <strong>Site web:</strong>
-                <input type="text" name="website" class="form-control" placeholder="Site web">
-            </div>
-
-            <div class="form-group">
-                <strong>Latitude:</strong>
-                <input type="number" name="latitude" class="form-control" placeholder="Latitude">
-            </div>
-
-            <div class="form-group">
-                <strong>Longitude:</strong>
-                <input type="number" name="longitude" class="form-control" placeholder="Longitude">
-            </div>
-
-            <div class="form-group">
-
-                <strong>Description:</strong>
-
-                <textarea class="form-control"  name="description" placeholder="Description"></textarea>
-
-            </div>
-
-
+        <div class="form-group">
+            <label for="structure_category_id" class="required">Catégorie:</label>
+            <select name="structure_category_id" id="structure_category_id" class="form-control" required>
+                <option disabled selected value> Sélectionner </option>
+                @foreach($structure_categories as $structure_category)
+                    <option value = "{{ $structure_category->id }}">{{ $structure_category->name }}</option>
+                @endforeach
+            </select>
         </div>
-<!--
-        <div class="col-xs-12 col-sm-12 col-md-12">
+    </div>
+</div>
 
-            <div class="form-group">
-
-                <strong>Detail:</strong>
-
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
-
-            </div>
-
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label>Adresse:</label>
+            <input type="text" name="address" class="form-control" placeholder="Adresse" value="{{  old('address') ?? $structure->address }}">
+                        {!! $errors->first('name', '<p class="error">:message</p>') !!}
         </div>
--->
-         <div class="col-xs-12 col-sm-12 col-md-12">
+    </div>
+</div>
 
-        <div class="form-group text-right">
-            <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Enregistrer</button>
-   </div>
-  </div>
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="locality_id" class="required">Localité:</label>
+            <select name="locality_id" class="form-control" required>
+                <option disabled selected value> Sélectionner </option>
+                @foreach($localities as $locality)
+                    <option value = "{{ $locality->id }}">{{ $locality->name }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="phone">Téléphone:</label>
+            <input type="text" name="phone" class="form-control" placeholder="Téléphone" value="{{  old('phone') ?? $structure->phone }}">
+            {!! $errors->first('name', '<p class="error">:message</p>') !!}
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="website">Site web:</label>
+            <input type="text" name="website" class="form-control" placeholder="Site web" value="{{  old('website') ?? $structure->site }}">
+        </div>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" class="form-control" placeholder="Email" value="{{  old('email') ?? $structure->email }}">
+        </div>
     </div>
 
-   
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="latitude">Latitude:</label>
+            <input type="number" name="latitude" class="form-control" placeholder="Latitude" value="{{  old('latitude') ?? $structure->latitude }}">
+        </div>
+    </div>
 
-</form>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="longitude">Longitude:</label>
+            <input type="number" name="longitude" class="form-control" placeholder="Longitude" value="{{  old('longitude') ?? $structure->longitude }}">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea class="form-control"  id="editor" name="description" placeholder="Description">
+               {{  old('description') ?? $structure->description }}
+            </textarea>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <label for="description">Logo:</label>
+            <input type="file" class="form-control"  name="logo" />
+
+        </div>
+    </div>
+</div>

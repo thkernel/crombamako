@@ -16,6 +16,7 @@ class SpecialityController extends Controller
     {
         //
         $specialities =  Speciality::orderBy('id', 'desc')->paginate(10)->setPath('specialities');
+        activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("specialities.index", compact(['specialities']) );
     }
 
@@ -27,7 +28,8 @@ class SpecialityController extends Controller
     public function create()
     {
         //
-         return view('specialities.create');
+        $speciality = new Speciality;
+         return view('specialities.create', compact(['speciality']));
     }
 
     /**
@@ -39,6 +41,7 @@ class SpecialityController extends Controller
     public function store(Request $request)
     {
         //
+        $request['user_id'] = current_user()->id;
         $request->validate([
             'name' => 'required',
 
