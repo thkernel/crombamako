@@ -108,12 +108,12 @@
       </ul>
     </li>
 
-
+<!--
     <li class="br-menu-item">
       <a href="#" class="br-menu-link with-sub ">
         <i class="fa fa-bar-chart tx-20"></i>
         <span class="menu-item-label">Statistiques</span>
-      </a><!-- br-menu-link -->
+      </a>
       <ul class="br-menu-sub">
         <li class="sub-item">
           <a class="sub-link" href="{{ route('post_categories.index') }}">Médecins</a>
@@ -129,7 +129,7 @@
     </li>
 
 
-     
+     -->
 
        
         
