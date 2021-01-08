@@ -26,7 +26,29 @@
           </ul>
 
           <ul class="navbar-nav d-lg-flex ml-2 order-3">
-           
+          @auth
+            <li class="nav-item">
+        
+
+ <a class="btn btn-link" href="{{ route('dashboard_path') }}">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        Mon compte
+    </a>
+        </li>
+              <li class="nav-item btn btn-link">
+              <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                Se déconnecter
+                            </x-dropdown-link>
+                        </form>
+                
+
+              </li>
+           @else
             <li class="nav-item">
               <a class="nav-link" href="{{ route('login') }}" class="btn btn-primary">Se connecter</a>
             </li>
@@ -34,6 +56,7 @@
              <li class="nav-item">
               <a class="btn btn-success" href="{{ route('subscription_requests.create') }}">Préinscription</a>
             </li>
+            @endauth
             
           </ul>
           
