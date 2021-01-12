@@ -71,18 +71,16 @@ Route::get('/privacy-policy',['as' => 'privacy_policy_path', function () {
     return view('pages/privacy_policy');
 }]);
 
-// For Breeze 
-/*
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::put('/validate-subscription/{subscription_request}', [SubscriptionRequestController::class, 'validate_subscription'])->middleware(['auth'])->name('subscription_request.validate_subscription');
 
-*/
+Route::get('/structures/categories', [StructureController::class, 'categories'])->name('structures.categories');
+
+Route::get('/structure_categories/all', [StructureCategoryController::class, 'all'])->name('structure_categories.all');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard/index');
 })->middleware(['auth'])->name('dashboard_path');
-
-
 
 
 Route::resource('roles', RoleController::class)->middleware(['auth']);

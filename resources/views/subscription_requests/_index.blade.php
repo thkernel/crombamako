@@ -1,7 +1,7 @@
 @foreach($subscription_requests as $subscription_request)
     <tr>
-    <td>{{$subscription_request->created_at}}</td>
-    <td>{{$subscription_request->civility}}</td>
+    <td>{{format_date($subscription_request->created_at, "d/m/Y")}}</td>
+
     <td>{{$subscription_request->first_name}}</td>
     <td>{{$subscription_request->last_name}}</td>
     <td>{{$subscription_request->locality->name}}</td>
@@ -15,6 +15,10 @@
 <td>
 	    <div class="action-buttons">
 			
+ <a  href="{{ route('subscription_requests.show', $subscription_request->id) }}">
+    <i class="fa fa-eye" aria-hidden="true" title="Modifier"></i>
+    Voir
+ </a>
 
  <a  href="{{ route('subscription_requests.edit', $subscription_request->id) }}">
     <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>

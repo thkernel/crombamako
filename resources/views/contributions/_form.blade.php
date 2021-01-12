@@ -6,7 +6,7 @@
             <select name="doctor_id" id="structure_type_id" class="form-control" required>
                 <option disabled selected value> Sélectionner </option>
                 @foreach($doctors as $doctor)
-                    <option value = "{{ $doctor->id }}">{{ $doctor->id }}</option>
+                    <option value = "{{ $doctor->id }}">{{ $doctor->profile->fullname }}</option>
                 @endforeach
             </select>
         </div>
@@ -18,8 +18,16 @@
 		<div class="form-group">
 
 		    <label for="year" class="required">Année:</label>
-		    <input type="text" id="amount" name="amount" class="form-control" placeholder="Montant" value="{{  old('year') ?? $contribution->year }}" >
-		    {!! $errors->first('year', '<p class="error">:message</p>') !!}
+		    
+
+
+		<select id="year" class="form-control" name="year">
+			<option disabled selected value> Sélectionner </option>
+		    @foreach(years_list() as $year)
+		    	<option value="{{ $year}}" @if ($contribution->year === $year) selected @endif>{{ $year }}</option>
+		    @endforeach
+		</select>
+		 {!! $errors->first('year', '<p class="error">:message</p>') !!}
 
 		</div>
 	</div>

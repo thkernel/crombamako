@@ -55,7 +55,7 @@ class PostController extends Controller
 
         if ($request->hasFile('thumbnail')){
             $fileName = time().'.'.$request->file('thumbnail')->extension();  
-            $request->file('thumbnail')->move(public_path('storage'), $fileName);
+            $request->file('thumbnail')->store(public_path('storage'), $fileName);
             $request['thumbnail'] = $fileName;
         }
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Speciality;
 use App\Models\Locality;
 use App\Models\Structure;
+use Illuminate\Support\Str;
 
 class SubscriptionRequestController extends Controller
 {
@@ -58,36 +59,14 @@ class SubscriptionRequestController extends Controller
         ]);
 
   
-        $created = SubscriptionRequest::create($request->all());
+        $subscription_request = SubscriptionRequest::create($request->all());
+
 
        
+        // Attach record
+       $allowedfileExtension = ['pdf','jpg','png','docx'];
 
-        if ($created){
-            if($request->hasFile('files')){
-                $allowedfileExtension=['pdf','jpg','png','docx'];
-                $files = $request->file('files');
-
-                
-                foreach($files as $file){
-                    $filename = $file->getClientOriginalName();
-                    $extension = $file->getClientOriginalExtension();
-                    $check=in_array($extension,$allowedfileExtension);
-                    //dd($check);
-                    if($check){
-                        $items= Item::create($request->all());
-                        foreach ($request->photos as $photo) {
-                            $filename = $photo->store('photos');
-                            ItemDetail::create([
-                            'item_id' => $items->id,
-                            'filename' => $filename
-                            ]);
-                        }
-                    }
-                }
-                
-                dd($files);
-            }
-        }
+       eloquent_storage_service($subscription_request, $request, $allowedfileExtension, 'files', 'uploads');
 
    
         return redirect()->route('home_path')
@@ -100,9 +79,11 @@ class SubscriptionRequestController extends Controller
      * @param  \App\Models\SubscriptionRequest  $subscriptionRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(SubscriptionRequest $subscriptionRequest)
+    public function show(SubscriptionRequest $subscription_request)
     {
         //
+        return view('subscription_requests.show',compact('subscription_request'));
+
     }
 
     /**
@@ -127,6 +108,23 @@ class SubscriptionRequestController extends Controller
     public function update(Request $request, SubscriptionRequest $subscriptionRequest)
     {
         //
+    }
+
+    public function validate_subscription(Request $request, SubscriptionRequest $subscription_request){
+        //
+       
+
+        $request->status = "validated";
+        //$request['user_id'] = current_user()->id;
+        $subscription_request->update($request->all());
+
+        // create doctor account and send credentials
+        doctor_factory($subscription_request);
+    
+
+        return redirect()->route('subscription_requests.index')
+
+                        ->with('success','SubscriptionRequest validated successfully');
     }
 
     /**

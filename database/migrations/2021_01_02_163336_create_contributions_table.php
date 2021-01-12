@@ -18,9 +18,9 @@ class CreateContributionsTable extends Migration
             $table->string('uid')->unique()->nullable();
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
-            $table->dateTime('year');
+            $table->integer('year');
             $table->decimal('amount');
-            $table->bigInteger('doctor_id')->nullable()->unsigned();
+            $table->bigInteger('doctor_id')->unsigned();
             $table->foreign('doctor_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('user_id')->nullable()->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

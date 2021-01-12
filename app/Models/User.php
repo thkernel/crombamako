@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Profile;
 
 use App\Models\Role;
 
@@ -19,12 +20,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'locality_id',
-        'speciality_id',
-        'civility',
-        'address',
+        
+        'login',
         'email',
         'password',
     ];
@@ -50,5 +47,9 @@ class User extends Authenticatable
 
     public function role(){
         return $this->belongsTo(Role::class);
+    }
+
+    public function profile(){
+        return $this->hasOne(Profile::class);
     }
 }

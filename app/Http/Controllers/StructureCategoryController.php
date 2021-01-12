@@ -21,6 +21,18 @@ class StructureCategoryController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function all()
+    {
+        //
+        $structure_categories =  StructureCategory::orderBy('id', 'desc')->paginate(10)->setPath('structure_categories');
+        return view("structure_categories.all", compact(['structure_categories']) );
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

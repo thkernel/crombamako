@@ -9,6 +9,7 @@ $(document).on('turbolinks:load', function() {
           dropdownParent: dropdownParent,
           width: 'resolve' ,
           placeholder: 'Sélectionner',
+          
         });
     });
 

@@ -20,7 +20,8 @@ class EloquentStorageBlob extends Model
     ];
 
 
+
     public function eloquent_storage_attachment(){
-        return $this->hasMany(EloquentStorageAttachment::class);
+        return $this->hasOne(EloquentStorageAttachment::class);
     }
 }

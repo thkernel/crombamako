@@ -15,12 +15,12 @@ class CreateEloquentStorageBlobsTable extends Migration
     {
         Schema::create('eloquent_storage_blobs', function (Blueprint $table) {
             $table->id();
-            $table->string('key')->nullable();
+            $table->string('key');
             $table->string('filename');
             $table->string('content_type');
             $table->text('metadata')->nullable();
             $table->bigInteger('byte_size');
-            $table->string('checksum')->nullable();
+            $table->string('checksum');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });

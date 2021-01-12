@@ -33,7 +33,8 @@ class ContributionController extends Controller
         //
         $contribution = new Contribution;
         $doctor = DB::table('roles')->whereName('medecin')->get()[0];
-        $doctors =  User::where('role_id', $doctor->id)->get();
+        //$doctors =  User::where('role_id', $doctor->id)->get();
+        $doctors =  User::all();
 
         return view("contributions.create", compact(['doctors', 'contribution']) );
     }

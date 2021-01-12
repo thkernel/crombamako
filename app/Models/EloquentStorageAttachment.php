@@ -11,20 +11,23 @@ class EloquentStorageAttachment extends Model
     use HasFactory;
 
     protected $fillable = [
-    	'key',
     	'name',
-    	'attachable_id', 
-    	'attachable_id', 
-    	'blob_id',
+    	'attachmentable_id', 
+        'attachmentable_type', 
+    	'eloquent_storage_blob_id',
  
     ];
 
 
 
-    public function attachable()
+    public function attachmentable()
     {
         return $this->morphTo();
     }
+
+    
+
+    
 
     public function eloquent_storage_blob(){
         return $this->belongsTo(EloquentStorageBlob::class);

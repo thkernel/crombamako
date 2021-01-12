@@ -30,6 +30,12 @@ class SubscriptionRequest extends Model
         'status'
     ];
 
+
+    protected $attributes = [
+        
+            'status' => "pending"
+        ];
+
     public function locality(){
         return $this->belongsTo(Locality::class);
     }
@@ -42,8 +48,8 @@ class SubscriptionRequest extends Model
         return $this->belongsTo(Structure::class);
     }
 
-    public function eloquent_storage_attachment()
+    public function attachments()
     {
-        return $this->morphMany(EloquentStorageAttachment::class, 'attachable');
+        return $this->morphMany(EloquentStorageAttachment::class, 'attachmentable');
     }
 }

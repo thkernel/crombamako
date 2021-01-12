@@ -27,6 +27,10 @@ class StructureController extends Controller
 
     }
 
+    public function categories(){
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -91,7 +95,9 @@ class StructureController extends Controller
     {
         //
         $structure_types =  StructureType::all();
-        return view('structures.edit', compact(['structure_types', 'structure']));
+        $structure_categories =  StructureCategory::all();
+        $localities =  Locality::all();
+        return view('structures.edit', compact(['structure_types','structure_categories', 'structure', 'localities']));
     }
 
     /**

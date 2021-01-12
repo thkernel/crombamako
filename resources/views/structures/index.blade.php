@@ -29,8 +29,9 @@
 
   <thead>
     <tr>
-     <th>Type</th>
+     <th>Catégorie</th>
       <th>Nom</th>
+      <th>Localité</th>
      
       
       <th>Actions</th>

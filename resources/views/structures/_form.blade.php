@@ -16,9 +16,9 @@
         <div class="form-group">
             <label for="structure_type_id" class="required">Type:</label>
             <select name="structure_type_id" id="structure_type_id" class="form-control" required>
-                <option disabled selected value> Sélectionner </option>
+                <option {{ $structure->structure_type_id  ? '' : 'disabled selected value'}}> 
                 @foreach($structure_types as $structure_type)
-                    <option value = "{{ $structure_type->id }}">{{ $structure_type->name }}</option>
+                    <option value = "{{ $structure_type->id }}" {{ $structure_type->id === $structure->structure_type_id ?  'selected' : ''}}>{{ $structure_type->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -29,9 +29,9 @@
         <div class="form-group">
             <label for="structure_category_id" class="required">Catégorie:</label>
             <select name="structure_category_id" id="structure_category_id" class="form-control" required>
-                <option disabled selected value> Sélectionner </option>
+                <option {{ $structure->structure_category_id  ? '' : 'disabled selected value'}}> Sélectionner </option>
                 @foreach($structure_categories as $structure_category)
-                    <option value = "{{ $structure_category->id }}">{{ $structure_category->name }}</option>
+                    <option value = "{{ $structure_category->id }}" {{ $structure_category->id === $structure->structure_category_id ?  'selected' : ''}}>{{ $structure_category->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -53,9 +53,9 @@
         <div class="form-group">
             <label for="locality_id" class="required">Localité:</label>
             <select name="locality_id" class="form-control" required>
-                <option disabled selected value> Sélectionner </option>
+                <option {{ $structure->locality_id  ? '' : 'disabled selected value'}}> Sélectionner </option>
                 @foreach($localities as $locality)
-                    <option value = "{{ $locality->id }}">{{ $locality->name }}</option>
+                    <option value = "{{ $locality->id }}" {{ $locality->id == $structure->locality_id ?  'selected' : ''}}>{{ $locality->name }}</option>
                 @endforeach
             </select>
         </div>

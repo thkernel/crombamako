@@ -1,7 +1,8 @@
 @foreach($structures as $structure)
     <tr>
-        <td>{{$structure->structure_type->name}}</td>
+        <td>{{$structure->structure_category->name}}</td>
     <td>{{$structure->name}}</td>
+    <td>{{$structure->locality->name}}</td>
     
 <td>
 	    <div class="action-buttons">

@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\StructureType;
+use App\Models\StructureCategory;
+use App\Models\Locality;
 use App\Models\VisitSummary;
 
 class Structure extends Model
@@ -16,6 +18,13 @@ class Structure extends Model
 
     public function structure_type(){
         return $this->belongsTo(StructureType::class);
+    }
+    public function structure_category(){
+        return $this->belongsTo(StructureCategory::class);
+    }
+
+    public function locality(){
+        return $this->belongsTo(Locality::class);
     }
 
      public function visit_summary(){

@@ -18,7 +18,7 @@ class RoleSeeder extends Seeder
         //
         DB::table('roles')->insert(["uid" => Str::random(32), "name" => "superuser"]);
         DB::table('roles')->insert(["uid" => Str::random(32), "name" => "administrateur"]);
-        DB::table('roles')->insert(["uid" => Str::random(32), "name" => "medecin"]);
+        DB::table('roles')->insert(["uid" => Str::random(32), "name" => "Médecin"]);
         DB::table('roles')->insert(["uid" => Str::random(32), "name" => "guest"]);
         DB::table('roles')->insert(["uid" => Str::random(32), "name" => "demo"]);
     }
