@@ -28,7 +28,7 @@ class StructureController extends Controller
     }
 
     public function categories(){
-        
+
     }
 
     /**
@@ -62,6 +62,9 @@ class StructureController extends Controller
 
         $request->validate([
             'name' => 'required',
+            'locality_id' => 'required',
+            'structure_type_id' => 'required',
+            'structure_category_id' => 'required',
 
         ]);
 

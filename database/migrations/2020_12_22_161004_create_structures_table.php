@@ -15,7 +15,8 @@ class CreateStructuresTable extends Migration
     {
         Schema::create('structures', function (Blueprint $table) {
             $table->id();
-            $table->string('uid')->nullable();
+            $table->string('uid')->unique()->nullable();
+            $table->string('slug')->unique();
             $table->integer('structure_type_id')->unsigned();
             $table->foreign('structure_type_id')->references('id')->on('structure_types');
             $table->integer('structure_category_id')->unsigned();
@@ -25,9 +26,9 @@ class CreateStructuresTable extends Migration
             $table->string('address')->nullable();
             $table->string('street')->nullable();
             $table->string('locality_id');
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('email')->nullable();
-            $table->string('website');
+            $table->string('website')->nullable();
             $table->decimal('latitude')->nullable();
             $table->decimal('longitude')->nullable();
             $table->text('description')->nullable();

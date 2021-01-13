@@ -16,7 +16,7 @@ class CreateSpecialitiesTable extends Migration
         Schema::create('specialities', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->nullable();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->text('description')->nullable();
             $table->string('status')->nullable();
             $table->bigInteger('user_id')->unsigned();

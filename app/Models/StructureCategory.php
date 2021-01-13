@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Models\Structure;
 
 
 class StructureCategory extends Model
@@ -29,5 +30,9 @@ class StructureCategory extends Model
                 'source' => 'name'
             ]
         ];
+    }
+
+     public function structures(){
+        return $this->hasMany(Structure::class);
     }
 }

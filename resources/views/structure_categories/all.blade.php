@@ -3,45 +3,34 @@
 @section("content")
 <div class="container main-container">
 
+    <div class="br-pagebody">
+        <div class="br-section-wrapper">
+            <div class="headers mg-b-5">
+                <h2>Catégories de structure</h2>
 
+            </div>
+            <div class="section-body">
+                <div class="row">
+                    <div class="col-md-9">
+                        <ul>
+                            @foreach($structure_categories as $structure_category)
+                                <li>
+                                    
 
-<div class="br-pagebody mg-b-30">
-  <div class="br-section-wrapper">
-    <div class="headers mg-b-5">
-      
+                                    <a href="{{ route('structure_categories.edit', $structure_category->id) }}">{{$structure_category->name}} ({{count($structure_category->structures)}})</a>
 
-    </div>
-    <div class="section-body">
-		<div class="row">
-
-    <div class="col-lg-12 margin-tb">
-
-        <div class="pull-left">
-
-            <h3>Catégories de structure</h3>
-
+                                </li>
+                            @endforeach
+                        </ul>
+                        <div class="row page_navi">
+                           
+                                                
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-       
-
     </div>
-
-</div>
-
-   
-
-
-
-   
-
-
-    </div>
-
-
-
-
-</div>
-</div>
 </div>
 
 @endsection

@@ -15,8 +15,8 @@ class CreateLocalitiesTable extends Migration
     {
         Schema::create('localities', function (Blueprint $table) {
             $table->id();
-            $table->string('uid')->nullable();
-            $table->string('name');
+            $table->string('uid')->unique()->nullable();
+            $table->string('name')->unique();
             $table->string('status')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

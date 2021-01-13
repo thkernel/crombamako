@@ -86,14 +86,14 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="latitude">Latitude:</label>
-            <input type="number" name="latitude" class="form-control" placeholder="Latitude" value="{{  old('latitude') ?? $structure->latitude }}">
+            <input type="number" name="latitude" class="form-control" placeholder="Latitude" value="{{  old('latitude') ?? $structure->latitude }}" step="any">
         </div>
     </div>
 
     <div class="col-md-4">
         <div class="form-group">
             <label for="longitude">Longitude:</label>
-            <input type="number" name="longitude" class="form-control" placeholder="Longitude" value="{{  old('longitude') ?? $structure->longitude }}">
+            <input type="number" name="longitude" class="form-control" placeholder="Longitude" value="{{  old('longitude') ?? $structure->longitude }}" step="any">
         </div>
     </div>
 </div>

@@ -32,7 +32,7 @@ class ContributionController extends Controller
     {
         //
         $contribution = new Contribution;
-        $doctor = DB::table('roles')->whereName('medecin')->get()[0];
+        $doctor = DB::table('roles')->whereName('Médecin')->get()[0];
         //$doctors =  User::where('role_id', $doctor->id)->get();
         $doctors =  User::all();
 

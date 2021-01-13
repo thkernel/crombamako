@@ -110,8 +110,10 @@ class StructureCategoryController extends Controller
      * @param  \App\Models\StructureCategory  $structureCategory
      * @return \Illuminate\Http\Response
      */
-    public function destroy(StructureCategory $structureCategory)
+    public function destroy($id)
     {
         //
+        StructureCategory::where('id',$id)->delete();
+        return redirect()->back()->with('success','Delete Successfully');
     }
 }

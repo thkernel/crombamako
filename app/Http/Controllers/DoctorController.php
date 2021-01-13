@@ -19,7 +19,7 @@ class DoctorController extends Controller
     public function index()
     {
         //
-        $doctor = DB::table('roles')->whereName('medecin')->get()[0];
+        $doctor = DB::table('roles')->whereName('Médecin')->get()[0];
         $users =  User::where('role_id', $doctor->id)->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("doctors.index", compact(['users']) );
