@@ -17,7 +17,7 @@
                                 <li>
                                     
 
-                                    <a href="{{ route('structure_categories.edit', $structure_category->id) }}">{{$structure_category->name}} ({{count($structure_category->structures)}})</a>
+                                    <a href="{{ route('structures.category', $structure_category->slug) }}">{{$structure_category->name}} ({{count($structure_category->structures)}})</a>
 
                                 </li>
                             @endforeach

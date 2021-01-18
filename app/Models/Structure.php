@@ -14,6 +14,8 @@ class Structure extends Model
 {
     use HasFactory;
     use Sluggable;
+
+
     protected $fillable = ['structure_type_id','structure_category_id','name','slogan', "address", "street", "locality_id", "phone" , "email", "website", "latitude", "longitude", "description", "logo",'user_id'];
 
 
@@ -44,7 +46,13 @@ class Structure extends Model
         return $this->belongsTo(Locality::class);
     }
 
-     public function visit_summary(){
+    public function visit_summary(){
         return $this->hasMany(VisitSummary::class);
     }
+
+     public function logo()
+    {
+        return $this->morphMany(EloquentStorageAttachment::class, 'attachable');
+    }
+
 }

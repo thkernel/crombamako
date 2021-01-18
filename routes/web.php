@@ -77,6 +77,8 @@ Route::get('/structures/categories', [StructureController::class, 'categories'])
 
 Route::get('/structure_categories/all', [StructureCategoryController::class, 'all'])->name('structure_categories.all');
 
+Route::get('/structures/category/{slug}', [StructureController::class, 'category'])->name('structures.category');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard/index');

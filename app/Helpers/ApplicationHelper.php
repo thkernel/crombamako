@@ -3,6 +3,7 @@
 	use App\Models\SubscriptionRequest;
 	use App\Models\User;
 	use App\Models\Profile;
+	use App\Models\StructureCategory;
 	use App\Models\EloquentStorageBlob;
 	use App\Models\EloquentStorangeAttachment;
 	use Illuminate\Support\Facades\Hash;
@@ -200,3 +201,29 @@
 
 		return $years;
 	}
+
+
+
+
+function structure_logo($structure, $alt_tag, $class_name){
+    $pharmacy = StructureCategory::where('name', strtolower("Pharmacie"));
+    $cabinet_medical = StructureCategory::where('name', strtolower("Cabinet médical"));
+    $clinique = StructureCategory::where('name', strtolower("Clinique"));
+    $polyclinique = StructureCategory::where('name', strtolower("Polyclinique"));
+
+
+      
+    if  ($structure->logo){
+        return '<img src="images/avatar-missing.png" class="wd-80 rounded-circle" alt="">';
+
+    }
+    
+    else{
+        return '<img src="images/avatar-missing.png" class="wd-80 rounded-circle" alt="">';
+         
+    }
+
+
+}
+ 
+  

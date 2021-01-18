@@ -27,8 +27,13 @@ class StructureController extends Controller
 
     }
 
-    public function categories(){
-
+    public function category(Request $request){
+        
+        $structure_category = StructureCategory::where('slug',$request->slug)->first();
+        $structures = $structure_category->structures;
+        
+        
+        return view("structures.category", compact(['structures', 'structure_category']) );
     }
 
     /**
@@ -135,7 +140,7 @@ class StructureController extends Controller
      * @param  \App\Models\Structure  $structure
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Structure $structure)
+    public function destroy($id)
     {
         //
         Structure::where('id',$id)->delete();
