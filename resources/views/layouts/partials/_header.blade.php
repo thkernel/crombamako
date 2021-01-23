@@ -18,9 +18,7 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('blog_path') }}">Actualité</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('blog_path') }}">Equipe</a>
-            </li>
+           
              <li class="nav-item">
               <a class="nav-link" href="{{ route('contact_forms.create') }}">Contactez-nous</a>
             </li>
