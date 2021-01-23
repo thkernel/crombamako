@@ -18,7 +18,7 @@
 
         <div class="pull-left">
 
-            <h2>Modification - Demande de certificat</h2>
+            <h2>Modification - Demande de document</h2>
 
         </div>
 

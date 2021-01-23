@@ -18,6 +18,7 @@ class CreateCertificateRequestsTable extends Migration
             $table->string('uid')->unique()->nullable();
             $table->integer('certificate_type_id')->unsigned();
             $table->foreign('certificate_type_id')->references('id')->on('certificate_types');
+             $table->string('title');
             $table->text('content')->nullable();
             $table->string('status')->nullable();
 

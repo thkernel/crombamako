@@ -18,9 +18,9 @@ class CreateStructuresTable extends Migration
             $table->string('uid')->unique()->nullable();
             $table->string('slug')->unique();
             $table->integer('structure_type_id')->unsigned();
-            $table->foreign('structure_type_id')->references('id')->on('structure_types');
+            $table->foreign('structure_type_id')->references('id')->on('structure_types')->onDelete('cascade');
             $table->integer('structure_category_id')->unsigned();
-            $table->foreign('structure_category_id')->references('id')->on('structure_categories');
+            $table->foreign('structure_category_id')->references('id')->on('structure_categories')->onDelete('cascade');
             $table->string('name')->unique();
             $table->string('slogan')->nullable();
             $table->string('address')->nullable();

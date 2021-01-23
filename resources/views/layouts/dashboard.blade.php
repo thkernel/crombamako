@@ -12,7 +12,7 @@
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
 
-        <title>Tableau de bord - eSanté</title>
+        <title>Tableau de bord - {{ config('global.application_name')}} </title>
 
        
     </head>

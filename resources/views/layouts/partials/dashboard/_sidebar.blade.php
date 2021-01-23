@@ -1,7 +1,7 @@
 <!-- Side Navbar -->
 <!-- ########## START: LEFT PANEL ########## -->
 <div class="br-logo text-center">
-	<span class="tx-normal">[</span> e<span class="tx-info">Santé</span> <span class="tx-normal">]</span>
+	<span class="tx-normal">{{ config('global.application_name')}}</span>
 
 				
 </div>

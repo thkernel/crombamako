@@ -30,8 +30,9 @@ class OpportunityController extends Controller
     public function create()
     {
         //
+        $opportunity = new Opportunity;
         $opportunity_types =  OpportunityType::all();
-        return view('opportunities.create', compact(['opportunity_types']));
+        return view('opportunities.create', compact(['opportunity_types', 'opportunity']));
     }
 
     /**

@@ -16,7 +16,7 @@
 		    <div class="col-lg-12 margin-tb">
 		        <div class="pull-left">
 
-		            <h2>Nouveau - Type de certificat</h2>
+		            <h2>Nouveau - Type de document</h2>
 
 		        </div>
 
@@ -46,7 +46,7 @@
 
    
 
-<form action="{{ route('structure_types.store') }}" method="POST">
+<form action="{{ route('certificate_types.store') }}" method="POST">
 
     @csrf
 
@@ -56,7 +56,7 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 
-            @include('structure_types/_form')
+            @include('certificate_types/_form')
 
         </div>
 

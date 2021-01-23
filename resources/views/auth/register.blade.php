@@ -4,7 +4,7 @@
 
 <div class="login-wrapper wd-600 wd-xs-550 pd-25  mb5 mt5 pd-xs-40 bg-white rounded shadow-base">
 
-    <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal">[</span>e<span class="tx-info">Santé</span> <span class="tx-normal">]</span></div>
+    <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal">{{ config('global.application_name')}}</span></div>
         <div class="tx-center mg-b-60">Veuillez vous inscrire gratuitement</div>
          <form method="POST" action="{{ route('register') }}">
             @csrf

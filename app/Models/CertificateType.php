@@ -25,4 +25,8 @@ class CertificateType extends Model
             ]
         ];
     }
+
+    public function certificate(){
+        return $this->hasMany(CertificateRequest::class);
+    }
 }

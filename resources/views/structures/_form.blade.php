@@ -62,15 +62,15 @@
     </div>
     <div class="col-md-4">
         <div class="form-group">
-            <label for="phone">Téléphone:</label>
-            <input type="text" name="phone" class="form-control" placeholder="Téléphone" value="{{  old('phone') ?? $structure->phone }}">
+            <label for="phone" class="required">Téléphone:</label>
+            <input type="text" name="phone" class="form-control" placeholder="Téléphone" value="{{  old('phone') ?? $structure->phone }}" required>
             {!! $errors->first('name', '<p class="error">:message</p>') !!}
         </div>
     </div>
     <div class="col-md-4">
         <div class="form-group">
             <label for="website">Site web:</label>
-            <input type="text" name="website" class="form-control" placeholder="Site web" value="{{  old('website') ?? $structure->site }}">
+            <input type="text" name="website" class="form-control" placeholder="Site web" value="{{  old('website') ?? $structure->website }}">
         </div>
     </div>
 </div>

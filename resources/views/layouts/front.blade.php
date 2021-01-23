@@ -13,7 +13,7 @@
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
 
-        <title>eSanté</title>
+        <title>{{ config('global.application_name') }}</title>
 
        
     </head>

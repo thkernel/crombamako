@@ -20,7 +20,7 @@
 
         <div class="pull-left">
 
-            <h2>Nouvelle - Demande de certificat</h2>
+            <h2>Nouvelle - Demande de document</h2>
 
         </div>
 
@@ -54,7 +54,7 @@
 
    
 
-<form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('certificate_requests.store') }}" method="POST" enctype="multipart/form-data">
 
     @csrf
 

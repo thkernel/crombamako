@@ -68,21 +68,7 @@
             @include('specialities/_form')
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Nom:</strong>
-
-                <input type="text" name="name" value="{{ old('name') ?? $speciality->name }}" class="form-control" placeholder="Nom" reauired>
-
-                {!! $errors->!!}
-
-            </div>
-
-
-    </div>
+    
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 

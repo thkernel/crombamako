@@ -14,22 +14,22 @@
     <div class="section-body">
 		<div class="row">
 
-    <div class="col-lg-12 margin-tb">
+            <div class="col-lg-12 margin-tb">
 
-        <div class="pull-left">
+                <div class="pull-left">
 
-            <h2>Modification - Opportunité</h2>
+                    <h2>Modification - Opportunité</h2>
+
+                </div>
+
+                <div class="pull-right">
+
+
+                </div>
+
+            </div>
 
         </div>
-
-        <div class="pull-right">
-
-
-        </div>
-
-    </div>
-
-</div>
 
    
 
@@ -61,50 +61,8 @@
     @method('PUT')
 
   
-
-     <div class="row">
-
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-
-            <div class="form-group">
-                <select name="opportunity_type_id"  class="form-control" required>
-                    <option selected="selected"> {{ $opportunity->opportunity_type_id }} </option>
-                    <option disabled> Sélectionner </option>
-                    @foreach($opportunity_types as $opportunity_type)
-                        <option value = "{{ $opportunity_type->id }}">{{ $opportunity_type->name }}</option>
-                    @endforeach
-                    </select>
-            </div>
-
-            <div class="form-group">
-
-                <strong>Titre:</strong>
-
-                <input type="text" name="title" value="{{ $opportunity->title }}" class="form-control" placeholder="Titre" reauired>
-
-            </div>
-
-             <div class="form-group">
-                <strong>Contenu:</strong>
-                <textarea rows="8" name="content"  class="form-control" placeholder="Contenu">{{ $opportunity->content }}
-                </textarea>
-            </div>
-
-        </div>
-<!--
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Detail:</strong>
-
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
-
-            </div>
-
-        </div>
--->
+    @include("opportunities/_form")
+     
          <div class="col-xs-12 col-sm-12 col-md-12">
 
         <div class="form-group text-right">

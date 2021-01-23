@@ -6,7 +6,7 @@
 <div class="br-pageheader">
       <nav class="breadcrumb pd-0 mg-0 tx-12">
         
-        <span class="breadcrumb-item active"><h5>Contactez-nous</h5></span>
+        <span class="breadcrumb-item active"><h3>Contactez-nous</h3></span>
       </nav>
     </div><!-- br-pageheader -->
 
@@ -17,14 +17,35 @@
 
     </div>
     <div class="section-body">
-		@include("contact_forms/_form")
+      <div class="row">
+
+        <div class="col-md-7"> 
+          <h3>Nous écrire</h3>
+          <hr />
+    		  @include("contact_forms/_form")
+        </div>
+        <div class="col-md-5"> 
+          <h3>Adresses</h3>
+          <hr />
+
+
+          <div class="addresses">
+            <h6 class="">Téléphone: {{ config('global.company_phone')}}</h6>
+            <h6 class="">Email: {{ config('global.company_email')}}</h6>
+            <h6 class="">Adresses: {{ config('global.company_addresses')}}</h6>
+
+
+
+          </div>
+              
+
+
+          
+          </div>
+      </div>
+
     </div>
-
-
-
-
-</div>
-</div>
+  </div>
 </div>
 
 @endsection

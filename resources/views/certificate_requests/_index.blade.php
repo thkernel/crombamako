@@ -1,6 +1,6 @@
 @foreach($certificate_requests as $certificate_request)
     <tr>
-        <td>{{$certificate_request->certificate->created_at}}</td>
+        <td>{{$certificate_request->created_at}}</td>
         <td>{{$certificate_request->certificate_type->name}}</td>
         <td>{{$certificate_request->doctor_id}}</td>
     

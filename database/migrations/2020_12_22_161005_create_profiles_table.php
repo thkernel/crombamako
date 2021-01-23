@@ -22,11 +22,11 @@ class CreateProfilesTable extends Migration
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->integer('locality_id')->nullable()->unsigned();
-            $table->foreign('locality_id')->references('id')->on('localities');
+            $table->foreign('locality_id')->references('id')->on('localities')->onDelete('cascade');
             $table->integer('speciality_id')->nullable()->unsigned();
-            $table->foreign('speciality_id')->references('id')->on('specialities');
+            $table->foreign('speciality_id')->references('id')->on('specialities')->onDelete('cascade');
             $table->integer('structure_id')->nullable()->unsigned();
-            $table->foreign('structure_id')->references('id')->on('structures');
+            $table->foreign('structure_id')->references('id')->on('structures')->onDelete('cascade');
             $table->text('description')->nullable();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

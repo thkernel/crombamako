@@ -7,7 +7,7 @@
 			
 
  <a  href="{{ route('certificate_types.edit', $certificate_type->id) }}">
-    <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
+    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
     Modifier
  </a>
 

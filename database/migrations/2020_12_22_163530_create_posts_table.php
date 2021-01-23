@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('uid')->unique()->nullable();
             $table->string('slug')->unique()->nullable();
             $table->integer('post_category_id')->unsigned();
-            $table->foreign('post_category_id')->references('id')->on('post_categories');
+            $table->foreign('post_category_id')->references('id')->on('post_categories')->onDelete('cascade');
             $table->string('title')->unique();
             $table->text('content')->nullable();
             $table->string('status')->nullable();

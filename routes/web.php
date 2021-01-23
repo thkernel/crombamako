@@ -80,9 +80,14 @@ Route::get('/structure_categories/all', [StructureCategoryController::class, 'al
 Route::get('/structures/category/{slug}', [StructureController::class, 'category'])->name('structures.category');
 
 
+Route::get('/opportunities/all', [OpportunityController::class, 'all'])->name('opportunities.all');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard/index');
 })->middleware(['auth'])->name('dashboard_path');
+
+
 
 
 Route::resource('roles', RoleController::class)->middleware(['auth']);

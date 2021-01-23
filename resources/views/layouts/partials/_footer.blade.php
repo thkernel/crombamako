@@ -5,7 +5,7 @@
 			<div class="col-md-4 footer-widget">
 				<h4 class="footer-widget-title">A propos</h4>
 				<p class="footer-widget-content">
-					eSanté est une base de données nationale des médecins et structure sanitaires du Mali.
+					{{ config('global.application_name')}} est une base de données nationale des médecins et structure sanitaires du Mali.
 				</p>
 			</div>
 			
@@ -30,8 +30,8 @@
 					<ul>
 						
 					
-						<li><a href="{{ route('blog_path') }}">Blog</a></li>
-						<li><a href="{{ route('faq_path') }}">FAQ</a></li>
+						<li><a href="{{ route('blog_path') }}">Actualité</a></li>
+						<li><a href="{{ route('faq_path') }}">Foire Aux Questions</a></li>
 						<li><a href="{{ route('cgu_path') }}">Conditions d'utilisation</a></li>
 						<li><a href="{{ route('privacy_policy_path') }}">Politique de confidentialité</a></li>
 					

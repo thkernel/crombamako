@@ -1,7 +1,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="{{ route('home_path') }}"><h3>eSanté</h3></a>
+        <a class="navbar-brand" href="{{ route('home_path') }}"><h3>{{ config('global.application_name')}}</h3></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -13,10 +13,13 @@
               <a class="nav-link" href="{{ route('about_path') }}">A propos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('opportunities.index') }}">Opportinutés</a>
+              <a class="nav-link" href="{{ route('opportunities.all') }}">Opportinutés</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('blog_path') }}">Blog</a>
+              <a class="nav-link" href="{{ route('blog_path') }}">Actualité</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('blog_path') }}">Equipe</a>
             </li>
              <li class="nav-item">
               <a class="nav-link" href="{{ route('contact_forms.create') }}">Contactez-nous</a>

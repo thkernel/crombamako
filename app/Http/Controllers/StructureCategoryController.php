@@ -87,9 +87,11 @@ class StructureCategoryController extends Controller
      * @param  \App\Models\StructureCategory  $structureCategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(StructureCategory $structureCategory)
+    public function edit(StructureCategory $structure_category)
     {
         //
+            return view('structure_categories.edit',compact('structure_category'));
+
     }
 
     /**
@@ -99,9 +101,23 @@ class StructureCategoryController extends Controller
      * @param  \App\Models\StructureCategory  $structureCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, StructureCategory $structureCategory)
+    public function update(Request $request, StructureCategory $structure_category)
     {
         //
+
+        $request->validate([
+        'name' => 'required',   
+
+        ]);
+
+  
+        $structure_category->update($request->all());
+
+  
+
+        return redirect()->route('structure_categories.index')
+
+                        ->with('success','StructureCategory updated successfully');
     }
 
     /**

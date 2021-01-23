@@ -56,7 +56,7 @@
 
    
 
-<form action="{{ route('structure_types.update',$structure_type->id) }}" method="POST">
+<form action="{{ route('structure_categories.update',$structure_category->id) }}" method="POST">
 
     @csrf
     @method('PUT')
@@ -67,7 +67,7 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 
-            @include('structure_types/_form')
+            @include('structure_categories/_form')
         </div>
 
          <div class="col-xs-12 col-sm-12 col-md-12">

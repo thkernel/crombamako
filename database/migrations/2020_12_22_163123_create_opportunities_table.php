@@ -18,7 +18,7 @@ class CreateOpportunitiesTable extends Migration
             $table->string('uid')->unique()->nullable();
             $table->string('slug')->unique();
             $table->integer('opportunity_type_id')->unsigned();
-            $table->foreign('opportunity_type_id')->references('id')->on('opportunity_types');
+            $table->foreign('opportunity_type_id')->references('id')->on('opportunity_types')->onDelete('cascade');
             $table->string('title')->unique();
             $table->text('content')->nullable();
             $table->string('status')->nullable();

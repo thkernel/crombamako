@@ -25,11 +25,11 @@ class CreateSubscriptionRequestsTable extends Migration
             $table->string('door')->nullable();
             $table->string('email')->unique();
             $table->integer('locality_id')->unsigned();
-            $table->foreign('locality_id')->references('id')->on('localities');
+            $table->foreign('locality_id')->references('id')->on('localities')->onDelete('cascade');
             $table->integer('speciality_id')->unsigned();
-            $table->foreign('speciality_id')->references('id')->on('specialities');
+            $table->foreign('speciality_id')->references('id')->on('specialities')->onDelete('cascade');
             $table->integer('structure_id')->nullable()->unsigned();
-            $table->foreign('structure_id')->references('id')->on('structures');
+            $table->foreign('structure_id')->references('id')->on('structures')->onDelete('cascade');
             $table->text('description')->nullable();
             $table->string('status');
             

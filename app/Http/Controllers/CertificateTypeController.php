@@ -28,7 +28,7 @@ class CertificateTypeController extends Controller
     public function create()
     {
         //
-        $certificate_type =  new Certificateype;
+        $certificate_type =  new CertificateType;
         return view('certificate_types.create', compact(['certificate_type']));
     }
 

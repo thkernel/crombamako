@@ -48,7 +48,7 @@ class CertificateRequestController extends Controller
      
 
         $request->validate([
-            'certificate_type' => 'required',
+            'certificate_type_id' => 'required',
             'content' => 'required',
 
         ]);

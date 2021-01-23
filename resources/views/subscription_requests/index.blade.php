@@ -5,7 +5,7 @@
 <div class="br-pageheader">
       <nav class="breadcrumb pd-0 mg-0 tx-12">
         
-        <span class="breadcrumb-item active"><h5>Préinscriptions</h5></span>
+        <span class="breadcrumb-item active"><h5>Liste des préinscriptions</h5></span>
       </nav>
     </div><!-- br-pageheader -->
 <div class="br-pagebody">

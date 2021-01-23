@@ -52,7 +52,7 @@
     
 
     <a class="br-menu-link" href="{{ route('certificate_requests.index') }}">
-      <i class="fa fa-certificate tx-20" aria-hidden="true"></i> <span class="menu-item-label">Demandes de certification</span>
+      <i class="fa fa-file-text-o tx-20" aria-hidden="true"></i> <span class="menu-item-label">Demandes de document</span>
     
     </a>
 
@@ -108,7 +108,7 @@
       </ul>
     </li>
 
-<!--
+
     <li class="br-menu-item">
       <a href="#" class="br-menu-link with-sub ">
         <i class="fa fa-bar-chart tx-20"></i>
@@ -116,12 +116,12 @@
       </a>
       <ul class="br-menu-sub">
         <li class="sub-item">
-          <a class="sub-link" href="{{ route('post_categories.index') }}">Médecins</a>
+          <a class="sub-link" href="{{ route('dashboard_path') }}">Médecins</a>
 
         </li>
 
         <li class="sub-item">
-          <a class="sub-link" href="{{ route('posts.index') }}">Structures</a>
+          <a class="sub-link" href="{{ route('dashboard_path') }}">Structures</a>
 
         </li>
 
@@ -129,7 +129,7 @@
     </li>
 
 
-     -->
+     
 
        
         
@@ -172,7 +172,7 @@
             </li>
 
             <li class="sub-item">
-                <a class="sub-link" href="{{ route('certificate_types.index') }}">Types de certificat</a>
+                <a class="sub-link" href="{{ route('certificate_types.index') }}">Types de document</a>
             </li>
 
             <li class="sub-item">

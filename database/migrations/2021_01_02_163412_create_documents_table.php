@@ -18,7 +18,7 @@ class CreateDocumentsTable extends Migration
             $table->string('uid')->unique()->nullable();
             $table->string('slug')->unique()->nullable();
             $table->integer('document_type_id')->unsigned();
-            $table->foreign('document_type_id')->references('id')->on('document_types');
+            $table->foreign('document_type_id')->references('id')->on('document_types')->onDelete('cascade');
             $table->string('title');
             $table->text('content')->nullable();
             $table->string('status')->nullable();
