@@ -22,6 +22,14 @@ class OpportunityController extends Controller
         
     }
 
+    public function all()
+    {
+        //
+        $opportunities =  Opportunity::orderBy('id', 'desc')->paginate(10)->setPath('opportunities');
+        return view("opportunities.all", compact(['opportunities']) );
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      *
