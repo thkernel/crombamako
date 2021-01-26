@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Models\Profile;
 
 use App\Models\Role;
+use App\Models\Opportunity;
 
 class User extends Authenticatable
 {
@@ -51,5 +52,9 @@ class User extends Authenticatable
 
     public function profile(){
         return $this->hasOne(Profile::class);
+    }
+
+    public function opportunities(){
+        return $this->hasMany(Opportunity::class);
     }
 }

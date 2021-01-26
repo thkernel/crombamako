@@ -14734,6 +14734,16 @@ section {
   width: 100%;
 }
 
+.card-thumbnail img {
+  width: 100% !important;
+}
+
+.card-thumbnail {
+  margin-top: -1.25rem;
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+}
+
 .features .icon .fa {
   font-size: 45pt !important;
 }
@@ -14746,6 +14756,10 @@ section {
 .required:after {
   content: " *";
   color: red;
+}
+
+.cover img {
+  width: 100% !important;
 }
 
 .setup {

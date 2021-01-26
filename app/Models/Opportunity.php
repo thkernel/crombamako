@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Models\OpportunityType;
+use App\Models\User;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Opportunity extends Model
@@ -36,6 +37,12 @@ public function opportunity_type(){
                 'source' => 'title'
             ]
         ];
+    }
+
+    
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
 }

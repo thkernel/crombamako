@@ -76,9 +76,13 @@ class OpportunityController extends Controller
      * @param  \App\Models\OpportunityType  $opportunityType
      * @return \Illuminate\Http\Response
      */
-    public function show(Opportunity $opportunity)
+    public function show($slug)
     {
         //
+        $opportunity = Opportunity::where('slug',$slug)->first();
+        
+        
+        return view("opportunities.show", compact(['opportunity']) );
     }
 
     /**

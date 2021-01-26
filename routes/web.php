@@ -45,9 +45,7 @@ use App\Http\Controllers\SearchController;
 Route::name('home_path')->get('/', [FrontController::class, 'index']);
 Route::name('search_doctors_path')->get('/search/doctors', [SearchController::class, 'search_doctors']);
 
-Route::get('/blog',['as' => 'blog_path', function () {
-    return view('blog/index');
-}]);
+
 
 Route::get('/about',['as' => 'about_path', function () {
     return view('pages/about');
@@ -81,6 +79,11 @@ Route::get('/structures/category/{slug}', [StructureController::class, 'category
 
 
 Route::get('/opportunities/all', [OpportunityController::class, 'all'])->name('opportunities.all');
+Route::get('/posts/all', [PostController::class, 'all'])->name('all_posts_path');
+
+Route::get('/opportunity/show/{slug}', [OpportunityController::class, 'show'])->name('show_opportunity_path');
+Route::get('/post/show/{slug}', [PostController::class, 'show'])->name('show_post_path');
+Route::get('/structure_type/delete/{slug}', [StructureTypeController::class, 'delete'])->name('delete_structure_type_path')->middleware(['auth']);
 
 
 Route::get('/dashboard', function () {
@@ -96,9 +99,12 @@ Route::resource('doctors', DoctorController::class)->middleware(['auth']);
 Route::resource('profiles', 'ProfileController')->middleware(['auth']);
 Route::resource('specialities', SpecialityController::class)->middleware(['auth']);
 Route::resource('opportunity_types', OpportunityTypeController::class)->middleware(['auth']);
-Route::resource('opportunities', OpportunityController::class)->middleware(['auth']);
+Route::resource('opportunities', OpportunityController::class, [
+    'only' => ['index', 'create', 'store', 'edit', 'destroy', 'update']])->middleware(['auth']);
+
 Route::resource('post_categories', PostCategoryController::class)->middleware(['auth']);
-Route::resource('posts', PostController::class)->middleware(['auth']);
+Route::resource('posts', PostController::class, [
+    'only' => ['index', 'create', 'store', 'edit', 'destroy', 'update']])->middleware(['auth']);
 Route::resource('structure_types', StructureTypeController::class)->middleware(['auth']);
 Route::resource('structure_categories', StructureCategoryController::class)->middleware(['auth']);
 Route::resource('structures', StructureController::class)->middleware(['auth']);

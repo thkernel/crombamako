@@ -60,57 +60,12 @@
     @csrf
     @method('PUT')
 
-  
+    @include('posts/_form')
 
      <div class="row">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        
 
-
-            <div class="form-group">
-                <select name="post_category_id"  class="form-control" required>
-                    <option selected="selected"> {{ $post->post_category_id }} </option>
-                    <option disabled> Sélectionner </option>
-                    @foreach($post_categories as $post_category)
-                        <option value = "{{ $post_category->id }}">{{ $post_category->name }}</option>
-                    @endforeach
-                    </select>
-            </div>
-
-            <div class="form-group">
-
-                <strong>Titre:</strong>
-
-                <input type="text" name="title" value="{{ $post->title }}" class="form-control" placeholder="Nom" reauired>
-
-            </div>
-
-             <div class="form-group">
-                <strong>Contenu:</strong>
-                <textarea rows="8" name="content" value="{{ $post->content }}" class="form-control" placeholder="Contenu">
-                </textarea>
-            </div>
-
-            <div class="form-group">
-
-                    <input type="file" name="thumbnail" class="form-control">
-
-                </div>
-
-        </div>
-<!--
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Detail:</strong>
-
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
-
-            </div>
-
-        </div>
--->
          <div class="col-xs-12 col-sm-12 col-md-12">
 
         <div class="form-group text-right">

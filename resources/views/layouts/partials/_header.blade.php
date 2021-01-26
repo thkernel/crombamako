@@ -13,10 +13,10 @@
               <a class="nav-link" href="{{ route('about_path') }}">A propos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('opportunities.all') }}">Opportinutés</a>
+              <a class="nav-link" href="{{ route('opportunities.all') }}">Opportunités</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('blog_path') }}">Actualité</a>
+              <a class="nav-link" href="{{ route('all_posts_path') }}">Actualité</a>
             </li>
            
              <li class="nav-item">

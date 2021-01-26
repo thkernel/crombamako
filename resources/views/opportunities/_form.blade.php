@@ -29,7 +29,7 @@
 
                 <textarea class="form-control"  id="editor" row="8" name="content" placeholder="Contenu">
 
-                     {{  old('description') ?? $opportunity->content }}
+                     {{  old('content') ?? $opportunity->content }}
                     
                 </textarea>
 

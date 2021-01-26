@@ -20,8 +20,9 @@
 	        	
 	        
 	    </form>
-
+	    <!--
         <div class="mg-t-60 tx-center">Vous n'avez pas encore de compte? <a href="{{ route('register') }}" class="tx-info">S'inscrire</a></div>
       </div>
+      -->
 
 @endsection

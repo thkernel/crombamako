@@ -23,7 +23,7 @@
 				
 		<div class="col-md-5">
 	        <div class="form-group">
-	        	<label for="last_name" class="required">Prénom:</label>
+	        	<label for="last_name" class="required">Nom:</label>
 	        	<input type="text" class="form-control" placeholder="Nom"  name="last_name" value="{{  old('last_name') ?? $subscription_request->last_name }}" >
 		    	{!! $errors->first('last_name', '<p class="error">:message</p>') !!}
 	        </div><!-- form-group -->
@@ -100,7 +100,7 @@
 	<div class="row">
 		<div class="col-md-12">
 	        <div class="form-group">
-	        	<label for="description" class="required">Notes:</label>
+	        	<label for="description">Notes:</label>
 	        	<textarea class="form-control" placeholder="Notes" id="editor" name="description" row="20">
 	          		{{  old('description') ?? $subscription_request->description }}
 	        	</textarea> 

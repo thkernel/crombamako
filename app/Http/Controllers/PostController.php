@@ -21,6 +21,13 @@ class PostController extends Controller
         return view("posts.index", compact(['posts']) );
     }
 
+    public function all()
+    {
+        //
+        $posts =  Post::orderBy('id', 'desc')->paginate(10)->setPath('posts');
+        return view("posts.all", compact(['posts']) );
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,8 +36,9 @@ class PostController extends Controller
     public function create()
     {
         //
+        $post = new Post;
         $post_categories =  PostCategory::all();
-        return view('posts.create', compact(['post_categories']));
+        return view('posts.create', compact(['post_categories', 'post']));
     }
 
     /**
@@ -72,9 +80,13 @@ class PostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show($slug)
     {
         //
+        $post = Post::where('slug',$slug)->first();
+        
+        
+        return view("posts.show", compact(['post']) );
     }
 
     /**

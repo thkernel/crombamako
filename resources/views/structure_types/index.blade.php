@@ -45,6 +45,8 @@
 </div>
 </div>
 </div>
-<div id="member-modal" class="c-modal modal fade" data-backdrop="static"></div>
+
+  
+</div>
 
 @endsection

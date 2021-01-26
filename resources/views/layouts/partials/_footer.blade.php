@@ -30,7 +30,7 @@
 					<ul>
 						
 					
-						<li><a href="{{ route('blog_path') }}">Actualité</a></li>
+						<li><a href="{{ route('all_posts_path') }}">Actualité</a></li>
 						<li><a href="{{ route('faq_path') }}">Foire Aux Questions</a></li>
 						<li><a href="{{ route('cgu_path') }}">Conditions d'utilisation</a></li>
 						<li><a href="{{ route('privacy_policy_path') }}">Politique de confidentialité</a></li>
