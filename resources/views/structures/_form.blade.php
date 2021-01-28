@@ -39,35 +39,47 @@
 </div>
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <div class="form-group">
             <label>Adresse:</label>
             <input type="text" name="address" class="form-control" placeholder="Adresse" value="{{  old('address') ?? $structure->address }}">
                         {!! $errors->first('name', '<p class="error">:message</p>') !!}
         </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="locality_id" class="required">Localité:</label>
-            <select name="locality_id" class="form-control" required>
-                <option {{ $structure->locality_id  ? '' : 'disabled selected value'}}> Sélectionner </option>
-                @foreach($localities as $locality)
-                    <option value = "{{ $locality->id }}" {{ $locality->id == $structure->locality_id ?  'selected' : ''}}>{{ $locality->name }}</option>
+    <div class="col-md-3">
+            <div class="form-group">
+            <label for="town_id" class="required">Commune:</label>
+            <select name="town_id" id="town_id" class="form-control" required>
+                <option {{ $structure->town_id  ? '' : 'disabled selected value'}}> Sélectionner </option>
+                @foreach($towns as $town)
+                    <option value = "{{ $town->id }}" {{ $town->id === $structure->town_id ?  'selected' : ''}}>{{ $town->name }}</option>
                 @endforeach
             </select>
         </div>
-    </div>
-    <div class="col-md-4">
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+            <label for="neighborhood_id" class="required">Quartier:</label>
+            <select name="neighborhood_id" id="neighborhood_id" class="form-control" required>
+                <option {{ $structure->neighborhood_id  ? '' : 'disabled selected value'}}> Sélectionner </option>
+                @foreach($neighborhoods as $neighborhood)
+                    <option value = "{{ $neighborhood->id }}" {{ $neighborhood->id === $structure->neighborhood_id ?  'selected' : ''}}>{{ $neighborhood->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        </div>
+</div>
+
+<div class="row">
+    
+    <div class="col-md-6">
         <div class="form-group">
             <label for="phone" class="required">Téléphone:</label>
             <input type="text" name="phone" class="form-control" placeholder="Téléphone" value="{{  old('phone') ?? $structure->phone }}" required>
             {!! $errors->first('name', '<p class="error">:message</p>') !!}
         </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-6">
         <div class="form-group">
             <label for="website">Site web:</label>
             <input type="text" name="website" class="form-control" placeholder="Site web" value="{{  old('website') ?? $structure->website }}">

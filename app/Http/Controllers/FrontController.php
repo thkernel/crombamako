@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Controllers\Controller;
-use App\Models\Locality;
+use App\Models\Town;
 use App\Models\Speciality;
 
 class FrontController extends Controller
@@ -17,10 +17,10 @@ class FrontController extends Controller
     public function index()
     {
         //
-        $localities =  Locality::all();
+        $towns =  Town::all();
         $specialities =  Speciality::all();
         
-        return view("front.index", compact(['localities','specialities']) );
+        return view("front.index", compact(['towns','specialities']) );
     }
 
     /**

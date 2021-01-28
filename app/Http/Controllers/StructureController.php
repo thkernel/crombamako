@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Structure;
 use App\Models\StructureType;
 use App\Models\StructureCategory;
-use App\Models\Locality;
+use App\Models\Town;
+use App\Models\Neighborhood;
+
 use Illuminate\Http\Request;
 
 class StructureController extends Controller
@@ -47,10 +49,11 @@ class StructureController extends Controller
         $structure = new Structure;
         $structure_types =  StructureType::all();
         $structure_categories =  StructureCategory::all();
-        $localities =  Locality::all();
+        $towns =  Town::all();
+        $neighborhoods =  Neighborhood::all();
 
         
-        return view('structures.create', compact(['structure','structure_types', 'structure_categories','localities']));
+        return view('structures.create', compact(['structure','structure_types', 'structure_categories','towns','neighborhoods']));
     }
 
     /**

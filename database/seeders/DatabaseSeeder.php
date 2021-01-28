@@ -19,10 +19,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
         RoleSeeder::class,
         UserSeeder::class,
+        TownSeeder::class,
         ProfileSeeder::class,
+        PageSeeder::class,
         StructureTypeSeeder::class,
         StructureCategorySeeder::class,
-        LocalitySeeder::class,
+        
     ]);
     }
 }

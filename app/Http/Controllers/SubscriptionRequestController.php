@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\SubscriptionRequest;
 use Illuminate\Http\Request;
 use App\Models\Speciality;
-use App\Models\Locality;
+use App\Models\Town;
+use App\Models\Neighborhood;
+
 use App\Models\Structure;
 use Illuminate\Support\Str;
 
@@ -33,11 +35,12 @@ class SubscriptionRequestController extends Controller
     {
         //
         $specialities =  Speciality::all();
-        $localities =  Locality::all();
+        $towns =  Town::all();
+        $neighborhoods =  Neighborhood::all();
         $structures =  Structure::all();
 
         $subscription_request =  new SubscriptionRequest;
-        return view('subscription_requests.create', compact(['subscription_request','specialities', 'localities', 'structures']));
+        return view('subscription_requests.create', compact(['subscription_request','specialities', 'towns', 'structures', 'neighborhoods']));
     }
 
     /**

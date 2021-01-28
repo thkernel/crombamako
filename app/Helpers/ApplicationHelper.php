@@ -26,8 +26,16 @@
 	function sidebar_menu(){
 
 		if (!empty(current_user())){
-			if (current_user()->role->name == "superuser"){
+			if (current_user()->isSuperUser()){
 				$view = view("layouts/partials/dashboard/navs/_superuser-nav");
+				return $view;
+			}
+			else if (current_user()->isAdmin()){
+				$view = view("layouts/partials/dashboard/navs/_admin-nav");
+				return $view;
+			}
+			else if (current_user()->isDoctor()){
+				$view = view("layouts/partials/dashboard/navs/_doctor-nav");
 				return $view;
 			}
 		}

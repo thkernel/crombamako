@@ -31,7 +31,7 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 	        <div class="form-group">
 	        	<label for="speciality_id" class="required">Spécialité:</label>
                 <select name="speciality_id" class="form-control" required>
@@ -42,19 +42,42 @@
                 </select>
             </div>
 		</div>
-	    <div class="col-md-4">
+		<div class="col-md-3">
+			<div class="form-group">
+	            <label for="service_id" class="required">Service:</label>
+	            <select name="service_id" id="service_id" class="form-control" required>
+	                <option {{ $subscription_request->service_id  ? '' : 'disabled selected value'}}> 
+	                @foreach($services as $service)
+	                    <option value = "{{ $service->id }}" {{ $service->id === $subscription_request->service_id ?  'selected' : ''}}>{{ $service->name }}</option>
+	                @endforeach
+	            </select>
+	        </div>
+	    </div>
+
+	    <div class="col-md-3">
             <div class="form-group">
-             	<label for="locality_id" class="required">Localité:</label>
-                <select name="locality_id" class="form-control" required>
+             	<label for="town_id" class="required">Commune:</label>
+                <select name="town_id" class="form-control" required>
                     <option disabled selected value> Sélectionner </option>
-                    @foreach($localities as $locality)
-                        <option value = "{{ $locality->id }}">{{ $locality->name }}</option>
+                    @foreach($towns as $town)
+                        <option value = "{{ $town->id }}">{{ $town->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+		</div>
+		<div class="col-md-3">
+            <div class="form-group">
+             	<label for="neighborhood_id" class="required">Quartier:</label>
+                <select name="neighborhood_id" class="form-control" required>
+                    <option disabled selected value> Sélectionner </option>
+                    @foreach($neighborhoods as $neighborhood)
+                        <option value = "{{ $neighborhood->id }}">{{ $neighborhood->name }}</option>
                     @endforeach
                 </select>
             </div>
 		</div>
 
-		<div class="col-md-4">
+		<div class="col-md-3">
             <div class="form-group">
              	<label for="structure_id">Structure:</label>
                 <select name="structure_id" class="form-control">

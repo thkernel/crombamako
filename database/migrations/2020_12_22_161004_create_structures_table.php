@@ -17,15 +17,12 @@ class CreateStructuresTable extends Migration
             $table->id();
             $table->string('uid')->unique()->nullable();
             $table->string('slug')->unique();
-            $table->integer('structure_type_id')->unsigned();
-            $table->foreign('structure_type_id')->references('id')->on('structure_types')->onDelete('cascade');
-            $table->integer('structure_category_id')->unsigned();
-            $table->foreign('structure_category_id')->references('id')->on('structure_categories')->onDelete('cascade');
+            
+
             $table->string('name')->unique();
             $table->string('slogan')->nullable();
             $table->string('address')->nullable();
             $table->string('street')->nullable();
-            $table->string('locality_id');
             $table->string('phone')->nullable();
             $table->string('email')->nullable();
             $table->string('website')->nullable();
@@ -34,6 +31,19 @@ class CreateStructuresTable extends Migration
             $table->text('description')->nullable();
             $table->string('status')->nullable();
             $table->string('logo')->nullable();
+            
+            $table->integer('town_id')->unsigned();
+            $table->foreign('town_id')->references('id')->on('towns')->onDelete('cascade');
+
+            $table->integer('neighborhood_id')->unsigned();
+            $table->foreign('neighborhood_id')->references('id')->on('neighborhoods')->onDelete('cascade');
+            
+            $table->integer('structure_type_id')->unsigned();
+            $table->foreign('structure_type_id')->references('id')->on('structure_types')->onDelete('cascade');
+            
+            $table->integer('structure_category_id')->unsigned();
+            $table->foreign('structure_category_id')->references('id')->on('structure_categories')->onDelete('cascade');
+            
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));

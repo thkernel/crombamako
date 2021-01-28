@@ -23,9 +23,11 @@ class SubscriptionRequest extends Model
     	'street',
     	'door',
     	'email',
-    	'locality_id',
+    	'town_id',
+        'neighborhood_id',
     	'speciality_id',
     	'speciality_id',
+        'structure_id',
     	'description',
         'status'
     ];

@@ -13,17 +13,26 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\OpportunityTypeController;
 use App\Http\Controllers\OpportunityController;
 use App\Http\Controllers\ContactFormController;
-use App\Http\Controllers\LocalityController;
+use App\Http\Controllers\TownController;
+use App\Http\Controllers\NeighborhoodController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\StructureCategoryController;
 use App\Http\Controllers\ContributionController;
 use App\Http\Controllers\SubscriptionRequestController;
 use App\Http\Controllers\ActivityLogController;
-use App\Http\Controllers\CertificateTypeController;
-use App\Http\Controllers\CertificateRequestController;
+use App\Http\Controllers\DocumentTypeController;
+use App\Http\Controllers\DocumentRequestController;
 use App\Http\Controllers\VisitSummaryController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PrestationController;
+use App\Http\Controllers\StaffController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\StaticPageController;
+
+
+
 
 
 
@@ -47,11 +56,6 @@ Route::name('search_doctors_path')->get('/search/doctors', [SearchController::cl
 
 
 
-Route::get('/about',['as' => 'about_path', function () {
-    return view('pages/about');
-}]);
-
-
 
 Route::get('/contact-us',['as' => 'contact_us_path', function () {
     return view('pages/contact_us');
@@ -61,13 +65,9 @@ Route::get('/faq',['as' => 'faq_path', function () {
     return view('pages/faq');
 }]);
 
-Route::get('/cgu',['as' => 'cgu_path', function () {
-    return view('pages/cgu');
-}]);
 
-Route::get('/privacy-policy',['as' => 'privacy_policy_path', function () {
-    return view('pages/privacy_policy');
-}]);
+
+
 
 Route::put('/validate-subscription/{subscription_request}', [SubscriptionRequestController::class, 'validate_subscription'])->middleware(['auth'])->name('subscription_request.validate_subscription');
 
@@ -84,6 +84,11 @@ Route::get('/posts/all', [PostController::class, 'all'])->name('all_posts_path')
 Route::get('/opportunity/show/{slug}', [OpportunityController::class, 'show'])->name('show_opportunity_path');
 Route::get('/post/show/{slug}', [PostController::class, 'show'])->name('show_post_path');
 Route::get('/structure_type/delete/{slug}', [StructureTypeController::class, 'delete'])->name('delete_structure_type_path')->middleware(['auth']);
+
+Route::get('/about', [StaticPageController::class, 'about'])->name('about_path');
+Route::get('/cgu', [StaticPageController::class, 'cgu'])->name('cgu_path');
+Route::get('/privacy-policy', [StaticPageController::class, 'privacy_policy'])->name('privacy_policy_path');
+
 
 
 Route::get('/dashboard', function () {
@@ -109,15 +114,23 @@ Route::resource('structure_types', StructureTypeController::class)->middleware([
 Route::resource('structure_categories', StructureCategoryController::class)->middleware(['auth']);
 Route::resource('structures', StructureController::class)->middleware(['auth']);
 Route::resource('contact_forms', ContactFormController::class);
-Route::resource('localities', LocalityController::class)->middleware(['auth']);
+Route::resource('towns', TownController::class)->middleware(['auth']);
+Route::resource('neighborhoods', NeighborhoodController::class)->middleware(['auth']);
+
 Route::resource('subscription_requests', SubscriptionRequestController::class);
 Route::resource('logs', ActivityLogController::class)->middleware(['auth']);
 Route::resource('contributions', ContributionController::class)->middleware(['auth']);
-Route::resource('certificate_types', CertificateTypeController::class)->middleware(['auth']);
+Route::resource('document_types', DocumentTypeController::class)->middleware(['auth']);
 
-Route::resource('certificate_requests', CertificateRequestController::class)->middleware(['auth']);
+Route::resource('document_requests', DocumentRequestController::class)->middleware(['auth']);
 
 Route::resource('visit_summaries', VisitSummaryController::class)->middleware(['auth']);
+Route::resource('services', ServiceController::class)->middleware(['auth']);
+Route::resource('prestations', PrestationController::class)->middleware(['auth']);
+Route::resource('staffs', StaffController::class)->middleware(['auth']);
+Route::resource('pages', PageController::class)->middleware(['auth']);
+
+
 
 
 require __DIR__.'/auth.php';

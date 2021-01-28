@@ -19,10 +19,10 @@ class StructureTypeSeeder extends Seeder
 
         $superuser = DB::table('users')->whereLogin('superuser')->get()[0];
         
-        DB::table('structure_types')->insert(["uid" => Str::random(32), "name" => "Privé",
+        DB::table('structure_types')->insert(["uid" => Str::random(32),"slug"  => "privee", "name" => "Privé",
             "user_id" => $superuser->id,
     ]);
-        DB::table('structure_types')->insert(["uid" => Str::random(32), "name" => "Publique",
+        DB::table('structure_types')->insert(["uid" => Str::random(32), "slug"  => "publique", "name" => "Publique",
             "user_id" => $superuser->id,
     ]);
 

@@ -89,7 +89,7 @@ class PostCategoryController extends Controller
     public function update(Request $request, PostCategory $post_category)
     {
         //
-        //
+        
         $request->validate([
         'name' => 'required',   
 

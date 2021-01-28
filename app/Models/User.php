@@ -57,4 +57,21 @@ class User extends Authenticatable
     public function opportunities(){
         return $this->hasMany(Opportunity::class);
     }
+
+    public function isSuperUser() {
+       return $this->role->name === 'superuser';
+    }
+
+
+    public function isAdmin() {
+       return $this->role->name === 'administrateur';
+    }
+
+    public function isDoctor() {
+       return $this->role->name === 'Médecin';
+    }
+
+    public function isUser() {
+       return $this->role->name === 'user';
+    }
 }

@@ -10,15 +10,28 @@
   </li><!-- br-menu-item -->
 
   
+  
+
   <li class="br-menu-item">
-    
+    <a href="#" class="br-menu-link with-sub ">
+      <i class="fa fa-building-o tx-20"></i>
+      <span class="menu-item-label">Structures</span>
+    </a><!-- br-menu-link -->
+    <ul class="br-menu-sub">
+      <li class="sub-item">
+        <a class="sub-link" href="{{ route('structures.index') }}">Structures</a>
 
-    <a class="br-menu-link" href="{{ route('structures.index') }}">
-      <i class="fa fa-building-o tx-20" aria-hidden="true"></i> <span class="menu-item-label">Structures</span>
-    
-    </a>
+      </li>
 
-  </li><!-- br-menu-item -->
+      <li class="sub-item">
+        <a class="sub-link" href="{{ route('staffs.index') }}">Personnel</a>
+
+      </li>
+
+    </ul>
+  </li>
+
+
   <li class="br-menu-item">
     
 
@@ -51,7 +64,7 @@
   <li class="br-menu-item">
     
 
-    <a class="br-menu-link" href="{{ route('certificate_requests.index') }}">
+    <a class="br-menu-link" href="{{ route('document_requests.index') }}">
       <i class="fa fa-file-text-o tx-20" aria-hidden="true"></i> <span class="menu-item-label">Demandes de document</span>
     
     </a>
@@ -71,27 +84,27 @@
 
 
   <li class="br-menu-item">
-          <a href="#" class="br-menu-link with-sub ">
-            <i class="fa fa-cubes tx-20"></i>
-            <span class="menu-item-label">Opportunités</span>
-          </a><!-- br-menu-link -->
-          <ul class="br-menu-sub">
-            <li class="sub-item">
-              <a class="sub-link" href="{{ route('opportunity_types.index') }}">Types d'opportunités</a>
+    <a href="#" class="br-menu-link with-sub ">
+      <i class="fa fa-cubes tx-20"></i>
+      <span class="menu-item-label">Opportunités</span>
+    </a><!-- br-menu-link -->
+    <ul class="br-menu-sub">
+      <li class="sub-item">
+        <a class="sub-link" href="{{ route('opportunity_types.index') }}">Types d'opportunités</a>
 
-            </li>
+      </li>
 
-            <li class="sub-item">
-              <a class="sub-link" href="{{ route('opportunities.index') }}">Opportunités</a>
+      <li class="sub-item">
+        <a class="sub-link" href="{{ route('opportunities.index') }}">Opportunités</a>
 
-            </li>
+      </li>
 
-          </ul>
-        </li>
+    </ul>
+  </li>
 
     <li class="br-menu-item">
       <a href="#" class="br-menu-link with-sub ">
-        <i class="fa fa-file-o tx-20"></i>
+        <i class="fa fa-thumb-tack tx-20"></i>
         <span class="menu-item-label">Articles</span>
       </a><!-- br-menu-link -->
       <ul class="br-menu-sub">
@@ -130,7 +143,15 @@
 
 
      
+<li class="br-menu-item">
+    
 
+    <a class="br-menu-link" href="{{ route('pages.index') }}">
+      <i class="fa fa-file-o tx-20" aria-hidden="true"></i> <span class="menu-item-label">Pages</span>
+    
+    </a>
+
+  </li><!-- br-menu-item -->
        
         
         
@@ -168,11 +189,21 @@
                 <a class="sub-link" href="{{ route('specialities.index') }}">Spécialités</a>
             </li>
             <li class="sub-item">
-                <a class="sub-link" href="{{ route('localities.index') }}">Localités</a>
+                <a class="sub-link" href="{{ route('towns.index') }}">Communes</a>
+            </li>
+             <li class="sub-item">
+                <a class="sub-link" href="{{ route('neighborhoods.index') }}">Quartiers</a>
             </li>
 
             <li class="sub-item">
-                <a class="sub-link" href="{{ route('certificate_types.index') }}">Types de document</a>
+                <a class="sub-link" href="{{ route('document_types.index') }}">Types de document</a>
+            </li>
+
+            <li class="sub-item">
+                <a class="sub-link" href="{{ route('services.index') }}">Services</a>
+            </li>
+            <li class="sub-item">
+                <a class="sub-link" href="{{ route('prestations.index') }}">Activités</a>
             </li>
 
             <li class="sub-item">

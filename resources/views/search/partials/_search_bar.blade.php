@@ -7,8 +7,9 @@
 			<div class="row ">
 				<div class="col-md-3">
 					<div class="form-group">
+						<label for="type"> Type </label>
 						<select name="type" id="type" class="form-control">
-							<option disabled selected value> Sélectionner </option>
+							<option disabled selected value> Sélectionner le type </option>
                             <option value="Médecin">Médecin</option>
                             <option value="Structure">Structure</option>
                         </select>
@@ -17,7 +18,7 @@
 
 			  	<div class="col-md-3">
 			  		<div class="form-group">
-			    
+			    		<label for="speciality_id"> Spécialité </label>
 			            <select name="speciality_id" id="speciality_id" class="form-control">
 			                <option disabled selected value> Sélectionner une spécialité </option>
 			                @foreach($specialities as $speciality)
@@ -30,11 +31,11 @@
 
 			  	<div class="col-md-3">
 			  		<div class="form-group">
-			            
-			            <select name="locality_id" id="speciality_id" class="form-control">
-			                <option disabled selected value> Sélectionner une localité </option>
-			                @foreach($localities as $locality)
-			                    <option value = "{{ $locality->id }}">{{ $locality->name }}</option>
+			            <label for="town_id"> Commune </label>
+			            <select name="town_id" id="town_id" class="form-control">
+			                <option disabled selected value> Sélectionner une commune </option>
+			                @foreach($towns as $town)
+			                    <option value = "{{ $town->id }}">{{ $town->name }}</option>
 			                @endforeach
 			            </select>
 			        </div>

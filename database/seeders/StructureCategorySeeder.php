@@ -16,12 +16,18 @@ class StructureCategorySeeder extends Seeder
     public function run()
     {
         //
-        DB::table('structure_categories')->insert(["uid" => Str::random(32), "name" => "CABINET"]);
-        DB::table('structure_categories')->insert(["uid" => Str::random(32), "name" => "CLINIQUE",
+        $superuser = DB::table('users')->whereLogin('superuser')->get()[0];
+
+
+
+        DB::table('structure_categories')->insert(["uid" => Str::random(32), "slug"  => "cabinet", "name" => "CABINET",
+            "user_id" => $superuser->id,
+    ]);
+        DB::table('structure_categories')->insert(["uid" => Str::random(32),"slug"  => "clinique", "name" => "CLINIQUE", 
             "user_id" => $superuser->id,
     ]);
 
-        DB::table('structure_categories')->insert(["uid" => Str::random(32), "name" => "
+        DB::table('structure_categories')->insert(["uid" => Str::random(32),"slug"  => "hopital", "name" => "
         	HOPITAL",
             "user_id" => $superuser->id,
         ]);

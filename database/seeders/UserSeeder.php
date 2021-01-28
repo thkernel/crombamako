@@ -18,6 +18,8 @@ class UserSeeder extends Seeder
         //
         $superuser = DB::table('roles')->whereName('superuser')->get()[0];
 
+        $admin = DB::table('roles')->whereName('administrateur')->get()[0];
+
         DB::table('users')->insert([
         	"login" => "superuser", 
         	"email" => "superuser@gmail.com",
@@ -32,7 +34,17 @@ class UserSeeder extends Seeder
             "login" => "demo", 
             "email" => "demo@gmail.com",
             "password" => Hash::make("demo@2020"),
-            "role_id" => $superuser->id,
+            "role_id" => $admin->id,
+            "email_verified_at" => date('Y-m-d H:i:s')
+            
+
+        ]);
+
+        DB::table('users')->insert([
+            "login" => "admin", 
+            "email" => "admin@gmail.com",
+            "password" => Hash::make("admin@2020"),
+            "role_id" => $admin->id,
             "email_verified_at" => date('Y-m-d H:i:s')
             
 
