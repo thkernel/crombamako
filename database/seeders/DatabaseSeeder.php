@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         TownSeeder::class,
         ProfileSeeder::class,
         PageSeeder::class,
+        DocumentSeeder::class,
         StructureTypeSeeder::class,
         StructureCategorySeeder::class,
         

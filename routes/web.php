@@ -30,6 +30,12 @@ use App\Http\Controllers\PrestationController;
 use App\Http\Controllers\StaffController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\StaticPageController;
+use App\Http\Controllers\StructurePrestationController;
+use App\Http\Controllers\BusinessLicenseController;
+use App\Http\Controllers\ApprovalController;
+
+
+
 
 
 
@@ -129,6 +135,9 @@ Route::resource('services', ServiceController::class)->middleware(['auth']);
 Route::resource('prestations', PrestationController::class)->middleware(['auth']);
 Route::resource('staffs', StaffController::class)->middleware(['auth']);
 Route::resource('pages', PageController::class)->middleware(['auth']);
+Route::resource('structure_prestations', StructurePrestationController::class)->middleware(['auth']);
+Route::resource('approvals', ApprovalController::class)->middleware(['auth']);
+Route::resource('business_licenses', BusinessLicenseController::class)->middleware(['auth']);
 
 
 
