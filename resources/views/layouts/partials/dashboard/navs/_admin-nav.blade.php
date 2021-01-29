@@ -28,6 +28,21 @@
 
       </li>
 
+      <li class="sub-item">
+        <a class="sub-link" href="{{ route('structure_prestations.index') }}">Activités & Structures</a>
+
+      </li>
+
+      <li class="sub-item">
+        <a class="sub-link" href="{{ route('business_licenses.index') }}">Licences d'exploitation</a>
+
+      </li>
+
+      <li class="sub-item">
+        <a class="sub-link" href="{{ route('visit_summaries.index') }}">Résumés de visite</a>
+
+      </li>
+
     </ul>
   </li>
 
@@ -54,6 +69,16 @@
   <li class="br-menu-item">
     
 
+    <a class="br-menu-link" href="{{ route('approvals.index') }}">
+      <i class="fa fa-id-card-o tx-20" aria-hidden="true"></i> <span class="menu-item-label">Agrément</span>
+    
+    </a>
+
+  </li><!-- br-menu-item -->
+
+  <li class="br-menu-item">
+    
+
     <a class="br-menu-link" href="{{ route('contributions.index') }}">
       <i class="fa fa-money tx-20" aria-hidden="true"></i> <span class="menu-item-label">Cotisations</span>
     
@@ -71,16 +96,6 @@
 
   </li><!-- br-menu-item -->
 
-  <li class="br-menu-item">
-    
-
-    <a class="br-menu-link" href="{{ route('visit_summaries.index') }}">
-      <i class="fa fa-newspaper-o tx-20" aria-hidden="true"></i> <span class="menu-item-label">Résumés des visites</span>
-    
-    </a>
-
-  </li><!-- br-menu-item -->
-  
 
 
   <li class="br-menu-item">
@@ -169,7 +184,9 @@
                 <a class="sub-link" href="{{ route('users.index') }}">Utilisateurs</a>
             </li>
 
-            
+             <li class="sub-item">
+                <a class="sub-link" href="{{ route('roles.index') }}">Rôles</a>
+            </li>
 
            
 
