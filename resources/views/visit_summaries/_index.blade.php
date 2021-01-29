@@ -17,12 +17,12 @@
 
 
 
-<a href="#" data-toggle="modal" data-target="#visit-summary-modal">
+<a href="#" data-toggle="modal" data-target="#visit-summary-{{$visit_summary->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Supprimer
 </a>
 
-<div id="visit-summary-modal" class="c-modal modal fade" data-backdrop="static">
+<div id="visit-summary-{{$visit_summary->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
 <div class="modal-dialog">
     <div class="modal-content">

@@ -10,12 +10,12 @@
     <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
     Modifier
  </a>
-<a href="#" data-toggle="modal" data-target="#prestation-modal">
+<a href="#" data-toggle="modal" data-target="#prestation-{{$prestation->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Supprimer
 </a>
 
-<div id="prestation-modal" class="c-modal modal fade" data-backdrop="static">
+<div id="prestation-{{$prestation->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
 <div class="modal-dialog">
     <div class="modal-content">

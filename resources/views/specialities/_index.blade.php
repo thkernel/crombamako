@@ -13,12 +13,12 @@
 
 
 
-<a href="#" data-toggle="modal" data-target="#speciality-modal">
+<a href="#" data-toggle="modal" data-target="#speciality-{{$speciality->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Supprimer
 </a>
 
-<div id="speciality-modal" class="c-modal modal fade" data-backdrop="static">
+<div id="speciality-{{$speciality->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
 <div class="modal-dialog">
     <div class="modal-content">

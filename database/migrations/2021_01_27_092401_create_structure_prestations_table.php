@@ -16,6 +16,7 @@ class CreateStructurePrestationsTable extends Migration
         Schema::create('structure_prestations', function (Blueprint $table) {
             $table->id();
             $table->string('status');
+            $table->bigInteger('structure_id')->unsigned();
             $table->foreign('structure_id')->references('id')->on('structures')->onDelete('cascade');
 
             $table->bigInteger('prestation_id')->unsigned();

@@ -22,9 +22,12 @@ class DatabaseSeeder extends Seeder
         TownSeeder::class,
         ProfileSeeder::class,
         PageSeeder::class,
-        DocumentSeeder::class,
+        DocumentTypeSeeder::class,
         StructureTypeSeeder::class,
-        StructureCategorySeeder::class,
+        SpecialitySeeder::class,
+        ServiceSeeder::class,
+        PrestationSeeder::class,
+        //StructureCategorySeeder::class,
         
     ]);
     }

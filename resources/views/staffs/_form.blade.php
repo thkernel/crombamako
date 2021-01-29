@@ -5,9 +5,10 @@
         	<label for="civility" class="required">Civilité:</label>
             <select name="civility" class="form-control" required>
                 <option disabled selected value> Sélectionner </option>
-                <option value = "Monsieur">Monsieur</option>
-                <option value = "Madame">Madame</option>
-                <option value = "Mademoiselle">Mademoiselle</option>
+                
+                <option value = "Monsieur" {{ $staff->civility == "Monsieur" ?  'selected' : ''}} >Monsieur</option>
+                <option value = "Madame" {{ $staff->civility == "Madame" ?  'selected' : ''}}>Madame</option>
+                <option value = "Mademoiselle" {{ $staff->civility == "Mademoiselle" ?  'selected' : ''}}>Mademoiselle</option>
             </select>
         </div>
 	</div>
@@ -50,7 +51,7 @@
             <select name="structure_id" id="structure_id" class="form-control" required>
                 <option {{ $staff->structure_id  ? '' : 'disabled selected value'}}> 
                 @foreach($structures as $structure)
-                    <option value = "{{ $structure->id }}" {{ $structure->id === $staff->structure_id ?  'selected' : ''}}>{{ $structure->name }}</option>
+                    <option value = "{{ $structure->id }}" {{ $structure->id == $staff->structure_id ?  'selected' : ''}}>{{ $structure->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -62,7 +63,7 @@
             <select name="service_id" id="service_id" class="form-control" required>
                 <option {{ $staff->service_id  ? '' : 'disabled selected value'}}> 
                 @foreach($services as $service)
-                    <option value = "{{ $service->id }}" {{ $service->id === $staff->service_id ?  'selected' : ''}}>{{ $service->name }}</option>
+                    <option value = "{{ $service->id }}" {{ $service->id == $staff->service_id ?  'selected' : ''}}>{{ $service->name }}</option>
                 @endforeach
             </select>
         </div>

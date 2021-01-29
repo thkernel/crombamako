@@ -6,7 +6,7 @@
             <select name="prestation_id" id="prestation_id" class="form-control" required>
                 <option {{ $structure_prestation->prestation_id  ? '' : 'disabled selected value'}}> 
                 @foreach($prestations as $prestation)
-                    <option value = "{{ $prestation->id }}" {{ $prestation->id === $structure_prestation->prestation_id ?  'selected' : ''}}>{{ $prestation->name }}</option>
+                    <option value = "{{ $prestation->id }}" {{ $prestation->id == $structure_prestation->prestation_id ?  'selected' : ''}}>{{ $prestation->name }}</option>
                 @endforeach
             </select>
         </div>
@@ -16,7 +16,7 @@
             <select name="structure_id" id="structure_id" class="form-control" required>
                 <option {{ $structure_prestation->structure_id  ? '' : 'disabled selected value'}}> 
                 @foreach($structures as $structure)
-                    <option value = "{{ $structure->id }}" {{ $structure->id === $structure_prestation->structure_id ?  'selected' : ''}}>{{ $structure->name }}</option>
+                    <option value = "{{ $structure->id }}" {{ $structure->id == $structure_prestation->structure_id ?  'selected' : ''}}>{{ $structure->name }}</option>
                 @endforeach
             </select>
         </div>

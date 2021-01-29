@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Speciality;
 use App\Models\Town;
 use App\Models\Neighborhood;
-
+use App\Models\Service;
 use App\Models\Structure;
 use Illuminate\Support\Str;
 
@@ -21,7 +21,7 @@ class SubscriptionRequestController extends Controller
     public function index()
     {
         //
-         $subscription_requests =  SubscriptionRequest::orderBy('id', 'desc')->paginate(10)->setPath('subscription_requests');
+         $subscription_requests =  SubscriptionRequest::where("status", '<>', "validated")->get();
          activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("subscription_requests.index", compact(['subscription_requests']) );
     }
@@ -38,9 +38,10 @@ class SubscriptionRequestController extends Controller
         $towns =  Town::all();
         $neighborhoods =  Neighborhood::all();
         $structures =  Structure::all();
+        $services =  Service::all();
 
         $subscription_request =  new SubscriptionRequest;
-        return view('subscription_requests.create', compact(['subscription_request','specialities', 'towns', 'structures', 'neighborhoods']));
+        return view('subscription_requests.create', compact(['subscription_request','specialities', 'towns', 'structures', 'neighborhoods', 'services']));
     }
 
     /**

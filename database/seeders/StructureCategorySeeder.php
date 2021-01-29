@@ -20,16 +20,11 @@ class StructureCategorySeeder extends Seeder
 
 
 
-        DB::table('structure_categories')->insert(["uid" => Str::random(32), "slug"  => "cabinet", "name" => "CABINET",
+        DB::table('structure_categories')->insert(["uid" => Str::random(32),"slug"  => "privee", "name" => "Privé",
             "user_id" => $superuser->id,
     ]);
-        DB::table('structure_categories')->insert(["uid" => Str::random(32),"slug"  => "clinique", "name" => "CLINIQUE", 
+        DB::table('structure_categories')->insert(["uid" => Str::random(32), "slug"  => "publique", "name" => "Publique",
             "user_id" => $superuser->id,
     ]);
-
-        DB::table('structure_categories')->insert(["uid" => Str::random(32),"slug"  => "hopital", "name" => "
-        	HOPITAL",
-            "user_id" => $superuser->id,
-        ]);
     }
 }

@@ -3,7 +3,7 @@
         <td>{{$business_license->created_at}}</td>
         <td>{{$business_license->reference}}</td>
         <td>{{$business_license->year}}</td>
-        <td>{{$business_license->user_id}}</td>
+        <td>{{$business_license->doctor->profile->full_name}}</td>
     
    
     

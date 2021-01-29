@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Locality;
+use App\Models\Town;
+use App\Models\Neighborhood;
 use App\Models\Speciality;
 use App\Models\Structure;
 use App\Models\EloquentStorageAttachment;
@@ -26,8 +27,8 @@ class SubscriptionRequest extends Model
     	'town_id',
         'neighborhood_id',
     	'speciality_id',
-    	'speciality_id',
         'structure_id',
+        'service_id',
     	'description',
         'status'
     ];
@@ -38,8 +39,12 @@ class SubscriptionRequest extends Model
             'status' => "pending"
         ];
 
-    public function locality(){
-        return $this->belongsTo(Locality::class);
+    public function town(){
+        return $this->belongsTo(Town::class);
+    }
+
+     public function neighborhood(){
+        return $this->belongsTo(Neighborhood::class);
     }
 
     public function speciality(){

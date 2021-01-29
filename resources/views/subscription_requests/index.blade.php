@@ -32,7 +32,7 @@
      <th>Date</th>
       <th>Prénom</th>
       <th>Nom</th>
-      <th>Localité</th>
+      <th>Commune</th>
       <th>Spécialité</th>
       <th>Structure</th>
       <th>Téléphone</th>

@@ -31,7 +31,9 @@
     <tr>
      <th>Catégorie</th>
       <th>Nom</th>
-      <th>Localité</th>
+      <th>Commune</th>
+      <th>Quartier</th>
+
      
       
       <th>Actions</th>

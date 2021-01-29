@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class PrestationSeeder extends Seeder
+class SpecialitySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,15 +14,18 @@ class PrestationSeeder extends Seeder
     public function run()
     {
         //
+
          $superuser = DB::table('users')->whereLogin('superuser')->get()[0];
 
 
 
-        DB::table('prestations')->insert(["uid" => Str::random(32),"name" => "ACCOUCHEMENT",
+        DB::table('specialities')->insert(["uid" => Str::random(32), "name" => "MEDECIN GENERALISTE",
             "user_id" => $superuser->id,
     ]);
-        DB::table('prestations')->insert(["uid" => Str::random(32),  "name" => "CONSULTATION",
+        DB::table('specialities')->insert(["uid" => Str::random(32), "name" => "MEDECIN SPECIALISTE",
             "user_id" => $superuser->id,
     ]);
+
+
     }
 }

@@ -46,6 +46,7 @@ class VisitSummaryController extends Controller
     {
         //
         $request['user_id'] = current_user()->id;
+        $request['status'] = "Enable";
      
 
         $request->validate([
@@ -55,7 +56,7 @@ class VisitSummaryController extends Controller
 
         
 
-        VisitSummary:create($request->all());
+        VisitSummary::create($request->all());
 
    
         return redirect()->route('visit_summaries.index')
@@ -79,12 +80,12 @@ class VisitSummaryController extends Controller
      * @param  \App\Models\VisitSummary  $visitSummary
      * @return \Illuminate\Http\Response
      */
-    public function edit(VisitSummary $visitSummary)
+    public function edit(VisitSummary $visit_summary)
     {
         //
         $structures =  Structure::all();
         
-        return view('visit_summaries.edit', compact(['structures']));
+        return view('visit_summaries.edit', compact(['visit_summary', 'structures']));
 
     }
 

@@ -41,6 +41,25 @@ class BusinessLicenseController extends Controller
     public function store(Request $request)
     {
         //
+
+         $request['doctor_id'] = current_user()->id;
+     
+
+        $request->validate([
+            'reference' => 'required',
+            'year' => 'required',
+
+        ]);
+
+        
+
+        BusinessLicense::create($request->all());
+
+   
+        return redirect()->route('business_licenses.index')
+            ->with('success','Business license created successfully.');
+
+
     }
 
     /**
@@ -60,9 +79,10 @@ class BusinessLicenseController extends Controller
      * @param  \App\Models\BusinessLicense  $businessLicense
      * @return \Illuminate\Http\Response
      */
-    public function edit(BusinessLicense $businessLicense)
+    public function edit(BusinessLicense $business_license)
     {
         //
+        return view('business_licenses.edit', compact(['business_license']));
     }
 
     /**
@@ -72,9 +92,25 @@ class BusinessLicenseController extends Controller
      * @param  \App\Models\BusinessLicense  $businessLicense
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BusinessLicense $businessLicense)
+    public function update(Request $request, BusinessLicense $business_license)
     {
         //
+        $request['status'] = "enable";
+        $request['doctor_id'] = current_user()->id;
+        $request->validate([
+            'reference' => 'required',
+            'year' => 'required',
+            
+
+        ]);
+        
+        $business_license->update($request->all());
+
+  
+
+        return redirect()->route('business_licenses.index')
+
+                        ->with('success','BusinessLicense updated successfully');
     }
 
     /**
@@ -83,8 +119,10 @@ class BusinessLicenseController extends Controller
      * @param  \App\Models\BusinessLicense  $businessLicense
      * @return \Illuminate\Http\Response
      */
-    public function destroy(BusinessLicense $businessLicense)
+    public function destroy($id)
     {
         //
+        BusinessLicense::where('id',$id)->delete();
+        return redirect()->back()->with('success','Delete Successfully');
     }
 }

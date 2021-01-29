@@ -77,6 +77,11 @@
             </div>
 		</div>
 
+		
+
+	</div>
+
+	<div class="row">
 		<div class="col-md-3">
             <div class="form-group">
              	<label for="structure_id">Structure:</label>
@@ -89,9 +94,6 @@
             </div>
 		</div>
 
-	</div>
-
-	<div class="row">
 		<div class="col-md-6">
 	        <div class="form-group">
 	        	<label for="address" class="required">Adresse:</label>
@@ -100,7 +102,7 @@
 	        </div><!-- form-group -->
 	     </div><!-- form-group -->
 
-	     <div class="col-md-6">
+	     <div class="col-md-3">
 	        <div class="form-group">
 	        	<label for="phone" class="required">Téléphone:</label>
 	        	<input type="text" class="form-control" placeholder="Téléphone"  name="phone" value="{{  old('phone') ?? $subscription_request->phone }}" >

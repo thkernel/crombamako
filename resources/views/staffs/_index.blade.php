@@ -15,12 +15,12 @@
     <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
     Modifier
  </a>
-<a href="#" data-toggle="modal" data-target="#staff-modal">
+<a href="#" data-toggle="modal" data-target="#staff-{{$staff->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Supprimer
 </a>
 
-<div id="staff-modal" class="c-modal modal fade" data-backdrop="static">
+<div id="staff-{{$staff->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
 <div class="modal-dialog">
     <div class="modal-content">
@@ -34,7 +34,7 @@
           <ul class="errors"></ul>
           Etes-vous sûr de vouloir supprimer ce enregistrement?
           <p>
-          ID: <b> {{ $staff->name}} </b>
+          ID: <b> {{ $staff->first_name }} {{ $staff->last_name }} </b>
           </p>
         </div>
         <div class="modal-footer">

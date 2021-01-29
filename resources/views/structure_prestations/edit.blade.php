@@ -60,7 +60,7 @@
     @csrf
     @method('PUT')
 
-  @include("prestations/_form")
+  @include("structure_prestations/_form")
 
      <div class="row">
 

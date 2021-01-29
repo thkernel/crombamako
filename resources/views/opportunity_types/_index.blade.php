@@ -7,18 +7,18 @@
 			
 
  <a  href="{{ route('opportunity_types.edit', $opportunity_type->id) }}">
-    <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
+    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
     Modifier
  </a>
 
 
 
-<a href="#" data-toggle="modal" data-target="#opportunity-type-modal">
+<a href="#" data-toggle="modal" data-target="#opportunity-type-{{$opportunity_type->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Supprimer
 </a>
 
-<div id="opportunity-type-modal" class="c-modal modal fade" data-backdrop="static">
+<div id="opportunity-type-{{$opportunity_type->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
 <div class="modal-dialog">
     <div class="modal-content">

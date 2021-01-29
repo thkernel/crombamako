@@ -2,7 +2,8 @@
     <tr>
         <td>{{$structure->structure_category->name}}</td>
     <td>{{$structure->name}}</td>
-    <td>{{$structure->locality->name}}</td>
+    <td>{{$structure->town->name}}</td>
+    <td>{{$structure->neighborhood->name}}</td>
     
 <td>
 	    <div class="action-buttons">
@@ -15,12 +16,12 @@
 
 
 
-<a href="#" data-toggle="modal" data-target="#structure-modal">
+<a href="#" data-toggle="modal" data-target="#structure-{{$structure->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Supprimer
 </a>
 
-<div id="structure-modal" class="c-modal modal fade" data-backdrop="static">
+<div id="structure-{{$structure->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
 <div class="modal-dialog">
     <div class="modal-content">

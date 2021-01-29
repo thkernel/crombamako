@@ -42,7 +42,7 @@ class ApprovalController extends Controller
     {
         //
         $request['status'] = "enable";
-        $request['user_id'] = current_user()->id;
+        $request['doctor_id'] = current_user()->id;
         $request->validate([
             'reference' => 'required',
             'year' => 'required',

@@ -28,7 +28,8 @@ class OpportunityTypeController extends Controller
     public function create()
     {
         //
-        return view('opportunity_types.create');
+        $opportunity_type = new OpportunityType;
+        return view('opportunity_types.create', compact(['opportunity_type']));
     }
 
     /**

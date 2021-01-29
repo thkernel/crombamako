@@ -11,7 +11,7 @@ class VisitSummary extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['structure_id', 'content','user_id'];
+    protected $fillable = ['structure_id', 'description', 'status','user_id'];
 
     public function structure(){
         return $this->belongsTo(Structure::class);

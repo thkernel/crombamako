@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\StructureType;
 use App\Models\StructureCategory;
-use App\Models\Locality;
+use App\Models\Town;
+use App\Models\Neighborhood;
 use App\Models\VisitSummary;
 use Cviebrock\EloquentSluggable\Sluggable;
 
@@ -16,7 +17,7 @@ class Structure extends Model
     use Sluggable;
 
 
-    protected $fillable = ['structure_type_id','structure_category_id','name','slogan', "address", "street", "locality_id", "phone" , "email", "website", "latitude", "longitude", "description", "logo",'user_id'];
+    protected $fillable = ['structure_type_id','structure_category_id','name','slogan', "address", "street", "town_id", "neighborhood_id", "phone" , "email", "website", "latitude", "longitude", "description", 'user_id'];
 
 
 
@@ -42,8 +43,12 @@ class Structure extends Model
         return $this->belongsTo(StructureCategory::class);
     }
 
-    public function locality(){
-        return $this->belongsTo(Locality::class);
+    public function town(){
+        return $this->belongsTo(Town::class);
+    }
+
+    public function neighborhood(){
+        return $this->belongsTo(Neighborhood::class);
     }
 
     public function visit_summary(){

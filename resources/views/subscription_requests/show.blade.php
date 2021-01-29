@@ -38,8 +38,12 @@
                 <span>{{ $subscription_request->last_name}}</span>
               </li>
               <li class="detail-city">
-                <strong>Localité: </strong> 
-                <span>{{ $subscription_request->locality->name}}</span>
+                <strong>Commune: </strong> 
+                <span>{{ $subscription_request->town->name}}</span>
+              </li>
+               <li class="detail-city">
+                <strong>Quartier: </strong> 
+                <span>{{ $subscription_request->neighborhood->name}}</span>
               </li>
               <li class="detail-city">
                 <strong>Adresse: </strong> 

@@ -3,7 +3,8 @@
 @section("content")
 <div class="container main-container">
 
-
+    <h2>Nouvelle - Structure</h2>
+    <hr />
 
 <div class="br-pagebody mg-b-30">
   <div class="br-section-wrapper">
@@ -12,7 +13,7 @@
 
             <div class="col-lg-12 margin-tb">
                 <div class="pull-left">
-                    <h2>Nouvelle - Structure</h2>
+                    
                 </div>
             </div>
 

@@ -70,7 +70,9 @@ class StructureController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'locality_id' => 'required',
+            'phone' => 'required',
+            'town_id' => 'required',
+            'neighborhood_id' => 'required',
             'structure_type_id' => 'required',
             'structure_category_id' => 'required',
 
@@ -107,8 +109,10 @@ class StructureController extends Controller
         //
         $structure_types =  StructureType::all();
         $structure_categories =  StructureCategory::all();
-        $localities =  Locality::all();
-        return view('structures.edit', compact(['structure_types','structure_categories', 'structure', 'localities']));
+        $towns =  Town::all();
+        $neighborhoods =  Neighborhood::all();
+
+        return view('structures.edit', compact(['structure_types','structure_categories', 'structure', 'towns', 'neighborhoods']));
     }
 
     /**
@@ -123,7 +127,12 @@ class StructureController extends Controller
         //
         $request->validate([
             'structure_type_id' => 'required',   
-            'name' => 'required',   
+            'name' => 'required',  
+            'phone' => 'required',
+            'town_id' => 'required',
+            'neighborhood_id' => 'required',
+            'structure_type_id' => 'required',
+            'structure_category_id' => 'required', 
 
         ]);
 

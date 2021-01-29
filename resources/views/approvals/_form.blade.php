@@ -21,8 +21,8 @@
 
     
         <div class="form-group">
-            <label for="content" class="required">Contenu:</label>
-            <textarea rows="8" id="editor" name="content" class="form-control" placeholder="Contenu" required> {{ $approval->content }}
+            <label for="description" class="required">Contenu:</label>
+            <textarea rows="8" id="editor" name="description" class="form-control" placeholder="Contenu" required> {{ $approval->description }}
             </textarea>
         </div>
 

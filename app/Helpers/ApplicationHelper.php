@@ -140,7 +140,7 @@
 	*/
 
 	function doctor_factory(SubscriptionRequest $subscription_request){
-		$doctor = DB::table('roles')->whereName('medecin')->get()[0];
+		$doctor = DB::table('roles')->whereName('Médecin')->get()[0];
 
 		// generate login and password
 		$login = strtolower($subscription_request->last_name.'_'.Str::random(4));
@@ -162,7 +162,9 @@
 			$profile->last_name = $subscription_request->last_name ;
 			$profile->address = $subscription_request->address ;
 			$profile->phone = $subscription_request->phone ;
-			$profile->locality_id = $subscription_request->locality_id ;
+			$profile->town_id = $subscription_request->town_id ;
+			$profile->neighborhood_id = $subscription_request->neighborhood_id ;
+			$profile->service_id = $subscription_request->service_id ;
 			$profile->speciality_id = $subscription_request->speciality_id ;
 			$profile->structure_id = $subscription_request->structure_id ;
 			$profile->user_id = $user->id ;

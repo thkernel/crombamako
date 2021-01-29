@@ -9,5 +9,10 @@ class BusinessLicense extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['reference', 'year', 'description' , 'status', 'user_id'];
+    protected $fillable = ['reference', 'year', 'description' , 'status', 'doctor_id'];
+
+
+     public function doctor(){
+        return $this->belongsTo(User::class);
+    }
 }

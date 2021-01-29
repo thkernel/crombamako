@@ -9,6 +9,8 @@
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
       
+            <h4>Modification - Type d'opportunité</h4>
+            <hr />
 
     </div>
     <div class="section-body">
@@ -18,7 +20,6 @@
 
         <div class="pull-left">
 
-            <h2>Modification - Type d'opportunité</h2>
 
         </div>
 
@@ -62,39 +63,15 @@
     @method('PUT')
 
   
-
+    @include("opportunity_types/_form")
      <div class="row">
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 
-            <div class="form-group">
-
-                <strong>Nom:</strong>
-
-                <input type="text" name="name" value="{{ $opportunity_type->name }}" class="form-control" placeholder="Nom" reauired>
-
+            <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Modifier</button>
             </div>
-
         </div>
-<!--
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Detail:</strong>
-
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
-
-            </div>
-
-        </div>
--->
-         <div class="col-xs-12 col-sm-12 col-md-12">
-
-        <div class="form-group text-right">
-            <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Modifier</button>
-   </div>
-  </div>
 
     </div>
 

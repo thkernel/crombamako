@@ -6,6 +6,7 @@ use App\Models\Staff;
 use App\Models\Service;
 use App\Models\Structure;
 use App\Models\Speciality;
+use App\Models\StructureCategory;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -31,10 +32,11 @@ class StaffController extends Controller
     public function create()
     {
         //
+        $structure_category = StructureCategory::where("slug", "privee")->first();
         $staff = new Staff;
         $specialities =  Speciality::all();
         $services =  Service::all();
-        $structures =  Structure::all();
+        $structures =  Structure::where('structure_category_id', $structure_category->id)->get();
         return view('staffs.create', compact(['staff','specialities', 'services','structures']));
     }
 
@@ -51,7 +53,7 @@ class StaffController extends Controller
         $request['user_id'] = current_user()->id;
         $request->validate([
             'civility' => 'required',
-            'firt_name' => 'required',
+            'first_name' => 'required',
             'last_name' => 'required',
             'structure_id' => 'required',
             'speciality_id' => 'required',
@@ -112,7 +114,7 @@ class StaffController extends Controller
         $request['user_id'] = current_user()->id;
         $request->validate([
             'civility' => 'required',
-            'firt_name' => 'required',
+            'first_name' => 'required',
             'last_name' => 'required',
             'structure_id' => 'required',
             'speciality_id' => 'required',
@@ -135,8 +137,10 @@ class StaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Staff $staff)
+    public function destroy($id)
     {
         //
+        Staff::where('id',$id)->delete();
+        return redirect()->back()->with('success','Delete Successfully');
     }
 }

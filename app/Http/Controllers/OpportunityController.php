@@ -131,7 +131,7 @@ class OpportunityController extends Controller
      * @param  \App\Models\Opportunity  $opportunity
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Opportunity $opportunity)
+    public function destroy($id)
     {
         //
         Opportunity::where('id',$id)->delete();

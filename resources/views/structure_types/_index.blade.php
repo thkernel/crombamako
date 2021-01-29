@@ -11,12 +11,12 @@
     Modifier
  </a>
 
-<a  href="{{ route('delete_structure_type_path', $structure_type->id) }}" data-toggle="modal" data-target="#structure-type-modal">
+<a  href="{{ route('delete_structure_type_path', $structure_type->id) }}" data-toggle="modal" data-target="#structure-{{$structure_type->id}}-type-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Supprimer
  </a>
 
-<div id="structure-type-modal" class="c-modal modal fade" data-backdrop="static">
+<div id="structure-{{$structure_type->id}}-type-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
 <div class="modal-dialog">
     <div class="modal-content">
