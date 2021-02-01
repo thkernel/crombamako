@@ -187,6 +187,7 @@
         $login = strtolower($last_name.'_'.Str::random(4));
         $password = Hash::make(Str::random(8));
 
+/*
         if ($verified){
         	$email_verified_at = date('Y-m-d H:i:s');
         }
@@ -195,12 +196,13 @@
         	$email_verified_at = null;
         }
         
+        */
         
         //create user account
         $user = User::create([
                 "login" => $login,
                 "password" => $password,
-                "email_verified_at" =>  $email_verified_at,
+                "email_verified_at" =>  date('Y-m-d H:i:s'),
                 "email" => $email,
                 "role_id" => $role->id,
         ]);
