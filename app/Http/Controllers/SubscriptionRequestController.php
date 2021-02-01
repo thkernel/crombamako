@@ -8,8 +8,13 @@ use App\Models\Speciality;
 use App\Models\Town;
 use App\Models\Neighborhood;
 use App\Models\Service;
-use App\Models\Structure;
+use App\Models\StructureProfile;
+use App\Models\Role;
+use App\Models\DoctorProfile;
+use App\Models\User;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+
 
 class SubscriptionRequestController extends Controller
 {
@@ -37,7 +42,7 @@ class SubscriptionRequestController extends Controller
         $specialities =  Speciality::all();
         $towns =  Town::all();
         $neighborhoods =  Neighborhood::all();
-        $structures =  Structure::all();
+        $structures =  StructureProfile::all();
         $services =  Service::all();
 
         $subscription_request =  new SubscriptionRequest;
@@ -59,6 +64,12 @@ class SubscriptionRequestController extends Controller
             'civility' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
+            'phone' => 'required',
+            'town_id' => 'required',
+            'neighborhood_id' => 'required',
+            'email' => 'required',
+            'speciality_id' => 'required',
+
 
         ]);
 
@@ -74,7 +85,7 @@ class SubscriptionRequestController extends Controller
 
    
         return redirect()->route('home_path')
-            ->with('success','Locality created successfully.');
+            ->with('success','Subscription created successfully.');
     }
 
     /**
@@ -99,7 +110,13 @@ class SubscriptionRequestController extends Controller
     public function edit(SubscriptionRequest $subscription_request)
     {
         //
-        return view('subscription_requests.edit',compact('subscription_request'));
+        $specialities =  Speciality::all();
+        $towns =  Town::all();
+        $neighborhoods =  Neighborhood::all();
+        $structures =  StructureProfile::all();
+        $services =  Service::all();
+
+        return view('subscription_requests.edit', compact(['subscription_request','specialities', 'towns', 'structures', 'neighborhoods', 'services']));
     }
 
     /**
@@ -109,21 +126,55 @@ class SubscriptionRequestController extends Controller
      * @param  \App\Models\SubscriptionRequest  $subscriptionRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SubscriptionRequest $subscriptionRequest)
+    public function update(Request $request, SubscriptionRequest $subscription_request)
     {
         //
+
+        $request->validate([
+            'civility' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => 'required',
+            'town_id' => 'required',
+            'neighborhood_id' => 'required',
+            'email' => 'required',
+            'speciality_id' => 'required',
+
+
+        ]);
+
+  
+        $subscription_request->update($request->all());
+
+
+       
+        // Attach record
+       $allowedfileExtension = ['pdf','jpg','png','docx'];
+
+       eloquent_storage_service($subscription_request, $request, $allowedfileExtension, 'files', 'uploads');
+
+   
+        return redirect()->route('subscription_requests.index')
+            ->with('success','Subscription was edited successfully.');
+
+
+
     }
 
     public function validate_subscription(Request $request, SubscriptionRequest $subscription_request){
         //
-       
-
-        $request->status = "validated";
-        //$request['user_id'] = current_user()->id;
-        $subscription_request->update($request->all());
+    
 
         // create doctor account and send credentials
         doctor_factory($subscription_request);
+        
+
+        // change subscription request status to valided
+
+        $request['status'] = "validated";
+        //$request['user_id'] = current_user()->id;
+        $subscription_request->update($request->all());
+        
     
 
         return redirect()->route('subscription_requests.index')

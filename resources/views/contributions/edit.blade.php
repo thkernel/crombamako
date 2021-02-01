@@ -52,7 +52,7 @@
 
    
 
-<form action="{{ route('specialities.update',$speciality->id) }}" method="POST">
+<form action="{{ route('contributions.update',$contribution->id) }}" method="POST">
 
     @csrf
     @method('PUT')

@@ -5,12 +5,17 @@
 
 		<div class="br-pagebody mg-b-30">
 			<div class="br-section-wrapper">
-	    
+	    		<div class="headers mg-b-5">
+			        <h2>Nouvelle - Cotisation</h2>
+			        <hr />
+
+			    </div>
+
 			    <div class="section-body">
 					<div class="row">
 					    <div class="col-lg-12 margin-tb">
 					        <div class="pull-left">
-					            <h2>Nouvelle - Cotisation</h2>
+					           
 					        </div>
 
 

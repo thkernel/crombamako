@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contribution;
+use App\Models\ContributionItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\User;
+use App\Models\DoctorProfile;
 use App\Models\Role;
 
 class ContributionController extends Controller
@@ -31,10 +32,11 @@ class ContributionController extends Controller
     public function create()
     {
         //
+
         $contribution = new Contribution;
-        $doctor = DB::table('roles')->whereName('Médecin')->get()[0];
-        //$doctors =  User::where('role_id', $doctor->id)->get();
-        $doctors =  User::all();
+        //$doctor = DB::table('roles')->whereName('Médecin')->first();
+        $doctors =  DoctorProfile::all();
+        //$doctors =  User::all();
 
         return view("contributions.create", compact(['doctors', 'contribution']) );
     }
@@ -49,6 +51,7 @@ class ContributionController extends Controller
     {
         //
         $request['user_id'] = current_user()->id;
+        
      
 
         $request->validate([
@@ -58,9 +61,24 @@ class ContributionController extends Controller
 
         ]);
 
-        
+        $contribution_items = $request['year'];
+        $amount = $request['amount'];
 
-        Contribution::create($request->all());
+        
+        $contribution = Contribution::create($request->all());
+        
+        if ($contribution && $contribution_items){
+            foreach($contribution_items as $contribution_item){
+                $item = [
+                    "contribution_id" => $contribution->id,
+                    "year" => $contribution_item,
+                    "amount" => $amount
+                ];
+                
+                ContributionItem::create($item);
+            }
+        }
+
 
    
         return redirect()->route('contributions.index')
@@ -89,7 +107,12 @@ class ContributionController extends Controller
     public function edit(Contribution $contribution)
     {
         //
-        return view('contributions.edit',compact('contribution'));
+        $doctors =  DoctorProfile::all();
+
+
+
+        
+        return view('contributions.edit',compact(['contribution', 'doctors']));
 
     }
 
@@ -112,6 +135,27 @@ class ContributionController extends Controller
         ]);
 
         $contribution->update($request->all());
+
+
+        $contribution_items = $request['year'];
+        $amount = $request['amount'];
+
+    
+        
+        if ($contribution && $contribution_items ){
+            // delete all items before.
+            ContributionItem::where('contribution_id', $contribution->id)->delete();
+
+            foreach($contribution_items as $contribution_item){
+                $item = [
+                    "contribution_id" => $contribution->id,
+                    "year" => $contribution_item,
+                    "amount" => $amount
+                ];
+                
+                ContributionItem::create($item);
+            }
+        }
 
   
 

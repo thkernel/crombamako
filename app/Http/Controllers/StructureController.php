@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Structure;
+use App\Models\StructureProfile;
 use App\Models\StructureType;
 use App\Models\StructureCategory;
 use App\Models\Town;
@@ -23,7 +23,7 @@ class StructureController extends Controller
         
        
 
-        $structures =  Structure::orderBy('id', 'desc')->paginate(10)->setPath('structure_types');
+        $structures =  StructureProfile::orderBy('id', 'desc')->paginate(10)->setPath('structure_types');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("structures.index", compact(['structures']) );
 
@@ -46,7 +46,7 @@ class StructureController extends Controller
     public function create()
     {
         //
-        $structure = new Structure;
+        $structure = new StructureProfile;
         $structure_types =  StructureType::all();
         $structure_categories =  StructureCategory::all();
         $towns =  Town::all();
@@ -72,6 +72,7 @@ class StructureController extends Controller
             'name' => 'required',
             'phone' => 'required',
             'town_id' => 'required',
+            'email' => 'required',
             'neighborhood_id' => 'required',
             'structure_type_id' => 'required',
             'structure_category_id' => 'required',
@@ -79,10 +80,14 @@ class StructureController extends Controller
         ]);
 
         
+        $account = create_account('stru', $request->email, 'Structure' );
+        
+        // If account is create succesfull.
+        if ($account){ 
+            $structure = StructureProfile::create($request->all());
+            $structure->user()->save($account);
+        }
 
-        Structure::create($request->all());
-
-   
         return redirect()->route('structures.index')
             ->with('success','Structure created successfully.');
     }
@@ -93,7 +98,7 @@ class StructureController extends Controller
      * @param  \App\Models\Structure  $structure
      * @return \Illuminate\Http\Response
      */
-    public function show(Structure $structure)
+    public function show(StructureProfile $structure)
     {
         //
     }
@@ -104,7 +109,7 @@ class StructureController extends Controller
      * @param  \App\Models\Structure  $structure
      * @return \Illuminate\Http\Response
      */
-    public function edit(Structure $structure)
+    public function edit(StructureProfile $structure)
     {
         //
         $structure_types =  StructureType::all();
@@ -122,7 +127,7 @@ class StructureController extends Controller
      * @param  \App\Models\Structure  $structure
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Structure $structure)
+    public function update(Request $request, StructureProfile $structure)
     {
         //
         $request->validate([
@@ -155,7 +160,7 @@ class StructureController extends Controller
     public function destroy($id)
     {
         //
-        Structure::where('id',$id)->delete();
+        StructureProfile::where('id',$id)->delete();
         return redirect()->back()->with('success','Delete Successfully');
     }
 }

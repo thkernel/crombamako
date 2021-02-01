@@ -26,10 +26,11 @@ class CreateDocumentRequestsTable extends Migration
             $table->foreign('document_type_id')->references('id')->on('document_types')->onDelete('cascade');
 
             $table->bigInteger('doctor_id')->unsigned();
-            $table->foreign('doctor_id')->references('id')->on('users')->onDelete('cascade');
-            
+            $table->foreign('doctor_id')->references('id')->on('doctor_profiles')->onDelete('cascade');
+            /*
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            */
             
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));

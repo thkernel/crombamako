@@ -51,8 +51,8 @@ class SubscriptionRequest extends Model
         return $this->belongsTo(Speciality::class);
     }
 
-    public function structure(){
-        return $this->belongsTo(Structure::class);
+    public function structure_profile(){
+        return $this->belongsTo(StructureProfile::class);
     }
 
     public function attachments()

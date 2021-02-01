@@ -6,7 +6,7 @@
     <td>{{$subscription_request->last_name}}</td>
     <td>{{$subscription_request->town->name}}</td>
     <td>{{$subscription_request->speciality->name}}</td>
-    <td>{{ $subscription_request->structure ? $subscription_request->structure->name : ''}}</td>
+    <td>{{ $subscription_request->structure_profile ? $subscription_request->structure_profile->name : ''}}</td>
     <td>{{$subscription_request->phone}}</td>
 
 
@@ -21,7 +21,7 @@
  </a>
 
  <a  href="{{ route('subscription_requests.edit', $subscription_request->id) }}">
-    <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
+    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
     Modifier
  </a>
 

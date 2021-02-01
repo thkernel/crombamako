@@ -17,7 +17,9 @@
        
     </head>
     <body>
+
         <div class="d-flex align-items-center justify-content-center bg-br-primary ht-100v ">
+            
                 @yield("content")
             
         </div>

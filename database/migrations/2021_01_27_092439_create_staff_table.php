@@ -22,7 +22,7 @@ class CreateStaffTable extends Migration
             $table->string('status')->nullable();
             $table->text('description')->nullable();
             $table->bigInteger('structure_id')->unsigned();
-            $table->foreign('structure_id')->references('id')->on('structures')->onDelete('cascade');
+            $table->foreign('structure_id')->references('id')->on('structure_profiles')->onDelete('cascade');
 
             $table->integer('speciality_id')->unsigned();
             $table->foreign('speciality_id')->references('id')->on('specialities')->onDelete('cascade');

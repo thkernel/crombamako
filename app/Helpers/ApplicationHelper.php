@@ -1,8 +1,9 @@
 <?php
 	use App\Models\ActivityLog;
 	use App\Models\SubscriptionRequest;
+	use App\Models\Role;
 	use App\Models\User;
-	use App\Models\Profile;
+	use App\Models\DoctorProfile;
 	use App\Models\StructureCategory;
 	use App\Models\EloquentStorageBlob;
 	use App\Models\EloquentStorangeAttachment;
@@ -139,55 +140,75 @@
 	Create user account after subscription validation.
 	*/
 
-	function doctor_factory(SubscriptionRequest $subscription_request){
-		$doctor = DB::table('roles')->whereName('Médecin')->get()[0];
-
-		// generate login and password
-		$login = strtolower($subscription_request->last_name.'_'.Str::random(4));
-		$password = Str::random(8);
-
-		//create user account
-		$user = new User;
-		$user->login = $login;
-		$user->password = $password;
-		$user->email = $subscription_request->email;
-		$user->role_id = $doctor->id;
-		$user->save();
-
-		if ($user){
-			// create profile
-			$profile = new Profile;
-			$profile->civility = $subscription_request->civility ;
-			$profile->first_name = $subscription_request->first_name ;
-			$profile->last_name = $subscription_request->last_name ;
-			$profile->address = $subscription_request->address ;
-			$profile->phone = $subscription_request->phone ;
-			$profile->town_id = $subscription_request->town_id ;
-			$profile->neighborhood_id = $subscription_request->neighborhood_id ;
-			$profile->service_id = $subscription_request->service_id ;
-			$profile->speciality_id = $subscription_request->speciality_id ;
-			$profile->structure_id = $subscription_request->structure_id ;
-			$profile->user_id = $user->id ;
-			$profile->save();
-
-			if ($profile){
-				send_mail();
-			}
-
-			// send auth infos to user.
-		}
-
-		// change subscription request status to valided
-
-		$subscription_request->status = "valided";
-		$subscription_request->update();
+	function doctor_factory($subscription_request){
 		
+		// create account.
+		$doctor_user = create_account($subscription_request->last_name, $subscription_request->email, 'Médecin' );
+
+        if ($doctor_user){
+            // create profile
+            $doctor_profile = DoctorProfile::create([
+            "civility" => $subscription_request->civility,
+            "first_name" => $subscription_request->first_name,
+            "last_name" => $subscription_request->last_name,
+            "address" => $subscription_request->address,
+            "email" => $subscription_request->email,
+            "phone" => $subscription_request->phone,
+            "town_id" => $subscription_request->town_id,
+            "neighborhood_id" => $subscription_request->neighborhood_id,
+            "service_id" => $subscription_request->service_id,
+            "speciality_id" => $subscription_request->speciality_id,
+            "structure_id" => $subscription_request->structure_id,
+            ]);
+
+            $doctor_profile->user()->save($doctor_user);
+
+
+            if ($doctor_profile){
+                send_mail();
+            }
+
+            // send auth infos to user.
+        }
+
+        return $doctor_profile;
 		
 	}
 
 	function send_mail(){
 
 	}
+
+	function create_account($last_name, $email, $role, $verified=true){
+
+		$role = Role::whereName($role)->first();
+
+        // generate login and password
+        $login = strtolower($last_name.'_'.Str::random(4));
+        $password = Hash::make(Str::random(8));
+
+        if ($verified){
+        	$email_verified_at = date('Y-m-d H:i:s');
+        }
+        else{
+
+        	$email_verified_at = null;
+        }
+        
+        
+        //create user account
+        $user = User::create([
+                "login" => $login,
+                "password" => $password,
+                "email_verified_at" =>  $email_verified_at,
+                "email" => $email,
+                "role_id" => $role->id,
+        ]);
+
+        return $user;
+
+	}
+
 	function getUserIpAddr(){
     	if(!empty($_SERVER['HTTP_CLIENT_IP'])){
 	        //ip from share internet
@@ -201,6 +222,18 @@
 
 	    return $ip;
 	}
+
+    function contribution_selected_years($contribution_items, $current_year){
+
+
+        $contribution_items_array = [];
+
+        foreach($contribution_items as $contribution_item){
+           array_push($contribution_items_array, $contribution_item->year);
+        }
+            
+        return in_array($current_year, $contribution_items_array);
+    }
 	
 
 	function years_list(){

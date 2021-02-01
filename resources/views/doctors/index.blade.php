@@ -5,7 +5,7 @@
 <div class="br-pageheader">
       <nav class="breadcrumb pd-0 mg-0 tx-12">
         
-        <span class="breadcrumb-item active"><h5>Medecins</h5></span>
+        <span class="breadcrumb-item active"><h5>Médecins</h5></span>
       </nav>
     </div><!-- br-pageheader -->
 <div class="br-pagebody">
@@ -30,16 +30,23 @@
   <thead>
     <tr>
      
-      <th>Email</th>
-      <th>Rôle</th>
+      <th>Civilité</th>
+      <th>Prénom</th>
+      <th>Nom</th>
+      <th>Spécialité</th>
+      <th>Commune</th>
+      <th>Quartier</th>
+      
+
+
      
       
       <th>Actions</th>
     </tr>
   </thead>
 
-  <tbody class="users">
-    @include("users/_index")
+  <tbody class="doctors">
+    @include("doctors/_index")
   </tbody>
 </table>
 

@@ -35,7 +35,7 @@ class CreateSubscriptionRequestsTable extends Migration
             $table->foreign('speciality_id')->references('id')->on('specialities')->onDelete('cascade');
             
             $table->integer('structure_id')->nullable()->unsigned();
-            $table->foreign('structure_id')->references('id')->on('structures')->onDelete('cascade');
+            $table->foreign('structure_id')->references('id')->on('structure_profiles')->onDelete('cascade');
             
             $table->integer('service_id')->nullable()->unsigned();
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');

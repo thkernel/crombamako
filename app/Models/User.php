@@ -6,7 +6,6 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Profile;
 
 use App\Models\Role;
 use App\Models\Opportunity;
@@ -24,6 +23,7 @@ class User extends Authenticatable
         
         'login',
         'email',
+        'role_id',
         'password',
     ];
 
@@ -46,13 +46,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function userable()
+    {
+        return $this->morphTo();
+    }
+    
+
     public function role(){
         return $this->belongsTo(Role::class);
     }
 
-    public function profile(){
-        return $this->hasOne(Profile::class);
-    }
+    
 
     public function opportunities(){
         return $this->hasMany(Opportunity::class);

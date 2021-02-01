@@ -5,21 +5,77 @@
 
 
 
-<div class="br-pagebody mg-b-30">
-  <div class="br-section-wrapper">
-    <div class="headers mg-b-5">
-      
+	<div class="br-pagebody mg-b-30">
+		<div class="br-section-wrapper">
+			<div class="headers mg-b-5">
+			   <h2>Nouvel - Utilisateur</h2>
+			   <hr />
 
-    </div>
-    <div class="section-body">
-		@include("users/_form")
-    </div>
+			</div>
+			<div class="section-body">
+				<div class="row">
+
+					<div class="col-lg-12 margin-tb">
+
+				    	<div class="pull-left">
+
+				       
+
+				    	</div>
+
+					    <div class="pull-right">
 
 
+					    </div>
+
+					</div>
+
+					
+				</div>
+
+   
+
+			@if ($errors->any())
+
+			    <div class="alert alert-danger">
+
+			        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+
+			        <ul>
+
+			            @foreach ($errors->all() as $error)
+
+			                <li>{{ $error }}</li>
+
+			            @endforeach
+
+			        </ul>
+
+			    </div>
+
+			@endif
+
+   
+
+			<form method="POST" action="{{ route('users.store') }}">
+	            @csrf
 
 
-</div>
-</div>
+	            @include('users/_form')
+
+	            <div class="row">
+
+	               
+			        <div class="col-md-12">
+			            <div class="form-group">
+				            <input type="submit" value="Enregister" class="btn btn-info btn-block">
+				        </div><!-- form-group --> 
+				    </div><!-- form-group --> 
+			    </div><!-- form-group --> 
+		    </form>
+
+		</div>
+	</div>
 </div>
 
 @endsection

@@ -90,8 +90,8 @@
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" name="email" class="form-control" placeholder="Email" value="{{  old('email') ?? $structure->email }}">
+            <label for="email" class="required">Email:</label>
+            <input type="email" name="email" class="form-control" placeholder="Email" value="{{  old('email') ?? $structure->email }}" {{ $structure->email ? 'readonly' : '' }} required>
         </div>
     </div>
 

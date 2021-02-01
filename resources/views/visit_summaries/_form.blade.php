@@ -11,17 +11,24 @@
         </div>
 
     </div>
+ </div>
 
         
+    <fieldset>
+        <legend>Bâtiment</legend>
+        <hr />
+        
+        @include("visit_summaries/partials/_visit_summary_buildings")
+    </fieldset>
 
-    <div class="col-md-12">   
-        <div class="form-group">
-            <label for="description" class="required">Contenu:</label>
-            <textarea rows="8" id="editor" name="description" class="form-control" placeholder="Contenu" > {{ $visit_summary->description }}
-            </textarea>
-        </div>
+    <fieldset>
+        <legend>Les matériels</legend>
+        <hr />
+        
+        @include("visit_summaries/partials/_visit_summary_materials")
+    </fieldset>
 
-    </div>
+    
  </div>
 
  <div class="row">

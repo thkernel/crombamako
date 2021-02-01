@@ -20,10 +20,10 @@ class ServiceSeeder extends Seeder
 
 
 
-        DB::table('services')->insert(["uid" => Str::random(32), "name" => "MEDECINE GENERALE",
+        DB::table('services')->insert(["uid" => Str::random(32), "slug"  => "medecine-generale", "name" => "MEDECINE GENERALE",
             "user_id" => $superuser->id,
     ]);
-        DB::table('services')->insert(["uid" => Str::random(32), "name" => "URGENCE",
+        DB::table('services')->insert(["uid" => Str::random(32), "slug"  => "urgence", "name" => "URGENCE",
             "user_id" => $superuser->id,
     ]);
     }

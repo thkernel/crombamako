@@ -7,16 +7,19 @@
         <div class="tx-center mg-b-60">Veuillez vous connecter</div>
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            <div class="form-group">
+            	@include('layouts/partials/_flash-message')
+            </div><!-- form-group -->
 	        <div class="form-group">
-	          <input type="email" class="form-control" placeholder="Votre email"  name="email" required >
+	          <input type="text" class="form-control" placeholder="Votre login"  name="login" required >
 	        </div><!-- form-group -->
 	        <div class="form-group">
-	          <input type="password" name="password" id="password" class="form-control" placeholder="Votre mot de passe">
+	          <input type="password" name="password" id="password" class="form-control" placeholder="Votre mot de passe" required>
 	          @if (Route::has('password.request'))
 	          <a href="{{ route('password.request') }}" class="tx-info tx-12 d-block mg-t-10">Mot de passe oublié?</a>
 	          @endif
 	        </div><!-- form-group -->
-	        <input type="submit" value="Se connecter" class="btn btn-info btn-block">
+	        <input type="submit" value="Se connecter" class="btn btn-primary btn-block">
 	        	
 	        
 	    </form>

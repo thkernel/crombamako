@@ -12,7 +12,7 @@ class Service extends Model
     use HasFactory;
     use Sluggable;
 
-    protected $fillable = ['name', 'status', 'user_id'];
+    protected $fillable = ['slug', 'name', 'status', 'user_id'];
 
     /**
      * Return the sluggable configuration array for this model.

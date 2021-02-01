@@ -3,11 +3,16 @@
 @section("content")
 <div class="container main-container">
 
-    <h2>Nouvelle - Structure</h2>
-    <hr />
+    
 
 <div class="br-pagebody mg-b-30">
   <div class="br-section-wrapper">
+    <div class="headers mg-b-5">
+       <h2>Modification - Structure</h2>
+       <hr />
+
+    </div>
+
     <div class="section-body">
 		<div class="row">
 

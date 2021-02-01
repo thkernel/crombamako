@@ -10,9 +10,15 @@ class Contribution extends Model
     use HasFactory;
 
 
-	protected $fillable = ['doctor_id', 'year', 'amount', 'user_id'];
+	protected $fillable = ['doctor_id',  'user_id'];
 
 
 	
-    
+    public function contribution_items(){
+        return $this->hasMany(ContributionItem::class);
+    }
+
+    public function doctor(){
+        return $this->belongsTo(DoctorProfile::class, 'doctor_id');
+    }
 }

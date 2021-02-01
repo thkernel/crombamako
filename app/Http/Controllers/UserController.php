@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Speciality;
-use App\Models\Locality;
+use App\Models\Town;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,7 +19,9 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users =  User::orderBy('id', 'desc')->paginate(10)->setPath('users');
+        $excluded_role = Role::where('name', 'superuser')->first();
+        $users =  User::whereNotIn('role_id', [$excluded_role->id])->get();
+
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("users.index", compact(['users']) );
     }
@@ -31,10 +34,11 @@ class UserController extends Controller
     public function create()
     {
         //
-        $specialities =  Speciality::all();
-        $localities =  Locality::all();
-        $roles =  Role::all();
-        return view('users.create', compact(['specialities', 'localities', 'roles']));
+        $excluded_roles = ['demo', 'superuser', 'Médecin'];
+        $user = new User;
+        $roles =  Role::whereNotIn('name', $excluded_roles )->get();
+
+        return view('users.create', compact(['user','roles']));
         
     }
 
@@ -48,9 +52,18 @@ class UserController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required',
+            'login' => 'required|string',
+            'email' => 'required|email',
+            'role_id'=> 'required',
+            'password' => 'required|string',
+            'password_confirmation' => 'required|string',
 
         ]);
+
+        //dd($request['password']);
+        //"password" => Hash::make("AMOSXZIBITDE88"),
+        $request['password'] =  Hash::make($request['password']);
+        $request['email_verified_at'] =  date('Y-m-d H:i:s');
 
   
 
@@ -81,9 +94,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-        $specialities =  Speciality::all();
-        $localities =  Locality::all();
-        $roles =  Role::all();
+       $excluded_roles = ['demo', 'superuser', 'Médecin'];
+        $roles =  Role::whereNotIn('name', $excluded_roles )->get();
         return view('users.edit',compact(['user', 'roles']));
     }
 
@@ -98,11 +110,16 @@ class UserController extends Controller
     {
         //
         $request->validate([
-        'name' => 'required',   
+            'login' => 'required|string',
+            'email' => 'required|email',
+            'role_id'=> 'required',
+            
 
         ]);
 
-  
+        if ($request['password']){
+            $request['password'] =  Hash::make($request['password']);
+        }
         $user->update($request->all());
 
   

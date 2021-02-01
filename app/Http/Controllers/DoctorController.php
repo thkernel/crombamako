@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+use App\Models\DoctorProfile;
+use App\Models\DoctorOrder;
 use App\Models\Speciality;
-use App\Models\Locality;
-use App\Models\Role;
+use App\Models\Town;
+use App\Models\Neighborhood;
+use App\Models\StructureProfile;
+use App\Models\Service;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class DoctorController extends Controller
 {
@@ -19,10 +24,11 @@ class DoctorController extends Controller
     public function index()
     {
         //
-        $doctor = DB::table('roles')->whereName('Médecin')->get()[0];
-        $users =  User::where('role_id', $doctor->id)->get();
+        //$doctor_role = Role::whereName('Médecin')->first();
+        $doctors =  DoctorProfile::all();
+
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
-        return view("doctors.index", compact(['users']) );
+        return view("doctors.index", compact(['doctors']) );
 
     }
 
@@ -35,9 +41,13 @@ class DoctorController extends Controller
     {
         //
         $specialities =  Speciality::all();
-        $localities =  Locality::all();
-        $roles =  Role::all();
-        return view('doctors.create', compact(['specialities', 'localities', 'roles']));
+        $towns =  Town::all();
+        $services =  Service::all();
+        $neighborhoods =  Neighborhood::all();
+        $structures =  StructureProfile::all();
+        $doctor = new DoctorProfile;
+        
+        return view('doctors.create', compact(['doctor', 'services', 'specialities', 'towns', 'neighborhoods', 'structures']));
         
     }
 
@@ -51,17 +61,36 @@ class DoctorController extends Controller
     {
         //
         $request->validate([
+            'civility' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => 'required',
+            'town_id' => 'required',
+            'neighborhood_id' => 'required',
             'email' => 'required',
+            'speciality_id' => 'required',
 
         ]);
 
   
+        // Create doctor and his account.
+        $doctor = doctor_factory($request);
 
-        User::create($request->all());
+        // Add doctor to the doctor order.
+        $doctor_order = [
+            "reference" => "AN-". $doctor->id ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("d/m/Y"),
+            "doctor_id" => $doctor->id,
+            "year" => date('Y-m-d H:i:s'),
+            "status" => 'enable',
+            "user_id" => current_user()->id
+        ];
+
+        DoctorOrder::create($doctor_order);
+
 
    
         return redirect()->route('doctors.index')
-            ->with('success','User created successfully.');
+            ->with('success','Doctor created successfully.');
     }
 
     /**
@@ -70,7 +99,7 @@ class DoctorController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(DoctorProfile $doctor)
     {
         //
     }
@@ -81,13 +110,15 @@ class DoctorController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(DoctorProfile $doctor)
     {
         //s
         $specialities =  Speciality::all();
-        $localities =  Locality::all();
-        $roles =  Role::all();
-        return view('doctors.edit',compact(['user', 'roles']));
+        $towns =  Town::all();
+        $neighborhoods =  Neighborhood::all();
+        $structures =  StructureProfile::all();
+        $services =  Service::all();
+        return view('doctors.edit',compact(['doctor', 'specialities', 'towns', 'neighborhoods', 'structures', 'services']));
     }
 
     /**
@@ -97,16 +128,23 @@ class DoctorController extends Controller
      * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, DoctorProfile $doctor)
     {
         //
         $request->validate([
-        'email' => 'required',   
+            'civility' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone' => 'required',
+            'town_id' => 'required',
+            'neighborhood_id' => 'required',
+            'email' => 'required',
+            'speciality_id' => 'required',
 
         ]);
 
   
-        $user->update($request->all());
+        $doctor->update($request->all());
 
   
 
@@ -124,7 +162,14 @@ class DoctorController extends Controller
     public function destroy($id)
     {
         //
-        User::where('id',$id)->delete();
+        $doctor = DoctorProfile::find($id);
+
+        
+        $doctor->user->delete();
+        DoctorProfile::where('id',$id)->delete();
+       
+
+
         return redirect()->back()->with('success','Delete Successfully');
     }
 }

@@ -2,11 +2,12 @@
 	<div class="col-md-12">
 
         <div class="form-group">
-            <label for="doctor__id" class="required">Médecin:</label>
-            <select name="doctor_id" id="structure_type_id" class="form-control" required>
-                <option disabled selected value> Sélectionner </option>
+            <label for="doctor_id" class="required">Médecin:</label>
+            <select name="doctor_id" id="doctor_id" class="form-control" required>
+                <option {{ $contribution->doctor_id  ? '' : 'disabled selected value'}}> 
+
                 @foreach($doctors as $doctor)
-                    <option value = "{{ $doctor->id }}">{{ $doctor->profile->fullname }}</option>
+                    <option value = "{{ $doctor->id }}" {{ $doctor->id == $contribution->doctor_id ?  'selected' : ''}}>{{ $doctor->full_name_with_reference }}</option>
                 @endforeach
             </select>
         </div>
@@ -14,17 +15,17 @@
 </div>
 
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-12">
 		<div class="form-group">
 
 		    <label for="year" class="required">Année:</label>
 		    
 
 
-		<select id="year" class="form-control" name="year">
-			<option disabled selected value> Sélectionner </option>
+		<select id="year" class="form-control" name="year[]" multiple>
+			
 		    @foreach(years_list() as $year)
-		    	<option value="{{ $year}}" @if ($contribution->year === $year) selected @endif>{{ $year }}</option>
+		    	<option value="{{ $year}}" @if (contribution_selected_years($contribution->contribution_items , $year)) selected @endif>{{ $year }}</option>
 		    @endforeach
 		</select>
 		 {!! $errors->first('year', '<p class="error">:message</p>') !!}
@@ -32,7 +33,7 @@
 		</div>
 	</div>
 
-	<div class="col-md-6">
+	<div class="col-md-12">
 		<div class="form-group">
 
 		    <label for="name" class="required">Montant:</label>

@@ -8,7 +8,8 @@
 <div class="br-pagebody mg-b-30">
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
-      
+      <h2>Modification - Préinscription </h2>
+                <hr />
 
     </div>
     <div class="section-body">
@@ -16,8 +17,7 @@
 		    <div class="col-lg-12 margin-tb">
 		       
 
-		            <h2>Modification - Préinscription </h2>
-                <hr />
+		            
 
 		      
 		    </div>
@@ -45,9 +45,10 @@
 
    
 
-<form action="{{ route('subscription_requests.store') }}" method="POST" enctype="multipart/form-data">
+<form action="{{ route('subscription_requests.update',$subscription_request->id) }}" method="POST" enctype="multipart/form-data">
 
 @csrf
+@method('PUT')
 
   
 
@@ -59,7 +60,7 @@
          <div class="col-xs-12 col-sm-12 col-md-12">
 
           <div class="form-group text-right">
-              <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Envoyer</button>
+              <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Modifier</button>
           </div>
         </div>
 

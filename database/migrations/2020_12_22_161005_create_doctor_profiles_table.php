@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProfilesTable extends Migration
+class CreateDoctorProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('profiles', function (Blueprint $table) {
+        Schema::create('doctor_profiles', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->nullable();
             $table->string('first_name')->nullable();
@@ -21,6 +21,7 @@ class CreateProfilesTable extends Migration
             $table->string('civility')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
+            $table->string('email')->nullable()->unique();
             
             $table->integer('town_id')->nullable()->unsigned();
             $table->foreign('town_id')->references('id')->on('towns')->onDelete('cascade');
@@ -32,14 +33,13 @@ class CreateProfilesTable extends Migration
             $table->foreign('speciality_id')->references('id')->on('specialities')->onDelete('cascade');
             
             $table->integer('structure_id')->nullable()->unsigned();
-            $table->foreign('structure_id')->references('id')->on('structures')->onDelete('cascade');
+            $table->foreign('structure_id')->references('id')->on('structure_profiles')->onDelete('cascade');
             $table->text('description')->nullable();
 
             $table->integer('service_id')->nullable()->unsigned();
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
 
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
             
             $table->string('status')->nullable();
 
@@ -55,6 +55,6 @@ class CreateProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('profiles');
+        Schema::dropIfExists('doctor_profiles');
     }
 }

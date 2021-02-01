@@ -1,8 +1,14 @@
 @foreach($contributions as $contribution)
     <tr>
-    <td>{{$contribution->created_at}}</td>
-    <td>{{$contribution->doctor_id}}</td>
-    <td>{{$contribution->year}}</td>
+    <td>{{format_date($contribution->created_at, "d/m/Y")}}</td>
+    <td>{{$contribution->doctor->fullname}}</td>
+    <td>
+        @foreach($contribution->contribution_items as $contribution_item)
+            <span class="contribution-year-item">
+            {{ $contribution_item->year }}
+            </span>
+        @endforeach
+    </td>
     <td>{{$contribution->amount}}</td>
     
 <td>
@@ -10,18 +16,18 @@
 			
 
  <a  href="{{ route('contributions.edit', $contribution->id) }}">
-    <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
+    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
     Modifier
  </a>
 
 
 
-<a href="#" data-toggle="modal" data-target="#contribution-modal">
+<a href="#" data-toggle="modal" data-target="#contribution-{{$contribution->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Supprimer
 </a>
 
-<div id="contribution-modal" class="c-modal modal fade" data-backdrop="static">
+<div id="contribution-{{$contribution->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
 <div class="modal-dialog">
     <div class="modal-content">

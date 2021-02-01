@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\VisitSummary;
 use Illuminate\Http\Request;
-use App\Models\Structure;
+use App\Models\StructureProfile;
 
 class VisitSummaryController extends Controller
 {
@@ -31,7 +31,7 @@ class VisitSummaryController extends Controller
     {
         //
         $visit_summary = new VisitSummary;
-        $structures =  Structure::all();
+        $structures =  StructureProfile::all();
         
         return view('visit_summaries.create', compact(['visit_summary','structures']));
     }
@@ -54,7 +54,7 @@ class VisitSummaryController extends Controller
 
         ]);
 
-        
+        dd($request);
 
         VisitSummary::create($request->all());
 

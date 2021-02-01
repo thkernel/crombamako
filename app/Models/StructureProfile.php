@@ -9,15 +9,16 @@ use App\Models\StructureCategory;
 use App\Models\Town;
 use App\Models\Neighborhood;
 use App\Models\VisitSummary;
+use App\Models\User;
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Structure extends Model
+class StructureProfile extends Model
 {
     use HasFactory;
     use Sluggable;
 
 
-    protected $fillable = ['structure_type_id','structure_category_id','name','slogan', "address", "street", "town_id", "neighborhood_id", "phone" , "email", "website", "latitude", "longitude", "description", 'user_id'];
+    protected $fillable = ['structure_type_id','structure_category_id','name','slogan', "address", "street", "town_id", "neighborhood_id", "phone" , "email", "website", "latitude", "longitude", "description"];
 
 
 
@@ -35,6 +36,13 @@ class Structure extends Model
             ]
         ];
     }
+
+
+    public function user()
+    {
+        return $this->morphOne(User::class, 'userable');
+    }
+
 
     public function structure_type(){
         return $this->belongsTo(StructureType::class);

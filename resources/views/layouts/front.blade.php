@@ -22,6 +22,7 @@
             @include("layouts/partials/_header")
         </header>
         <div class="content-wrapper">
+            @include('layouts/partials/_flash-message')
             @yield("content")
         </div>
         <footer>

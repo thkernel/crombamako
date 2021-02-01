@@ -17,7 +17,7 @@ class CreateStructurePrestationsTable extends Migration
             $table->id();
             $table->string('status');
             $table->bigInteger('structure_id')->unsigned();
-            $table->foreign('structure_id')->references('id')->on('structures')->onDelete('cascade');
+            $table->foreign('structure_id')->references('id')->on('structure_profiles')->onDelete('cascade');
 
             $table->bigInteger('prestation_id')->unsigned();
             $table->foreign('prestation_id')->references('id')->on('prestations')->onDelete('cascade');

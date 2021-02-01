@@ -1,5 +1,6 @@
 @foreach($users as $user)
     <tr>
+    <td>{{$user->login}}</td>
     <td>{{$user->email}}</td>
     <td>{{$user->role->name}}</td>
     
@@ -13,12 +14,12 @@
 
 
 
- <a href="#" data-toggle="modal" data-target="#user-modal">
+ <a href="#" data-toggle="modal" data-target="#user-{{$user->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Supprimer
 </a>
 
-<div id="user-modal" class="c-modal modal fade" data-backdrop="static">
+<div id="user-{{$user->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
 <div class="modal-dialog">
     <div class="modal-content">
