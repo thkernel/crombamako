@@ -28,6 +28,21 @@
         @include("visit_summaries/partials/_visit_summary_materials")
     </fieldset>
 
+    <fieldset>
+        <legend>Le personnel médical et para médical</legend>
+        <hr />
+        
+        @include("visit_summaries/partials/_visit_summary_medical_staffs")
+    </fieldset>
+
+    <fieldset>
+        <legend>Le personnel non médical en place</legend>
+        <hr />
+        
+        @include("visit_summaries/partials/_visit_summary_non_medical_staffs")
+    </fieldset>
+
+
     
  </div>
 
