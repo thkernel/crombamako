@@ -34,7 +34,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        $excluded_roles = ['demo', 'superuser', 'Médecin'];
+        $excluded_roles = ['demo', 'superuser'];
         $user = new User;
         $roles =  Role::whereNotIn('name', $excluded_roles )->get();
 
