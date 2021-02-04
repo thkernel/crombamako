@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class PermissionItem extends Model
 {
     use HasFactory;
+    protected $fillable = ['permission_id', 'action_name',  'status'];
 }

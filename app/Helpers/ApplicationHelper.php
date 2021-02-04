@@ -268,6 +268,18 @@
             
         return in_array($current_year, $contribution_items_array);
     }
+
+    function selected_abilities($permission_items, $current_action){
+
+
+        $permission_items_array = [];
+
+        foreach($permission_items as $permission_item){
+           array_push($permission_items_array, $permission_item->action_name);
+        }
+            
+        return in_array($current_action, $permission_items_array);
+    }
 	
 
 	function years_list(){

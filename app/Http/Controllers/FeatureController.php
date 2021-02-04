@@ -48,6 +48,26 @@ class FeatureController extends Controller
     public function store(Request $request)
     {
         //
+
+
+
+        //$request['user_id'] = current_user()->id;
+        $request['status'] = 'enable';
+        $request->validate([
+            'name' => 'required',
+            'subject_class' => 'required',
+
+        ]);
+
+  
+
+        Feature::create($request->all());
+
+   
+        return redirect()->route('features.index')
+            ->with('success','Feature created successfully.');
+
+
     }
 
     /**
@@ -70,6 +90,7 @@ class FeatureController extends Controller
     public function edit(Feature $feature)
     {
         //
+        return view('feature.edit',compact('feature'));
     }
 
     /**
@@ -82,6 +103,23 @@ class FeatureController extends Controller
     public function update(Request $request, Feature $feature)
     {
         //
+
+        $request->validate([
+        'name' => 'required',   
+        'subject_class' => 'required',   
+
+        ]);
+
+  
+        $feature->update($request->all());
+
+  
+
+        return redirect()->route('features.index')
+
+                        ->with('success','Feature updated successfully');
+
+
     }
 
     /**
@@ -90,8 +128,11 @@ class FeatureController extends Controller
      * @param  \App\Models\Feature  $feature
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Feature $feature)
+    public function destroy($id)
     {
         //
+        Feature::where('id',$id)->delete();
+        return redirect()->back()->with('success','Delete Successfully');
+
     }
 }

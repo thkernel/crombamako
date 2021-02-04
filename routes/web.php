@@ -35,6 +35,8 @@ use App\Http\Controllers\BusinessLicenseController;
 use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\DoctorOrderController;
 use App\Http\Controllers\FeatureController;
+use App\Http\Controllers\PermissionController;
+
 
 
 
@@ -144,6 +146,7 @@ Route::resource('business_licenses', BusinessLicenseController::class)->middlewa
 Route::resource('doctor_orders', DoctorOrderController::class)->middleware(['auth']);
 
 Route::resource('features', FeatureController::class)->middleware(['auth']);
+Route::resource('permissions', PermissionController::class)->middleware(['auth']);
 
 
 

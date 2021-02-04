@@ -5,6 +5,7 @@
 		'company_phone' => '+223 20 20 20',
 		'company_email' => 'infos@cinzan.com',
 		'company_addresses' => 'Kalaban-Coura ACI , Rue 60 , Porte 473, Bamako - Mali',
+		"abilities" => collect(['Create', 'Read', 'Update', 'Delete'])
 
 
 	];

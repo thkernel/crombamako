@@ -14325,7 +14325,7 @@ a.btn-primary:visited {
   top: 0;
   /*background-color:
   rgba(0, 124, 194, 0.57);*/
-  background-color: rgba(102, 227, 32, 0.57);
+  background-color: rgba(27, 28, 27, 0.71);
 }
 
 .hero-content {
@@ -14904,7 +14904,8 @@ body {
 
 /* end */
 
-.contribution-year-item {
+.contribution-year-item,
+.permission-item {
   background-color: #009fff;
   color: white;
   margin: 2px;

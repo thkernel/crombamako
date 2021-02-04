@@ -16,8 +16,10 @@ class CreateContributionsTable extends Migration
         Schema::create('contributions', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->unique()->nullable();
+            $table->decimal('total_amount');
             $table->bigInteger('doctor_id')->unsigned();
             $table->foreign('doctor_id')->references('id')->on('doctor_profiles')->onDelete('cascade');
+
             $table->bigInteger('user_id')->nullable()->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
              $table->string('status')->unique()->nullable();
