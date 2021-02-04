@@ -55,7 +55,7 @@
             </li>
 
              <li class="nav-item">
-              <a class="btn btn-success" href="{{ route('subscription_requests.create') }}">Préinscription</a>
+              <a class="btn btn-primary" href="{{ route('subscription_requests.create') }}">Préinscription</a>
             </li>
             @endauth
             

@@ -42,7 +42,7 @@
 			  	</div>
 						<div class="col-md-3">
 							<div class="form-group">
-					  			<input type="submit" value="RECHERCHER" class= "btn btn-success btn-block" />
+					  			<input type="submit" value="RECHERCHER" class= "btn btn-primary btn-block" />
 							</div>
 						</div>
 

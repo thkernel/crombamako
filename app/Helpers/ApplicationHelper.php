@@ -12,17 +12,45 @@
 	use Carbon\Carbon;
 	use Illuminate\Support\Facades\DB;
 
+    use Illuminate\Container\Container;
+    use File;
+
+    /* Get current user */
 
 	function current_user(){
 		$user = auth()->user();
 		return $user;
 	}
 
+    /* Formate date */
 	function format_date($date, $format){
 		return Carbon::parse($date)->format($format);
 	}
 
+    /* Get all Eloquent models */
+    function get_all_models(){
+        $appNamespace = Container::getInstance()->getNamespace();
+        $modelNamespace = 'Models';
 
+        $models = collect(File::allFiles(app_path($modelNamespace)))->map(function ($item) use ($appNamespace, $modelNamespace) {
+            $rel   = $item->getRelativePathName();
+            $class = sprintf('\%s%s%s', $appNamespace, $modelNamespace ? $modelNamespace . '\\' : '',
+                implode('\\', explode('/', substr($rel, 0, strrpos($rel, '.')))));
+            return class_exists($class) ? $class : null;
+        })->filter();
+
+        
+        $models_array = [];
+
+        foreach ($models as $key => $value) {
+            //$m = explode('\\', $value);
+            array_push($models_array, explode('\\', $value)[3] );
+
+        }
+        return collect($models_array)->except(['Application']);
+    }
+
+    /* Display side menu based on user role */
 
 	function sidebar_menu(){
 
@@ -115,6 +143,7 @@
 
 	}
 
+    /* Activities logger */
 	function activities_logger($controller, $action, $params){
 
 		$client_ip = getUserIpAddr();
@@ -179,6 +208,7 @@
 
 	}
 
+    /* Create user account */
 	function create_account($last_name, $email, $role, $verified=true){
 
 		$role = Role::whereName($role)->first();
@@ -211,6 +241,8 @@
 
 	}
 
+    /* Get user IP */
+
 	function getUserIpAddr(){
     	if(!empty($_SERVER['HTTP_CLIENT_IP'])){
 	        //ip from share internet
@@ -235,6 +267,18 @@
         }
             
         return in_array($current_year, $contribution_items_array);
+    }
+
+    function selected_abilities($permission_items, $current_action){
+
+
+        $permission_items_array = [];
+
+        foreach($permission_items as $permission_item){
+           array_push($permission_items_array, $permission_item->action_name);
+        }
+            
+        return in_array($current_action, $permission_items_array);
     }
 	
 

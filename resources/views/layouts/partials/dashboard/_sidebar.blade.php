@@ -5,7 +5,7 @@
 
 				
 </div>
-<div class="br-sideleft sideleft-scrollbar ps ps--active-y">
+<div class="br-sideleft sideleft-scrollbar ">
       <label class="sidebar-label pd-x-10 mg-t-20 op-3">Menu</label>
        
         	

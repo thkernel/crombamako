@@ -27,7 +27,15 @@ class DoctorController extends Controller
         //$doctor_role = Role::whereName('Médecin')->first();
         $doctors =  DoctorProfile::all();
 
+        $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
+
+        $last_doctor_order = DoctorOrder::where('year', $year)->latest()->first();
+        //dd($last_doctor_order);
+
+
+
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
+
         return view("doctors.index", compact(['doctors']) );
 
     }
@@ -76,11 +84,61 @@ class DoctorController extends Controller
         // Create doctor and his account.
         $doctor = doctor_factory($request);
 
+        $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
+
+        // Get the latest record.
+        $last_doctor_order = DoctorOrder::where('year', $year)->latest()->first();
+
+        if ($last_doctor_order){
+            $id_to_str = strval($last_doctor_order->id);
+            $str_size = strlen($id_to_str);
+
+            if ($str_size == 1 ){
+                
+                if ($str_size == 9){
+                    $reference = "N°00".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+
+                }else{
+                    $sn = $last_doctor_order->id + 1;
+                    $reference = "N°000". $sn  ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                }
+                
+            }
+            else if ($str_size == 2 ){
+
+                if ($str_size == 99){
+                    $reference = "N°0".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+
+                }else{
+                    $reference = "N°00".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                }
+                
+            }
+            else if ($str_size >= 3 ){
+                if ($str_size >= 999){
+                    $reference = "N°".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+
+                }else{
+                    $reference = "N°0".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+
+                }
+                
+            }
+            
+
+        }
+        else{
+
+            $reference = "N°000". 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+            
+        }
+        
+
         // Add doctor to the doctor order.
         $doctor_order = [
-            "reference" => "AN-". $doctor->id ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("d/m/Y"),
+            "reference" => $reference,
             "doctor_id" => $doctor->id,
-            "year" => date('Y-m-d H:i:s'),
+            "year" => $year,
             "status" => 'enable',
             "user_id" => current_user()->id
         ];
