@@ -14,7 +14,8 @@
 	use Illuminate\Support\Facades\DB;
 
     use Illuminate\Container\Container;
-    use File;
+    //use File;
+    use Illuminate\Support\Facades\File;
 
     /* Get current user */
 
