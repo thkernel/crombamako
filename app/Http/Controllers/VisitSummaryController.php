@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\VisitSummary;
 use Illuminate\Http\Request;
 use App\Models\StructureProfile;
+use App\Models\DoctorProfile;
 
 class VisitSummaryController extends Controller
 {
@@ -32,8 +33,9 @@ class VisitSummaryController extends Controller
         //
         $visit_summary = new VisitSummary;
         $structures =  StructureProfile::all();
+        $doctors =  DoctorProfile::all();
         
-        return view('visit_summaries.create', compact(['visit_summary','structures']));
+        return view('visit_summaries.create', compact(['visit_summary', 'doctors','structures']));
     }
 
     /**

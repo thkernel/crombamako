@@ -17,7 +17,7 @@ class CreateDoctorOrdersTable extends Migration
             $table->id();
             $table->string('uid')->unique()->nullable();
             $table->string('reference')->unique()->nullable()->index();
-            $table->dateTime('year')->nullable();
+            $table->integer('year');
             $table->string('status')->nullable();
 
             $table->bigInteger('doctor_id')->unsigned();

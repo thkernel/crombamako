@@ -10,7 +10,7 @@ class DoctorOrder extends Model
     use HasFactory;
     protected $fillable = ['reference', 'doctor_id', 'year', 'status', 'user_id'];
 
-    public function doctor_profile(){
-        return $this->belongsTo(DoctorProfile::class);
+    public function doctor(){
+        return $this->belongsTo(DoctorProfile::class, 'doctor_id');
     }
 }

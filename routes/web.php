@@ -33,6 +33,8 @@ use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\StructurePrestationController;
 use App\Http\Controllers\BusinessLicenseController;
 use App\Http\Controllers\ApprovalController;
+use App\Http\Controllers\DoctorOrderController;
+use App\Http\Controllers\FeatureController;
 
 
 
@@ -138,6 +140,11 @@ Route::resource('pages', PageController::class)->middleware(['auth']);
 Route::resource('structure_prestations', StructurePrestationController::class)->middleware(['auth']);
 Route::resource('approvals', ApprovalController::class)->middleware(['auth']);
 Route::resource('business_licenses', BusinessLicenseController::class)->middleware(['auth']);
+
+Route::resource('doctor_orders', DoctorOrderController::class)->middleware(['auth']);
+
+Route::resource('features', FeatureController::class)->middleware(['auth']);
+
 
 
 
