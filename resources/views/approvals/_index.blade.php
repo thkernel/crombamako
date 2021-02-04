@@ -3,7 +3,7 @@
         <td>{{$approval->created_at}}</td>
         <td>{{$approval->reference}}</td>
         <td>{{$approval->year}}</td>
-        <td>{{$approval->doctor->profile->full_name}}</td>
+        <td>{{$approval->doctor->full_name}}</td>
 
     
    

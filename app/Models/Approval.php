@@ -11,6 +11,6 @@ class Approval extends Model
     protected $fillable = ['reference', 'year', 'description' , 'status', 'doctor_id'];
 
     public function doctor(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(DoctorProfile::class, 'doctor_id');
     }
 }
