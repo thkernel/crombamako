@@ -62,6 +62,10 @@ class User extends Authenticatable
         return $this->hasMany(Opportunity::class);
     }
 
+    public function permissions(){
+        return $this->hasMany(Permission::class);
+    }
+
     public function isSuperUser() {
        return $this->role->name === 'superuser';
     }
@@ -78,4 +82,6 @@ class User extends Authenticatable
     public function isUser() {
        return $this->role->name === 'user';
     }
+
+
 }

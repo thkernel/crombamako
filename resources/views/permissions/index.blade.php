@@ -16,8 +16,11 @@
 
         <div class="text-right">
             
-
-            <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('permissions.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
+          @can('create', App\Models\Permission::class)
+              <!-- The current user can update the post... -->
+              <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('permissions.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
+          @endcan
+            
 
         </div>
 

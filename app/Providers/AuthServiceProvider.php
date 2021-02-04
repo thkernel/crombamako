@@ -26,5 +26,17 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+/*
+        Gate::before(function ($user, $ability) {
+            if ($user->isSuperUser()) {
+                return true;
+            }
+            
+        });
+
+        */
     }
 }
+//return $user->id === $post->user_id
+               // ? Response::allow()
+               // : Response::deny('You do not own this post.');

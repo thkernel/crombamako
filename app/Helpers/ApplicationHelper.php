@@ -7,6 +7,7 @@
 	use App\Models\StructureCategory;
 	use App\Models\EloquentStorageBlob;
 	use App\Models\EloquentStorangeAttachment;
+    use App\Models\Permission;
 	use Illuminate\Support\Facades\Hash;
 	use Illuminate\Support\Str;
 	use Carbon\Carbon;
@@ -71,6 +72,33 @@
 
  
 	}
+
+
+    /* Load authorization */
+
+    function authorize_resource($action_name, $class_name){
+
+        $permission = Permission::where('user_id', current_user()->id)->where('subject_clas', $class_name)->first();
+
+
+        $permission_items = $permission->permission_items;
+        
+        $abilities = [];
+
+        if ($permission && $permission_items){
+
+            foreach ($permission_items as $permission_item) {
+                array_push($abilities, strtolower($permission_item->action_name));
+            }
+
+            return in_array($action_name, $abilities);
+        }
+        else{
+            return false;
+        }
+
+
+    }
 
 	/* Used to storage files */
 

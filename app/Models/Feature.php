@@ -12,4 +12,8 @@ class Feature extends Model
     protected $fillable = ['name', 'subject_class',  'status'];
 
 
+	public function permission(){
+        return $this->hasMany(Permission::class);
+    }
+
 }
