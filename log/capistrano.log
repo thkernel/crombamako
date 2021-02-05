@@ -12633,3 +12633,58 @@ Cannot adopt OID in UCD-SNMP-MIB: laIndex ::= { laEntry 1 }
   INFO [51685a32] Running /usr/bin/env echo "Branch master (at fb9e94bf72ea32a94766205576fcaa08171b3136) deployed as release 20210201152935 by thkernel" >> /var/www/medplatform/revisions.log as root@gescomph.be
  DEBUG [51685a32] Command: cd /var/www/medplatform/releases && /usr/bin/env echo "Branch master (at fb9e94bf72ea32a94766205576fcaa08171b3136) deployed as release 20210201152935 by thkernel" >> /var/www/medplatform/revisions.log
   INFO [51685a32] Finished in 0.394 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-02-04 15:04:37 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [82805d51] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [82805d51] Command: /usr/bin/env mkdir -p /tmp
+  INFO [82805d51] Finished in 14.985 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-MedPlatform-production-thekernel.sh 0.0%
+  INFO Uploading /tmp/git-ssh-MedPlatform-production-thekernel.sh 100.0%
+  INFO [4297edc2] Running /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thekernel.sh as root@gescomph.be
+ DEBUG [4297edc2] Command: /usr/bin/env chmod 700 /tmp/git-ssh-MedPlatform-production-thekernel.sh
+  INFO [4297edc2] Finished in 2.161 seconds with exit status 0 (successful).
+  INFO [c49f864e] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as root@gescomph.be
+ DEBUG [c49f864e] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [c49f864e] 	83d697d6c7345382d4f56cbf05391ea2cb6e959e	HEAD
+  INFO [c49f864e] Finished in 4.319 seconds with exit status 0 (successful).
+  INFO [e3f8d7ff] Running /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases as root@gescomph.be
+ DEBUG [e3f8d7ff] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases
+  INFO [e3f8d7ff] Finished in 2.402 seconds with exit status 0 (successful).
+  INFO [ad9d4bcc] Running /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs as root@gescomph.be
+ DEBUG [ad9d4bcc] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs
+  INFO [ad9d4bcc] Finished in 1.813 seconds with exit status 0 (successful).
+ DEBUG [f783237c] Running [ -f /var/www/medplatform/current/REVISION ] as root@gescomph.be
+ DEBUG [f783237c] Command: [ -f /var/www/medplatform/current/REVISION ]
+ DEBUG [f783237c] Finished in 2.200 seconds with exit status 0 (successful).
+ DEBUG [9525f904] Running /usr/bin/env cat /var/www/medplatform/current/REVISION 2>/dev/null as root@gescomph.be
+ DEBUG [9525f904] Command: /usr/bin/env cat /var/www/medplatform/current/REVISION 2>/dev/null
+ DEBUG [9525f904] 	fb9e94bf72ea32a94766205576fcaa08171b3136
+ DEBUG [9525f904] Finished in 2.406 seconds with exit status 0 (successful).
+ DEBUG [2c17fa21] Running [ -f /var/www/medplatform/repo/HEAD ] as root@gescomph.be
+ DEBUG [2c17fa21] Command: [ -f /var/www/medplatform/repo/HEAD ]
+ DEBUG [2c17fa21] Finished in 2.148 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/medplatform/repo
+ DEBUG [e6230c13] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [e6230c13] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [e6230c13] Finished in 2.830 seconds with exit status 0 (successful).
+  INFO [481f86fc] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as root@gescomph.be
+ DEBUG [481f86fc] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [481f86fc] Finished in 2.072 seconds with exit status 0 (successful).
+  INFO [5ef58e51] Running /usr/bin/env git remote update --prune as root@gescomph.be
+ DEBUG [5ef58e51] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [5ef58e51] 	Fetching origin
+  INFO [5ef58e51] Finished in 3.016 seconds with exit status 0 (successful).
+ DEBUG [681e391d] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [681e391d] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [681e391d] Finished in 1.909 seconds with exit status 0 (successful).
+  INFO [bf614d36] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20210204150514 as root@gescomph.be
+ DEBUG [bf614d36] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env mkdir -p /var/www/medplatform/releases/20210204150514 )
+  INFO [bf614d36] Finished in 1.918 seconds with exit status 0 (successful).
+  INFO [fb1d2022] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20210204150514 as root@gescomph.be
+ DEBUG [fb1d2022] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-MedPlatform-production-thekernel.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20210204150514 )
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-02-04 15:10:39 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [eb90d48f] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [eb90d48f] Command: /usr/bin/env mkdir -p /tmp
