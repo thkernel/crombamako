@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\StructurePrestation;
-use App\Models\Structure;
+use App\Models\StructureProfile;
 use App\Models\Prestation;
 
 
@@ -33,7 +33,7 @@ class StructurePrestationController extends Controller
     {
         //
         $prestations = Prestation::all();
-        $structures = Structure::all();
+        $structures = StructureProfile::all();
         $structure_prestation = new StructurePrestation;
         return view('structure_prestations.create', compact(['structure_prestation', 'prestations', 'structures']));
     }
@@ -88,7 +88,7 @@ class StructurePrestationController extends Controller
     {
         //
         $prestations = Prestation::all();
-        $structures = Structure::all();
+        $structures = StructureProfile::all();
 
         return view('structure_prestations.edit', compact(['structure_prestation', 'prestations', 'structures']));
     }

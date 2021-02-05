@@ -31,7 +31,7 @@
 </div>
 
 <div class="row">
-	<div class="col-md-12">
+	<div class="col-md-4">
         <div class="form-group">
             <label for="speciality_id" class="required">Spécialité:</label>
             <select name="speciality_id" id="speciality_id" class="form-control" required>
@@ -45,7 +45,7 @@
     
 	
 
-	<div class="col-md-12">
+	<div class="col-md-4">
         <div class="form-group">
             <label for="structure_id" class="required">Structure:</label>
             <select name="structure_id" id="structure_id" class="form-control" required>
@@ -57,7 +57,7 @@
         </div>
 	</div>
 
-	<div class="col-md-12">
+	<div class="col-md-4">
         <div class="form-group">
             <label for="service_id" class="required">Service:</label>
             <select name="service_id" id="service_id" class="form-control" required>

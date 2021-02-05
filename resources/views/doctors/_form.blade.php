@@ -32,7 +32,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             
 
             <div class="form-group">
@@ -47,19 +47,9 @@
 
 
         </div>
-        <div class="col-md-3">
-            <div class="form-group">
-                <label for="service_id">Service:</label>
-                <select name="service_id" id="service_id" class="form-control">
-                    <option {{ $doctor->service_id  ? '' : 'disabled selected value'}}> 
-                    @foreach($services as $service)
-                        <option value = "{{ $service->id }}" {{ $service->id == $doctor->service_id ?  'selected' : ''}}>{{ $service->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-        </div>
+        
 
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="town_id" class="required">Commune:</label>
                 <select name="town_id" class="form-control" required>
@@ -70,7 +60,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="neighborhood_id" class="required">Quartier:</label>
                 <select name="neighborhood_id" class="form-control" required>
@@ -87,7 +77,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="structure_id">Structure:</label>
                 <select name="structure_id" class="form-control">
@@ -99,15 +89,22 @@
             </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-4">
             <div class="form-group">
-                <label for="address" class="required">Adresse:</label>
-                <input type="text" class="form-control" placeholder="Adresse"  name="address" value="{{  old('address') ?? $doctor->address }}" >
-                {!! $errors->first('address', '<p class="error">:message</p>') !!}
-            </div><!-- form-group -->
-         </div><!-- form-group -->
+                <label for="service_id">Service:</label>
+                <select name="service_id" id="service_id" class="form-control">
+                    <option {{ $doctor->service_id  ? '' : 'disabled selected value'}}> 
+                    @foreach($services as $service)
+                        <option value = "{{ $service->id }}" {{ $service->id == $doctor->service_id ?  'selected' : ''}}>{{ $service->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+        </div>
 
-         <div class="col-md-3">
+
+        
+
+         <div class="col-md-4">
             <div class="form-group">
                 <label for="phone" class="required">Téléphone:</label>
                 <input type="text" class="form-control" placeholder="Téléphone"  name="phone" value="{{  old('phone') ?? $doctor->phone }}" >
@@ -118,8 +115,15 @@
 
 
     <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="address">Adresse (Rue, porte etc...):</label>
+                <input type="text" class="form-control" placeholder="Adresse (Rue, porte etc...)"  name="address" value="{{  old('address') ?? $doctor->address }}" >
+                {!! $errors->first('address', '<p class="error">:message</p>') !!}
+            </div><!-- form-group -->
+         </div><!-- form-group -->
 
-        <div class="col-md-12">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="email" class="required">Email:</label>
               <input type="email" class="form-control" placeholder="Votre email"  name="email" value="{{  old('email') ?? $doctor->email }}" {{$doctor->email ? "readonly" : ''}} required >

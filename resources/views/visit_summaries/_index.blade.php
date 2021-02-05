@@ -11,7 +11,7 @@
 			
 
  <a  href="{{ route('visit_summaries.edit', $visit_summary->id) }}">
-    <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
+    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
     Modifier
  </a>
 

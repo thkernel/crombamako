@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Structure;
+use App\Models\StructureProfile;
 use App\Models\Prestation;
 
 class StructurePrestation extends Model
@@ -14,7 +14,7 @@ class StructurePrestation extends Model
 
 
     public function structure(){
-        return $this->belongsTo(Structure::class);
+        return $this->belongsTo(StructureProfile::class, 'structure_id');
     }
 
     public function prestation(){

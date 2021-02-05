@@ -36,6 +36,24 @@
     </div>
     <div class="col-md-4">   
         <div class="form-group">
+            <label for="data_feedback" class="required">Remontée de données:</label>
+            
+
+            <select name="data_feedback" class="form-control" required>
+                <option disabled selected value> Sélectionner </option>
+                
+                <option value = "Oui" {{ $visit_summary->data_feedback == "Oui" ?  'selected' : ''}} >Oui</option>
+                <option value = "Non" {{ $visit_summary->data_feedback == "Non" ?  'selected' : ''}}>Non</option>
+                
+            </select>
+
+
+
+        </div>
+
+    </div>
+    <div class="col-md-4">   
+        <div class="form-group">
             <label for="security_box" class="required">Boites de sécurités:</label>
             
 

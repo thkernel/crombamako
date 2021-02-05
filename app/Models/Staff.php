@@ -17,7 +17,7 @@ class Staff extends Model
         return $this->belongsTo(Speciality::class);
     }
     public function structure(){
-        return $this->belongsTo(Structure::class);
+        return $this->belongsTo(StructureProfile::class, 'structure_id');
     }
     public function service(){
         return $this->belongsTo(Service::class);
