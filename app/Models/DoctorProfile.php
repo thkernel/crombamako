@@ -64,4 +64,9 @@ class DoctorProfile extends Model
     public function getFullNameWithReferenceAttribute() {
         return $this->first_name . ' ' . $this->last_name . ' | '. $this->doctor_order->reference;
     }
+
+     public function avatar()
+    {
+        return $this->morphMany(EloquentStorageAttachment::class, 'attachable');
+    }
 }

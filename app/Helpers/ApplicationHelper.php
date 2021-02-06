@@ -344,15 +344,30 @@ function structure_logo($structure, $alt_tag, $class_name){
     $clinique = StructureCategory::where('name', strtolower("Clinique"));
     $polyclinique = StructureCategory::where('name', strtolower("Polyclinique"));
 
-
       
     if  ($structure->logo){
-        return '<img src="images/avatar-missing.png" class="wd-80 rounded-circle" alt="">';
+        return '<img src="/images/post-missing.jpg"  alt="">';
 
     }
     
     else{
-        return '<img src="images/avatar-missing.png" class="wd-80 rounded-circle" alt="">';
+        return '<img src="/images/post-missing.jpg"  alt="">';
+         
+    }
+
+
+}
+
+function doctor_avatar($doctor, $alt_tag, $class_name){
+   
+      
+    if  ($doctor->avatar()){
+        return '<img src="/images/avatar-missing.png"  class="" alt="">';
+
+    }
+    
+    else{
+        return '<img src="/images/avatar-missing.png"  class="" alt="">';
          
     }
 

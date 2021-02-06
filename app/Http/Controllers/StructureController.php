@@ -98,9 +98,17 @@ class StructureController extends Controller
      * @param  \App\Models\Structure  $structure
      * @return \Illuminate\Http\Response
      */
-    public function show(StructureProfile $structure)
+    public function show($slug)
     {
         //
+
+        $structure = StructureProfile::where('slug',$slug)->first();
+        
+        $structure_doctors = $structure->doctors;
+        //dd($structure_doctors);
+        return view("structures.show", compact(['structure', 'structure_doctors']) );
+
+        
     }
 
     /**

@@ -96,6 +96,9 @@ Route::get('/posts/all', [PostController::class, 'all'])->name('all_posts_path')
 
 Route::get('/opportunity/show/{slug}', [OpportunityController::class, 'show'])->name('show_opportunity_path');
 Route::get('/post/show/{slug}', [PostController::class, 'show'])->name('show_post_path');
+
+Route::get('/structures/show/{slug}', [StructureController::class, 'show'])->name('show_structure_path');
+
 Route::get('/structure_type/delete/{slug}', [StructureTypeController::class, 'delete'])->name('delete_structure_type_path')->middleware(['auth']);
 
 Route::get('/about', [StaticPageController::class, 'about'])->name('about_path');
@@ -127,7 +130,8 @@ Route::resource('posts', PostController::class, [
     'only' => ['index', 'create', 'store', 'edit', 'destroy', 'update']])->middleware(['auth']);
 Route::resource('structure_types', StructureTypeController::class)->middleware(['auth']);
 Route::resource('structure_categories', StructureCategoryController::class)->middleware(['auth']);
-Route::resource('structures', StructureController::class)->middleware(['auth']);
+Route::resource('structures' , StructureController::class, [
+    'only' => ['index', 'create', 'store', 'edit', 'destroy', 'update']])->middleware(['auth']);
 Route::resource('contact_forms', ContactFormController::class);
 Route::resource('towns', TownController::class)->middleware(['auth']);
 Route::resource('neighborhoods', NeighborhoodController::class)->middleware(['auth']);
@@ -154,7 +158,27 @@ Route::resource('features', FeatureController::class)->middleware(['auth']);
 Route::resource('permissions', PermissionController::class)->middleware(['auth']);
 
 
+Route::get('send-mail', function () {
 
+   
+
+    $details = [
+
+        'title' => 'Mail from ItSolutionStuff.com',
+
+        'body' => 'This is for testing email using smtp'
+
+    ];
+
+   
+
+    \Mail::to('salut.amos@gmail.com')->send(new \App\Mail\MyTestMail($details));
+
+   
+
+    dd("Email is Sent.");
+
+});
 
 
 require __DIR__.'/auth.php';

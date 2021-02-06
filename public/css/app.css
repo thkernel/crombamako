@@ -14913,6 +14913,10 @@ body {
   border-radius: 14px;
 }
 
+.responsive-img img {
+  width: 100% !important;
+}
+
 /*!
  * Bracket Plus Responsive Dashboard Template
  * Version: 1.4.0

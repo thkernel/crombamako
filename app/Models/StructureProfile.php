@@ -43,6 +43,11 @@ class StructureProfile extends Model
         return $this->morphOne(User::class, 'userable');
     }
 
+    public function doctors()
+    {
+        return $this->hasMany(DoctorProfile::class, 'structure_id');
+    }
+
 
     public function structure_type(){
         return $this->belongsTo(StructureType::class);
