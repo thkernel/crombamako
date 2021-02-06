@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Feature;
+use App\Models\DoctorOrder;
+use App\Models\StructureProfile;
+use App\Models\SubscriptionRequest;
 use Illuminate\Http\Request;
 
-class FeatureController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +18,12 @@ class FeatureController extends Controller
     {
         //
 
-        $features =  Feature::orderBy('id', 'desc')->paginate(10)->setPath('features');
+        $total_doctors =  count(DoctorOrder::all());
+        $total_structures =  count(StructureProfile::all());
+        $total_pending_subscription = count(SubscriptionRequest::where("status", '<>', "validated")->get());
+
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
-        return view("features.index", compact(['features']) );
+        return view("dashboard.index", compact(['total_doctors', 'total_structures', 'total_pending_subscription']) );
 
 
     }
@@ -51,7 +56,7 @@ class FeatureController extends Controller
 
 
 
-        $request['user_id'] = current_user()->id;
+        //$request['user_id'] = current_user()->id;
         $request['status'] = 'enable';
         $request->validate([
             'name' => 'required',

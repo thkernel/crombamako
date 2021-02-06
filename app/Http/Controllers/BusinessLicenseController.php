@@ -42,7 +42,7 @@ class BusinessLicenseController extends Controller
     {
         //
 
-         $request['doctor_id'] = current_user()->id;
+        $request['doctor_id'] = current_user()->id;
      
 
         $request->validate([

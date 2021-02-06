@@ -9,7 +9,7 @@ class Feature extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'subject_class',  'status'];
+    protected $fillable = ['name', 'subject_class',  'status', 'user_id'];
 
 
 	public function permission(){

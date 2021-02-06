@@ -30,6 +30,7 @@
   <thead>
     <tr>
       <th>Date</th>
+      <th>Date de visite</th>
      <th>Structure</th>
      
       

@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Staff;
 use App\Models\Service;
-use App\Models\Structure;
+use App\Models\StructureProfile;
 use App\Models\Speciality;
-use App\Models\StructureCategory;
+use App\Models\StructureType;
 use Illuminate\Http\Request;
 
 class StaffController extends Controller
@@ -32,11 +32,11 @@ class StaffController extends Controller
     public function create()
     {
         //
-        $structure_category = StructureCategory::where("slug", "privee")->first();
+        $structure_type = StructureType::where("slug", "privee")->first();
         $staff = new Staff;
         $specialities =  Speciality::all();
         $services =  Service::all();
-        $structures =  Structure::where('structure_category_id', $structure_category->id)->get();
+        $structures =  StructureProfile::where('structure_type_id', $structure_type->id)->get();
         return view('staffs.create', compact(['staff','specialities', 'services','structures']));
     }
 
@@ -94,7 +94,7 @@ class StaffController extends Controller
         //
          $specialities =  Speciality::all();
         $services =  Service::all();
-        $structures =  Structure::all();
+        $structures =  StructureProfile::all();
         return view('staffs.edit', compact(['staff','specialities', 'services','structures']));
 
     }

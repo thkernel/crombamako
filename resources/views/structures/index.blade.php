@@ -29,8 +29,8 @@
 
   <thead>
     <tr>
-     <th>Catégorie</th>
-      <th>Nom</th>
+     <th>Catégorie de structure</th>
+      <th>Nom de la structure</th>
       <th>Commune</th>
       <th>Quartier</th>
 

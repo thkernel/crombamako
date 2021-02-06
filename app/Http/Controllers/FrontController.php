@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Town;
-use App\Models\Speciality;
+use App\Models\StructureCategory;
+use App\Models\Neighborhood;
 
 class FrontController extends Controller
 {
@@ -18,9 +19,11 @@ class FrontController extends Controller
     {
         //
         $towns =  Town::all();
-        $specialities =  Speciality::all();
+        $neighborhoods = Neighborhood::all();
+        $structure_categories =  StructureCategory::all();
+        $structure_category_id = null;
         
-        return view("front.index", compact(['towns','specialities']) );
+        return view("front.index", compact(['towns','neighborhoods', 'structure_categories', 'structure_category_id']) );
     }
 
     /**

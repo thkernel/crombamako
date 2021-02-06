@@ -35,7 +35,7 @@
 
                             </h5>
                             <p class="card-text">
-                              {{ $structure->address}} {{ $structure->locality->name }}
+                              {{ $structure->address}} {{ $structure->town->name }}
                             </p>
 
                             <p class="card-text">

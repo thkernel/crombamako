@@ -39,13 +39,7 @@
 </div>
 
 <div class="row">
-    <div class="col-md-6">
-        <div class="form-group">
-            <label>Adresse:</label>
-            <input type="text" name="address" class="form-control" placeholder="Adresse" value="{{  old('address') ?? $structure->address }}">
-                        {!! $errors->first('name', '<p class="error">:message</p>') !!}
-        </div>
-    </div>
+   
     <div class="col-md-3">
             <div class="form-group">
             <label for="town_id" class="required">Commune:</label>
@@ -68,6 +62,14 @@
             </select>
         </div>
         </div>
+
+         <div class="col-md-6">
+        <div class="form-group">
+            <label>Adresse:</label>
+            <input type="text" name="address" class="form-control" placeholder="Adresse" value="{{  old('address') ?? $structure->address }}">
+                        {!! $errors->first('name', '<p class="error">:message</p>') !!}
+        </div>
+    </div>
 </div>
 
 <div class="row">

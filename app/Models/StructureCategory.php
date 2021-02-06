@@ -33,6 +33,6 @@ class StructureCategory extends Model
     }
 
     public function structures(){
-        return $this->hasMany(Structure::class);
+        return $this->hasMany(StructureProfile::class);
     }
 }

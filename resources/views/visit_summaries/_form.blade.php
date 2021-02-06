@@ -1,14 +1,23 @@
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
         <div class="form-group">
-            <label for="visit_date" class="required">Date de la visite:</label>
+            <label for="visit_date" class="required">Date de  visite:</label>
              <input type="date" name="visit_date" class="form-control" placeholder="Consultation spécialisée" value="{{  old('visit_date') ?? $visit_summary->visit_date }}" >
             
         </div>
 
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="visit_hour" class="required">Heure de visite:</label>
+             <input type="time" name="visit_hour" class="form-control" placeholder="Heure de visite" value="{{  old('visit_hour') ?? $visit_summary->visit_hour }}" >
+            
+        </div>
+
+    </div>
+
+    <div class="col-md-5">
         <div class="form-group">
             <label for="structure_id" class="required">Structure:</label>
             <select name="structure_id" id="structure_id" class="form-control" required>

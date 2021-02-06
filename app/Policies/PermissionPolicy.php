@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Permission;
 use App\Models\User;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PermissionPolicy
@@ -54,9 +55,12 @@ class PermissionPolicy
      * @param  \App\Models\Permission  $permission
      * @return mixed
      */
-    public function update(User $user, Permission $permission)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'Permission')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
     }
 
     /**

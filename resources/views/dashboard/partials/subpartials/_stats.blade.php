@@ -6,7 +6,7 @@
                 <div class="mg-l-20">
                   <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Structures</p>
                   <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">
-                  0
+                  {{ $total_structures }}
                   </p>
                   <span class="tx-11 tx-roboto tx-white-8">
                   </span>
@@ -23,7 +23,7 @@
                 <div class="mg-l-20">
                   <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Médecins</p>
                   <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">
-                      0
+                      {{ $total_doctors }}
                   </p>
                   <span class="tx-11 tx-roboto tx-white-8">
                   </span>
@@ -35,11 +35,11 @@
           <div class="col-sm-4 col-xl-4 mg-t-20 mg-xl-t-0">
             <div class="bg-teal rounded overflow-hidden">
               <div class="pd-x-20 pd-t-20 d-flex align-items-center">
-                <i class="fa fa-cubes tx-60 lh-0 tx-white op-7" aria-hidden="true"></i>
+                <i class="fa fa-id-card-o tx-60 lh-0 tx-white op-7" aria-hidden="true"></i>
                 <div class="mg-l-20">
-                  <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Opportinuités</p>
+                  <p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Préinscriptions en attente</p>
                   <p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">
-                    0
+                    {{ $total_pending_subscription }}
                   </p>
                   <span class="tx-11 tx-roboto tx-white-8">
                   

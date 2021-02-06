@@ -1,6 +1,7 @@
 @foreach($visit_summaries as $visit_summary)
     <tr>
-        <td>{{$visit_summary->created_at}}</td>
+        <td>{{format_date($visit_summary->created_at, 'd/m/Y')}}</td>
+        <td>{{$visit_summary->visit_date}}</td>
         <td>{{$visit_summary->structure->name}}</td>
        
     
@@ -11,7 +12,7 @@
 			
 
  <a  href="{{ route('visit_summaries.edit', $visit_summary->id) }}">
-    <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
+    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
     Modifier
  </a>
 

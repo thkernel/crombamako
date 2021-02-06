@@ -15,8 +15,8 @@ class CreateVisitSummariesTable extends Migration
     {
         Schema::create('visit_summaries', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('visit_date');
-            $table->dateTime('visit_hour');
+            $table->date('visit_date');
+            $table->time('visit_hour');
             $table->string('medical_file');
             $table->string('receipt');
             $table->string('prescription_book');

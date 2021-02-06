@@ -36,6 +36,7 @@ class AuthServiceProvider extends ServiceProvider
 
         */
     }
+    
 }
 //return $user->id === $post->user_id
                // ? Response::allow()

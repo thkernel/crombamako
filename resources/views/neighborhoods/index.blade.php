@@ -31,7 +31,7 @@
     <tr>
      
       <th>Commune</th>
-      <th>Nom</th>
+      <th>Nom du quartier</th>
      
       
       <th>Actions</th>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\VisitSummary;
+use App\Models\VisitSummaryTeam;
 use Illuminate\Http\Request;
 use App\Models\StructureProfile;
 use App\Models\DoctorProfile;
@@ -48,6 +49,8 @@ class VisitSummaryController extends Controller
     {
         //
         $request['user_id'] = current_user()->id;
+        $request['visit_hour'] = date('Y-m-d H:i:s');
+        
         $request['status'] = "Enable";
      
 
@@ -56,9 +59,24 @@ class VisitSummaryController extends Controller
 
         ]);
 
-        dd($request);
 
-        VisitSummary::create($request->all());
+        $visit_summary_teams = $request['visit_summary_teams'];
+
+        //dd($request);
+
+        $visit_summary = VisitSummary::create($request->all());
+
+
+        if ($visit_summary && $visit_summary_teams){
+            foreach($visit_summary_teams as $visit_summary_team){
+                $item = [
+                    "visit_summary_id" => $visit_summary->id,
+                    "doctor_id" => $visit_summary_team,
+                ];
+                
+                VisitSummaryTeam::create($item);
+            }
+        }
 
    
         return redirect()->route('visit_summaries.index')
@@ -85,9 +103,10 @@ class VisitSummaryController extends Controller
     public function edit(VisitSummary $visit_summary)
     {
         //
-        $structures =  Structure::all();
+        $structures =  StructureProfile::all();
+        $doctors =  DoctorProfile::all();
         
-        return view('visit_summaries.edit', compact(['visit_summary', 'structures']));
+        return view('visit_summaries.edit', compact(['visit_summary', 'structures', 'doctors']));
 
     }
 
@@ -102,6 +121,9 @@ class VisitSummaryController extends Controller
     {
         //
         //
+
+        $request['visit_hour'] = date('Y-m-d H:i:s');
+        
         $request->validate([
             'structure_id' => 'required',   
             
@@ -110,7 +132,27 @@ class VisitSummaryController extends Controller
   
         $visit_summary->update($request->all());
 
-  
+        $visit_summary_teams = $request['visit_summary_teams'];
+
+        if ($visit_summary && $visit_summary_teams){
+
+            // delete all items before.
+            VisitSummaryTeam::where('visit_summary_id', $visit_summary->id)->delete();
+
+
+            foreach($visit_summary_teams as $visit_summary_team){
+                $item = [
+                    "visit_summary_id" => $visit_summary->id,
+                    "doctor_id" => $visit_summary_team,
+                ];
+                
+                VisitSummaryTeam::create($item);
+            }
+        }
+
+
+
+
 
         return redirect()->route('visit_summaries.index')
 

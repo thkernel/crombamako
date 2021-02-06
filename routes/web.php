@@ -36,6 +36,7 @@ use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\DoctorOrderController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\DashboardController;
 
 
 
@@ -63,6 +64,8 @@ use App\Http\Controllers\PermissionController;
 
 Route::name('home_path')->get('/', [FrontController::class, 'index']);
 Route::name('search_doctors_path')->get('/search/doctors', [SearchController::class, 'search_doctors']);
+
+Route::name('search_structures_path')->get('/search/structures', [SearchController::class, 'search_structures']);
 
 
 
@@ -100,12 +103,14 @@ Route::get('/cgu', [StaticPageController::class, 'cgu'])->name('cgu_path');
 Route::get('/privacy-policy', [StaticPageController::class, 'privacy_policy'])->name('privacy_policy_path');
 
 
-
+/*
 Route::get('/dashboard', function () {
     return view('dashboard/index');
 })->middleware(['auth'])->name('dashboard_path');
 
+*/
 
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard_path')->middleware(['auth']);
 
 
 Route::resource('roles', RoleController::class)->middleware(['auth']);

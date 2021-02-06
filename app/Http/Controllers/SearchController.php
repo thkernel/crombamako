@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Locality;
-use App\Models\Speciality;
+use App\Models\Town;
+use App\Models\Neighborhood;
+use App\Models\StructureProfile;
+use App\Models\StructureCategory;
 
 class SearchController extends Controller
 {
@@ -19,15 +21,44 @@ class SearchController extends Controller
         //
     }
 
-    public function search_doctors()
+    public function search_structures(Request $request)
     {
         //
 
         $results = null;
-        $localities =  Locality::all();
-        $specialities =  Speciality::all();
+        $towns =  Town::all();
+        $neighborhoods = Neighborhood::all();
+        $structure_categories =  StructureCategory::all();
 
-        return view("search.search_doctors", compact(['results', 'localities', 'specialities']) );
+
+        // Get search term
+
+        $structure_category_id = $request['structure_category_id'];
+        $town_id = $request['town_id'];
+        $neighborhood_id = $request['neighborhood_id'];
+
+
+
+        if ($structure_category_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->get();
+        }
+        else if ($structure_category_id && $town_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('town_id', $town_id)->get();
+
+        }else if ($structure_category_id && $neighborhood_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }
+        else if ($structure_category_id && $town_id && $neighborhood_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }
+
+        
+
+
+
+        //dd($request);
+
+        return view("search.search_doctors", compact(['results', 'towns', 'structure_categories', 'neighborhoods', 'structure_category_id']) );
     }
 
 

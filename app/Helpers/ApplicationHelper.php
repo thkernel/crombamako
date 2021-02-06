@@ -7,6 +7,7 @@
 	use App\Models\StructureCategory;
 	use App\Models\EloquentStorageBlob;
 	use App\Models\EloquentStorangeAttachment;
+    use App\Models\Feature;
     use App\Models\Permission;
 	use Illuminate\Support\Facades\Hash;
 	use Illuminate\Support\Str;
@@ -14,7 +15,8 @@
 	use Illuminate\Support\Facades\DB;
 
     use Illuminate\Container\Container;
-    use File;
+    //use File;
+    use Illuminate\Support\Facades\File;
 
     /* Get current user */
 
@@ -78,24 +80,38 @@
 
     function authorize_resource($action_name, $class_name){
 
-        $permission = Permission::where('user_id', current_user()->id)->where('subject_clas', $class_name)->first();
+
+        $feature = Feature::where('subject_class', $class_name )->first();
 
 
-        $permission_items = $permission->permission_items;
+        if ($feature){
+            $permission = Permission::where('user_id', current_user()->id)->where('feature_id', $feature->id)->first();
+
+
+           
         
-        $abilities = [];
+            $abilities = [];
 
-        if ($permission && $permission_items){
+            if ($permission ){
 
-            foreach ($permission_items as $permission_item) {
-                array_push($abilities, strtolower($permission_item->action_name));
+                $permission_items = $permission->permission_items;
+
+                foreach ($permission_items as $permission_item) {
+                    array_push($abilities, strtolower($permission_item->action_name));
+                }
+
+                return in_array($action_name, $abilities);
             }
+            else{
+                return false;
+            }
+            
 
-            return in_array($action_name, $abilities);
         }
         else{
             return false;
         }
+        
 
 
     }

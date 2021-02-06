@@ -3,7 +3,7 @@
         <td>{{$business_license->created_at}}</td>
         <td>{{$business_license->reference}}</td>
         <td>{{$business_license->year}}</td>
-        <td>{{$business_license->doctor->profile->full_name}}</td>
+        <td>{{$business_license->doctor->full_name}}</td>
     
    
     
@@ -12,7 +12,7 @@
 			
 
  <a  href="{{ route('business_licenses.edit', $business_license->id) }}">
-    <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
+    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
     Modifier
  </a>
 

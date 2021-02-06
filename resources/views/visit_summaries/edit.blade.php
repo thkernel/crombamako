@@ -9,7 +9,8 @@
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
       
-
+        <h4>Modification - Résumé de visite</h4>
+        <hr />
     </div>
     <div class="section-body">
 		<div class="row">
@@ -18,7 +19,7 @@
 
         <div class="pull-left">
 
-            <h2>Modification - Résumé de visite</h2>
+            
 
         </div>
 

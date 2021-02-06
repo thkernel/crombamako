@@ -15,9 +15,11 @@ class CreateVisitSummaryTeamsTable extends Migration
     {
         Schema::create('visit_summary_teams', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('status');
+            $table->bigInteger('visit_summary_id')->unsigned();
+            $table->foreign('visit_summary_id')->references('id')->on('visit_summaries')->onDelete('cascade');
+            $table->bigInteger('doctor_id')->unsigned();
+            $table->foreign('doctor_id')->references('id')->on('doctor_profiles')->onDelete('cascade');
+            $table->string('status')->nullable();
             
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));

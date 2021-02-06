@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Feature;
 use Illuminate\Http\Request;
+use App\Policies\Response;
 
 class PermissionController extends Controller
 {
@@ -59,7 +60,7 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         //
-
+        //$request['user_id'] = current_user()->id;
         $request->validate([
             'user_id' => 'required',
             'feature_id' => 'required',
@@ -136,6 +137,12 @@ class PermissionController extends Controller
     public function update(Request $request, Permission $permission)
     {
         //
+
+
+        if ($request->user()->cannot('update', Permission::class)) {
+            abort(403);
+        }
+
 
         $request->validate([
             'user_id' => 'required',
