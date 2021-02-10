@@ -90,13 +90,15 @@ class DoctorController extends Controller
         $last_doctor_order = DoctorOrder::where('year', $year)->latest()->first();
 
         if ($last_doctor_order){
-            $id_to_str = strval($last_doctor_order->id);
+            $id = $last_doctor_order->id;
+            $id_to_str = strval($id);
             $str_size = strlen($id_to_str);
 
             if ($str_size == 1 ){
                 
-                if ($str_size == 9){
-                    $reference = "N°00".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                if ($id == 9){
+                    $sn = $last_doctor_order->id + 1;
+                    $reference = "N°00". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
                 }else{
                     $sn = $last_doctor_order->id + 1;
@@ -106,20 +108,25 @@ class DoctorController extends Controller
             }
             else if ($str_size == 2 ){
 
-                if ($str_size == 99){
-                    $reference = "N°0".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                if ($id == 99){
+                    $sn = $last_doctor_order->id + 1;
+
+                    $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
                 }else{
-                    $reference = "N°00".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                    $sn = $last_doctor_order->id + 1;
+                    $reference = "N°00". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
                 }
                 
             }
             else if ($str_size >= 3 ){
-                if ($str_size >= 999){
-                    $reference = "N°".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                if ($id >= 999){
+                    $sn = $last_doctor_order->id + 1;
+                    $reference = "N°". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
                 }else{
-                    $reference = "N°0".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                    $sn = $last_doctor_order->id + 1;
+                    $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
                 }
                 
