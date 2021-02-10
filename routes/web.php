@@ -37,6 +37,7 @@ use App\Http\Controllers\DoctorOrderController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\VerifyEmailController;
 
 
 
@@ -188,13 +189,7 @@ Route::get('/email/verify', function () {
 })->middleware('auth')->name('verification.notice');
 
 
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-
-    dd($request);
-
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify');
+Route::get('/email/verify/{id}/{hash}', VerifyEmailController::class)->middleware(['signed'])->name('verification.verify');
 
 
 Route::post('/email/verification-notification', function (Request $request) {

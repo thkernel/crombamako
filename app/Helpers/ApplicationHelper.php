@@ -256,8 +256,9 @@
 		$role = Role::whereName($role)->first();
 
         // generate login and password
-        $login = strtolower($last_name.'_'.Str::random(4));
-        $password = Hash::make(Str::random(8));
+        $random_str = strtolower(Str::random(8));
+        $login = strtolower($last_name.'_'.$random_str);
+        $password = Hash::make($random_str);
 
 /*
         if ($verified){

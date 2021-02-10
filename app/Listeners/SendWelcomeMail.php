@@ -6,8 +6,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Mail\Mailable;
 
-
-class SendUserCredentialsMail
+class SendWelcomeMail
 {
     /**
      * Create the event listener.
@@ -26,10 +25,8 @@ class SendUserCredentialsMail
      * @return void
      */
     public function handle(Verified $event)
-    {
-        //
-       
-       Mail::to("salut.amos@gmail.com")->send(new UserWasVerifiedMail($event->user));
-
-    }
+{
+    Mail::to($event->user->email)->send(new Greeting());
+    
+}
 }
