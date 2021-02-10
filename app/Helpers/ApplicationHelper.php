@@ -18,6 +18,8 @@
     //use File;
     use Illuminate\Support\Facades\File;
 
+    use Illuminate\Auth\Events\Registered;
+
     /* Get current user */
 
 	function current_user(){
@@ -237,11 +239,7 @@
             $doctor_profile->user()->save($doctor_user);
 
 
-            if ($doctor_profile){
-                send_mail();
-            }
-
-            // send auth infos to user.
+           
         }
 
         return $doctor_profile;
@@ -272,15 +270,19 @@
         
         */
         
-        //create user account
+       
+        
         $user = User::create([
                 "login" => $login,
                 "password" => $password,
-                "email_verified_at" =>  date('Y-m-d H:i:s'),
+                
                 "email" => $email,
                 "role_id" => $role->id,
         ]);
+        
 
+      
+        event(new Registered($user));
         return $user;
 
 	}
