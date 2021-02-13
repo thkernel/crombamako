@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\DoctorProfile;
 use App\Models\Role;
+use App\Models\Town;
+use App\Models\Neighborhood;
+use App\Mail\ContributionMail;
+//use Illuminate\Mail\Mailable;
 
 class ContributionController extends Controller
 {
@@ -51,6 +55,7 @@ class ContributionController extends Controller
     {
         //
         $request['user_id'] = current_user()->id;
+
         
      
 
@@ -61,13 +66,27 @@ class ContributionController extends Controller
 
         ]);
 
-        $contribution_items = $request['year'];
+
+        $contribution_items = array_filter($request['year']); // Remove empty element into array.
+
+
         $amount = $request['amount'];
+        
+        
+        // Check if contribution items exist, else exit function.
+        if (!isset($contribution_items)){
+            exit();
+        }
+
+        // Compute total amount.
+        $request['total_amount'] = $request['amount'] * count($contribution_items);
+
+        $contribution = Contribution::create($request->all());
 
         
-        $contribution = Contribution::create($request->all());
-        
         if ($contribution && $contribution_items){
+            
+
             foreach($contribution_items as $contribution_item){
                 $item = [
                     "contribution_id" => $contribution->id,
@@ -76,10 +95,15 @@ class ContributionController extends Controller
                 ];
                 
                 ContributionItem::create($item);
-            }
+            } 
         }
 
+        // Get doctor instance for prepare sending.
+        $doctor = DoctorProfile::find($contribution->doctor_id);
+        
 
+        // Send email
+        \Mail::to($doctor->email)->send(new ContributionMail($contribution));
    
         return redirect()->route('contributions.index')
             ->with('success','Contribution created successfully.');
@@ -162,6 +186,22 @@ class ContributionController extends Controller
         return redirect()->route('contributions.index')
 
                         ->with('success','Contribution updated successfully');
+    }
+
+    public function statement(Request $request){
+
+        $towns =  Town::all();
+        $neighborhoods = Neighborhood::all();
+        $doctors =  DoctorProfile::all();
+
+        // Check if request content the  search terms
+        
+        if (isset($request['start_date']) && $request['start_date'] != null ){
+            dd($request['start_date']);
+
+        }
+
+        return view('contributions.statement', compact(['towns', 'neighborhoods', 'doctors']));
     }
 
     /**

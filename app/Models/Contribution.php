@@ -10,7 +10,7 @@ class Contribution extends Model
     use HasFactory;
 
 
-	protected $fillable = ['doctor_id',  'user_id'];
+	protected $fillable = ['doctor_id', 'total_amount','user_id'];
 
 
 	

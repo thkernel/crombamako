@@ -169,56 +169,9 @@ class SubscriptionRequestController extends Controller
 
         // create doctor account and send credentials
         $doctor = doctor_factory($subscription_request);
-
-
         $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
 
-        // Get the latest record.
-        $last_doctor_order = DoctorOrder::where('year', $year)->latest()->first();
-
-        if ($last_doctor_order){
-            $id_to_str = strval($last_doctor_order->id);
-            $str_size = strlen($id_to_str);
-
-            if ($str_size == 1 ){
-                
-                if ($str_size == 9){
-                    $reference = "N°00".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-
-                }else{
-                    $sn = $last_doctor_order->id + 1;
-                    $reference = "N°000". $sn  ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-                }
-                
-            }
-            else if ($str_size == 2 ){
-
-                if ($str_size == 99){
-                    $reference = "N°0".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-
-                }else{
-                    $reference = "N°00".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-                }
-                
-            }
-            else if ($str_size >= 3 ){
-                if ($str_size >= 999){
-                    $reference = "N°".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-
-                }else{
-                    $reference = "N°0".$last_doctor_order->id + 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-
-                }
-                
-            }
-            
-
-        }
-        else{
-
-            $reference = "N°000". 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-            
-        }
+        $reference = last_doctor_reference($year);
         
 
         // Add doctor to the doctor order.

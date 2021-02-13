@@ -116,6 +116,10 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard_path')->middleware(['auth']);
 
+Route::get('/contributions/statement', [ContributionController::class, 'statement'])->name('contributions_statement_path')->middleware(['auth']);
+
+
+
 
 Route::resource('roles', RoleController::class)->middleware(['auth']);
 Route::resource('users', UserController::class)->middleware(['auth']);

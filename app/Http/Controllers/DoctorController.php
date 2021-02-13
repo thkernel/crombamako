@@ -85,60 +85,7 @@ class DoctorController extends Controller
         $doctor = doctor_factory($request);
 
         $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
-
-        // Get the latest record.
-        $last_doctor_order = DoctorOrder::where('year', $year)->latest()->first();
-
-        if ($last_doctor_order){
-            $id = $last_doctor_order->id;
-            $id_to_str = strval($id);
-            $str_size = strlen($id_to_str);
-
-            if ($str_size == 1 ){
-                
-                if ($id == 9){
-                    $sn = $last_doctor_order->id + 1;
-                    $reference = "N°00". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-
-                }else{
-                    $sn = $last_doctor_order->id + 1;
-                    $reference = "N°000". $sn  ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-                }
-                
-            }
-            else if ($str_size == 2 ){
-
-                if ($id == 99){
-                    $sn = $last_doctor_order->id + 1;
-
-                    $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-
-                }else{
-                    $sn = $last_doctor_order->id + 1;
-                    $reference = "N°00". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-                }
-                
-            }
-            else if ($str_size >= 3 ){
-                if ($id >= 999){
-                    $sn = $last_doctor_order->id + 1;
-                    $reference = "N°". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-
-                }else{
-                    $sn = $last_doctor_order->id + 1;
-                    $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-
-                }
-                
-            }
-            
-
-        }
-        else{
-
-            $reference = "N°000". 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
-            
-        }
+        $reference = last_doctor_reference($year);
         
 
         // Add doctor to the doctor order.

@@ -45,7 +45,7 @@ class ContributionMail extends Mailable
     {
         //return $this->view('view.name');
 
-        return $this->view('emails.contribution');
+        return $this->subject('Paiement de cotisation')->view('emails.contribution_email');
                     
     }
 }
