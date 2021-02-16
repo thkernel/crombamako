@@ -16,7 +16,7 @@
 
         <div class="text-right">
             
-          <a class="btn btn-warning tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('contributions_statement_path') }}"><i class="fa fa-file-text-o" aria-hidden="true"></i> Réléve des cotisations</a>
+          <a class="btn btn-warning tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('contributions_statement_path') }}"><i class="fa fa-file-text-o" aria-hidden="true"></i> Etat de paiement</a>
 
 
             <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('contributions.create') }}"><i class="fa fa-plus" aria-hidden="true"></i> Nouvelle cotisation</a>
@@ -33,7 +33,8 @@
     <tr>
       <th>Date</th>
       <th>Médecin</th>
-      <th>Année</th>
+      <th>Années</th>
+      <th>Montant</th>
       <th>Actions</th>
     </tr>
   </thead>

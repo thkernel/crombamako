@@ -224,7 +224,7 @@
         if ($doctor_user){
             // create profile
             $doctor_profile = DoctorProfile::create([
-            "civility" => $subscription_request->civility,
+            "sex" => $subscription_request->sex,
             "first_name" => $subscription_request->first_name,
             "last_name" => $subscription_request->last_name,
             "address" => $subscription_request->address,

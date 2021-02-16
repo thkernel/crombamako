@@ -18,7 +18,7 @@ class CreateSubscriptionRequestsTable extends Migration
             $table->string('uid')->nullable();
             $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
-            $table->string('civility')->nullable();
+            $table->string('sex')->nullable();
             $table->string('address')->nullable();
             $table->string('phone')->nullable();
             $table->string('street')->nullable();

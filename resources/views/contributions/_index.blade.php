@@ -9,22 +9,19 @@
             </span>
         @endforeach
     </td>
-    <td>{{$contribution->amount}}</td>
+    <td>{{$contribution->total_amount}}</td>
     
 <td>
 	    <div class="action-buttons">
 			
 
- <a  href="{{ route('contributions.edit', $contribution->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
+ 
 
 
 
 <a href="#" data-toggle="modal" data-target="#contribution-{{$contribution->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
+    Annuler
 </a>
 
 <div id="contribution-{{$contribution->id}}-modal" class="c-modal modal fade" data-backdrop="static">

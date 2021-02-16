@@ -16,7 +16,7 @@ class SubscriptionRequest extends Model
     use HasFactory;
 
     protected $fillable = [
-    	'civility',
+    	'sex',
     	'first_name',
     	'last_name',
     	'address',

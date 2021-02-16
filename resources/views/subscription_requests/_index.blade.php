@@ -25,7 +25,10 @@
     Modifier
  </a>
 
-
+<a  href="{{ route('subscription_requests.show', $subscription_request->id) }}">
+    <i class="fa fa-check" aria-hidden="true" title="Modifier"></i>
+    Valider
+ </a>
 
 <form action="{{ route('subscription_requests.destroy', $subscription_request->id)}}" method="post">
                             @csrf @method('DELETE')

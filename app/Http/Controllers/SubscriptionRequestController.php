@@ -63,7 +63,7 @@ class SubscriptionRequestController extends Controller
         $request['status'] = "En attente";
 
         $request->validate([
-            'civility' => 'required',
+            'sex' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'phone' => 'required',
@@ -133,7 +133,7 @@ class SubscriptionRequestController extends Controller
         //
 
         $request->validate([
-            'civility' => 'required',
+            'sex' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'phone' => 'required',

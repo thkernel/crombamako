@@ -69,7 +69,7 @@ class DoctorController extends Controller
     {
         //
         $request->validate([
-            'civility' => 'required',
+            'sex' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'phone' => 'required',
@@ -80,7 +80,7 @@ class DoctorController extends Controller
 
         ]);
 
-  
+        
         // Create doctor and his account.
         $doctor = doctor_factory($request);
 
@@ -144,7 +144,7 @@ class DoctorController extends Controller
     {
         //
         $request->validate([
-            'civility' => 'required',
+            'sex' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'phone' => 'required',
@@ -155,7 +155,6 @@ class DoctorController extends Controller
 
         ]);
 
-  
         $doctor->update($request->all());
 
   

@@ -31,4 +31,6 @@ require('./ckeditor5-build-classic/ckeditor.js');
 require('./init_ckeditor');
 require('./init_select2');
 require('./init_ps');
+require('./get_neighborhoods');
+require('./custom');
 //require('./delete_record');

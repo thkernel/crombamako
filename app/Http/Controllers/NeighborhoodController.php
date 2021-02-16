@@ -35,6 +35,13 @@ class NeighborhoodController extends Controller
          return view('neighborhoods.create', compact(['neighborhood', 'towns']));
     }
 
+    public function getNeighborhoods($id) {
+        $neighborhoods = Neighborhood::where("town_id",$id)->pluck("name","id");
+
+        return json_encode($neighborhoods);
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *

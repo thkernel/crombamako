@@ -193,15 +193,68 @@ class ContributionController extends Controller
         $towns =  Town::all();
         $neighborhoods = Neighborhood::all();
         $doctors =  DoctorProfile::all();
+        $contributions = Contribution::all();
+        $search_terms = $request['search_terms'];
+
+            $start_date = "";
+            $end_date = "";
+            
+
 
         // Check if request content the  search terms
         
-        if (isset($request['start_date']) && $request['start_date'] != null ){
-            dd($request['start_date']);
+        if (isset($request['start_date'])  && isset($request['end_date']) && $request['start_date'] != null && $request['end_date'] != null){
+
+            $start_date = $request['start_date'];
+            $end_date = $request['end_date'];
+            
+
+            $contributions = Contribution::whereDate('created_at','>=',$start_date)
+            ->whereDate('created_at','<=',$end_date)
+            ->get();
 
         }
 
-        return view('contributions.statement', compact(['towns', 'neighborhoods', 'doctors']));
+        if (isset($request['start_date'])  && isset($request['end_date']) && $request['start_date'] != null && $request['end_date'] != null && isset($request['doctor_id']) && $request['doctor_id'] != null ){
+
+            $start_date = $request['start_date'];
+            $end_date = $request['end_date'];
+         
+            $doctor_id = $request['doctor_id'];
+            
+    
+            $contributions = Contribution::whereDate('created_at','>=',$start_date)
+            ->whereDate('created_at','<=',$end_date)
+            ->where('doctor_id', $doctor_id)
+            ->get();
+
+        }
+
+        if (isset($request['start_date'])  && isset($request['end_date']) && $request['start_date'] != null && $request['end_date'] != null && isset($request['town_id']) && $request['town_id'] != null && isset($request['neighborhood_id']) && $request['neighborhood_id'] != null ){
+
+            $start_date = $request['start_date'];
+            $end_date = $request['end_date'];
+         
+            //$doctor_id = $request['doctor_id'];
+            $town_id = $request['town_id'];
+            $neighborhood_id = $request['neighborhood_id'];
+            
+            
+            $contributions = Contribution::whereDate('created_at','>=',$start_date)
+            ->whereDate('created_at','<=',$end_date)
+            ->where('town_id', $town_id)
+            ->where('neighborhood_id', $neighborhood_id)
+            ->get();
+
+        }
+       
+        if ($contributions){
+            $sum_total = $contributions->sum('total_amount');
+        }else{
+            $sum_total = 0.0;
+        }
+
+        return view('contributions.statement', compact(['contributions', 'towns', 'neighborhoods', 'doctors', 'sum_total', 'search_terms', 'start_date', 'end_date']));
     }
 
     /**

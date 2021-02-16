@@ -3,13 +3,13 @@
 
         <div class="col-md-2">
             <div class="form-group">
-                <label for="civility" class="required">Civilité:</label>
+                <label for="civility" class="required">Sexe:</label>
                 <select name="civility" class="form-control" required>
                     <option disabled selected value> Sélectionner </option>
                     
-                    <option value = "Monsieur" {{ $doctor->civility == "Monsieur" ?  'selected' : ''}} >Monsieur</option>
-                    <option value = "Madame" {{ $doctor->civility == "Madame" ?  'selected' : ''}}>Madame</option>
-                    <option value = "Mademoiselle" {{ $doctor->civility == "Mademoiselle" ?  'selected' : ''}}>Mademoiselle</option>
+                    <option value = "Masculin" {{ $doctor->sex == "Masculin" ?  'selected' : ''}} >Masculin</option>
+                    <option value = "Féminin" {{ $doctor->sex == "Féminin" ?  'selected' : ''}}>Féminin</option>
+                    
                 </select>
             </div>
         </div>
@@ -64,10 +64,12 @@
             <div class="form-group">
                 <label for="neighborhood_id" class="required">Quartier:</label>
                 <select name="neighborhood_id" class="form-control" required>
-                    <option {{ $doctor->neighborhood_id  ? '' : 'disabled selected value'}}> 
-                    @foreach($neighborhoods as $neighborhood)
-                        <option value = "{{ $neighborhood->id }}" {{ $neighborhood->id == $doctor->neighborhood_id ?  'selected' : ''}}>{{ $neighborhood->name }}</option>
-                    @endforeach
+                    @if ($doctor->neighborhood_id)
+                        <option value = "{{ $doctor->neighborhood_id }} selected">
+                            {{ $doctor->neighborhood->name}}
+                        </option>
+                    @endif
+                    
                 </select>
             </div>
         </div>

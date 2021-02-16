@@ -162,28 +162,8 @@ Route::resource('doctor_orders', DoctorOrderController::class)->middleware(['aut
 Route::resource('features', FeatureController::class)->middleware(['auth']);
 Route::resource('permissions', PermissionController::class)->middleware(['auth']);
 
+Route::get('neighborhoods/get/{id}', [NeighborhoodController::class, "getNeighborhoods"])->middleware(['auth']);
 
-Route::get('send-mail', function () {
-
-   
-
-    $details = [
-
-        'title' => 'Mail from ItSolutionStuff.com',
-
-        'body' => 'This is for testing email using smtp'
-
-    ];
-
-   
-
-    \Mail::to('salut.amos@gmail.com')->send(new \App\Mail\MyTestMail($details));
-
-   
-
-    dd("Email is Sent.");
-
-});
 
 
 /* Confirmation mail */

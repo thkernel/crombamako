@@ -64,10 +64,12 @@
             <div class="form-group">
              	<label for="neighborhood_id" class="required">Quartier:</label>
                 <select name="neighborhood_id" class="form-control" required>
-                    <option {{ $subscription_request->neighborhood_id  ? '' : 'disabled selected value'}}> 
-                    @foreach($neighborhoods as $neighborhood)
-                        <option value = "{{ $neighborhood->id }}" {{ $neighborhood->id == $subscription_request->neighborhood_id ?  'selected' : ''}}>{{ $neighborhood->name }}</option>
-                    @endforeach
+                    @if ($subscription_request->neighborhood_id)
+                        <option value = "{{ $subscription_request->neighborhood_id }} selected">
+                            {{ $subscription_request->neighborhood->name}}
+                        </option>
+                    @endif
+                    
                 </select>
             </div>
 		</div>

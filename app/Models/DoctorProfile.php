@@ -13,7 +13,7 @@ class DoctorProfile extends Model
 
     protected $fillable = [
         'uid',
-        'civility',
+        'sex',
         'first_name',
         'last_name',
         'email',
