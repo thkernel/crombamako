@@ -18,6 +18,7 @@ require('../../vendor/bracket/lib/peity/jquery.peity.min');
 
 require('datatables.net');
 require( 'datatables.net-responsive');
+require( 'datatables.net-bs' );
 
 require('../../vendor/bracket/js/bracket.js');
 require('../../vendor/bracket/js/dashboard.js');

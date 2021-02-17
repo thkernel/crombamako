@@ -14931,6 +14931,14 @@ body {
   padding: 5px !important;
 }
 
+#datatable_paginate {
+  margin-left: auto !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  background-color: transparent !important;
+}
+
 /*!
  * Bracket Plus Responsive Dashboard Template
  * Version: 1.4.0
