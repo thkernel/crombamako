@@ -13499,3 +13499,2377 @@ install [--prefer-source] [--prefer-dist] [--dry-run] [--dev] [--no-dev] [--no-c
  DEBUG [5f1d6b40] Command: cd /var/www/medplatform/releases && /usr/bin/env echo "Branch master (at d1c3d58d54077174ac53a17e196553c95111e21c) deployed as release 20210204154027 by thkernel" >> /var/www/medplatform/revisions.log
   INFO [5f1d6b40] Finished in 0.468 seconds with exit status 0 (successful).
 >>>>>>> c6028b761c6eb45cb9f69a849ad1a1d96a01f1cf
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-02-17 08:02:41 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [507cba15] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [507cba15] Command: /usr/bin/env mkdir -p /tmp
+  INFO [507cba15] Finished in 10.333 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-820f6eb413f9d5745cfd.sh 0.0%
+  INFO Uploading /tmp/git-ssh-820f6eb413f9d5745cfd.sh 100.0%
+  INFO [740e8718] Running /usr/bin/env chmod 700 /tmp/git-ssh-820f6eb413f9d5745cfd.sh as root@gescomph.be
+ DEBUG [740e8718] Command: /usr/bin/env chmod 700 /tmp/git-ssh-820f6eb413f9d5745cfd.sh
+  INFO [740e8718] Finished in 1.370 seconds with exit status 0 (successful).
+  INFO [f646b10e] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as root@gescomph.be
+ DEBUG [f646b10e] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-820f6eb413f9d5745cfd.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [f646b10e] 	98c2c63a7b1e28d9e8820583fa7050983ec48266	HEAD
+  INFO [f646b10e] Finished in 1.943 seconds with exit status 0 (successful).
+  INFO [7784a851] Running /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases as root@gescomph.be
+ DEBUG [7784a851] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases
+  INFO [7784a851] Finished in 1.383 seconds with exit status 0 (successful).
+  INFO [1d5ee464] Running /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs as root@gescomph.be
+ DEBUG [1d5ee464] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs
+  INFO [1d5ee464] Finished in 1.714 seconds with exit status 0 (successful).
+ DEBUG [fecee1a9] Running [ -f /var/www/medplatform/current/REVISION ] as root@gescomph.be
+ DEBUG [fecee1a9] Command: [ -f /var/www/medplatform/current/REVISION ]
+ DEBUG [fecee1a9] Finished in 1.396 seconds with exit status 1 (failed).
+ DEBUG [9edc1e89] Running [ -f /var/www/medplatform/repo/HEAD ] as root@gescomph.be
+ DEBUG [9edc1e89] Command: [ -f /var/www/medplatform/repo/HEAD ]
+ DEBUG [9edc1e89] Finished in 1.587 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/medplatform/repo
+ DEBUG [f66e846f] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [f66e846f] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [f66e846f] Finished in 1.435 seconds with exit status 0 (successful).
+  INFO [1b9bc93c] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as root@gescomph.be
+ DEBUG [1b9bc93c] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-820f6eb413f9d5745cfd.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [1b9bc93c] Finished in 1.402 seconds with exit status 0 (successful).
+  INFO [3fd6792c] Running /usr/bin/env git remote update --prune as root@gescomph.be
+ DEBUG [3fd6792c] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-820f6eb413f9d5745cfd.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [3fd6792c] 	Fetching origin
+ DEBUG [3fd6792c] 	From https://github.com/thkernel/medplatform
+ DEBUG [3fd6792c] 	   d1c3d58..98c2c63  master     -> master
+  INFO [3fd6792c] Finished in 3.525 seconds with exit status 0 (successful).
+ DEBUG [35d22b5a] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [35d22b5a] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [35d22b5a] Finished in 1.370 seconds with exit status 0 (successful).
+  INFO [aabfc419] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20210217080302 as root@gescomph.be
+ DEBUG [aabfc419] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-820f6eb413f9d5745cfd.sh" ; /usr/bin/env mkdir -p /var/www/medplatform/releases/20210217080302 )
+  INFO [aabfc419] Finished in 1.501 seconds with exit status 0 (successful).
+  INFO [306cfb51] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20210217080302 as root@gescomph.be
+ DEBUG [306cfb51] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-820f6eb413f9d5745cfd.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20210217080302 )
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/perfect-scrollbar/perfect-scrollbar.esm.js: Wrote only 1536 of 3825 bytes
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/perfect-scrollbar/perfect-scrollbar.min.js: Cannot write
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js/esm: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js/esm/popper-utils.min.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js/esm/popper.min.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js/popper-utils.min.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js/popper.min.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js/umd: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js/umd/popper-utils.min.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js/umd/popper.min.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/popper.js/umd/poppper.js.flow: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael/dev: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael/dev/banner.txt: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael/dev/raphael.amd.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael/dev/raphael.core.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael/dev/raphael.svg.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael/dev/raphael.vml.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael/dev/raphaelTest.html: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael/license.txt: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael/raphael.min.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/raphael/raphael.no-deps.min.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/Makefile: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/node_modules: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/node_modules/d3: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/node_modules/d3/bin: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/node_modules/d3/bin/meteor: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/node_modules/d3/bin/start: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/node_modules/d3/bin/uglify: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/node_modules/d3/d3.min.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/node_modules/d3/package.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/rickshaw.min.css: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/rickshaw.min.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial/example_01.html: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial/example_02.html: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/rickshaw/tutorial/example_03.html: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/rickshaw/tutorial/example_04.html: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/rickshaw/tutorial/example_05.html: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial/example_06.html: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial/example_07.html: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial/introduction.html: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/rickshaw/tutorial/style.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/rickshaw/tutorial/transform.pl: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/rickshaw/tutorial/transform_epoch.pl: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial/transform_region.pl: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial/vendor: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial/vendor/prettify: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial/vendor/prettify/prettify.css: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/tutorial/vendor/prettify/prettify.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/vendor: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/rickshaw/vendor/d3.layout.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/rickshaw/vendor/d3.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/rickshaw/vendor/d3.v2.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/rickshaw: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/rickshaw/vendor/d3.v3.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/css: Cannot mkdir: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2/css/select2-bootstrap.min.scss: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2/css/select2.min.scss: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js: Cannot mkdir: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n: Cannot mkdir: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/af.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/ar.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/az.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/bg.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/bs.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2/js/i18n/build.txt: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/ca.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/cs.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/da.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/de.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/dsb.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2/js/i18n/el.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/en.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/es.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/et.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/eu.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/fa.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/fi.js: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/fr.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/gl.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/he.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/hi.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/hr.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/hsb.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2/js/i18n/hu.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2/js/i18n/hy.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/id.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/is.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/it.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/ja.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2/js/i18n/km.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/ko.js: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2/js/i18n/lt.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2/js/i18n/lv.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2/js/i18n/mk.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/ms.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/nb.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2/js/i18n/nl.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2/js/i18n/pl.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/ps.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/pt-BR.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/pt.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/ro.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/ru.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/sk.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/sl.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/sr-Cyrl.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/sr.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/sv.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/th.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/tk.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/tr.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/uk.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/vi.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/select2/js/i18n/zh-CN.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2/js/i18n/zh-TW.js: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/js/bracket/lib/select2: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2/js/select2.full.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/select2: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/select2/js/select2.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/slick-carousel: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/slick-carousel: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/slick-carousel/slick.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n: Cannot mkdir: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-ar.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-de.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-dk.js: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-es.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-fa.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-fi.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-fr.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-gr.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-he.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-hr.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-id.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-it.js: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-ja.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-lt.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-nl.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-pl.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-pt-br.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-ru.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-sv.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-tr.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-zh-cn.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/i18n/jquery.spectrum-zh-tw.js: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spectrum-colorpicker/index.html: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spectrum-colorpicker/spectrum.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spectrum-colorpicker/spectrum.js: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/themes: Cannot mkdir: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/themes/index.html: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spectrum-colorpicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spectrum-colorpicker/themes/sp-dark.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css: Cannot mkdir: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spinkit/css/spinkit.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css/spinners: Cannot mkdir: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css/spinners/1-rotating-plane.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css/spinners/10-fading-circle.css: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css/spinners/11-folding-cube.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css/spinners/2-double-bounce.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css/spinners/3-wave.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spinkit/css/spinners/4-wandering-cubes.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css/spinners/5-pulse.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css/spinners/6-chasing-dots.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css/spinners/7-three-bounce.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/spinkit/css/spinners/8-circle.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/spinkit: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/spinkit/css/spinners/9-cube-grid.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/font: Cannot mkdir: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/font/summernote.eot: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/font/summernote.ttf: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/font/summernote.woff: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang: Cannot mkdir: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-ar-AR.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-bg-BG.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-ca-ES.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-cs-CZ.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-da-DK.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-de-DE.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-el-GR.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-es-ES.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-es-EU.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-fa-IR.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-fi-FI.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-fr-FR.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-gl-ES.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-he-IL.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-hr-HR.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-hu-HU.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-id-ID.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-it-IT.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-ja-JP.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-ko-KR.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-lt-LT.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-lt-LV.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-mn-MN.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-nb-NO.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-nl-NL.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-pl-PL.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-pt-BR.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-pt-PT.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-ro-RO.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-ru-RU.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-sk-SK.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-sl-SI.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-sr-RS-Latin.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-sr-RS.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-sv-SE.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-ta-IN.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-th-TH.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-tr-TR.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-uk-UA.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-uz-UZ.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/lang/summernote-vi-VN.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-zh-CN.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/summernote/lang/summernote-zh-TW.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/summernote-0.8.11-dist.zip: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/summernote-bs4.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/summernote-bs4.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/summernote-lite.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/summernote-lite.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/summernote.css: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/summernote/summernote.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/timepicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/timepicker: Cannot mkdir: No space left on device
+tar: resources/js/bracket/lib/timepicker/jquery.timepicker.css: Cannot open: No such file or directory
+tar: resources/js/bracket/lib/timepicker: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/lib/timepicker/jquery.timepicker.min.js: Cannot open: No such file or directory
+tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/scss/_bracket.min.scss: Cannot open: No such file or directory
+tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+tar: resources/js/bracket/scss/_perfect-scrollbar.min.scss: Cannot open: No such file or directory
+tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/scss/bracket.css: Cannot open: No such file or directory
+tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/scss/bracket.dark.css: Cannot open: No such file or directory
+tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/scss/bracket.dark.min.css: Cannot open: No such file or directory
+tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/scss/bracket.oreo.css: Cannot open: No such file or directory
+tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/bracket/scss/bracket.oreo.min.css: Cannot open: No such file or directory
+tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+tar: resources/js/bracket/scss/bracket.simple-white.css: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+tar: resources/js/bracket/scss/bracket.simple-white.min.css: Cannot open: No such file or directory
+tar: resources/js/bracket/scss: Cannot mkdir: No space left on device
+tar: resources/js/bracket/scss/perfect-scrollbar.min.css: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/LICENSE.md: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/ckeditor5-build-classic/README.md: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/ckeditor5-build-classic/ckeditor-manifest.json: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: resources/js/ckeditor5-build-classic/ckeditor.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/ckeditor.js.map: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/index.html: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/sample: Cannot mkdir: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/sample/css: Cannot mkdir: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/sample/css/sample.css: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/sample/img: Cannot mkdir: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/sample/img/bg.png: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/sample/img/github.svg: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/sample/img/logo.svg: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/sample/img/umbrellas.jpg: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations: Cannot mkdir: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/af.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ar.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ast.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/az.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/bg.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ca.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/cs.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/da.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/de-ch.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/de.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/el.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/en-au.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/en-gb.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/eo.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/es.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/et.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/eu.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/fa.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/fi.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/fr.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/gl.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/gu.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/he.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/hi.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/hr.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/hu.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/id.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/it.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ja.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/km.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/kn.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ko.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ku.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/lt.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/lv.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ms.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/nb.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ne.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/nl.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/no.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/oc.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/pl.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/pt-br.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/pt.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ro.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ru.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/si.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/sk.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/sl.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/sq.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/sr-latn.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/sr.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/sv.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/th.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/tk.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/tr.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/tt.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/ug.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/uk.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/vi.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/zh-cn.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/translations/zh.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/vendor.js: Cannot open: No such file or directory
+tar: resources/js/ckeditor5-build-classic: Cannot mkdir: No space left on device
+tar: resources/js/ckeditor5-build-classic/vendor.js.map: Cannot open: No such file or directory
+tar: resources/js/custom.js: Cannot write: No space left on device
+tar: resources/js/delete_record.js: Cannot write: No space left on device
+tar: resources/js/get_neighborhoods.js: Cannot write: No space left on device
+tar: resources/js/init_ckeditor.js: Cannot write: No space left on device
+tar: resources/js/init_datatables.js: Cannot write: No space left on device
+tar: resources/js/init_ps.js: Cannot write: No space left on device
+tar: resources/js/init_select2.js: Cannot write: No space left on device
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/ender.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale: Cannot mkdir: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/af.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ar-dz.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ar-kw.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ar-ly.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ar-ma.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ar-sa.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ar-tn.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ar.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/az.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/be.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/bg.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/bm.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/lo
+ DEBUG [306cfb51] 	cale/bn.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/bo.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/br.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/bs.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ca.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/cs.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/cv.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/cy.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/da.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/de-at.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/de-ch.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/de.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/dv.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/el.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/en-au.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/en-ca.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/en-gb.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/en-ie.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/en-il.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/en-nz.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/eo.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/es-do.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/es-us.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/es.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/et.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/eu.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/fa.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/fi.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/fo.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/fr-ca.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/fr-ch.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/fr.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/fy.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/gd.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/gl.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/gom-latn.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/gu.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/he.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/hi.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/hr.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/hu.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/hy-am.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/id.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/is.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/it.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ja.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/jv.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ka.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/kk.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/km.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/kn.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ko.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ky.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/lb.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/lo.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/lt.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/lv.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/me.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/mi.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/mk.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ml.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/mn.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/mr.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ms-my.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ms.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/mt.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/my.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/nb.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ne.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/nl-be.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/nl.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/nn.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/pa-in.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/pl.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/pt-br.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/pt.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ro.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ru.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/sd.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/se.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/si.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/sk.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/sl.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/sq.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/sr-cyrl.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/sr.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ss.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/sv.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/sw.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ta.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/te.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/tet.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/tg.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/th.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/tl-ph.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/tlh.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/tr.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/tzl.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/tzm-latn.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/tzm.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ug-cn.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/uk.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/ur.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/uz-latn.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/uz.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/vi.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/x-pseudo.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/yo.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/zh-cn.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/zh-hk.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/locale/zh-tw.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/min: Cannot mkdir: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/min/locales.min.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/min/moment-with-locales.min.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/min/moment.min.js: Cannot open: No such file or directory
+tar: resources/js/moment: 
+ DEBUG [306cfb51] 	Cannot mkdir: No space left on device
+tar: resources/js/moment/moment.js: Cannot open: No such file or directory
+tar: resources/js/moment: Cannot mkdir: No space left on device
+tar: resources/js/moment/package.js: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/.editorconfig: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/.github: Cannot mkdir: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/.github/ISSUE_TEMPLATE.md: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/.github/PULL_REQUEST_TEMPLATE.md: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/.github/workflows: Cannot mkdir: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/.github/workflows/test.yml: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/.gitignore: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/css: Cannot mkdir: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/css/_perfect-scrollbar.scss: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/dist: Cannot mkdir: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/dist/perfect-scrollbar.common.js: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/dist/perfect-scrollbar.common.js.map: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/dist/perfect-scrollbar.esm.js: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/dist/perfect-scrollbar.esm.js.map: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/dist/perfect-scrollbar.js: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/dist/perfect-scrollbar.js.map: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/dist/perfect-scrollbar.min.js: Cannot open: No such file or directory
+tar: resources/js/perfect-scrollbar: Cannot mkdir: No space left on device
+tar: resources/js/perfect-scrollbar/dist/perfect-scrollbar.min.js.map: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n: Cannot mkdir: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/af.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/ar.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/az.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/bg.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/bs.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/build.txt: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/ca.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/cs.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/da.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/de.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/dsb.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/el.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/en.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/es.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/et.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/eu.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/fa.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/fi.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/fr.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/gl.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/he.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/hi.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/hr.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/hsb.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/hu.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/hy.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/id.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/is.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/it.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/ja.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/km.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/ko.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/lt.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/lv.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/mk.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/ms.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/nb.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/nl.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/pl.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/ps.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/pt-BR.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/pt.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/ro.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/ru.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/sk.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/sl.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/sr-Cyrl.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/sr.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/sv.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/th.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/tk.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/tr.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/uk.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/vi.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/zh-CN.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/i18n/zh-TW.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/select2.full.min.js: Cannot open: No such file or directory
+tar: resources/js/select2: Cannot mkdir: No space left on device
+tar: resources/js/select2/select2.min.js: Cannot open: No such file or directory
+tar: resources/lang: Cannot mkdir: No space left on device
+tar: resources/lang: Cannot mkdir: No space left on device
+tar: resources/lang/en: Cannot mkdir: No such file or directory
+tar: resources/lang: Cannot mkdir: No space left on device
+tar: resources/lang/en/auth.php: Cannot open: No such file or directory
+tar: resources/lang: Cannot mkdir: No space left on device
+tar: resources/lang/en/pagination.php: Cannot open: No such file or directory
+tar: resources/lang: Cannot mkdir: No space left on device
+tar: resources/lang/en/passwords.php: Cannot open: No such file or directory
+tar: resources/lang: Cannot mkdir: No space left on device
+tar: resources/lang/en/validation.php: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/_style.scss: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/_variables.scss: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/app.scss: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar: Cannot mkdir: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/.editorconfig: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/.github: Cannot mkdir: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/.github/ISSUE_TEMPLATE.md: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/.github/PULL_REQUEST_TEMPLATE.md: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/.github/workflows: Cannot mkdir: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/.github/workflows/test.yml: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/.gitignore: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/css: Cannot mkdir: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/css/_perfect-scrollbar.scss: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/dist: Cannot mkdir: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/dist/perfect-scrollbar.common.js: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/dist/perfect-scrollbar.common.js.map: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/dist/perfect-scrollbar.esm.js: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/dist/perfect-scrollbar.esm.js.map: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/dist/perfect-scrollbar.js: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/dist/perfect-scrollbar.js.map: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/dist/perfect-scrollbar.min.js: Cannot open: No such file or directory
+tar: resources/sass: Cannot mkdir: No space left on device
+tar: resources/sass/perfect-scrollbar/dist/perfect-scrollbar.min.js.map: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/approvals: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mk
+ DEBUG [306cfb51] 	dir: No space left on device
+tar: resources/views/approvals/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/approvals/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/approvals/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/approvals/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/approvals/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/auth: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/auth/confirm-password.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/auth/forgot-password.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/auth/login-OLD.bblade.phpp: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/auth/login.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/auth/register-OLD.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/auth/register.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/auth/reset-password.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/auth/verify-email.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/blog: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/blog/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/business_licenses: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/business_licenses/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/business_licenses/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/business_licenses/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/business_licenses/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/business_licenses/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/application-logo.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/auth-card.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/auth-session-status.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/auth-validation-errors.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/button.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/dropdown-link.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/dropdown.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/input.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/label.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/nav-link.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/responsive-nav-link.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/components/signedin.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contact_forms: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contact_forms/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contact_forms/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contributions: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contributions/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contributions/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contributions/_statement_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contributions/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contributions/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contributions/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/contributions/statement.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/dashboard.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/dashboard: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/dashboard/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/dashboard/partials: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/dashboard/partials/_admin-dashboard.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/dashboard/partials/_superuser-dashboard.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/dashboard/partials/subpartials: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/dashboard/partials/subpartials/_graph.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/dashboard/partials/subpartials/_misc.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/dashboard/partials/subpartials/_stats.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctor_orders: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctor_orders/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctor_orders/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctor_orders/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctor_orders/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctor_orders/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctors: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctors/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctors/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctors/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctors/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/doctors/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_requests: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_requests/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_requests/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_requests/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_requests/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_requests/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_types: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_types/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_types/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_types/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_types/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/document_types/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/emails: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/emails/contribution_email.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/emails/myTestMail.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/emails/user_verified_mail.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/features: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/features/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/features/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/features/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/features/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/features/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/front: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/front/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/front/partials: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/front/partials/_about.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/front/partials/_hero.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/front/partials/_latest_opportunities.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/front/partials/_latest_posts.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/app.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/application.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/auth.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/dashboard.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/front.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/guest.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/navigation.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/_flash-alert.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/_flash-message.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/_footer.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/_header.blade.php: Cannot open: No such file or direct
+ DEBUG [306cfb51] 	ory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/dashboard: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/dashboard/_footer.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/dashboard/_header.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/dashboard/_sidebar.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/dashboard/navs: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/dashboard/navs/_admin-nav.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/dashboard/navs/_doctor-nav.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/layouts/partials/dashboard/navs/_superuser-nav.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/logs: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/logs/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/logs/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/logs/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/logs/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/logs/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/neighborhoods: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/neighborhoods/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/neighborhoods/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/neighborhoods/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/neighborhoods/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/neighborhoods/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunities: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunities/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunities/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunities/all.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunities/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunities/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunities/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunities/show.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunity_types: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunity_types/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunity_types/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunity_types/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunity_types/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/opportunity_types/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/pages: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/pages/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/pages/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/pages/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/pages/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/pages/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/permissions: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/permissions/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/permissions/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/permissions/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/permissions/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/permissions/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/post_categories: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/post_categories/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/post_categories/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/post_categories/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/post_categories/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/post_categories/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/posts: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/posts/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/posts/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/posts/all.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/posts/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/posts/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/posts/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/posts/show.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/prestations: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/prestations/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/prestations/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/prestations/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/prestations/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/prestations/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/roles: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/roles/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/roles/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/roles/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/roles/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/roles/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/search: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/search/partials: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/search/partials/_search_bar.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/search/partials/_search_result.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/search/search_doctors.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/services: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/services/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/services/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/services/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/services/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/services/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/specialities: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/specialities/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/specialities/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/specialities/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/specialities/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/specialities/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/staffs: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/staffs/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/staffs/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/staffs/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/staffs/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/staffs/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/static_pages: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/static_pages/about.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/static_pages/administrative_procedures.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/static_pages/cgu.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/static_pages/contact_us.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/static_pages/privacy_policy.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_categories: Cannot mkdir: No such file or directory
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/structure_categories/_form.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/structure_categories/_index.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/structure_categories/all.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/structure_categories/create.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_categories/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_categories/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_prestations: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_prestations/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_prestations/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_prestations/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_prestations/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_prestations/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_types: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_types/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_types/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_types/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_types/delete.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_types/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structure_types/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structures: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structures/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structures/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structures/categories.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structures/category.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structures/create.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structures/edit.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structures/index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/structures/show.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/subscription_requests: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/subscription_requests/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/subscription_requests/_index.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/subscription_requests/create.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/subscription_requests/edit.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/subscription_requests/index.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/subscription_requests/show.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/towns: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/towns/_form.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/towns/_index.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/towns/create.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/towns/edit.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/towns/index.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/users: Cannot mkdir
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/users/_form.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/users/_index.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/users/create.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/users/edit.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/users/index.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/_form.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/_index.blade.php: Cannot open: No such file or directory
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/visit_summaries/create.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/visit_summaries/edit.blade.php: Cannot open
+ DEBUG [306cfb51] 	: No such file or directory
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views: Cannot mkdir
+ DEBUG [306cfb51] 	: No space left on device
+ DEBUG [306cfb51] 	
+ DEBUG [306cfb51] 	tar: 
+ DEBUG [306cfb51] 	resources/views/visit_summaries/index.blad
+ DEBUG [306cfb51] 	e.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/partials: Cannot mkdir: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/partials/_visit_summary_buildings.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/partials/_visit_summary_materials.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/partials/_visit_summary_medical_staffs.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/partials/_visit_summary_non_medical_staffs.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/partials/_visit_summary_observations.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/partials/_visit_summary_others.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/partials/_visit_summary_recommendations.blade.php: Cannot open: No such file or directory
+tar: resources/views: Cannot mkdir: No space left on device
+tar: resources/views/visit_summaries/partials/_visit_summary_structure_activities.blade.php: Cannot open: No such file or directory
+tar: routes: Cannot mkdir: No space left on device
+tar: routes: Cannot mkdir: No space left on device
+tar: routes/api.php: Cannot open: No such file or directory
+tar: routes: Cannot mkdir: No space left on device
+tar: routes/auth.php: Cannot open: No such file or directory
+tar: routes: Cannot mkdir: No space left on device
+tar: routes/channels.php: Cannot open: No such file or directory
+tar: routes: Cannot mkdir: No space left on device
+tar: routes/console.php: Cannot open: No such file or directory
+tar: routes: Cannot mkdir: No space left on device
+tar: routes/web.php: Cannot open: No such file or directory
+tar: server.php: Cannot write: No space left on device
+tar: storage: Cannot mkdir: No space left on device
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/app: Cannot mkdir: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/app/.gitignore: Cannot open: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/app/public: Cannot mkdir: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/app/public/.gitignore: Cannot open: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework: Cannot mkdir: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/.gitignore: Cannot open: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/cache: Cannot mkdir: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/cache/.gitignore: Cannot open: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/cache/data: Cannot mkdir: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/cache/data/.gitignore: Cannot open: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/sessions: Cannot mkdir: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/sessions/.gitignore: Cannot open: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/testing: Cannot mkdir: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/testing/.gitignore: Cannot open: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/views: Cannot mkdir: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/framework/views/.gitignore: Cannot open: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/logs: Cannot mkdir: No such file or directory
+tar: storage: Cannot mkdir: No space left on device
+tar: storage/logs/.gitignore: Cannot open: No such file or directory
+tar: tailwind.config.js: Cannot write: No space left on device
+tar: tests: Cannot mkdir: No space left on device
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/CreatesApplication.php: Cannot open: No such file or directory
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/Feature: Cannot mkdir: No such file or directory
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/Feature/AuthenticationTest.php: Cannot open: No such file or directory
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/Feature/EmailVerificationTest.php: Cannot open: No such file or directory
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/Feature/ExampleTest.php: Cannot open: No such file or directory
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/Feature/PasswordConfirmationTest.php: Cannot open: No such file or directory
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/Feature/PasswordResetTest.php: Cannot open: No such file or directory
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/Feature/RegistrationTest.php: Cannot open: No such file or directory
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/TestCase.php: Cannot open: No such file or directory
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/Unit: Cannot mkdir: No such file or directory
+tar: tests: Cannot mkdir: No space left on device
+tar: tests/Unit/ExampleTest.php: Cannot open: No such file or directory
+tar: webpack.mix.js: Cannot write: No space left on device
+tar: Exiting with failure status due to previous errors
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-02-17 08:09:08 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [f0397ac6] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [f0397ac6] Command: /usr/bin/env mkdir -p /tmp
+  INFO [f0397ac6] Finished in 9.641 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-6a8032606a69c1418067.sh 0.0%
+  INFO Uploading /tmp/git-ssh-6a8032606a69c1418067.sh 100.0%
+  INFO [b6b62b57] Running /usr/bin/env chmod 700 /tmp/git-ssh-6a8032606a69c1418067.sh as root@gescomph.be
+ DEBUG [b6b62b57] Command: /usr/bin/env chmod 700 /tmp/git-ssh-6a8032606a69c1418067.sh
+  INFO [b6b62b57] Finished in 1.480 seconds with exit status 0 (successful).
+  INFO [cffaac9c] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as root@gescomph.be
+ DEBUG [cffaac9c] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-6a8032606a69c1418067.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [cffaac9c] 	98c2c63a7b1e28d9e8820583fa7050983ec48266	HEAD
+  INFO [cffaac9c] Finished in 2.309 seconds with exit status 0 (successful).
+  INFO [22c3c2f2] Running /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases as root@gescomph.be
+ DEBUG [22c3c2f2] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared /var/www/medplatform/releases
+  INFO [22c3c2f2] Finished in 1.465 seconds with exit status 0 (successful).
+  INFO [41981a67] Running /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs as root@gescomph.be
+ DEBUG [41981a67] Command: /usr/bin/env mkdir -p /var/www/medplatform/shared/storage/app /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/shared/storage/logs
+  INFO [41981a67] Finished in 1.475 seconds with exit status 0 (successful).
+ DEBUG [ca1022b6] Running [ -f /var/www/medplatform/current/REVISION ] as root@gescomph.be
+ DEBUG [ca1022b6] Command: [ -f /var/www/medplatform/current/REVISION ]
+ DEBUG [ca1022b6] Finished in 1.502 seconds with exit status 1 (failed).
+ DEBUG [e78f770e] Running [ -f /var/www/medplatform/repo/HEAD ] as root@gescomph.be
+ DEBUG [e78f770e] Command: [ -f /var/www/medplatform/repo/HEAD ]
+ DEBUG [e78f770e] Finished in 1.509 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/medplatform/repo
+ DEBUG [962db208] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [962db208] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [962db208] Finished in 1.506 seconds with exit status 0 (successful).
+  INFO [c70c0151] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as root@gescomph.be
+ DEBUG [c70c0151] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-6a8032606a69c1418067.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [c70c0151] Finished in 1.539 seconds with exit status 0 (successful).
+  INFO [7590b5d8] Running /usr/bin/env git remote update --prune as root@gescomph.be
+ DEBUG [7590b5d8] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-6a8032606a69c1418067.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [7590b5d8] 	Fetching origin
+  INFO [7590b5d8] Finished in 2.417 seconds with exit status 0 (successful).
+ DEBUG [e7b79ed5] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [e7b79ed5] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [e7b79ed5] Finished in 1.501 seconds with exit status 0 (successful).
+  INFO [f918a44b] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20210217080929 as root@gescomph.be
+ DEBUG [f918a44b] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-6a8032606a69c1418067.sh" ; /usr/bin/env mkdir -p /var/www/medplatform/releases/20210217080929 )
+  INFO [f918a44b] Finished in 1.583 seconds with exit status 0 (successful).
+  INFO [9918d555] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20210217080929 as root@gescomph.be
+ DEBUG [9918d555] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-6a8032606a69c1418067.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/medplatform/releases/20210217080929 )
+  INFO [9918d555] Finished in 12.191 seconds with exit status 0 (successful).
+ DEBUG [8719a0d1] Running if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [8719a0d1] Command: if test ! -d /var/www/medplatform/repo; then echo "Directory does not exist '/var/www/medplatform/repo'" 1>&2; false; fi
+ DEBUG [8719a0d1] Finished in 1.485 seconds with exit status 0 (successful).
+ DEBUG [55c7ea9b] Running /usr/bin/env git rev-list --max-count=1 master as root@gescomph.be
+ DEBUG [55c7ea9b] Command: cd /var/www/medplatform/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-6a8032606a69c1418067.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [55c7ea9b] 	98c2c63a7b1e28d9e8820583fa7050983ec48266
+ DEBUG [55c7ea9b] Finished in 1.475 seconds with exit status 0 (successful).
+ DEBUG [5134f053] Running if test ! -d /var/www/medplatform/releases/20210217080929; then echo "Directory does not exist '/var/www/medplatform/releases/20210217080929'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [5134f053] Command: if test ! -d /var/www/medplatform/releases/20210217080929; then echo "Directory does not exist '/var/www/medplatform/releases/20210217080929'" 1>&2; false; fi
+ DEBUG [5134f053] Finished in 1.486 seconds with exit status 0 (successful).
+  INFO [53556bda] Running /usr/bin/env echo "98c2c63a7b1e28d9e8820583fa7050983ec48266" > REVISION as root@gescomph.be
+ DEBUG [53556bda] Command: cd /var/www/medplatform/releases/20210217080929 && /usr/bin/env echo "98c2c63a7b1e28d9e8820583fa7050983ec48266" > REVISION
+  INFO [53556bda] Finished in 1.460 seconds with exit status 0 (successful).
+  INFO [d447a3de] Running /usr/bin/env mkdir -p /var/www/medplatform/releases/20210217080929/storage /var/www/medplatform/releases/20210217080929/storage/framework as root@gescomph.be
+ DEBUG [d447a3de] Command: /usr/bin/env mkdir -p /var/www/medplatform/releases/20210217080929/storage /var/www/medplatform/releases/20210217080929/storage/framework
+  INFO [d447a3de] Finished in 1.529 seconds with exit status 0 (successful).
+ DEBUG [c0dcc5a3] Running [ -L /var/www/medplatform/releases/20210217080929/storage/app ] as root@gescomph.be
+ DEBUG [c0dcc5a3] Command: [ -L /var/www/medplatform/releases/20210217080929/storage/app ]
+ DEBUG [c0dcc5a3] Finished in 1.492 seconds with exit status 1 (failed).
+ DEBUG [65893ee4] Running [ -d /var/www/medplatform/releases/20210217080929/storage/app ] as root@gescomph.be
+ DEBUG [65893ee4] Command: [ -d /var/www/medplatform/releases/20210217080929/storage/app ]
+ DEBUG [65893ee4] Finished in 1.707 seconds with exit status 0 (successful).
+  INFO [5149cb2f] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20210217080929/storage/app as root@gescomph.be
+ DEBUG [5149cb2f] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20210217080929/storage/app
+  INFO [5149cb2f] Finished in 1.574 seconds with exit status 0 (successful).
+  INFO [35e4e7ef] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20210217080929/storage/app as root@gescomph.be
+ DEBUG [35e4e7ef] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/app /var/www/medplatform/releases/20210217080929/storage/app
+  INFO [35e4e7ef] Finished in 1.799 seconds with exit status 0 (successful).
+ DEBUG [1cd0ade2] Running [ -L /var/www/medplatform/releases/20210217080929/storage/framework/cache ] as root@gescomph.be
+ DEBUG [1cd0ade2] Command: [ -L /var/www/medplatform/releases/20210217080929/storage/framework/cache ]
+ DEBUG [1cd0ade2] Finished in 1.777 seconds with exit status 1 (failed).
+ DEBUG [2d39046e] Running [ -d /var/www/medplatform/releases/20210217080929/storage/framework/cache ] as root@gescomph.be
+ DEBUG [2d39046e] Command: [ -d /var/www/medplatform/releases/20210217080929/storage/framework/cache ]
+ DEBUG [2d39046e] Finished in 1.544 seconds with exit status 0 (successful).
+  INFO [bfdb8195] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20210217080929/storage/framework/cache as root@gescomph.be
+ DEBUG [bfdb8195] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20210217080929/storage/framework/cache
+  INFO [bfdb8195] Finished in 1.711 seconds with exit status 0 (successful).
+  INFO [4c865614] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20210217080929/storage/framework/cache as root@gescomph.be
+ DEBUG [4c865614] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/cache /var/www/medplatform/releases/20210217080929/storage/framework/cache
+  INFO [4c865614] Finished in 1.608 seconds with exit status 0 (successful).
+ DEBUG [379434d5] Running [ -L /var/www/medplatform/releases/20210217080929/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [379434d5] Command: [ -L /var/www/medplatform/releases/20210217080929/storage/framework/sessions ]
+ DEBUG [379434d5] Finished in 1.688 seconds with exit status 1 (failed).
+ DEBUG [dfaa4823] Running [ -d /var/www/medplatform/releases/20210217080929/storage/framework/sessions ] as root@gescomph.be
+ DEBUG [dfaa4823] Command: [ -d /var/www/medplatform/releases/20210217080929/storage/framework/sessions ]
+ DEBUG [dfaa4823] Finished in 1.612 seconds with exit status 0 (successful).
+  INFO [583ba1e2] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20210217080929/storage/framework/sessions as root@gescomph.be
+ DEBUG [583ba1e2] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20210217080929/storage/framework/sessions
+  INFO [583ba1e2] Finished in 1.620 seconds with exit status 0 (successful).
+  INFO [457104ee] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20210217080929/storage/framework/sessions as root@gescomph.be
+ DEBUG [457104ee] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/sessions /var/www/medplatform/releases/20210217080929/storage/framework/sessions
+  INFO [457104ee] Finished in 1.555 seconds with exit status 0 (successful).
+ DEBUG [97077f86] Running [ -L /var/www/medplatform/releases/20210217080929/storage/framework/views ] as root@gescomph.be
+ DEBUG [97077f86] Command: [ -L /var/www/medplatform/releases/20210217080929/storage/framework/views ]
+ DEBUG [97077f86] Finished in 1.592 seconds with exit status 1 (failed).
+ DEBUG [696627a9] Running [ -d /var/www/medplatform/releases/20210217080929/storage/framework/views ] as root@gescomph.be
+ DEBUG [696627a9] Command: [ -d /var/www/medplatform/releases/20210217080929/storage/framework/views ]
+ DEBUG [696627a9] Finished in 1.654 seconds with exit status 0 (successful).
+  INFO [677f9529] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20210217080929/storage/framework/views as root@gescomph.be
+ DEBUG [677f9529] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20210217080929/storage/framework/views
+  INFO [677f9529] Finished in 1.567 seconds with exit status 0 (successful).
+  INFO [95b867c0] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20210217080929/storage/framework/views as root@gescomph.be
+ DEBUG [95b867c0] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/framework/views /var/www/medplatform/releases/20210217080929/storage/framework/views
+  INFO [95b867c0] Finished in 1.736 seconds with exit status 0 (successful).
+ DEBUG [09ed7cbe] Running [ -L /var/www/medplatform/releases/20210217080929/storage/logs ] as root@gescomph.be
+ DEBUG [09ed7cbe] Command: [ -L /var/www/medplatform/releases/20210217080929/storage/logs ]
+ DEBUG [09ed7cbe] Finished in 1.763 seconds with exit status 1 (failed).
+ DEBUG [34386307] Running [ -d /var/www/medplatform/releases/20210217080929/storage/logs ] as root@gescomph.be
+ DEBUG [34386307] Command: [ -d /var/www/medplatform/releases/20210217080929/storage/logs ]
+ DEBUG [34386307] Finished in 1.516 seconds with exit status 0 (successful).
+  INFO [c95853f1] Running /usr/bin/env rm -rf /var/www/medplatform/releases/20210217080929/storage/logs as root@gescomph.be
+ DEBUG [c95853f1] Command: /usr/bin/env rm -rf /var/www/medplatform/releases/20210217080929/storage/logs
+  INFO [c95853f1] Finished in 1.651 seconds with exit status 0 (successful).
+  INFO [94ad3ebe] Running /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20210217080929/storage/logs as root@gescomph.be
+ DEBUG [94ad3ebe] Command: /usr/bin/env ln -s /var/www/medplatform/shared/storage/logs /var/www/medplatform/releases/20210217080929/storage/logs
+  INFO [94ad3ebe] Finished in 1.589 seconds with exit status 0 (successful).
+ DEBUG [5f5dd765] Running if test ! -d /var/www/medplatform/releases/20210217080929; then echo "Directory does not exist '/var/www/medplatform/releases/20210217080929'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [5f5dd765] Command: if test ! -d /var/www/medplatform/releases/20210217080929; then echo "Directory does not exist '/var/www/medplatform/releases/20210217080929'" 1>&2; false; fi
+ DEBUG [5f5dd765] Finished in 1.488 seconds with exit status 0 (successful).
+  INFO [0ada09c4] Running /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader as root@gescomph.be
+ DEBUG [0ada09c4] Command: cd /var/www/medplatform/releases/20210217080929 && /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader
+  INFO [0ada09c4] Finished in 13.655 seconds with exit status 0 (successful).
+  INFO [9da1dfca] Running /usr/bin/env chmod u+x artisan as root@gescomph.be
+ DEBUG [9da1dfca] Command: cd /var/www/medplatform/releases/20210217080929 && /usr/bin/env chmod u+x artisan
+  INFO [9da1dfca] Finished in 1.487 seconds with exit status 0 (successful).
+  INFO [50016e10] Running /usr/bin/env chmod -R ug+rwx /var/www/medplatform/shared/storage/ /var/www/medplatform/releases/20210217080929/bootstrap/cache/ as root@gescomph.be
+ DEBUG [50016e10] Command: /usr/bin/env chmod -R ug+rwx /var/www/medplatform/shared/storage/ /var/www/medplatform/releases/20210217080929/bootstrap/cache/
+  INFO [50016e10] Finished in 1.507 seconds with exit status 0 (successful).
+  INFO [8f1468a9] Running /usr/bin/env chgrp -R www-data /var/www/medplatform/shared/storage/ /var/www/medplatform/releases/20210217080929/bootstrap/cache/ as root@gescomph.be
+ DEBUG [8f1468a9] Command: /usr/bin/env chgrp -R www-data /var/www/medplatform/shared/storage/ /var/www/medplatform/releases/20210217080929/bootstrap/cache/
+  INFO [8f1468a9] Finished in 1.512 seconds with exit status 0 (successful).
+  INFO [835527b2] Running /usr/bin/env cp /var/www/secrets/.env /var/www/medplatform/releases/20210217080929/.env as root@gescomph.be
+ DEBUG [835527b2] Command: /usr/bin/env cp /var/www/secrets/.env /var/www/medplatform/releases/20210217080929/.env
+  INFO [835527b2] Finished in 1.508 seconds with exit status 0 (successful).
+  INFO [fefdddda] Running /usr/bin/env ln -s /var/www/medplatform/releases/20210217080929 /var/www/medplatform/releases/current as root@gescomph.be
+ DEBUG [fefdddda] Command: /usr/bin/env ln -s /var/www/medplatform/releases/20210217080929 /var/www/medplatform/releases/current
+  INFO [fefdddda] Finished in 1.531 seconds with exit status 0 (successful).
+  INFO [0074d1b5] Running /usr/bin/env mv /var/www/medplatform/releases/current /var/www/medplatform as root@gescomph.be
+ DEBUG [0074d1b5] Command: /usr/bin/env mv /var/www/medplatform/releases/current /var/www/medplatform
+  INFO [0074d1b5] Finished in 1.512 seconds with exit status 0 (successful).
+ DEBUG [1e442fb9] Running /usr/bin/env ls -x /var/www/medplatform/releases as root@gescomph.be
+ DEBUG [1e442fb9] Command: /usr/bin/env ls -x /var/www/medplatform/releases
+ DEBUG [1e442fb9] 	20210217080302	20210217080929
+ DEBUG [1e442fb9] Finished in 1.489 seconds with exit status 0 (successful).
+ DEBUG [aabc3557] Running if test ! -d /var/www/medplatform/releases; then echo "Directory does not exist '/var/www/medplatform/releases'" 1>&2; false; fi as root@gescomph.be
+ DEBUG [aabc3557] Command: if test ! -d /var/www/medplatform/releases; then echo "Directory does not exist '/var/www/medplatform/releases'" 1>&2; false; fi
+ DEBUG [aabc3557] Finished in 1.506 seconds with exit status 0 (successful).
+  INFO [6083f247] Running /usr/bin/env echo "Branch master (at 98c2c63a7b1e28d9e8820583fa7050983ec48266) deployed as release 20210217080929 by thekernel" >> /var/www/medplatform/revisions.log as root@gescomph.be
+ DEBUG [6083f247] Command: cd /var/www/medplatform/releases && /usr/bin/env echo "Branch master (at 98c2c63a7b1e28d9e8820583fa7050983ec48266) deployed as release 20210217080929 by thekernel" >> /var/www/medplatform/revisions.log
+  INFO [6083f247] Finished in 1.500 seconds with exit status 0 (successful).

@@ -16,7 +16,7 @@ class CreateApprovalsTable extends Migration
         Schema::create('approvals', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->unique()->nullable();
-            $table->string('reference')
+            $table->string('reference');
             $table->date('decision_date');
             $table->text('description')->nullable();
             $table->string('status')->nullable();
