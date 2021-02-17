@@ -6,12 +6,12 @@
 
         <!-- Scripts -->
 
-        <script defer src="{{ asset('js/app.js') }}"  data-turbolinks-track="true"></script>
+        <script defer src="{{ asset('js/app.js') }}"></script>
         
 
         <!-- Styles -->
 
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet" >
 
         <title>{{ config('global.application_name') }}</title>
 

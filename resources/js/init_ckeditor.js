@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
 	ClassicEditor.create( document.querySelector( '#editor' ) )
 		.then( editor => {
 			window.editor = editor;

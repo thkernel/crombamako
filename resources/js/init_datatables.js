@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load',function() {
+$(document).ready(function() {
     $('#datatable').DataTable({
     
         "searching": true,

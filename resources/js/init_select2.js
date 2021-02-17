@@ -1,6 +1,6 @@
 
 
-$(document).on('turbolinks:load', function() {  
+$(document).ready(function() {
 
     $(this).find('select').each(function() {
       var dropdownParent = $(document.body);

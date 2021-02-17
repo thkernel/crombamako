@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {  
+$(document).ready(function() {
 
 
 	$('.delete-record').on('click', function(event){
