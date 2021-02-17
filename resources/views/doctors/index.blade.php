@@ -30,7 +30,7 @@
   <thead>
     <tr>
      
-      <th>Sexe</th>
+      
       <th>Prénom</th>
       <th>Nom</th>
       <th>Spécialité</th>

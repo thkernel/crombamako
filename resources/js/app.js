@@ -10,6 +10,7 @@ require('alpinejs');
 //require('../../vendor/bracket/lib/perfect-scrollbar/perfect-scrollbar.min');
 
 //require('../../vendor/bracket/lib/moment/moment.js');
+require('../../vendor/bracket/lib/intl-tel-input/build/js/intlTelInput-jquery.min');
 
 
 
@@ -36,7 +37,7 @@ require('./init_datatables');
 require('./ckeditor5-build-classic/ckeditor.js');
 require('./init_ckeditor');
 require('./init_select2');
-//require('./init_ps');
+require('./init_intl_tel_input');
 
 require('../../vendor/bracket/js/bracket.js');
 require('../../vendor/bracket/js/dashboard.js');

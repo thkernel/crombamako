@@ -6,6 +6,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Gate;
 
 use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Notifications\Messages\MailMessage;
 
 
@@ -32,6 +33,7 @@ class AuthServiceProvider extends ServiceProvider
 
         //
 
+        // Translate verify email.
         VerifyEmail::toMailUsing(function ($notifiable, $url) {
         return (new MailMessage)
             ->subject('Activation de compte')
@@ -41,7 +43,18 @@ class AuthServiceProvider extends ServiceProvider
             ->line("Mot de passe: " . explode('_', $notifiable->login)[1])
             ->line('Cliquez sur le bouton ci-dessous pour activer votre compte.')
             ->action('Activer mon compte', $url);
-    });
+        });
+
+        // Translate reset password email.
+        ResetPassword::toMailUsing(function ($notifiable, $url) {
+        return (new MailMessage)
+            ->subject('Notification de réinitialisation du mot de passe')
+            ->line("Vous recevez cet e-mail car nous avons reçu une demande de réinitialisation de mot de passe pour votre compte.")
+            
+            ->line("Ce lien de réinitialisation du mot de passe expirera dans 60 minutes.
+                Si vous n'avez pas demandé de réinitialisation de mot de passe, aucune autre action n'est requise.")
+            ->action('Réinitialiser le mot de passe', $url);
+        });
 
 
 

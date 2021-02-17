@@ -1,6 +1,5 @@
 @foreach($doctors as $doctor)
     <tr>
-    <td>{{$doctor->civility}}</td>
     <td>{{$doctor->first_name}}</td>
     <td>{{$doctor->last_name}}</td>
     <td>{{$doctor->speciality->name}}</td>

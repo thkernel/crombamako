@@ -106,7 +106,7 @@
 	     <div class="col-md-4">
 	        <div class="form-group">
 	        	<label for="phone" class="required">Téléphone:</label>
-	        	<input type="text" class="form-control" placeholder="Téléphone"  name="phone" value="{{  old('phone') ?? $subscription_request->phone }}" >
+	        	<input type="text" id="phone" class="form-control" placeholder="Téléphone"  name="phone" value="{{  old('phone') ?? $subscription_request->phone }}" >
 		    	{!! $errors->first('phone', '<p class="error">:message</p>') !!}
 	        </div><!-- form-group -->
 	     </div><!-- form-group -->

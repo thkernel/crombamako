@@ -1,36 +1,37 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends("layouts/auth")
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-        </div>
+@section("content")
+<div class="login-wrapper wd-300 wd-xs-350 pd-25  mb5 mt5 pd-xs-40 bg-white rounded shadow-base">
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+    <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal">{{ config('global.application_name')}}</span></div>
+        <div class="tx-center mg-b-60">Mot de passe oublié</div>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
-        <form method="POST" action="{{ route('password.email') }}">
+            <form method="POST" action="{{ route('password.email') }}">
             @csrf
 
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @include('layouts/partials/_flash-message')
+                    </div><!-- form-group -->
+                </div>
+            </div>
             <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+            <div class="row">
+                <div class="col-md-12">
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            </div>
+            <div class="form-group">
+                <label for="email" class="required">Email</label>
+              <input type="email" name="email" id="email" class="form-control" placeholder="email" required autofocus>
+              
+            </div><!-- form-group -->
+            <input type="submit" value="Envoyer le lien de réinitialisation" class="btn btn-primary btn-block">
 
-            <div class="flex items-center justify-end mt-4">
-                <x-button>
-                    {{ __('Email Password Reset Link') }}
-                </x-button>
+
+            
+              <a href="{{ route('login') }}" class="tx-info tx-12 d-block mg-t-10">Se connecter</a>
+            
             </div>
+        </div>
         </form>
-    </x-auth-card>
-</x-guest-layout>
+    @endsection
