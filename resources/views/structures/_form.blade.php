@@ -79,7 +79,7 @@
     <div class="col-md-6">
         <div class="form-group">
             <label for="phone" class="required">Téléphone:</label>
-            <input type="text" name="phone" class="form-control" placeholder="Téléphone" value="{{  old('phone') ?? $structure->phone }}" required>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Téléphone" value="{{  old('phone') ?? $structure->phone }}" required>
             {!! $errors->first('name', '<p class="error">:message</p>') !!}
         </div>
     </div>

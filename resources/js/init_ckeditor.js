@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	try {
 	ClassicEditor.create( document.querySelector( '#editor' ) )
 		.then( editor => {
 			window.editor = editor;
@@ -6,4 +7,6 @@ $(document).ready(function() {
 		.catch( error => {
 			console.error( 'There was a problem initializing the editor.', error );
 		} );
+
+} catch (e) {}
 })

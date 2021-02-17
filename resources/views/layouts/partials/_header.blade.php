@@ -1,4 +1,4 @@
-
+<div class="front-menu">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <a class="navbar-brand" href="{{ route('home_path') }}"><h3>{{ config('global.application_name')}}</h3></a>
@@ -55,7 +55,7 @@
               </li>
            @else
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}" class="btn btn-primary">Se connecter</a>
+              <a class="btn btn-outline-danger" href="{{ route('login') }}" >Se connecter</a>
             </li>
 
              <li class="nav-item">
@@ -68,3 +68,4 @@
         </div>
       </div>
       </nav>
+</div>

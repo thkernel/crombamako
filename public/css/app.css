@@ -14927,6 +14927,10 @@ body {
   padding-left: 0.3rem !important;
 }
 
+.front-menu .navbar {
+  padding: 5px !important;
+}
+
 /*!
  * Bracket Plus Responsive Dashboard Template
  * Version: 1.4.0

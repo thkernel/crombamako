@@ -1,7 +1,5 @@
-
-
 $(document).ready(function() {
-
+try{
     $(this).find('select').each(function() {
       var dropdownParent = $(document.body);
 
@@ -12,5 +10,8 @@ $(document).ready(function() {
           
         });
     });
+
+
+    } catch (e) {}
 
   });

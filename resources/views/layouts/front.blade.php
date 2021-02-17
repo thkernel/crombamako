@@ -11,7 +11,7 @@
 
         <!-- Styles -->
 
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet" >
+        <link defer href="{{ asset('css/app.css') }}" rel="stylesheet" >
 
         <title>{{ config('global.application_name') }}</title>
 
