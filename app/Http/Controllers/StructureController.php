@@ -23,7 +23,7 @@ class StructureController extends Controller
         
        
 
-        $structures =  StructureProfile::orderBy('id', 'desc')->paginate(10)->setPath('structure_types');
+        $structures =  StructureProfile::orderBy('id', 'asc')->paginate(10)->setPath('structure_types');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("structures.index", compact(['structures']) );
 

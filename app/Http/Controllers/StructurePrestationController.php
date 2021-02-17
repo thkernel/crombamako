@@ -19,7 +19,7 @@ class StructurePrestationController extends Controller
     public function index()
     {
         //
-        $structure_prestations =  StructurePrestation::orderBy('id', 'desc')->paginate(10)->setPath('structure_prestations');
+        $structure_prestations =  StructurePrestation::orderBy('id', 'asc')->paginate(10)->setPath('structure_prestations');
       
         return view("structure_prestations.index", compact(['structure_prestations']) );
     }

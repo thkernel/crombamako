@@ -15,7 +15,7 @@ class DocumentTypeController extends Controller
     public function index()
     {
         //
-        $document_types =  DocumentType::orderBy('id', 'desc')->paginate(10)->setPath('document_types');
+        $document_types =  DocumentType::orderBy('id', 'asc')->paginate(10)->setPath('document_types');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("document_types.index", compact(['document_types']) );
     }

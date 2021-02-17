@@ -17,7 +17,7 @@ class NeighborhoodController extends Controller
     {
         //
 
-        $neighborhoods =  Neighborhood::orderBy('id', 'desc')->paginate(10)->setPath('neighborhoods');
+        $neighborhoods =  Neighborhood::orderBy('id', 'asc')->paginate(10)->setPath('neighborhoods');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("neighborhoods.index", compact(['neighborhoods']) );
     }

@@ -1,4 +1,4 @@
-@extends("layouts.dashboard");
+@extends("layouts.dashboard")
 
 @section("content")
 <div class="container">
@@ -30,7 +30,7 @@
   <thead>
     <tr>
      
-      <th>Civilité</th>
+      <th>Sexe</th>
       <th>Prénom</th>
       <th>Nom</th>
       <th>Spécialité</th>

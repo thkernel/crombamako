@@ -15,7 +15,7 @@ class RoleController extends Controller
     public function index()
     {
         //
-        $roles =  Role::orderBy('id', 'desc')->paginate(10)->setPath('roles');
+        $roles =  Role::orderBy('id', 'asc')->paginate(10)->setPath('roles');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("roles.index", compact(['roles']) );
     }

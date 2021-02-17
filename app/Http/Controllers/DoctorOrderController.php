@@ -16,7 +16,7 @@ class DoctorOrderController extends Controller
     {
         //
 
-        $doctor_orders =  DoctorOrder::orderBy('id', 'desc')->paginate(10)->setPath('doctor_orders');
+        $doctor_orders =  DoctorOrder::orderBy('id', 'asc')->paginate(10)->setPath('doctor_orders');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("doctor_orders.index", compact(['doctor_orders']) );
 

@@ -16,7 +16,7 @@ class DocumentRequestController extends Controller
     public function index()
     {
         //
-        $document_requests =  DocumentRequest::orderBy('id', 'desc')->paginate(10)->setPath('document_requests');
+        $document_requests =  DocumentRequest::orderBy('id', 'asc')->paginate(10)->setPath('document_requests');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("document_requests.index", compact(['document_requests']) );
     }

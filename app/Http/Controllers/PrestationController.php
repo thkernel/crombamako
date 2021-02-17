@@ -15,7 +15,7 @@ class PrestationController extends Controller
     public function index()
     {
         //
-         $prestations =  Prestation::orderBy('id', 'desc')->paginate(10)->setPath('prestations');
+         $prestations =  Prestation::orderBy('id', 'asc')->paginate(10)->setPath('prestations');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("prestations.index", compact(['prestations']) );
 

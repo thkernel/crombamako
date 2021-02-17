@@ -15,7 +15,7 @@ class ServiceController extends Controller
     public function index()
     {
         //
-         $services =  Service::orderBy('id', 'desc')->paginate(10)->setPath('services');
+         $services =  Service::orderBy('id', 'asc')->paginate(10)->setPath('services');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("services.index", compact(['services']) );
 

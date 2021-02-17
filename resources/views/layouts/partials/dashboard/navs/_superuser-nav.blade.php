@@ -136,7 +136,7 @@
       </ul>
     </li>
 
-
+<!--
     <li class="br-menu-item">
       <a href="#" class="br-menu-link with-sub ">
         <i class="fa fa-bar-chart tx-20"></i>
@@ -155,7 +155,7 @@
 
       </ul>
     </li>
-
+-->
 
      
 <li class="br-menu-item">

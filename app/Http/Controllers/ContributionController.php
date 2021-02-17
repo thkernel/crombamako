@@ -23,7 +23,7 @@ class ContributionController extends Controller
     public function index()
     {
         //
-        $contributions =  Contribution::orderBy('id', 'desc')->paginate(10)->setPath('contributions');
+        $contributions =  Contribution::orderBy('id', 'asc')->paginate(10)->setPath('contributions');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("contributions.index", compact(['contributions']) );
     }

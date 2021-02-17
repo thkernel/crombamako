@@ -19,7 +19,7 @@ class StaffController extends Controller
     public function index()
     {
         //
-        $staffs =  Staff::orderBy('id', 'desc')->paginate(10)->setPath('staffs');
+        $staffs =  Staff::orderBy('id', 'asc')->paginate(10)->setPath('staffs');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("staffs.index", compact(['staffs']) );
     }

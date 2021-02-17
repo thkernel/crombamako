@@ -16,7 +16,7 @@ class FeatureController extends Controller
     {
         //
 
-        $features =  Feature::orderBy('id', 'desc')->paginate(10)->setPath('features');
+        $features =  Feature::orderBy('id', 'asc')->paginate(10)->setPath('features');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("features.index", compact(['features']) );
 

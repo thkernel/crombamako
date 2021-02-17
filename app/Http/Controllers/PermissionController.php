@@ -21,7 +21,7 @@ class PermissionController extends Controller
     {
         //
 
-        $permissions =  Permission::orderBy('id', 'desc')->paginate(10)->setPath('permissions');
+        $permissions =  Permission::orderBy('id', 'asc')->paginate(10)->setPath('permissions');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("permissions.index", compact(['permissions']) );
 

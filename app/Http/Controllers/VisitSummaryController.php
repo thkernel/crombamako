@@ -19,7 +19,7 @@ class VisitSummaryController extends Controller
     {
         //
 
-        $visit_summaries =  VisitSummary::orderBy('id', 'desc')->paginate(10)->setPath('visit_summaries');
+        $visit_summaries =  VisitSummary::orderBy('id', 'asc')->paginate(10)->setPath('visit_summaries');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("visit_summaries.index", compact(['visit_summaries']) );
     }

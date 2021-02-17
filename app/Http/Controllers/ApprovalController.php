@@ -15,7 +15,7 @@ class ApprovalController extends Controller
     public function index()
     {
         //
-        $approvals =  Approval::orderBy('id', 'desc')->paginate(10)->setPath('approvals');
+        $approvals =  Approval::orderBy('id', 'asc')->paginate(10)->setPath('approvals');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("approvals.index", compact(['approvals']) );
     }

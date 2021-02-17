@@ -15,7 +15,7 @@ class StructureCategoryController extends Controller
     public function index()
     {
         //
-        $structure_categories =  StructureCategory::orderBy('id', 'desc')->paginate(10)->setPath('structure_categories');
+        $structure_categories =  StructureCategory::orderBy('id', 'asc')->paginate(10)->setPath('structure_categories');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("structure_categories.index", compact(['structure_categories']) );
     }

@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts =  Post::orderBy('id', 'desc')->paginate(10)->setPath('posts');
+        $posts =  Post::orderBy('id', 'asc')->paginate(10)->setPath('posts');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("posts.index", compact(['posts']) );
     }

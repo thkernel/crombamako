@@ -15,7 +15,7 @@ class StructureTypeController extends Controller
     public function index()
     {
         //
-        $structure_types =  StructureType::orderBy('id', 'desc')->paginate(10)->setPath('structure_types');
+        $structure_types =  StructureType::orderBy('id', 'asc')->paginate(10)->setPath('structure_types');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("structure_types.index", compact(['structure_types']) );
     }

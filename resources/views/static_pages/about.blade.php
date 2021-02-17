@@ -1,7 +1,7 @@
 @extends("layouts/front")
 
 @section("content")
-	<div class="container">
+	<div class="container mg-t-20 mg-b-20">
 		<div class="title">
 			<h2>{{$page->title}}</h2>
 		</div>

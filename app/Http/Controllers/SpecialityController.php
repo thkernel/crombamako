@@ -15,7 +15,7 @@ class SpecialityController extends Controller
     public function index()
     {
         //
-        $specialities =  Speciality::orderBy('id', 'desc')->paginate(10)->setPath('specialities');
+        $specialities =  Speciality::orderBy('id', 'asc')->paginate(10)->setPath('specialities');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("specialities.index", compact(['specialities']) );
     }

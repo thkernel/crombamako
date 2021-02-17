@@ -15,7 +15,7 @@ class PageController extends Controller
     public function index()
     {
         //
-        $pages =  Page::orderBy('id', 'desc')->paginate(10)->setPath('pages');
+        $pages =  Page::orderBy('id', 'asc')->paginate(10)->setPath('pages');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("pages.index", compact(['pages']) );
     }

@@ -3,8 +3,8 @@
 
         <div class="col-md-2">
             <div class="form-group">
-                <label for="civility" class="required">Sexe:</label>
-                <select name="civility" class="form-control" required>
+                <label for="sex" class="required">Sexe:</label>
+                <select name="sex" class="form-control" required>
                     <option disabled selected value> Sélectionner </option>
                     
                     <option value = "Masculin" {{ $doctor->sex == "Masculin" ?  'selected' : ''}} >Masculin</option>

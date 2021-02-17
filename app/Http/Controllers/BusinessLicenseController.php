@@ -15,7 +15,7 @@ class BusinessLicenseController extends Controller
     public function index()
     {
         //
-        $business_licenses =  BusinessLicense::orderBy('id', 'desc')->paginate(10)->setPath('business_licenses');
+        $business_licenses =  BusinessLicense::orderBy('id', 'asc')->paginate(10)->setPath('business_licenses');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("business_licenses.index", compact(['business_licenses']) );
     }

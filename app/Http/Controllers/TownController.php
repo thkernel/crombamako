@@ -15,7 +15,7 @@ class TownController extends Controller
     public function index()
     {
         //
-        $towns =  Town::orderBy('id', 'desc')->paginate(10)->setPath('towns');
+        $towns =  Town::orderBy('id', 'asc')->paginate(10)->setPath('towns');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("towns.index", compact(['towns']) );
     }
