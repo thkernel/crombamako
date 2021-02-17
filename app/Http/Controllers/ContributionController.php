@@ -140,6 +140,20 @@ class ContributionController extends Controller
 
     }
 
+
+    public function cancel($id)
+    {
+        $contribution = Contribution::findOrFail($id);
+        $contribution->status = "Cancel";
+        $contribution->update();
+        //dd($contribution);
+
+        return redirect()->route('contributions.index')
+
+                        ->with('success','Paiement a été annulé avec succès.');
+
+    }
+
     /**
      * Update the specified resource in storage.
      *

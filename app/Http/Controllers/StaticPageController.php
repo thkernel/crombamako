@@ -23,6 +23,13 @@ class StaticPageController extends Controller
 
     }
 
+    public function administrative_procedures()
+    {
+        $page =  Page::where('slug', 'demarches-administratives')->first();
+        
+        return view("static_pages.administrative_procedures", compact(['page']) );
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -103,6 +103,9 @@ Route::get('/structures/show/{slug}', [StructureController::class, 'show'])->nam
 Route::get('/structure_type/delete/{slug}', [StructureTypeController::class, 'delete'])->name('delete_structure_type_path')->middleware(['auth']);
 
 Route::get('/about', [StaticPageController::class, 'about'])->name('about_path');
+
+Route::get('/demarches-administratives', [StaticPageController::class, 'administrative_procedures'])->name('administrative_procedures_path');
+
 Route::get('/cgu', [StaticPageController::class, 'cgu'])->name('cgu_path');
 Route::get('/privacy-policy', [StaticPageController::class, 'privacy_policy'])->name('privacy_policy_path');
 
@@ -117,6 +120,8 @@ Route::get('/dashboard', function () {
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard_path')->middleware(['auth']);
 
 Route::get('/contributions/statement', [ContributionController::class, 'statement'])->name('contributions_statement_path')->middleware(['auth']);
+
+Route::put('/contribution/{id}/cancel/', [ContributionController::class, 'cancel'])->name('contributions.cancel')->middleware(['auth']);
 
 
 

@@ -17,7 +17,8 @@
        
     </head>
     <body>
-       
+                   
+
         <!-- Dasboard Header -->
         @include("layouts/partials/dashboard/_header")
        
@@ -25,6 +26,7 @@
         @include("layouts/partials/dashboard/_sidebar")
 
         <div class="br-mainpanel">
+            @include('layouts/partials/_flash-message')
             @yield("content")
         </div>
         

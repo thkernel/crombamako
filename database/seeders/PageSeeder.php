@@ -29,6 +29,10 @@ class PageSeeder extends Seeder
         DB::table('pages')->insert(["uid" => Str::random(32),"slug"  => "privacy-policy", "title" => "Politique de confidentialité",
             "user_id" => $superuser->id,
         ]);
+
+        DB::table('pages')->insert(["uid" => Str::random(32),"slug"  => "demarches-administratives", "title" => "Démarches administratives",
+            "user_id" => $superuser->id,
+        ]);
     }
     
 }

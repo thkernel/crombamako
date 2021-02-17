@@ -19,7 +19,7 @@
               <a class="nav-link" href="{{ route('all_posts_path') }}">Actualité</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('all_posts_path') }}">Démarches administratives</a>
+              <a class="nav-link" href="{{ route('administrative_procedures_path') }}">Démarches administratives</a>
             </li>
 
            
