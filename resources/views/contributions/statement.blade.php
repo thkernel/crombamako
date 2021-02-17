@@ -113,8 +113,9 @@
         </div>
 
         <div class="text-right">
-            
-         
+          @if ($contributions)
+            <a class="btn btn-danger tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('download_statement_pdf_path') }}"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Télécharger l'état de paiement</a>
+         @endif
 
         </div>
 

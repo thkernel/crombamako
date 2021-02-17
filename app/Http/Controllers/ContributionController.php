@@ -11,6 +11,7 @@ use App\Models\Role;
 use App\Models\Town;
 use App\Models\Neighborhood;
 use App\Mail\ContributionMail;
+use PDF;
 //use Illuminate\Mail\Mailable;
 
 class ContributionController extends Controller
@@ -28,9 +29,18 @@ class ContributionController extends Controller
         return view("contributions.index", compact(['contributions']) );
     }
 
-    public function download_statement()
+    public function download_statement_pdf()
     {
-
+        $contributions = Contribution::all();
+        if ($contributions){
+            $sum_total = $contributions->sum('total_amount');
+        }else{
+            $sum_total = 0.0;
+        }
+        
+        $pdf = PDF::loadView('contributions.statement_pdf', compact(['contributions','sum_total']));
+        
+        return $pdf->download('etat-paiement.pdf');
     }
 
     /**
