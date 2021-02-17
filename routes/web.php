@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\DoctorProfileController;
 use App\Http\Controllers\SpecialityController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StructureTypeController;
@@ -125,6 +127,9 @@ Route::put('/contribution/{id}/cancel/', [ContributionController::class, 'cancel
 
 
 
+Route::resource('admin_profiles', AdminProfileController::class)->middleware(['auth']);
+
+Route::resource('doctor_profiles', DoctorProfileController::class)->middleware(['auth']);
 
 Route::resource('roles', RoleController::class)->middleware(['auth']);
 Route::resource('users', UserController::class)->middleware(['auth']);

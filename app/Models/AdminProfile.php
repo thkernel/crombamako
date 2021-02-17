@@ -21,10 +21,18 @@ class AdminProfile extends Model
        
     ];
 
+
     public function user()
     {
         return $this->morphOne(User::class, 'userable');
     }
+    
+/*
+    public function user() 
+      { 
+        return $this->morphOne(User::class, 'profile');
+      }*/
+
 
     public function getFullnameAttribute() {
     	return $this->first_name . ' ' . $this->last_name;

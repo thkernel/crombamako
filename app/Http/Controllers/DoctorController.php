@@ -23,6 +23,8 @@ class DoctorController extends Controller
      */
     public function index()
     {
+
+        
         //
         //$doctor_role = Role::whereName('Médecin')->first();
         $doctors =  DoctorProfile::all();

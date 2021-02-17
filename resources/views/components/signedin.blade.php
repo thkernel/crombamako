@@ -29,7 +29,17 @@
         
         <ul class="list-unstyled user-profile-nav">
             
-            
+            <li>
+                @if (current_user()->isSuperuser() || current_user()->isAmin())
+                    <a href="{{route('admin_profiles.edit', current_user()->userable)}}">
+                        Mon profil
+                    </a>
+                @else
+                    <a href="{{route('doctor_profiles.edit', current_user()->userable)}}">
+                        Mon profil
+                    </a>
+                @endif
+            </li>
             <div class="dropdown-divider"></div>
             <li>
                

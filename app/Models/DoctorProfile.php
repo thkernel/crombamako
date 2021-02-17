@@ -29,10 +29,17 @@ class DoctorProfile extends Model
        
     ];
 
+    
     public function user()
     {
         return $this->morphOne(User::class, 'userable');
     }
+    
+/*
+    public function user() 
+      { 
+        return $this->morphOne(User::class, 'profile');
+      }*/
 
     public function structure(){
         return $this->belongsTo(StructureProfile::class);
