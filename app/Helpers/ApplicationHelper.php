@@ -317,6 +317,20 @@
         return in_array($current_year, $contribution_items_array);
     }
 
+    function visit_summary_selected_doctors($staff, $doctor_id){
+
+
+        $staff_array = [];
+
+        foreach($staff as $staff_item){
+           array_push($staff_array, $staff_item->doctor_id);
+        }
+            
+        return in_array($doctor_id, $staff_array);
+    }
+    
+
+
     function selected_abilities($permission_items, $current_action){
 
 

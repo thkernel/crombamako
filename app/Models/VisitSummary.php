@@ -81,6 +81,10 @@ class VisitSummary extends Model
         return $this->belongsTo(StructureProfile::class, 'structure_id');
     }
 
+    public function visit_summary_teams(){
+        return $this->hasMany(VisitSummaryTeam::class);
+    }
+
     public function eloquent_storage_attachment()
     {
         return $this->morphMany(EloquentStorageAttachment::class, 'attachable');

@@ -39,7 +39,7 @@
                 <select name="visit_summary_teams[]" id="visit_summary_teams[]" class="form-control" required multiple>
                     <option {{ $visit_summary->structure_id  ? '' : 'disabled selected value'}}> 
                     @foreach($doctors as $doctor)
-                        <option value = "{{ $doctor->id }}" {{ $doctor->id == $visit_summary->structure_id ?  'selected' : ''}}>{{ $doctor->full_name_with_reference }}</option>
+                        <option value = "{{ $doctor->id }}"  @if (visit_summary_selected_doctors($visit_summary->visit_summary_teams , $doctor->id)) selected @endif>{{ $doctor->full_name_with_reference }}</option>
                     @endforeach
                 </select>
             </div>

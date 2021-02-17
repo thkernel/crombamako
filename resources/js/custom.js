@@ -9,7 +9,7 @@ $(document).ready(function() {
         /* Hide */
         
         $("#doctor_id").selectedIndex = 0;
-        alert("humm");
+       
         $(".doctor").css("display", "none");
        
         $(".town").css("display", "none");
@@ -76,7 +76,7 @@ function filter_search_terms(){
         /* Hide */
         
         $("#doctor_id").selectedIndex = 0;
-        alert("humm");
+        
         $(".doctor").css("display", "none");
         
         $(".town").css("display", "none");
