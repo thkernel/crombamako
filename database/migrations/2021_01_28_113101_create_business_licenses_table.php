@@ -16,8 +16,8 @@ class CreateBusinessLicensesTable extends Migration
         Schema::create('business_licenses', function (Blueprint $table) {
             $table->id();
             $table->string('uid')->unique()->nullable();
-            $table->string('reference')->unique();
-            $table->string('year');
+            $table->string('reference');
+            $table->date('decision_date');
             $table->text('description')->nullable();
             $table->string('status')->nullable();
             $table->bigInteger('doctor_id')->unsigned();

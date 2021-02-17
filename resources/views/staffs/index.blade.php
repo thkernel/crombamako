@@ -29,7 +29,7 @@
 
   <thead>
     <tr>
-      <th>Civilité</th>
+      
       <th>Prénom</th>
       <th>Nom</th>
       <th>Spécialité</th>

@@ -4,7 +4,7 @@
 		<div class="col-md-2">
 	        <div class="form-group">
 	        	<label for="sex" class="required">Sexe:</label>
-	            <select name="civility" class="form-control" required>
+	            <select name="sex" class="form-control" required>
 	                <option disabled selected value> Sélectionner </option>
 	                
 	                <option value = "Masculin" {{ $subscription_request->sex == "Masculin" ?  'selected' : ''}} >Masculin</option>
@@ -52,7 +52,7 @@
 	    <div class="col-md-4">
             <div class="form-group">
              	<label for="town_id" class="required">Commune:</label>
-                <select name="town_id" class="form-control" required>
+                <select name="town_id" id="town_id" class="form-control" required>
                     <option {{ $subscription_request->town_id  ? '' : 'disabled selected value'}}> 
                     @foreach($towns as $town)
                         <option value = "{{ $town->id }}" {{ $town->id == $subscription_request->town_id ?  'selected' : ''}}>{{ $town->name }}</option>
@@ -63,7 +63,7 @@
 		<div class="col-md-4">
             <div class="form-group">
              	<label for="neighborhood_id" class="required">Quartier:</label>
-                <select name="neighborhood_id" class="form-control" required>
+                <select name="neighborhood_id" id="neighborhood_id" class="form-control" required>
                     @if ($subscription_request->neighborhood_id)
                         <option value = "{{ $subscription_request->neighborhood_id }} selected">
                             {{ $subscription_request->neighborhood->name}}

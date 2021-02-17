@@ -1,6 +1,6 @@
 @foreach($staffs as $staff)
     <tr>
-    <td>{{$staff->civility}}</td>
+    
      <td>{{$staff->first_name}}</td>
     <td>{{$staff->last_name}}</td>
     <td>{{$staff->speciality->name}}</td>

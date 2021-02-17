@@ -32,6 +32,7 @@
         <a class="sub-link" href="{{ route('structure_prestations.index') }}">Activités & Structures</a>
 
       </li>
+      
 
       <li class="sub-item">
         <a class="sub-link" href="{{ route('business_licenses.index') }}">Licences d'exploitation</a>

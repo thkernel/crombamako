@@ -9,7 +9,8 @@
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
       
-
+<h2>Nouvelle - Activité par structure</h2>
+<hr />
     </div>
     <div class="section-body">
 
@@ -19,7 +20,7 @@
 
         <div class="pull-left">
 
-            <h2>Nouvelle - Activité par structure</h2>
+            
 
         </div>
 

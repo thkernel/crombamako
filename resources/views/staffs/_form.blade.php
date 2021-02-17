@@ -2,13 +2,13 @@
 
 	<div class="col-md-2">
         <div class="form-group">
-        	<label for="civility" class="required">Civilité:</label>
+        	<label for="civility" class="required">Sexe:</label>
             <select name="civility" class="form-control" required>
                 <option disabled selected value> Sélectionner </option>
                 
-                <option value = "Monsieur" {{ $staff->civility == "Monsieur" ?  'selected' : ''}} >Monsieur</option>
-                <option value = "Madame" {{ $staff->civility == "Madame" ?  'selected' : ''}}>Madame</option>
-                <option value = "Mademoiselle" {{ $staff->civility == "Mademoiselle" ?  'selected' : ''}}>Mademoiselle</option>
+                <option value = "Masculin" {{ $staff->civility == "Masculin" ?  'selected' : ''}} >Masculin</option>
+                <option value = "Féminin" {{ $staff->civility == "Féminin" ?  'selected' : ''}}>Féminin</option>
+                
             </select>
         </div>
 	</div>
