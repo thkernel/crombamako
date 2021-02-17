@@ -28,6 +28,11 @@ class ContributionController extends Controller
         return view("contributions.index", compact(['contributions']) );
     }
 
+    public function download_statement()
+    {
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
