@@ -2,12 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\Permission;
+use App\Models\Speciality;
 use App\Models\User;
-use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PermissionPolicy
+class SpecialityPolicy
 {
     use HandlesAuthorization;
 
@@ -20,24 +19,18 @@ class PermissionPolicy
     public function viewAny(User $user)
     {
         //
-        return authorize_resource('read', 'Permission')
-                ? Response::allow()
-                : Response::deny('Not authorized.');
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\Speciality  $speciality
      * @return mixed
      */
-    public function view(User $user, Permission $permission)
+    public function view(User $user, Speciality $speciality)
     {
         //
-        return authorize_resource('read', 'Permission')
-                ? Response::allow()
-                : Response::deny('Not authorized.');
     }
 
     /**
@@ -49,49 +42,40 @@ class PermissionPolicy
     public function create(User $user)
     {
         //
-        return authorize_resource('create', 'Permission')
-                ? Response::allow()
-                : Response::deny('Not authorized.');
     }
 
     /**
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\Speciality  $speciality
      * @return mixed
      */
-    public function update(User $user)
+    public function update(User $user, Speciality $speciality)
     {
         //
-        return authorize_resource('update', 'Permission')
-                ? Response::allow()
-                : Response::deny('Not authorized.');
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\Speciality  $speciality
      * @return mixed
      */
-    public function delete(User $user)
+    public function delete(User $user, Speciality $speciality)
     {
         //
-        return authorize_resource('delete', 'Permission')
-                ? Response::allow()
-                : Response::deny('Not authorized.');
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\Speciality  $speciality
      * @return mixed
      */
-    public function restore(User $user, Permission $permission)
+    public function restore(User $user, Speciality $speciality)
     {
         //
     }
@@ -100,10 +84,10 @@ class PermissionPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Permission  $permission
+     * @param  \App\Models\Speciality  $speciality
      * @return mixed
      */
-    public function forceDelete(User $user, Permission $permission)
+    public function forceDelete(User $user, Speciality $speciality)
     {
         //
     }

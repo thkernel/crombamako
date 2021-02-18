@@ -58,7 +58,7 @@ class AuthServiceProvider extends ServiceProvider
 
 
 
-/*
+
         Gate::before(function ($user, $ability) {
             if ($user->isSuperUser()) {
                 return true;
@@ -66,7 +66,7 @@ class AuthServiceProvider extends ServiceProvider
             
         });
 
-        */
+        
     }
     
 }

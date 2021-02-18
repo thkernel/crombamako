@@ -1,40 +1,46 @@
 <div class="col-lg-12">
 <div class="card shadow-base bd-0 mg-t-20">
               <div class="card-header pd-20 bg-transparent">
-                <h6 class="card-title tx-uppercase tx-12 mg-b-0">Dernières commandes</h6>
+                <h6 class="card-title tx-uppercase tx-12 mg-b-0">Dernières préinscriptions</h6>
               </div><!-- card-header -->
+
+              <!-- Table -->
               <table class="table table-responsive mg-b-0 tx-12">
                 <thead>
                   <tr class="tx-10">
                   
-                    <th class="pd-y-5">Date Enreg.</th>
-                    <th class="pd-y-5">Réf. commande</th>
-                    <th class="pd-y-5">Client</th>
-                    <th class="pd-y-5">Sous-total</th>
-                    <th class="pd-y-5">Taxe</th>
-                    <th class="pd-y-5">Total</th>
-                    <th class="pd-y-5">Statut</th>
-                    <th class="pd-y-5">Paiement</th>
+                    
+
+                    <tr>
+                      <th class="pd-y-5">Date</th>
+                      <th class="pd-y-5">Prénom</th>
+                      <th class="pd-y-5">Nom</th>
+                      <th class="pd-y-5">Commune</th>
+                      <th class="pd-y-5">Spécialité</th>
+                      <th class="pd-y-5">Structure</th>
+                      <th class="pd-y-5">Téléphone</th>
+                     
+                    </tr>
+
+
                    
                   </tr>
                 </thead>
                 <tbody>
-                  <% @orders.each do |order| %>
+                  @foreach($subscription_requests as $subscription_request)
                     <tr>
-                    
-                      <td class="valign-middle"><%= order.created_at.strftime("%d/%m/%Y") %></td>
-                      <td class="valign-middle"><%= order.uid %></td>
-                      <td class="valign-middle"><%= user(order.user_id).profile.full_name %></td>
-                      <td class="valign-middle"><%= order.subtotal %></td>
-                      <td class="valign-middle"><%= order.tax %></td>
-                      <td class="valign-middle"><%= order.total %></td>
-                       <td class="valign-middle"><%= order.status %></td>
+                      <td>{{format_date($subscription_request->created_at, "d/m/Y")}}</td>
 
-                      <td class="valign-middle"><%= order.paid %></td>
-                      
+                      <td>{{$subscription_request->first_name}}</td>
+                      <td>{{$subscription_request->last_name}}</td>
+                      <td>{{$subscription_request->town->name}}</td>
+                      <td>{{$subscription_request->speciality->name}}</td>
+                      <td>{{ $subscription_request->structure_profile ? $subscription_request->structure_profile->name : ''}}</td>
+                      <td>{{$subscription_request->phone}}</td>
+
 
                     </tr>
-                  <% end %>
+                  @endforeach
                   
                 </tbody>
               </table>

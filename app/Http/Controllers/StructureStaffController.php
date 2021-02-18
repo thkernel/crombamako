@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Staff;
+use App\Models\StructureStaff;
 use App\Models\Service;
 use App\Models\StructureProfile;
 use App\Models\Speciality;
 use App\Models\StructureType;
 use Illuminate\Http\Request;
 
-class StaffController extends Controller
+class StructureStaffController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,7 +19,7 @@ class StaffController extends Controller
     public function index()
     {
         //
-        $staffs =  Staff::orderBy('id', 'asc')->paginate(10)->setPath('staffs');
+        $staffs =  StructureStaff::orderBy('id', 'asc')->paginate(10)->setPath('staffs');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("staffs.index", compact(['staffs']) );
     }
@@ -33,7 +33,7 @@ class StaffController extends Controller
     {
         //
         $structure_type = StructureType::where("slug", "privee")->first();
-        $staff = new Staff;
+        $staff = new StructureStaff;
         $specialities =  Speciality::all();
         $services =  Service::all();
         $structures =  StructureProfile::where('structure_type_id', $structure_type->id)->get();
@@ -63,11 +63,11 @@ class StaffController extends Controller
 
   
 
-        Staff::create($request->all());
+        StructureStaff::create($request->all());
 
    
-        return redirect()->route('staffs.index')
-            ->with('success','Town created successfully.');
+        return redirect()->route('structure_staffs.index')
+            ->with('success','Structure staff created successfully.');
 
 
     }
@@ -89,13 +89,13 @@ class StaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function edit(Staff $staff)
+    public function edit(StructureStaff $staff)
     {
         //
          $specialities =  Speciality::all();
         $services =  Service::all();
         $structures =  StructureProfile::all();
-        return view('staffs.edit', compact(['staff','specialities', 'services','structures']));
+        return view('structure_staffs.edit', compact(['staff','specialities', 'services','structures']));
 
     }
 
@@ -106,7 +106,7 @@ class StaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Staff $staff)
+    public function update(Request $request, StructureStaff $staff)
     {
         //
 
@@ -126,7 +126,7 @@ class StaffController extends Controller
 
   
 
-        return redirect()->route('staffs.index')
+        return redirect()->route('structure_staffs.index')
 
                         ->with('success','Town updated successfully');
     }
@@ -140,7 +140,7 @@ class StaffController extends Controller
     public function destroy($id)
     {
         //
-        Staff::where('id',$id)->delete();
+        StructureStaff::where('id',$id)->delete();
         return redirect()->back()->with('success','Delete Successfully');
     }
 }

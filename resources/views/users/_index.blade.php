@@ -8,11 +8,13 @@
 	    <div class="action-buttons">
 			
 
- <a  href="{{ route('users.edit', $user->id) }}"><i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>Modifier
- </a>
+ @can('update', App\Models\User::class)
+     <a  href="{{ route('users.edit', $user->id) }}"><i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>Modifier
+     </a>
+ @endcan
 
 
-
+@can('delete', App\Models\User::class)
 
  <a href="#" data-toggle="modal" data-target="#user-{{$user->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
@@ -51,6 +53,8 @@
                                 Oui
                             </a>
                         </form>
+
+                        @endcan
         </div>
     </div>
 </div>

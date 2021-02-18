@@ -43,9 +43,9 @@
 
             
 
-            <form action="{{ route('staffs.destroy', $staff->id)}}" method="post">
+            <form action="{{ route('structure_staffs.destroy', $staff->id)}}" method="post">
                             @csrf @method('DELETE')
-                            <a href="route('staffs.destroy', $staff->id)"
+                            <a href="route('structure_staffs.destroy', $staff->id)"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();" class="btn btn-danger tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>

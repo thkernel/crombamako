@@ -32,6 +32,7 @@
         <a class="sub-link" href="{{ route('structure_prestations.index') }}">Activités & Structures</a>
 
       </li>
+      
 
       <li class="sub-item">
         <a class="sub-link" href="{{ route('business_licenses.index') }}">Licences d'exploitation</a>
@@ -136,7 +137,7 @@
       </ul>
     </li>
 
-
+<!--
     <li class="br-menu-item">
       <a href="#" class="br-menu-link with-sub ">
         <i class="fa fa-bar-chart tx-20"></i>
@@ -155,7 +156,7 @@
 
       </ul>
     </li>
-
+-->
 
      
 <li class="br-menu-item">
@@ -178,11 +179,12 @@
           </a><!-- br-menu-link -->
           <ul class="br-menu-sub">
             
-          
-            <li class="sub-item">
-              
-                <a class="sub-link" href="{{ route('users.index') }}">Utilisateurs</a>
-            </li>
+            @can('read', App\Models\User::class)
+              <li class="sub-item">
+                
+                  <a class="sub-link" href="{{ route('users.index') }}">Utilisateurs</a>
+              </li>
+            @endcan
 
              <li class="sub-item">
                 <a class="sub-link" href="{{ route('roles.index') }}">Rôles</a>

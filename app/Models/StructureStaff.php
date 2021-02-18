@@ -8,7 +8,7 @@ use App\Models\Speciality;
 use App\Models\Service;
 use App\Models\Structure;
 
-class Staff extends Model
+class StructureStaff extends Model
 {
     use HasFactory;
     protected $fillable = ['civility', 'first_name', 'last_name', 'speciality_id', 'structure_id', 'service_id', 'description', 'user_id'];

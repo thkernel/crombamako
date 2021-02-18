@@ -20,10 +20,11 @@ class DashboardController extends Controller
 
         $total_doctors =  count(DoctorOrder::all());
         $total_structures =  count(StructureProfile::all());
-        $total_pending_subscription = count(SubscriptionRequest::where("status", '<>', "validated")->get());
+        $subscription_requests =  SubscriptionRequest::where("status", '<>', "validated")->get();
+        $total_pending_subscription = count($subscription_requests);
 
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
-        return view("dashboard.index", compact(['total_doctors', 'total_structures', 'total_pending_subscription']) );
+        return view("dashboard.index", compact(['total_doctors', 'total_structures', 'total_pending_subscription', 'subscription_requests']) );
 
 
     }

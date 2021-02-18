@@ -30,7 +30,7 @@
         <ul class="list-unstyled user-profile-nav">
             
             <li>
-                @if (current_user()->isSuperuser() || current_user()->isAmin())
+                @if (current_user()->isSuperuser() || current_user()->isAdmin())
                     <a href="{{route('admin_profiles.edit', current_user()->userable)}}">
                         Mon profil
                     </a>

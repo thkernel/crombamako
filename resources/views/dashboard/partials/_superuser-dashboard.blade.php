@@ -15,6 +15,8 @@
         </div><!-- row -->
 
         <div class="row row-sm mg-t-20">
+          <!-- Stats -->
+          @include("dashboard/partials/subpartials/_misc")
             
         </div><!-- row -->
 

@@ -29,7 +29,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\PrestationController;
-use App\Http\Controllers\StaffController;
+use App\Http\Controllers\StructureStaffController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\StructurePrestationController;
@@ -38,6 +38,8 @@ use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\DoctorOrderController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\StructureServiceController;
+
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 
@@ -161,9 +163,11 @@ Route::resource('document_requests', DocumentRequestController::class)->middlewa
 Route::resource('visit_summaries', VisitSummaryController::class)->middleware(['auth']);
 Route::resource('services', ServiceController::class)->middleware(['auth']);
 Route::resource('prestations', PrestationController::class)->middleware(['auth']);
-Route::resource('staffs', StaffController::class)->middleware(['auth']);
+Route::resource('structure_staffs', StructureStaffController::class)->middleware(['auth']);
 Route::resource('pages', PageController::class)->middleware(['auth']);
 Route::resource('structure_prestations', StructurePrestationController::class)->middleware(['auth']);
+Route::resource('structure_services', StructureServiceController::class)->middleware(['auth']);
+
 Route::resource('approvals', ApprovalController::class)->middleware(['auth']);
 Route::resource('business_licenses', BusinessLicenseController::class)->middleware(['auth']);
 
