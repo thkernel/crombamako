@@ -54,7 +54,7 @@ class FeatureController extends Controller
         $request['user_id'] = current_user()->id;
         $request['status'] = 'enable';
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:features',
             'subject_class' => 'required',
 
         ]);
@@ -105,7 +105,7 @@ class FeatureController extends Controller
         //
 
         $request->validate([
-        'name' => 'required',   
+        'name' => 'required|unique:features',   
         'subject_class' => 'required',   
 
         ]);

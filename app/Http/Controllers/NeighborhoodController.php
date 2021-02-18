@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Neighborhood;
 use App\Models\Town;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+
 
 class NeighborhoodController extends Controller
 {
@@ -55,17 +57,20 @@ class NeighborhoodController extends Controller
         $request['status'] = "enable";
         $request['user_id'] = current_user()->id;
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:neighborhoods',
 
         ]);
 
   
+        
 
-        neighborhood::create($request->all());
+            Neighborhood::create($request->all());
 
-   
-        return redirect()->route('neighborhoods.index')
-            ->with('success','Neighborhood created successfully.');
+       
+            return redirect()->route('neighborhoods.index')
+                ->with('success','Neighborhood created successfully.');
+
+        
 
 
     }
@@ -111,14 +116,27 @@ class NeighborhoodController extends Controller
 
         ]);
 
-  
-        $neighborhood->update($request->all());
+        try{
 
-  
+            $neighborhood->update($request->all());
 
-        return redirect()->route('neighborhoods.index')
+      
 
-                        ->with('success','Neighborhood updated successfully');
+            return redirect()->route('neighborhoods.index')
+
+                            ->with('success','Neighborhood updated successfully');
+        }catch(QueryException $e){
+             $error_code = $e->errorInfo[0];
+             
+            if($error_code == 23505){
+                
+                return back()->withError("'".$request['name']. "'".', existe déjà.')->withInput();
+            }
+            else{
+                return back()->withError($e->getMessage())->withInput();
+            }
+            
+        }
 
 
     }

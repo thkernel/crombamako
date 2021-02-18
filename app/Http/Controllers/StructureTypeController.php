@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\StructureType;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+
 
 class StructureTypeController extends Controller
 {
@@ -51,17 +53,19 @@ class StructureTypeController extends Controller
      
 
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:structure_types',
 
         ]);
 
         
+        
+            StructureType::create($request->all());
 
-        StructureType::create($request->all());
-
-   
-        return redirect()->route('structure_types.index')
-            ->with('success','StructureType created successfully.');
+       
+            return redirect()->route('structure_types.index')
+                ->with('success','StructureType created successfully.');
+                
+        
     }
 
     /**
@@ -98,7 +102,7 @@ class StructureTypeController extends Controller
     {
         //
         $request->validate([
-        'name' => 'required',   
+        'name' => 'required|unique:structure_types',   
 
         ]);
 

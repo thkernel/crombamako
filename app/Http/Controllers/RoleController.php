@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+
 
 class RoleController extends Controller
 {
@@ -42,17 +44,21 @@ class RoleController extends Controller
     {
         //
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:roles',
 
         ]);
 
   
+        
 
-        Role::create($request->all());
+            Role::create($request->all());
 
-   
-        return redirect()->route('roles.index')
-            ->with('success','Role created successfully.');
+       
+            return redirect()->route('roles.index')
+                ->with('success','Role created successfully.');
+
+
+        
     }
 
     /**
@@ -89,18 +95,21 @@ class RoleController extends Controller
     {
         //
         $request->validate([
-        'name' => 'required',   
+        'name' => 'required|unique:roles',   
 
         ]);
 
   
-        $role->update($request->all());
+        
+            $role->update($request->all());
 
-  
+      
 
-        return redirect()->route('roles.index')
+            return redirect()->route('roles.index')
 
-                        ->with('success','Role updated successfully');
+                            ->with('success','Role updated successfully');
+
+        
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Speciality;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class SpecialityController extends Controller
 {
@@ -43,17 +44,30 @@ class SpecialityController extends Controller
         //
         $request['user_id'] = current_user()->id;
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:specialities',
 
         ]);
 
   
+        try{
 
-        Speciality::create($request->all());
+            Speciality::create($request->all());
 
-   
-        return redirect()->route('specialities.index')
-            ->with('success','Speciality created successfully.');
+       
+            return redirect()->route('specialities.index')
+                ->with('success','Speciality created successfully.');
+        }catch(QueryException $e){
+             $error_code = $e->errorInfo[0];
+             
+            if($error_code == 23505){
+                
+                return back()->withError("'".$request['name']. "'".', existe déjà.')->withInput();
+            }
+            else{
+                return back()->withError($e->getMessage())->withInput();
+            }
+            
+        }
     }
 
     /**
@@ -91,18 +105,24 @@ class SpecialityController extends Controller
     {
         //
         $request->validate([
-        'name' => 'required',   
+        'name' => 'required|unique:specialities',   
 
         ]);
 
-  
+       
+
         $speciality->update($request->all());
+
 
   
 
         return redirect()->route('specialities.index')
 
                         ->with('success','Speciality updated successfully');
+
+
+        
+        
     }
 
     /**

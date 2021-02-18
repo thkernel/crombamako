@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Town;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class TownController extends Controller
 {
@@ -44,17 +45,20 @@ class TownController extends Controller
         $request['status'] = "enable";
         $request['user_id'] = current_user()->id;
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:towns',
 
         ]);
 
   
+        
+            Town::create($request->all());
+            return redirect()->route('towns.index')
+            ->with('success','Town created successfully.');
 
-        Town::create($request->all());
+        
 
    
-        return redirect()->route('towns.index')
-            ->with('success','Town created successfully.');
+        
     }
 
     /**
@@ -95,14 +99,25 @@ class TownController extends Controller
 
         ]);
 
-  
-        $town->update($request->all());
-
-  
-
-        return redirect()->route('towns.index')
+        try{
+            $town->update($request->all());
+            return redirect()->route('towns.index')
 
                         ->with('success','Town updated successfully');
+
+        }catch(QueryException $e){
+             $error_code = $e->errorInfo[0];
+                 
+                if($error_code == 23505){
+                    
+                    return back()->withError("'".$request['name']. "'".', existe déjà.')->withInput();
+                }else{
+                    return back()->withError($e->getMessage())->withInput();
+                }
+            
+        } 
+
+        
     }
 
     /**

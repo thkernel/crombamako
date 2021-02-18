@@ -8,6 +8,8 @@ use App\Models\Town;
 use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\QueryException;
+
 
 class UserController extends Controller
 {
@@ -52,8 +54,8 @@ class UserController extends Controller
     {
         //
         $request->validate([
-            'login' => 'required|string',
-            'email' => 'required|email',
+            'login' => 'required|string|unique:users',
+            'email' => 'required|email|unique:users',
             'role_id'=> 'required',
             'password' => 'required|string',
             'password_confirmation' => 'required|string',
@@ -66,12 +68,26 @@ class UserController extends Controller
         $request['email_verified_at'] =  date('Y-m-d H:i:s');
 
   
+        try{
 
-        User::create($request->all());
+            User::create($request->all());
 
-   
-        return redirect()->route('users.index')
-            ->with('success','User created successfully.');
+       
+            return redirect()->route('users.index')
+                ->with('success','User created successfully.');
+
+        }catch(QueryException $e){
+             $error_code = $e->errorInfo[0];
+             
+            if($error_code == 23505){
+                
+                return back()->withError('Login ou Email existe déjà.')->withInput();
+            }
+            else{
+                return back()->withError($e->getMessage())->withInput();
+            }
+            
+        }
     }
 
     /**

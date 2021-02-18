@@ -46,7 +46,7 @@ class OpportunityTypeController extends Controller
      
 
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:opportunity_types',
             'user_id' => 'required',
 
         ]);
@@ -98,7 +98,7 @@ class OpportunityTypeController extends Controller
         //
 
         $request->validate([
-        'name' => 'required', 
+        'name' => 'required|unique:opportunity_types', 
         
 
         ]);

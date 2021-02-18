@@ -1,4 +1,5 @@
 <?php
+    use Illuminate\Database\QueryException;
 	use App\Models\ActivityLog;
 	use App\Models\SubscriptionRequest;
 	use App\Models\Role;
@@ -217,33 +218,47 @@
 	*/
 
 	function doctor_factory($subscription_request){
-		
-		// create account.
-		$doctor_user = create_account($subscription_request->last_name, $subscription_request->email, 'Médecin' );
+		try{
 
-        if ($doctor_user){
-            // create profile
-            $doctor_profile = DoctorProfile::create([
-            "sex" => $subscription_request->sex,
-            "first_name" => $subscription_request->first_name,
-            "last_name" => $subscription_request->last_name,
-            "address" => $subscription_request->address,
-            "email" => $subscription_request->email,
-            "phone" => $subscription_request->phone,
-            "town_id" => $subscription_request->town_id,
-            "neighborhood_id" => $subscription_request->neighborhood_id,
-            "service_id" => $subscription_request->service_id,
-            "speciality_id" => $subscription_request->speciality_id,
-            "structure_id" => $subscription_request->structure_id,
-            ]);
+    		// create account.
+    		$doctor_user = create_account($subscription_request->last_name, $subscription_request->email, 'Médecin' );
 
-            $doctor_profile->user()->save($doctor_user);
+            if ($doctor_user){
+                // create profile
+                $doctor_profile = DoctorProfile::create([
+                "sex" => $subscription_request->sex,
+                "first_name" => $subscription_request->first_name,
+                "last_name" => $subscription_request->last_name,
+                "address" => $subscription_request->address,
+                "email" => $subscription_request->email,
+                "phone" => $subscription_request->phone,
+                "town_id" => $subscription_request->town_id,
+                "neighborhood_id" => $subscription_request->neighborhood_id,
+                "service_id" => $subscription_request->service_id,
+                "speciality_id" => $subscription_request->speciality_id,
+                "structure_id" => $subscription_request->structure_id,
+                ]);
+
+                $doctor_profile->user()->save($doctor_user);
 
 
-           
+               
+            }
+
+            return $doctor_profile;
+
+        }catch(QueryException $e){
+            $error_code = $e->errorInfo[0];
+                 
+            if($error_code == 23505){
+                
+                return back()->withError("Un médin avec la meme adresse email".' existe déjà.')->withInput();
+            }else{
+                return back()->withError($e->getMessage())->withInput();
+            }
+            
         }
 
-        return $doctor_profile;
 		
 	}
 
@@ -253,39 +268,42 @@
 
     /* Create user account */
 	function create_account($last_name, $email, $role, $verified=true){
+        try{
 
-		$role = Role::whereName($role)->first();
+    		$role = Role::whereName($role)->first();
 
-        // generate login and password
-        $random_str = strtolower(Str::random(8));
-        $login = strtolower($last_name.'_'.$random_str);
-        $password = Hash::make($random_str);
+            // generate login and password
+            $random_str = strtolower(Str::random(8));
+            $login = strtolower($last_name.'_'.$random_str);
+            $password = Hash::make($random_str);
 
-/*
-        if ($verified){
-        	$email_verified_at = date('Y-m-d H:i:s');
-        }
-        else{
+            
+           
+            
+            $user = User::create([
+                    "login" => $login,
+                    "password" => $password,
+                    
+                    "email" => $email,
+                    "role_id" => $role->id,
+            ]);
+            
 
-        	$email_verified_at = null;
-        }
-        
-        */
-        
-       
-        
-        $user = User::create([
-                "login" => $login,
-                "password" => $password,
+          
+            event(new Registered($user));
+            return $user;
+
+        }catch(QueryException $e){
+            $error_code = $e->errorInfo[0];
+                 
+            if($error_code == 23505){
                 
-                "email" => $email,
-                "role_id" => $role->id,
-        ]);
-        
-
-      
-        event(new Registered($user));
-        return $user;
+                return back()->withError("Login ou Email".', existe déjà.')->withInput();
+            }else{
+                return back()->withError($e->getMessage())->withInput();
+            }
+            
+        }
 
 	}
 

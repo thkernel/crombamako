@@ -47,7 +47,7 @@ class ServiceController extends Controller
         $request['status'] = "enable";
         $request['user_id'] = current_user()->id;
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:services',
 
         ]);
 
@@ -94,7 +94,7 @@ class ServiceController extends Controller
     {
         //
          $request->validate([
-        'name' => 'required',   
+        'name' => 'required|unique:services',   
 
         ]);
 

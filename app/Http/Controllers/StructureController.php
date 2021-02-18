@@ -9,6 +9,8 @@ use App\Models\Town;
 use App\Models\Neighborhood;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+
 
 class StructureController extends Controller
 {
@@ -69,10 +71,10 @@ class StructureController extends Controller
      
 
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:structures',
             'phone' => 'required',
             'town_id' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:structures',
             'neighborhood_id' => 'required',
             'structure_type_id' => 'required',
             'structure_category_id' => 'required',
@@ -140,8 +142,9 @@ class StructureController extends Controller
         //
         $request->validate([
             'structure_type_id' => 'required',   
-            'name' => 'required',  
+            'name' => 'required|unique:structures',  
             'phone' => 'required',
+            'email' => 'required|unique:structures'
             'town_id' => 'required',
             'neighborhood_id' => 'required',
             'structure_type_id' => 'required',
@@ -149,14 +152,16 @@ class StructureController extends Controller
 
         ]);
 
-  
-        $structure->update($request->all());
+        
 
-  
+            $structure->update($request->all());
 
-        return redirect()->route('structures.index')
+      
 
-                        ->with('success','Structure updated successfully');
+            return redirect()->route('structures.index')
+
+                            ->with('success','Structure updated successfully');
+        
     }
 
     /**

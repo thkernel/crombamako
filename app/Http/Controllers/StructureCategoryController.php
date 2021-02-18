@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\StructureCategory;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
+
 
 class StructureCategoryController extends Controller
 {
@@ -57,17 +59,20 @@ class StructureCategoryController extends Controller
      
 
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|unique:structure_categories',
 
         ]);
 
         
+        
 
-        StructureCategory::create($request->all());
+            StructureCategory::create($request->all());
 
-   
-        return redirect()->route('structure_categories.index')
-            ->with('success','StructureCategory created successfully.');
+       
+            return redirect()->route('structure_categories.index')
+                ->with('success','StructureCategory created successfully.');
+
+        
     }
 
     /**
@@ -106,18 +111,21 @@ class StructureCategoryController extends Controller
         //
 
         $request->validate([
-        'name' => 'required',   
+        'name' => 'required|unique:structure_categories',   
 
         ]);
 
-  
-        $structure_category->update($request->all());
+        
 
-  
+            $structure_category->update($request->all());
 
-        return redirect()->route('structure_categories.index')
+      
 
-                        ->with('success','StructureCategory updated successfully');
+            return redirect()->route('structure_categories.index')
+
+                            ->with('success','StructureCategory updated successfully');
+
+        
     }
 
     /**
