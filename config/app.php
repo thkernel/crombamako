@@ -176,6 +176,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         // For DomPDF
         Barryvdh\DomPDF\ServiceProvider::class,
+        // Toaster
+        //Yoeunes\Toastr\ToastrServiceProvider::class
 
     ],
 

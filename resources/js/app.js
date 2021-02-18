@@ -13,6 +13,7 @@ require('alpinejs');
 require('../../vendor/bracket/lib/jquery-ui/ui/widgets/datepicker');
 require('../../vendor/bracket/lib/bootstrap/js/bootstrap.bundle.min');
 require('../../vendor/bracket/lib/peity/jquery.peity.min');
+//require('../../vendor/bracket/lib/toastr/js/toastr.js');
 
 
 
