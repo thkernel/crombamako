@@ -34,6 +34,23 @@ class ApprovalPolicy
     }
 
     /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'Approval')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
+
+
+
+    /**
      * Determine whether the user can create models.
      *
      * @param  \App\Models\User  $user
@@ -42,6 +59,11 @@ class ApprovalPolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'Approval')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -51,9 +73,14 @@ class ApprovalPolicy
      * @param  \App\Models\Approval  $approval
      * @return mixed
      */
-    public function update(User $user, Approval $approval)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'Approval')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -63,9 +90,14 @@ class ApprovalPolicy
      * @param  \App\Models\Approval  $approval
      * @return mixed
      */
-    public function delete(User $user, Approval $approval)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('delete', 'Approval')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**

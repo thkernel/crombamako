@@ -34,6 +34,23 @@ class ServicePolicy
     }
 
     /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'Service')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
+
+
+
+    /**
      * Determine whether the user can create models.
      *
      * @param  \App\Models\User  $user
@@ -42,6 +59,11 @@ class ServicePolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'Service')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -51,9 +73,14 @@ class ServicePolicy
      * @param  \App\Models\Service  $service
      * @return mixed
      */
-    public function update(User $user, Service $service)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'Service')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -63,9 +90,12 @@ class ServicePolicy
      * @param  \App\Models\Service  $service
      * @return mixed
      */
-    public function delete(User $user, Service $service)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('delete', 'Service')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
     }
 
     /**

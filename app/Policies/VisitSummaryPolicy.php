@@ -34,6 +34,23 @@ class VisitSummaryPolicy
     }
 
     /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'VisitSummary')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
+
+
+
+    /**
      * Determine whether the user can create models.
      *
      * @param  \App\Models\User  $user
@@ -42,6 +59,9 @@ class VisitSummaryPolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'VisitSummary')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
     }
 
     /**
@@ -51,9 +71,15 @@ class VisitSummaryPolicy
      * @param  \App\Models\VisitSummary  $visitSummary
      * @return mixed
      */
-    public function update(User $user, VisitSummary $visitSummary)
+    public function update(User $user)
     {
         //
+
+        return authorize_resource('update', 'VisitSummary')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -63,9 +89,14 @@ class VisitSummaryPolicy
      * @param  \App\Models\VisitSummary  $visitSummary
      * @return mixed
      */
-    public function delete(User $user, VisitSummary $visitSummary)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('delete', 'VisitSummary')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**

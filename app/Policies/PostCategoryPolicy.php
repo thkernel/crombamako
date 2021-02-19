@@ -34,6 +34,23 @@ class PostCategoryPolicy
     }
 
     /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'PostCategory')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
+
+
+
+    /**
      * Determine whether the user can create models.
      *
      * @param  \App\Models\User  $user
@@ -42,6 +59,11 @@ class PostCategoryPolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'PostCategory')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -51,9 +73,14 @@ class PostCategoryPolicy
      * @param  \App\Models\PostCategory  $postCategory
      * @return mixed
      */
-    public function update(User $user, PostCategory $postCategory)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'PostCategory')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -63,9 +90,14 @@ class PostCategoryPolicy
      * @param  \App\Models\PostCategory  $postCategory
      * @return mixed
      */
-    public function delete(User $user, PostCategory $postCategory)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('delete', 'PostCategory')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**

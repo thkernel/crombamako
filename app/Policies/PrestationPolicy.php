@@ -34,6 +34,23 @@ class PrestationPolicy
     }
 
     /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'Prestation')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
+
+
+
+    /**
      * Determine whether the user can create models.
      *
      * @param  \App\Models\User  $user
@@ -42,6 +59,10 @@ class PrestationPolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'Prestation')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
     }
 
     /**
@@ -51,9 +72,13 @@ class PrestationPolicy
      * @param  \App\Models\Prestation  $prestation
      * @return mixed
      */
-    public function update(User $user, Prestation $prestation)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'Prestation')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
     }
 
     /**
@@ -63,9 +88,14 @@ class PrestationPolicy
      * @param  \App\Models\Prestation  $prestation
      * @return mixed
      */
-    public function delete(User $user, Prestation $prestation)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('delete', 'Prestation')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**

@@ -32,6 +32,20 @@ class StructureCategoryPolicy
     {
         //
     }
+    /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'StructureCategory')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
 
     /**
      * Determine whether the user can create models.
@@ -42,6 +56,11 @@ class StructureCategoryPolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'StructureCategory')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -51,9 +70,14 @@ class StructureCategoryPolicy
      * @param  \App\Models\StructureCategory  $structureCategory
      * @return mixed
      */
-    public function update(User $user, StructureCategory $structureCategory)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'StructureCategory')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -63,9 +87,13 @@ class StructureCategoryPolicy
      * @param  \App\Models\StructureCategory  $structureCategory
      * @return mixed
      */
-    public function delete(User $user, StructureCategory $structureCategory)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('delete', 'StructureCategory')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
     }
 
     /**

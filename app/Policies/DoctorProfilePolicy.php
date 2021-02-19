@@ -34,6 +34,23 @@ class DoctorProfilePolicy
     }
 
     /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'DoctorProfile')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
+
+
+
+    /**
      * Determine whether the user can create models.
      *
      * @param  \App\Models\User  $user
@@ -42,6 +59,10 @@ class DoctorProfilePolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'DoctorProfile')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
     }
 
     /**
@@ -51,9 +72,13 @@ class DoctorProfilePolicy
      * @param  \App\Models\DoctorProfile  $doctorProfile
      * @return mixed
      */
-    public function update(User $user, DoctorProfile $doctorProfile)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'DoctorProfile')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
     }
 
     /**
@@ -63,9 +88,13 @@ class DoctorProfilePolicy
      * @param  \App\Models\DoctorProfile  $doctorProfile
      * @return mixed
      */
-    public function delete(User $user, DoctorProfile $doctorProfile)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('delete', 'DoctorProfile')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
     }
 
     /**

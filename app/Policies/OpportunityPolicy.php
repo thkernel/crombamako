@@ -34,6 +34,23 @@ class OpportunityPolicy
     }
 
     /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'Opportunity')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
+
+
+
+    /**
      * Determine whether the user can create models.
      *
      * @param  \App\Models\User  $user
@@ -42,6 +59,11 @@ class OpportunityPolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'Opportunity')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -51,9 +73,12 @@ class OpportunityPolicy
      * @param  \App\Models\Opportunity  $opportunity
      * @return mixed
      */
-    public function update(User $user, Opportunity $opportunity)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'Opportunity')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
     }
 
     /**
@@ -63,9 +88,14 @@ class OpportunityPolicy
      * @param  \App\Models\Opportunity  $opportunity
      * @return mixed
      */
-    public function delete(User $user, Opportunity $opportunity)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('delete', 'Opportunity')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**

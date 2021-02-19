@@ -34,6 +34,23 @@ class StructureStaffPolicy
     }
 
     /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'StructureStaff')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
+
+
+
+    /**
      * Determine whether the user can create models.
      *
      * @param  \App\Models\User  $user
@@ -42,6 +59,10 @@ class StructureStaffPolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'StructureStaff')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
     }
 
     /**
@@ -51,9 +72,12 @@ class StructureStaffPolicy
      * @param  \App\Models\StructureStaff  $structureStaff
      * @return mixed
      */
-    public function update(User $user, StructureStaff $structureStaff)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'StructureStaff')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
     }
 
     /**
@@ -63,9 +87,12 @@ class StructureStaffPolicy
      * @param  \App\Models\StructureStaff  $structureStaff
      * @return mixed
      */
-    public function delete(User $user, StructureStaff $structureStaff)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('read', 'StructureStaff')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
     }
 
     /**

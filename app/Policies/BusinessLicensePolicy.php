@@ -33,6 +33,24 @@ class BusinessLicensePolicy
         //
     }
 
+
+    /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'BusinessLicense')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
+
+
+
     /**
      * Determine whether the user can create models.
      *
@@ -42,6 +60,10 @@ class BusinessLicensePolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'BusinessLicense')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
     }
 
     /**
@@ -51,9 +73,14 @@ class BusinessLicensePolicy
      * @param  \App\Models\BusinessLicense  $businessLicense
      * @return mixed
      */
-    public function update(User $user, BusinessLicense $businessLicense)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'BusinessLicense')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -63,9 +90,14 @@ class BusinessLicensePolicy
      * @param  \App\Models\BusinessLicense  $businessLicense
      * @return mixed
      */
-    public function delete(User $user, BusinessLicense $businessLicense)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('delete', 'BusinessLicense')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**

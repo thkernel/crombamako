@@ -34,6 +34,23 @@ class FeaturePolicy
     }
 
     /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\User  $model
+     * @return mixed
+     */
+    public function read(User $user)
+    {
+        //
+        return authorize_resource('read', 'Feature')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
+
+
+
+    /**
      * Determine whether the user can create models.
      *
      * @param  \App\Models\User  $user
@@ -42,6 +59,11 @@ class FeaturePolicy
     public function create(User $user)
     {
         //
+        return authorize_resource('create', 'Feature')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -51,9 +73,14 @@ class FeaturePolicy
      * @param  \App\Models\Feature  $feature
      * @return mixed
      */
-    public function update(User $user, Feature $feature)
+    public function update(User $user)
     {
         //
+        return authorize_resource('update', 'Feature')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
+
     }
 
     /**
@@ -63,9 +90,13 @@ class FeaturePolicy
      * @param  \App\Models\Feature  $feature
      * @return mixed
      */
-    public function delete(User $user, Feature $feature)
+    public function delete(User $user)
     {
         //
+        return authorize_resource('delete', 'Feature')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+
     }
 
     /**
