@@ -1,25 +1,25 @@
 @foreach($users as $user)
-    <tr>
+  <tr>
     <td>{{$user->login}}</td>
     <td>{{$user->email}}</td>
     <td>{{$user->role->name}}</td>
     
-<td>
+    <td>
 	    <div class="action-buttons">
 			
+        
+       @can('update', App\Models\User::class)
+           <a  href="{{ route('users.edit', $user->id) }}"><i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>Modifier
+           </a>
+       @endcan
 
- @can('update', App\Models\User::class)
-     <a  href="{{ route('users.edit', $user->id) }}"><i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>Modifier
-     </a>
- @endcan
 
+      @can('delete', App\Models\User::class)
 
-@can('delete', App\Models\User::class)
-
- <a href="#" data-toggle="modal" data-target="#user-{{$user->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+       <a href="#" data-toggle="modal" data-target="#user-{{$user->id}}-modal">
+          <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+          Supprimer
+      </a>
 
 <div id="user-{{$user->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

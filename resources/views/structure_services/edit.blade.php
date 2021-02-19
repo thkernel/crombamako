@@ -9,8 +9,7 @@
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
       
-         <h2>Modification - Agent</h2>
-         <hr />
+
     </div>
     <div class="section-body">
 		<div class="row">
@@ -19,7 +18,7 @@
 
         <div class="pull-left">
 
-           
+            <h2>Modification - Activité par structure</h2>
 
         </div>
 
@@ -56,12 +55,12 @@
 
    
 
-<form action="{{ route('structure_staffs.update',$staff->id) }}" method="POST">
+<form action="{{ route('structure_prestations.update',$structure_prestation->id) }}" method="POST">
 
     @csrf
     @method('PUT')
 
-  @include("structure_staffs/_form")
+  @include("structure_prestations/_form")
 
      <div class="row">
 

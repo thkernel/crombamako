@@ -15,9 +15,11 @@
         </div>
 
         <div class="text-right">
-            
+          @can('read', App\Models\StructureType::class)
 
-            <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('structure_types.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
+            <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('structure_types.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter
+            </a>
+          @endcan
 
         </div>
 

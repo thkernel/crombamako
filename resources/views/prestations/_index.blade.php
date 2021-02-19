@@ -2,18 +2,22 @@
     <tr>
     <td>{{$prestation->name}}</td>
     
-<td>
+    <td>
 	    <div class="action-buttons">
 			
+    @can('update', App\Models\Prestation::class)
+     <a  href="{{ route('prestations.edit', $prestation->id) }}">
+        <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+        Modifier
+     </a>
+    @endcan
 
- <a  href="{{ route('prestations.edit', $prestation->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
-<a href="#" data-toggle="modal" data-target="#prestation-{{$prestation->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+    @can('delete', App\Models\Prestation::class)
+    <a href="#" data-toggle="modal" data-target="#prestation-{{$prestation->id}}-modal">
+        <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+        Supprimer
+    </a>
+    @endcan
 
 <div id="prestation-{{$prestation->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

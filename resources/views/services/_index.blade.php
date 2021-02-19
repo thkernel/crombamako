@@ -2,18 +2,21 @@
     <tr>
     <td>{{$service->name}}</td>
     
-<td>
+    <td>
 	    <div class="action-buttons">
 			
-
- <a  href="{{ route('services.edit', $service->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
-<a href="#" data-toggle="modal" data-target="#service-{{$service->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+            @can('update', App\Models\Service::class)
+                <a  href="{{ route('services.edit', $service->id) }}">
+                    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                    Modifier
+                </a>
+            @endcan
+            @can('delete', App\Models\Service::class)
+                <a href="#" data-toggle="modal" data-target="#service-{{$service->id}}-modal">
+                    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                    Supprimer
+                </a>
+            @endcan
 
 <div id="service-{{$service->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

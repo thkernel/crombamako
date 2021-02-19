@@ -3,19 +3,22 @@
     <td>{{$structure_category->name}}</td>
     
     
-<td>
+    <td>
 	    <div class="action-buttons">
 			
+        @can('update', App\Models\StructureCategory::class)
+         <a  href="{{ route('structure_categories.edit', $structure_category->id) }}">
+            <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+            Modifier
+         </a>
+        @endcan
 
- <a  href="{{ route('structure_categories.edit', $structure_category->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
-
-<a href="#" data-toggle="modal" data-target="#structure-category-{{$structure_category->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+        @can('delete', App\Models\StructureCategory::class)
+            <a href="#" data-toggle="modal" data-target="#structure-category-{{$structure_category->id}}-modal">
+                <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                Supprimer
+            </a>
+        @endcan
 
 <div id="structure-category-{{$structure_category->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

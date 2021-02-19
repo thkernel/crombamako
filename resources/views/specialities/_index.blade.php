@@ -2,21 +2,23 @@
     <tr>
     <td>{{$speciality->name}}</td>
     
-<td>
+    <td>
 	    <div class="action-buttons">
 			
+            @can('update', App\Models\Speciality::class)
+                <a  href="{{ route('specialities.edit', $speciality->id) }}">
+                    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                    Modifier
+                 </a>
+            @endcan
 
- <a  href="{{ route('specialities.edit', $speciality->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
 
-
-
-<a href="#" data-toggle="modal" data-target="#speciality-{{$speciality->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+            @can('delete', App\Models\Speciality::class)
+                <a href="#" data-toggle="modal" data-target="#speciality-{{$speciality->id}}-modal">
+                    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                    Supprimer
+                </a>
+            @endcan
 
 <div id="speciality-{{$speciality->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

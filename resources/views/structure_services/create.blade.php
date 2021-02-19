@@ -9,17 +9,18 @@
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
       
-         <h2>Modification - Agent</h2>
-         <hr />
+<h2>Nouvelle - Activité par structure</h2>
+<hr />
     </div>
     <div class="section-body">
-		<div class="row">
+
+    	<div class="row">
 
     <div class="col-lg-12 margin-tb">
 
         <div class="pull-left">
 
-           
+            
 
         </div>
 
@@ -56,21 +57,18 @@
 
    
 
-<form action="{{ route('structure_staffs.update',$staff->id) }}" method="POST">
+<form action="{{ route('structure_prestations.store') }}" method="POST">
 
     @csrf
-    @method('PUT')
 
-  @include("structure_staffs/_form")
-
-     <div class="row">
-
-    
+  
+    @include("structure_prestations/_form")
+     	<div class="row">
 
          <div class="col-xs-12 col-sm-12 col-md-12">
 
         <div class="form-group text-right">
-            <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Modifier</button>
+            <button type="submit" class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" autocomplete= "off">Enregistrer</button>
    </div>
   </div>
 
@@ -79,6 +77,7 @@
    
 
 </form>
+		
     </div>
 
 

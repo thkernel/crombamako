@@ -16,8 +16,10 @@
 
         <div class="text-right">
             
-
-            <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('staffs.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
+          @can('read', App\Models\StructureStaff::class)
+            <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('structure_staffs.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter
+            </a>
+          @endcan
 
         </div>
 
@@ -42,7 +44,7 @@
   </thead>
 
   <tbody class="staffs">
-    @include("staffs/_index")
+    @include("structure_staffs/_index")
   </tbody>
 </table>
 

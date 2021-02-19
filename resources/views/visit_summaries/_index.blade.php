@@ -7,21 +7,23 @@
     
    
     
-<td>
-	    <div class="action-buttons">
+        <td>
+	       <div class="action-buttons">
 			
+            @can('update', App\Models\VisitSummary::class)
+                <a  href="{{ route('visit_summaries.edit', $visit_summary->id) }}">
+                <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                Modifier
+                </a>
+            @endcan
 
- <a  href="{{ route('visit_summaries.edit', $visit_summary->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
 
-
-
-<a href="#" data-toggle="modal" data-target="#visit-summary-{{$visit_summary->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+            @can('delete', App\Models\VisitSummary::class)
+                <a href="#" data-toggle="modal" data-target="#visit-summary-{{$visit_summary->id}}-modal">
+                    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                    Supprimer
+                </a>
+            @endcan
 
 <div id="visit-summary-{{$visit_summary->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

@@ -2,18 +2,22 @@
     <tr>
     <td>{{$town->name}}</td>
     
-<td>
+    <td>
 	    <div class="action-buttons">
 			
+            @can('update', App\Models\Town::class)
+             <a  href="{{ route('towns.edit', $town->id) }}">
+                <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                Modifier
+             </a>
+            @endcan
 
- <a  href="{{ route('towns.edit', $town->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
-<a href="#" data-toggle="modal" data-target="#town-{{$town->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+            @can('delete', App\Models\Town::class)
+                <a href="#" data-toggle="modal" data-target="#town-{{$town->id}}-modal">
+                    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                    Supprimer
+                </a>
+            @endcan
 
 <div id="town-{{$town->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

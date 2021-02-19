@@ -1,24 +1,28 @@
 @foreach($staffs as $staff)
     <tr>
     
-     <td>{{$staff->first_name}}</td>
-    <td>{{$staff->last_name}}</td>
-    <td>{{$staff->speciality->name}}</td>
-    <td>{{$staff->structure->name}}</td>
-    <td>{{$staff->service->name}}</td>
+        <td>{{$staff->first_name}}</td>
+        <td>{{$staff->last_name}}</td>
+        <td>{{$staff->speciality->name}}</td>
+        <td>{{$staff->structure->name}}</td>
+        <td>{{$staff->service->name}}</td>
     
-<td>
-	    <div class="action-buttons">
+        <td>
+	       <div class="action-buttons">
 			
+            @can('update', App\Models\StructureStaff::class)
+                <a  href="{{ route('structure_staffs.edit', $staff->id) }}">
+                    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                    Modifier
+                </a>
+            @endcan
 
- <a  href="{{ route('staffs.edit', $staff->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
-<a href="#" data-toggle="modal" data-target="#staff-{{$staff->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+            @can('delete', App\Models\StructureStaff::class)
+                <a href="#" data-toggle="modal" data-target="#staff-{{$staff->id}}-modal">
+                    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                    Supprimer
+                </a>
+            @endcan
 
 <div id="staff-{{$staff->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

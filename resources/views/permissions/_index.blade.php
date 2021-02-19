@@ -13,18 +13,22 @@
         @endif
     </td>
     
-<td>
+    <td>
 	    <div class="action-buttons">
 			
+            @can('update', App\Models\Permission::class)
+             <a  href="{{ route('permissions.edit', $permission->id) }}">
+                <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                Modifier
+             </a>
+            @endcan
 
- <a  href="{{ route('permissions.edit', $permission->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
-<a href="#" data-toggle="modal" data-target="#permission-{{$permission->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+            @can('delete', App\Models\Permission::class)
+                <a href="#" data-toggle="modal" data-target="#permission-{{$permission->id}}-modal">
+                    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                    Supprimer
+                </a>
+            @endcan
 
 <div id="permission-{{$permission->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

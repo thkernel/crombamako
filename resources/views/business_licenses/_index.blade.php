@@ -7,21 +7,23 @@
     
    
     
-<td>
-	    <div class="action-buttons">
+        <td>
+	       <div class="action-buttons">
 			
+            @can('update', App\Models\BusinessLicense::class)
+                <a  href="{{ route('business_licenses.edit', $business_license->id) }}">
+                    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                    Modifier
+                </a>
+            @endcan
 
- <a  href="{{ route('business_licenses.edit', $business_license->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
 
-
-
-<a href="#" data-toggle="modal" data-target="#business-license-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+            @can('delete', App\Models\BusinessLicense::class)
+                <a href="#" data-toggle="modal" data-target="#business-license-modal">
+                    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                    Supprimer
+                </a>
+            @endcan
 
 <div id="business-license-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

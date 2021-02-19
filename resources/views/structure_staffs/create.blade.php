@@ -59,12 +59,12 @@
 
    
 
-<form action="{{ route('staffs.store') }}" method="POST">
+<form action="{{ route('structure_staffs.store') }}" method="POST">
 
     @csrf
 
   
-    @include("staffs/_form")
+    @include("structure_staffs/_form")
      	<div class="row">
 
          <div class="col-xs-12 col-sm-12 col-md-12">

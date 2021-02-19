@@ -2,21 +2,23 @@
     <tr>
     <td>{{$page->title}}</td>
     
-<td>
+    <td>
 	    <div class="action-buttons">
 			
+            @can('read', App\Models\Page::class)
+             <a  href="{{ route('pages.edit', $page->id) }}">
+                <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                Modifier
+             </a>
+            @endcan
 
- <a  href="{{ route('pages.edit', $page->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
 
-
-
-<a href="#" data-toggle="modal" data-target="#page-{{$page->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+            @can('delete', App\Models\Page::class)
+                <a href="#" data-toggle="modal" data-target="#page-{{$page->id}}-modal">
+                    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                    Supprimer
+                </a>
+            @endcan
 
 <div id="page-{{$page->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

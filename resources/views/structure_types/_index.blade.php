@@ -2,19 +2,22 @@
     <tr>
     <td>{{$structure_type->name}}</td>
     
-<td>
+    <td>
 	    <div class="action-buttons">
 			
+            @can('update', App\Models\StructureType::class)
+             <a  href="{{ route('structure_types.edit', $structure_type->id) }}">
+                <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                Modifier
+             </a>
+            @endcan
 
- <a  href="{{ route('structure_types.edit', $structure_type->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
-
-<a  href="{{ route('delete_structure_type_path', $structure_type->id) }}" data-toggle="modal" data-target="#structure-{{$structure_type->id}}-type-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
- </a>
+            @can('delete', App\Models\StructureType::class)
+                <a  href="{{ route('delete_structure_type_path', $structure_type->id) }}" data-toggle="modal" data-target="#structure-{{$structure_type->id}}-type-modal">
+                    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                    Supprimer
+                 </a>
+            @endcan
 
 <div id="structure-{{$structure_type->id}}-type-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

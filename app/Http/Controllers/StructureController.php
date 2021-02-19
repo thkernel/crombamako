@@ -144,7 +144,7 @@ class StructureController extends Controller
             'structure_type_id' => 'required',   
             'name' => 'required|unique:structures',  
             'phone' => 'required',
-            'email' => 'required|unique:structures'
+            'email' => 'required|unique:structures',
             'town_id' => 'required',
             'neighborhood_id' => 'required',
             'structure_type_id' => 'required',

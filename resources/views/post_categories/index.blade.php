@@ -16,8 +16,9 @@
 
         <div class="text-right">
             
-
+          @can('read', App\Models\PostCategory::class)
             <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('post_categories.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
+          @endcan
 
         </div>
 

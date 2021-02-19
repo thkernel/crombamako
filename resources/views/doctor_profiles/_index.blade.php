@@ -8,20 +8,23 @@
     
 
     
-<td>
+    <td>
 	    <div class="action-buttons">
-			
+			@can('update', App\Models\DoctorProfile::class)
 
- <a  href="{{ route('doctors.edit', $doctor->id) }}"><i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>Modifier
- </a>
+             <a  href="{{ route('doctors.edit', $doctor->id) }}"><i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>Modifier
+             </a>
+            @endcan
 
 
 
+            @can('delete', App\Models\DoctorProfile::class)
+                 <a href="#" data-toggle="modal" data-target="#doctor-{{$doctor->id}}-modal">
+                    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                    Supprimer
+                </a>
+            @endcan
 
- <a href="#" data-toggle="modal" data-target="#doctor-{{$doctor->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
 
 <div id="doctor-{{$doctor->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

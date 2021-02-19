@@ -21,7 +21,7 @@ class StructureStaffController extends Controller
         //
         $staffs =  StructureStaff::orderBy('id', 'asc')->paginate(10)->setPath('staffs');
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
-        return view("staffs.index", compact(['staffs']) );
+        return view("structure_staffs.index", compact(['staffs']) );
     }
 
     /**
@@ -37,7 +37,7 @@ class StructureStaffController extends Controller
         $specialities =  Speciality::all();
         $services =  Service::all();
         $structures =  StructureProfile::where('structure_type_id', $structure_type->id)->get();
-        return view('staffs.create', compact(['staff','specialities', 'services','structures']));
+        return view('structure_staffs.create', compact(['staff','specialities', 'services','structures']));
     }
 
     /**

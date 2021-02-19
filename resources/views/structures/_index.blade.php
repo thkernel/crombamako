@@ -1,25 +1,28 @@
 @foreach($structures as $structure)
     <tr>
         <td>{{$structure->structure_category->name}}</td>
-    <td>{{$structure->name}}</td>
-    <td>{{$structure->town->name}}</td>
-    <td>{{$structure->neighborhood->name}}</td>
+        <td>{{$structure->name}}</td>
+        <td>{{$structure->town->name}}</td>
+        <td>{{$structure->neighborhood->name}}</td>
     
-<td>
-	    <div class="action-buttons">
-			
+        <td>
 
- <a  href="{{ route('structures.edit', $structure->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
+            <div class="action-buttons">
+                @can('update', App\Models\StructureProfile::class)
+
+                    <a  href="{{ route('structures.edit', $structure->id) }}">
+                    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                    Modifier
+                    </a>
+                @endcan
 
 
-
-<a href="#" data-toggle="modal" data-target="#structure-{{$structure->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+                @can('delete', App\Models\StructureProfile::class)
+                    <a href="#" data-toggle="modal" data-target="#structure-{{$structure->id}}-modal">
+                        <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                        Supprimer
+                    </a>
+                @endcan
 
 <div id="structure-{{$structure->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

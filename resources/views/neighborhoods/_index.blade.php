@@ -3,18 +3,22 @@
     <td>{{$neighborhood->town->name}}</td>
     <td>{{$neighborhood->name}}</td>
     
-<td>
+    <td>
 	    <div class="action-buttons">
 			
+        @can('update', App\Models\Neighborhood::class)
+            <a  href="{{ route('neighborhoods.edit', $neighborhood->id) }}">
+                <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                Modifier
+            </a>
+        @endcan
 
- <a  href="{{ route('neighborhoods.edit', $neighborhood->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
-<a href="#" data-toggle="modal" data-target="#neighborhood-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+        @can('delete', App\Models\Neighborhood::class)
+            <a href="#" data-toggle="modal" data-target="#neighborhood-modal">
+                <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+                Supprimer
+            </a>
+        @endcan
 
 <div id="neighborhood-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
