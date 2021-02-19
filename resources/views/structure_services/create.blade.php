@@ -9,7 +9,7 @@
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
       
-<h2>Nouvelle - Activité par structure</h2>
+<h2>Nouvelle - Service par structure</h2>
 <hr />
     </div>
     <div class="section-body">
@@ -57,12 +57,12 @@
 
    
 
-<form action="{{ route('structure_prestations.store') }}" method="POST">
+<form action="{{ route('structure_services.store') }}" method="POST">
 
     @csrf
 
   
-    @include("structure_prestations/_form")
+    @include("structure_services/_form")
      	<div class="row">
 
          <div class="col-xs-12 col-sm-12 col-md-12">

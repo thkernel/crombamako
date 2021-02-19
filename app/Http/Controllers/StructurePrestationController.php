@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\StructurePrestation;
+use App\Models\StructurePrestationItem;
 use App\Models\StructureProfile;
 use App\Models\Prestation;
 
@@ -48,17 +49,34 @@ class StructurePrestationController extends Controller
     {
         //
 
-        $request['status'] = "enable";
+        
         $request['user_id'] = current_user()->id;
+        $request['status'] = "enable";
+        
         $request->validate([
             'structure_id' => 'required',
-            'prestation_id' => 'required',
 
         ]);
 
-  
+        //dd($request);
+        $prestations = array_filter($request['prestations']);
 
-        StructurePrestation::create($request->all());
+
+        $structure_prestation = StructurePrestation::create($request->all());
+
+        if ($structure_prestation && $prestations){
+            foreach($prestations as $prestation){
+                $item = [
+                    "structure_prestation_id" => $structure_prestation->id,
+                    "prestation_id" => $prestation,
+                    
+                    
+
+                ];
+                
+                StructurePrestationItem::create($item);
+            }
+        }
 
    
         return redirect()->route('structure_prestations.index')
@@ -106,7 +124,7 @@ class StructurePrestationController extends Controller
 
         $request->validate([
         'structure_id' => 'required',   
-        'prestation_id' => 'required',   
+         
 
 
         ]);
@@ -114,7 +132,26 @@ class StructurePrestationController extends Controller
   
         $structure_prestation->update($request->all());
 
-  
+        $prestations = array_filter($request['prestations']);
+
+        if ($structure_prestation && $prestations){
+            // delete all items before.
+            StructurePrestationItem::where('structure_prestation_id', $structure_prestation->id)->delete();
+
+
+            foreach($prestations as $prestation){
+                $item = [
+                    "structure_prestation_id" => $structure_prestation->id,
+                    "prestation_id" => $prestation,
+                    
+                ];
+                
+                StructurePrestationItem::create($item);
+            }
+        }
+
+
+
 
         return redirect()->route('structure_prestations.index')
 

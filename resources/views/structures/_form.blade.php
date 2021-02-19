@@ -85,17 +85,20 @@
     </div>
     <div class="col-md-6">
         <div class="form-group">
-            <label for="website">Site web:</label>
-            <input type="text" name="website" class="form-control" placeholder="Site web" value="{{  old('website') ?? $structure->website }}">
+            <label for="email" class="required">Email:</label>
+            <input type="email" name="email" class="form-control" placeholder="Email" value="{{  old('email') ?? $structure->email }}" {{ $structure->email ? 'readonly' : '' }} required>
         </div>
     </div>
+
+    
 </div>
 
 <div class="row">
+    
     <div class="col-md-4">
         <div class="form-group">
-            <label for="email" class="required">Email:</label>
-            <input type="email" name="email" class="form-control" placeholder="Email" value="{{  old('email') ?? $structure->email }}" {{ $structure->email ? 'readonly' : '' }} required>
+            <label for="website">Site web:</label>
+            <input type="text" name="website" class="form-control" placeholder="Site web" value="{{  old('website') ?? $structure->website }}">
         </div>
     </div>
 

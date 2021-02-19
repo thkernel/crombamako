@@ -1,6 +1,6 @@
 @foreach($structure_prestations as $structure_prestation)
     <tr>
-    <td>{{$structure_prestation->prestation->name}}</td>
+    
         <td>{{$structure_prestation->structure->name}}</td>
 
     
@@ -36,7 +36,7 @@
           <ul class="errors"></ul>
           Etes-vous sûr de vouloir supprimer ce enregistrement?
           <p>
-          ID: <b> {{ $structure_prestation->prestation->name}} /{{ $structure_prestation->structure->name}} </b>
+          ID: <b> {{ $structure_prestation->structure->name}} </b>
           </p>
         </div>
         <div class="modal-footer">

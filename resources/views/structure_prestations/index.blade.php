@@ -31,7 +31,7 @@
   <thead>
     <tr>
      
-      <th>Activité</th>
+      
       <th>Structure</th>
      
       

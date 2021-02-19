@@ -18,7 +18,7 @@
 
         <div class="pull-left">
 
-            <h2>Modification - Activité par structure</h2>
+            <h2>Modification - Service par structure</h2>
 
         </div>
 
@@ -55,12 +55,12 @@
 
    
 
-<form action="{{ route('structure_prestations.update',$structure_prestation->id) }}" method="POST">
+<form action="{{ route('structure_services.update',$structure_service->id) }}" method="POST">
 
     @csrf
     @method('PUT')
 
-  @include("structure_prestations/_form")
+  @include("structure_services/_form")
 
      <div class="row">
 

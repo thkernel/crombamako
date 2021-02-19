@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStructureServicesTable extends Migration
+class CreateStructurePrestationItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateStructureServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('structure_services', function (Blueprint $table) {
+        Schema::create('structure_prestation_items', function (Blueprint $table) {
             $table->id();
-            $table->string('status');
-            $table->bigInteger('structure_id')->unsigned();
-            $table->foreign('structure_id')->references('id')->on('structure_profiles')->onDelete('cascade');
+            $table->bigInteger('structure_prestation_id')->unsigned();
+            $table->foreign('structure_prestation_id')->references('id')->on('structure_prestations')->onDelete('cascade');
 
-        
+            $table->bigInteger('prestation_id')->unsigned();
+            $table->foreign('prestation_id')->references('id')->on('prestations')->onDelete('cascade');
             
-            $table->bigInteger('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             
             
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
@@ -37,6 +35,6 @@ class CreateStructureServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('structure_services');
+        Schema::dropIfExists('structure_prestation_items');
     }
 }

@@ -14,12 +14,12 @@
         </div>
 
         <div class="form-group">
-            <label for="prestation_id" class="required">Activité:</label>
-            <select name="prestation_id" id="prestation_id" class="form-control" required>
+            <label for="prestations[]" class="required">Activités:</label>
+            <select name="prestations[]" id="prestations[]" class="form-control" required multiple>
                 <option {{ $structure_prestation->prestation_id  ? '' : 'disabled selected value'}}> 
                 @foreach($prestations as $prestation)
-                    <option value = "{{ $prestation->id }}" {{ $prestation->id == $structure_prestation->prestation_id ?  'selected' : ''}}>{{ $prestation->name }}</option>
-                @endforeach
+                        <option value = "{{ $prestation->id }}"  @if (selected_prestations($structure_prestation->structure_prestation_items , $prestation->id)) selected @endif>{{ $prestation->name }}</option>
+                    @endforeach
             </select>
         </div>
 

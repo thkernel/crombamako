@@ -10,7 +10,7 @@ use App\Models\Prestation;
 class StructurePrestation extends Model
 {
     use HasFactory;
-    protected $fillable = ['prestation_id', 'structure_id' , 'status', 'user_id'];
+    protected $fillable = ['structure_id' , 'status', 'user_id'];
 
 
     public function structure(){
@@ -19,6 +19,10 @@ class StructurePrestation extends Model
 
     public function prestation(){
         return $this->belongsTo(Prestation::class);
+    }
+
+    public function structure_prestation_items(){
+        return $this->hasMany(StructurePrestationItem::class);
     }
 
 }

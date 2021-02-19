@@ -10,6 +10,7 @@ use App\Models\Neighborhood;
 
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
+use Illuminate\Auth\Events\Registered;
 
 
 class StructureController extends Controller
@@ -71,10 +72,10 @@ class StructureController extends Controller
      
 
         $request->validate([
-            'name' => 'required|unique:structures',
-            'phone' => 'required',
+            'name' => 'required|unique:structure_profiles',
+            'phone' => 'required|unique:structure_profiles',
             'town_id' => 'required',
-            'email' => 'required|unique:structures',
+            'email' => 'required|unique:structure_profiles',
             'neighborhood_id' => 'required',
             'structure_type_id' => 'required',
             'structure_category_id' => 'required',
@@ -88,6 +89,7 @@ class StructureController extends Controller
         if ($account){ 
             $structure = StructureProfile::create($request->all());
             $structure->user()->save($account);
+            event(new Registered($account));
         }
 
         return redirect()->route('structures.index')
@@ -142,9 +144,9 @@ class StructureController extends Controller
         //
         $request->validate([
             'structure_type_id' => 'required',   
-            'name' => 'required|unique:structures',  
-            'phone' => 'required',
-            'email' => 'required|unique:structures',
+            'name' => 'required|unique:structure_profiles',  
+            'phone' => 'required|unique:structure_profiles',
+            'email' => 'required|unique:structure_profiles',
             'town_id' => 'required',
             'neighborhood_id' => 'required',
             'structure_type_id' => 'required',
@@ -173,6 +175,12 @@ class StructureController extends Controller
     public function destroy($id)
     {
         //
+        $structure = StructureProfile::find($id);
+
+        
+        $structure->user->delete();
+
+
         StructureProfile::where('id',$id)->delete();
         return redirect()->back()->with('success','Delete Successfully');
     }

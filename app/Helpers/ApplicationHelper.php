@@ -346,6 +346,32 @@
             
         return in_array($doctor_id, $staff_array);
     }
+
+    function selected_prestations($prestations, $prestation_id){
+
+
+        $prestations_array = [];
+
+        foreach($prestations as $prestation_item){
+           array_push($prestations_array, $prestation_item->prestation_id);
+        }
+            
+        return in_array($prestation_id, $prestations_array);
+    }
+
+
+    function selected_services($services, $service_id){
+
+
+        $services_array = [];
+
+        foreach($services as $service_item){
+           array_push($services_array, $service_item->service_id);
+        }
+            
+        return in_array($service_id, $services_array);
+    }
+
     
 
 

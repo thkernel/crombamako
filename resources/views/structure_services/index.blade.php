@@ -5,7 +5,7 @@
 <div class="br-pageheader mg-t-20">
       <nav class="breadcrumb pd-0 mg-0 tx-12">
         
-        <span class="breadcrumb-item active"><h5>Activités par structure</h5></span>
+        <span class="breadcrumb-item active"><h5>Services par structure</h5></span>
       </nav>
     </div><!-- br-pageheader -->
 <div class="br-pagebody">
@@ -15,9 +15,9 @@
         </div>
 
         <div class="text-right">
-          @can('read', App\Models\StructurePrestation::class) 
+          @can('read', App\Models\StructureService::class) 
 
-            <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('structure_prestations.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
+            <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('structure_services.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
           @endcan
 
         </div>
@@ -31,7 +31,7 @@
   <thead>
     <tr>
      
-      <th>Activité</th>
+      
       <th>Structure</th>
      
       
@@ -39,8 +39,8 @@
     </tr>
   </thead>
 
-  <tbody class="structure-prestations">
-    @include("structure_prestations/_index")
+  <tbody class="structure-services">
+    @include("structure_services/_index")
   </tbody>
 </table>
 

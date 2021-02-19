@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\StructureService;
+use App\Models\StructureServiceItem;
 use App\Models\StructureProfile;
 use App\Models\Service;
 
@@ -52,13 +53,28 @@ class StructureServiceController extends Controller
         $request['user_id'] = current_user()->id;
         $request->validate([
             'structure_id' => 'required',
-            'service_id' => 'required',
+           
 
         ]);
 
   
+        $services = array_filter($request['services']);
 
-        StructureService::create($request->all());
+        $structure_service = StructureService::create($request->all());
+
+        if ($structure_service && $services){
+            foreach($services as $service){
+                $item = [
+                    "structure_service_id" => $structure_service->id,
+                    "service_id" => $service,
+                    
+                    
+
+                ];
+                
+                StructureServiceItem::create($item);
+            }
+        }
 
    
         return redirect()->route('structure_services.index')
@@ -106,13 +122,36 @@ class StructureServiceController extends Controller
 
         $request->validate([
         'structure_id' => 'required',   
-        'service_id' => 'required',   
+         
 
 
         ]);
 
   
         $structure_service->update($request->all());
+
+        $services = array_filter($request['services']);
+
+
+        if ($structure_service && $services){
+
+            // delete all items before.
+            StructureServiceItem::where('structure_service_id', $structure_service->id)->delete();
+
+
+            foreach($services as $service){
+                $item = [
+                    "structure_service_id" => $structure_service->id,
+                    "service_id" => $service,
+                    
+                    
+
+                ];
+                
+                StructureServiceItem::create($item);
+            }
+        }
+
 
   
 
