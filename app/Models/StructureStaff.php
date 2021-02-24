@@ -11,7 +11,7 @@ use App\Models\Structure;
 class StructureStaff extends Model
 {
     use HasFactory;
-    protected $fillable = ['civility', 'first_name', 'last_name', 'speciality_id', 'structure_id', 'service_id', 'description', 'user_id'];
+    protected $fillable = ['sex', 'first_name', 'last_name', 'speciality_id', 'structure_id', 'service_id', 'description', 'user_id'];
 
     public function speciality(){
         return $this->belongsTo(Speciality::class);

@@ -23,6 +23,8 @@ class User extends Authenticatable implements MustVerifyEmail
         
         'login',
         'email',
+        "userable_type",
+        "userable_id",
         'role_id',
         'password',
     ];
@@ -93,6 +95,14 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function isUser() {
        return $this->role->name === 'user';
+    }
+
+    public function setRandomPasswordAttribute() {
+        return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function getRandomPasswordAttribute() {
+        return $this->first_name . ' ' . $this->last_name;
     }
 
 

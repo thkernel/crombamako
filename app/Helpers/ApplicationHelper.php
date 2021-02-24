@@ -220,10 +220,9 @@
 	function doctor_factory($subscription_request){
 		try{
 
-    		// create account.
-    		$doctor_user = create_account($subscription_request->last_name, $subscription_request->email, 'Médecin' );
+    		
 
-            if ($doctor_user){
+            
                 // create profile
                 $doctor_profile = DoctorProfile::create([
                 "sex" => $subscription_request->sex,
@@ -239,11 +238,34 @@
                 "structure_id" => $subscription_request->structure_id,
                 ]);
 
-                $doctor_profile->user()->save($doctor_user);
+                // Save profile
+                //$doctor_profile = $doctor_profile->save();
+                //$doctor_profile->user()->save($doctor_user);
+
+                $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
+                
+                $reference = last_doctor_reference($year);
+                
+
+                // Add doctor to the doctor order.
+                $doctor_order = [
+                    "reference" => $reference,
+                    "doctor_id" => $doctor_profile->id,
+                    "year" => $year,
+                    "status" => 'enable',
+                    "user_id" => current_user()->id
+                ];
+
+                $doctor_order = DoctorOrder::create($doctor_order);
 
 
+                // create account.
+                if ($doctor_profile){
+                
+                    $doctor_user = create_doctor_account($doctor_profile, $doctor_order->reference, $subscription_request->email, 'Médecin' );
+                }
                
-            }
+            
 
             return $doctor_profile;
 
@@ -267,28 +289,34 @@
 	}
 
     /* Create user account */
-	function create_account($last_name, $email, $role, $verified=true){
+	function create_doctor_account($doctor_profile, $doctor_order_reference, $email, $role, $verified=true){
         try{
 
     		$role = Role::whereName($role)->first();
 
             // generate login and password
-            $random_str = strtolower(Str::random(8));
-            $login = strtolower($last_name.'_'.$random_str);
-            $password = Hash::make($random_str);
+            //$random_str = strtolower(Str::random(8));
+            //$login = strtolower($last_name.'_'.$random_str);
+            $password = explode("@", $email)[0]."".$doctor_profile->id;
+            $login = explode("°", $doctor_order_reference)[1];
+            $password = Hash::make($password);
 
             
            
             
-            $user = User::create([
+            $user = [
                     "login" => $login,
                     "password" => $password,
-                    
+                    "userable_type" => get_class($doctor_profile),
+                    "userable_id" => $doctor_profile->id,
                     "email" => $email,
                     "role_id" => $role->id,
-            ]);
-            
+                    
+            ];
 
+            $user = User::create($user);
+            
+           
           
             event(new Registered($user));
             return $user;
@@ -452,11 +480,11 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
             
             if ($id == 9){
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°00". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }else{
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°000". $sn  ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "N°00". $sn  ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
             }
             
         }
@@ -465,11 +493,11 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
             if ($id == 99){
                 $sn = $last_doctor_order->id + 1;
 
-                $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "N°". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }else{
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°00". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
             }
             
         }
@@ -480,7 +508,7 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
 
             }else{
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "N°". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }
             
@@ -489,7 +517,7 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
 
     }else{
 
-        $reference = "N°000". 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+        $reference = "N°00". 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
         
     }
 
