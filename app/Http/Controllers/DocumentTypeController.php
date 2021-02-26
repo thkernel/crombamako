@@ -15,7 +15,7 @@ class DocumentTypeController extends Controller
     public function index()
     {
         //
-        $document_types =  DocumentType::orderBy('id', 'asc')->paginate(10)->setPath('document_types');
+        $document_types =  DocumentType::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("document_types.index", compact(['document_types']) );
     }
@@ -55,7 +55,7 @@ class DocumentTypeController extends Controller
 
    
         return redirect()->route('document_types.index')
-            ->with('success','DocumentType created successfully.');
+            ->with('success','Type de document créé avec succès.');
     }
 
     /**
@@ -104,7 +104,7 @@ class DocumentTypeController extends Controller
 
         return redirect()->route('document_types.index')
 
-                        ->with('success','CertificateType updated successfully');
+                        ->with('success','Type de document mis à jour avec succès');
     }
 
     /**
@@ -117,6 +117,6 @@ class DocumentTypeController extends Controller
     {
         //
         DocumentType::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

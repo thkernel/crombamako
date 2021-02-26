@@ -1,4 +1,6 @@
 <div class="row">
+
+    <!--  -->
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <label for="document_type_id" class="required">Type:</label>
@@ -10,18 +12,9 @@
             </select>
         </div>
     </div>
-    <div class="col-md-12">   
-        <div class="form-group">
-
-            <label for="title" class="required">Titre:</label>
-
-                <input type="text" name="title" value="{{  old('title') ?? $document_request->title }}" class="form-control" placeholder="Titre de la demande" reauired>
-
-        </div>
-    </div>
-
+    
         
-
+    <!--  -->
     <div class="col-md-12">   
         <div class="form-group">
             <label for="content" class="required">Contenu:</label>
@@ -29,13 +22,10 @@
             </textarea>
         </div>
 
+        <div class="form-group">
 
-         <div class="form-group">
+            <input type="file" name="file" class="form-control">
 
-                    <input type="file" name="file" class="form-control">
-
-                </div>
-
-
+        </div>
     </div>
- </div>
+</div>

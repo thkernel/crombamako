@@ -20,7 +20,7 @@ class StructureServiceController extends Controller
     public function index()
     {
         //
-        $structure_services =  StructureService::orderBy('id', 'asc')->paginate(10)->setPath('structure_services');
+        $structure_services =  StructureService::orderBy('id', 'asc')->get();
       
         return view("structure_services.index", compact(['structure_services']) );
     }
@@ -78,7 +78,7 @@ class StructureServiceController extends Controller
 
    
         return redirect()->route('structure_services.index')
-            ->with('success','StructureService created successfully.');
+            ->with('success','Service de la structure créé avec succès.');
 
 
     }
@@ -157,7 +157,7 @@ class StructureServiceController extends Controller
 
         return redirect()->route('structure_services.index')
 
-                        ->with('success','StructureService updated successfully');
+                        ->with('success','Service de la structure mis à jour avec succès');
     }
 
     /**
@@ -170,6 +170,6 @@ class StructureServiceController extends Controller
     {
         //
         StructureService::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

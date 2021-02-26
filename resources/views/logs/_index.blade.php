@@ -5,24 +5,11 @@
         <td>{{$log->browser}}</td>
         <td>{{$log->controller}}</td>
         <td>{{$log->action}}</td>
-        <td>{{$log->params}}</td>
+        <td>{{$log->user->login}}</td>
    
    
     
-<td>
-	    <div class="action-buttons">
-			
 
- <a  href="{{ route('logs.show', $log->id) }}">
-    <i class="fa fa-eye" aria-hidden="true" title="Voir"></i>
-    Voir
- </a>
-
-
-
-
-</div>
-</td>
     
     </tr>
 @endforeach

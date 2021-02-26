@@ -16,7 +16,7 @@ class OpportunityController extends Controller
     public function index()
     {
         //
-        $opportunities =  Opportunity::orderBy('id', 'asc')->paginate(10)->setPath('opportunities');
+        $opportunities =  Opportunity::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("opportunities.index", compact(['opportunities']) );
         
@@ -56,7 +56,7 @@ class OpportunityController extends Controller
      
 
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|unique:opportunities',
             'opportunity_type_id' => 'required',
 
         ]);
@@ -67,7 +67,7 @@ class OpportunityController extends Controller
 
    
         return redirect()->route('opportunities.index')
-            ->with('success','Opportunity created successfully.');
+            ->with('success','Opportunité créée avec succès.');
     }
 
     /**
@@ -110,7 +110,7 @@ class OpportunityController extends Controller
         //
          $request->validate([
             'opportunity_type_id' => 'required',   
-            'title' => 'required',   
+            'title' => 'required|unique:opportunities',   
 
         ]);
 
@@ -121,7 +121,7 @@ class OpportunityController extends Controller
 
         return redirect()->route('opportunities.index')
 
-                        ->with('success','Opportunity updated successfully');
+                        ->with('success','Opportunité mise à jour avec succès');
 
     }
 
@@ -135,6 +135,6 @@ class OpportunityController extends Controller
     {
         //
         Opportunity::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

@@ -15,7 +15,7 @@ class PageController extends Controller
     public function index()
     {
         //
-        $pages =  Page::orderBy('id', 'asc')->paginate(10)->setPath('pages');
+        $pages =  Page::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("pages.index", compact(['pages']) );
     }
@@ -43,7 +43,7 @@ class PageController extends Controller
         //
         $request['user_id'] = current_user()->id;
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|unique:pages',
 
         ]);
 
@@ -53,7 +53,7 @@ class PageController extends Controller
 
    
         return redirect()->route('pages.index')
-            ->with('success','Page created successfully.');
+            ->with('success','Page créée avec succès.');
     }
 
     /**
@@ -91,7 +91,7 @@ class PageController extends Controller
     {
         //
         $request->validate([
-        'title' => 'required',   
+        'title' => 'required|unique:pages',   
 
         ]);
 
@@ -102,7 +102,7 @@ class PageController extends Controller
 
         return redirect()->route('pages.index')
 
-                        ->with('success','Page updated successfully');
+                        ->with('success','Page mise à jour avec succès');
     }
 
     /**
@@ -115,6 +115,6 @@ class PageController extends Controller
     {
         //
         Page::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

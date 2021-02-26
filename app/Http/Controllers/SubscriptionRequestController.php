@@ -87,7 +87,7 @@ class SubscriptionRequestController extends Controller
 
    
         return redirect()->route('home_path')
-            ->with('success','Subscription created successfully.');
+            ->with('success','La préinscription a bien été créé.');
     }
 
     /**
@@ -157,7 +157,7 @@ class SubscriptionRequestController extends Controller
 
    
         return redirect()->route('subscription_requests.index')
-            ->with('success','Subscription was edited successfully.');
+            ->with('success','La préinscription a été modifié avec succès.');
 
 
 
@@ -197,7 +197,7 @@ class SubscriptionRequestController extends Controller
 
         return redirect()->route('subscription_requests.index')
 
-                        ->with('success','SubscriptionRequest validated successfully');
+                        ->with('success','La préinscription a été validée avec succès');
     }
 
     /**

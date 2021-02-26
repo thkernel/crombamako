@@ -21,7 +21,7 @@ class PermissionController extends Controller
     {
         //
 
-        $permissions =  Permission::orderBy('id', 'asc')->paginate(10)->setPath('permissions');
+        $permissions =  Permission::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("permissions.index", compact(['permissions']) );
 
@@ -60,6 +60,8 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         //
+
+        //dd($request);
         //$request['user_id'] = current_user()->id;
         $request->validate([
             'user_id' => 'required',
@@ -89,7 +91,7 @@ class PermissionController extends Controller
 
    
         return redirect()->route('permissions.index')
-            ->with('success','Permission created successfully.');
+            ->with('success','Permission créée avec succès.');
     }
 
     /**
@@ -174,7 +176,7 @@ class PermissionController extends Controller
 
    
         return redirect()->route('permissions.index')
-            ->with('success','Permission updated successfully.');
+            ->with('success','Permission mise à jour avec succès.');
 
     }
 
@@ -188,6 +190,6 @@ class PermissionController extends Controller
     {
         //
         Permission::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

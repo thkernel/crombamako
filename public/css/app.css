@@ -14909,8 +14909,8 @@ body {
   background-color: #009fff;
   color: white;
   margin: 2px;
-  padding: 5;
-  border-radius: 14px;
+  /*padding: 5px;*/
+  /*border-radius: 14px;*/
 }
 
 .responsive-img img {

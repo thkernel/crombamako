@@ -15,7 +15,7 @@ class ActivityLogController extends Controller
     public function index()
     {
         //
-        $logs =  ActivityLog::orderBy('id', 'asc')->paginate(10)->setPath('logs');
+        $logs =  ActivityLog::orderBy('id', 'desc')->get();
         return view("logs.index", compact(['logs']) );
     }
 

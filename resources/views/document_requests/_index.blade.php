@@ -10,17 +10,17 @@
 	    <div class="action-buttons">
 			
 
- <a  href="{{ route('document_requests.edit', $document_request->id) }}">
-    <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
+         <a  href="{{ route('document_requests.edit', $document_request->id) }}">
+            <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
+            Modifier
+         </a>
 
 
 
-<a href="#" data-toggle="modal" data-target="#document-request-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+        <a href="#" data-toggle="modal" data-target="#document-request-modal">
+            <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+            Supprimer
+        </a>
 
 <div id="document-request-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
@@ -54,6 +54,7 @@
                                 Oui
                             </a>
                         </form>
+                    </div>
         </div>
     </div>
 </div>

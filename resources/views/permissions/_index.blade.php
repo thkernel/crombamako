@@ -7,7 +7,7 @@
         @if ($permission->permission_items)
             @foreach($permission->permission_items as $permission_item)
                 <span class="permission-item">
-                    {{$permission_item->action_name}}
+                    {{ translate_ability($permission_item->action_name) }}
                 </span>
             @endforeach
         @endif

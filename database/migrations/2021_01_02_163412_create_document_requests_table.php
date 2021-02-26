@@ -17,7 +17,10 @@ class CreateDocumentRequestsTable extends Migration
             $table->id();
             $table->string('uid')->unique()->nullable();
             $table->string('slug')->unique()->nullable();
-            $table->string('title');
+            $table->string('title')->nullable();
+            $table->string('recipient_civility');
+            $table->string('recipient_function');
+            $table->string('request_location');
             $table->text('content')->nullable();
             $table->string('status')->nullable();
             $table->string('thumbnail')->nullable();

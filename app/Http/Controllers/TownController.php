@@ -16,7 +16,7 @@ class TownController extends Controller
     public function index()
     {
         //
-        $towns =  Town::orderBy('id', 'asc')->paginate(10)->setPath('towns');
+        $towns =  Town::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("towns.index", compact(['towns']) );
     }
@@ -53,7 +53,7 @@ class TownController extends Controller
         
             Town::create($request->all());
             return redirect()->route('towns.index')
-            ->with('success','Town created successfully.');
+            ->with('success','Commune créée avec succès.');
 
         
 
@@ -95,27 +95,17 @@ class TownController extends Controller
     {
         //
         $request->validate([
-        'name' => 'required',   
+        'name' => 'required|unique:towns',   
 
         ]);
 
-        try{
+       
             $town->update($request->all());
             return redirect()->route('towns.index')
 
-                        ->with('success','Town updated successfully');
+                        ->with('success','Communee mise à jour avec succès');
 
-        }catch(QueryException $e){
-             $error_code = $e->errorInfo[0];
-                 
-                if($error_code == 23505){
-                    
-                    return back()->withError("'".$request['name']. "'".', existe déjà.')->withInput();
-                }else{
-                    return back()->withError($e->getMessage())->withInput();
-                }
-            
-        } 
+        
 
         
     }
@@ -130,6 +120,6 @@ class TownController extends Controller
     {
         //
         Town::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

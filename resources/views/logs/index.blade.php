@@ -34,9 +34,9 @@
       <th>Navigateur</th>
       <th>Ressource</th>
       <th>Action</th>
-      <th>Données</th>
+      <th>Utilisateur</th>
      
-      <th>Actions</th>
+      
     </tr>
   </thead>
 

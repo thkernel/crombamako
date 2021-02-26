@@ -15,7 +15,7 @@ class PostCategoryController extends Controller
     public function index()
     {
         //
-        $post_categories =  PostCategory::orderBy('id', 'asc')->paginate(10)->setPath('post_categories');
+        $post_categories =  PostCategory::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("post_categories.index", compact(['post_categories']) );
     }
@@ -52,7 +52,7 @@ class PostCategoryController extends Controller
 
    
         return redirect()->route('post_categories.index')
-            ->with('success','Speciality created successfully.');
+            ->with('success',"Catégorie de d'article a bien été créée.");
     }
 
     /**
@@ -102,7 +102,7 @@ class PostCategoryController extends Controller
 
         return redirect()->route('post_categories.index')
 
-                        ->with('success','PostCategory updated successfully');
+                        ->with('success',"Catégorie d'article mise à jour avec succès");
     }
 
     /**
@@ -115,6 +115,6 @@ class PostCategoryController extends Controller
     {
         //
         PostCategory::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

@@ -19,7 +19,7 @@ class StructureStaffController extends Controller
     public function index()
     {
         //
-        $staffs =  StructureStaff::orderBy('id', 'asc')->paginate(10)->setPath('staffs');
+        $staffs =  StructureStaff::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("structure_staffs.index", compact(['staffs']) );
     }
@@ -52,7 +52,7 @@ class StructureStaffController extends Controller
         $request['status'] = "enable";
         $request['user_id'] = current_user()->id;
         $request->validate([
-            'civility' => 'required',
+            'sex' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'structure_id' => 'required',
@@ -67,7 +67,7 @@ class StructureStaffController extends Controller
 
    
         return redirect()->route('structure_staffs.index')
-            ->with('success','Structure staff created successfully.');
+            ->with('success','Personnel de la structure créé avec succès.');
 
 
     }
@@ -113,7 +113,7 @@ class StructureStaffController extends Controller
         $request['status'] = "enable";
         $request['user_id'] = current_user()->id;
         $request->validate([
-            'civility' => 'required',
+            'sex' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'structure_id' => 'required',
@@ -128,7 +128,7 @@ class StructureStaffController extends Controller
 
         return redirect()->route('structure_staffs.index')
 
-                        ->with('success','Town updated successfully');
+                        ->with('success','Le personnel de la structure a été mis à jour avec succès.');
     }
 
     /**
@@ -141,6 +141,6 @@ class StructureStaffController extends Controller
     {
         //
         StructureStaff::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

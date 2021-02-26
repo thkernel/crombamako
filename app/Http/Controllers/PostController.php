@@ -16,7 +16,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts =  Post::orderBy('id', 'asc')->paginate(10)->setPath('posts');
+        $posts =  Post::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("posts.index", compact(['posts']) );
     }
@@ -71,7 +71,7 @@ class PostController extends Controller
 
    
         return redirect()->route('posts.index')
-            ->with('success','Post created successfully.');
+            ->with('success','Article créé avec succès.');
     }
 
     /**
@@ -130,7 +130,7 @@ class PostController extends Controller
 
         return redirect()->route('posts.index')
 
-                        ->with('success','Post updated successfully');
+                        ->with('success','Article mis à jour avec succès');
     }
 
     /**
@@ -143,6 +143,6 @@ class PostController extends Controller
     {
         //
         Post::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

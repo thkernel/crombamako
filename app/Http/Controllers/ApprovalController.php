@@ -15,7 +15,7 @@ class ApprovalController extends Controller
     public function index()
     {
         //
-        $approvals =  Approval::orderBy('id', 'asc')->paginate(10)->setPath('approvals');
+        $approvals =  Approval::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("approvals.index", compact(['approvals']) );
     }
@@ -55,7 +55,7 @@ class ApprovalController extends Controller
 
    
         return redirect()->route('approvals.index')
-            ->with('success','Approval created successfully.');
+            ->with('success','Agrément créée avec succès.');
     }
 
     /**
@@ -107,7 +107,7 @@ class ApprovalController extends Controller
 
         return redirect()->route('approvals.index')
 
-                        ->with('success','Approval updated successfully');
+                        ->with('success','Agrément mise à jour avec succès');
 
 
     }
@@ -122,6 +122,6 @@ class ApprovalController extends Controller
     {
         //
         Approval::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

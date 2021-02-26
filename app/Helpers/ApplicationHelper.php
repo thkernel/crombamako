@@ -57,6 +57,22 @@
         return collect($models_array)->except(['Application']);
     }
 
+
+    /* Display side menu based on user role */
+
+    function isDoctorEnable(DoctorProfile $doctor_profile){
+
+        
+        if ($doctor_profile->status == "enable"){
+            return true;
+        }
+        else {
+            return false;
+        }
+        
+       
+    }
+
     /* Display side menu based on user role */
 
 	function sidebar_menu(){
@@ -464,6 +480,11 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
 
 }
  
+ function translate_ability($ability){
+    $abilities = config('global.abilities');
+    return $abilities[$ability];
+
+ }
 
  function last_doctor_reference($year){
     

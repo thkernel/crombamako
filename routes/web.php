@@ -127,6 +127,8 @@ Route::get('/contributions/statement', [ContributionController::class, 'statemen
 
 Route::put('/contribution/{id}/cancel/', [ContributionController::class, 'cancel'])->name('contributions.cancel')->middleware(['auth']);
 
+Route::put('/doctor_profile/{id}/change-satus/', [DoctorController::class, 'change_status'])->name('doctors.change_status')->middleware(['auth']);
+
 
 
 Route::resource('admin_profiles', AdminProfileController::class)->middleware(['auth']);

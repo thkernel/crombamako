@@ -17,7 +17,7 @@ class StructureTypeController extends Controller
     public function index()
     {
         //
-        $structure_types =  StructureType::orderBy('id', 'asc')->paginate(10)->setPath('structure_types');
+        $structure_types =  StructureType::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("structure_types.index", compact(['structure_types']) );
     }
@@ -63,7 +63,7 @@ class StructureTypeController extends Controller
 
        
             return redirect()->route('structure_types.index')
-                ->with('success','StructureType created successfully.');
+                ->with('success','Type de structure créé avec succès.');
                 
         
     }
@@ -113,7 +113,7 @@ class StructureTypeController extends Controller
 
         return redirect()->route('structure_types.index')
 
-                        ->with('success','StructureType updated successfully');
+                        ->with('success','Type de structure mis à jour avec succès');
     }
 
     /**
@@ -126,6 +126,6 @@ class StructureTypeController extends Controller
     {
         //
         StructureType::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

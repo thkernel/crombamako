@@ -16,7 +16,7 @@ class DocumentRequestController extends Controller
     public function index()
     {
         //
-        $document_requests =  DocumentRequest::orderBy('id', 'asc')->paginate(10)->setPath('document_requests');
+        $document_requests =  DocumentRequest::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("document_requests.index", compact(['document_requests']) );
     }
@@ -59,7 +59,7 @@ class DocumentRequestController extends Controller
 
    
         return redirect()->route('certificate_requests.index')
-            ->with('success','CertificateRequest created successfully.');
+            ->with('success','Demande de document a été créé avec succès.');
     }
 
     /**
@@ -110,7 +110,7 @@ class DocumentRequestController extends Controller
 
         return redirect()->route('certificate_requests.index')
 
-                        ->with('success','CertificateRequest updated successfully');
+                        ->with('success','Demande de document mise à jour avec succès');
     }
 
     /**
@@ -123,6 +123,6 @@ class DocumentRequestController extends Controller
     {
         //
         CertificateRequest::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

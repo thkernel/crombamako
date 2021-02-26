@@ -15,7 +15,7 @@ class OpportunityTypeController extends Controller
     public function index()
     {
         //
-        $opportunity_types =  OpportunityType::orderBy('id', 'asc')->paginate(10)->setPath('opportunity_types');
+        $opportunity_types =  OpportunityType::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("opportunity_types.index", compact(['opportunity_types']) );
     }
@@ -57,7 +57,7 @@ class OpportunityTypeController extends Controller
 
    
         return redirect()->route('opportunity_types.index')
-            ->with('success','OpportunityType created successfully.');
+            ->with('success',"Le type d'opportunité a bien été créé.");
 
     }
 
@@ -110,7 +110,7 @@ class OpportunityTypeController extends Controller
 
         return redirect()->route('opportunity_types.index')
 
-                        ->with('success','OpportunityType updated successfully');
+                        ->with('success',"Le type d'opportunité a bien été mis à jour");
 
     }
 
@@ -124,6 +124,6 @@ class OpportunityTypeController extends Controller
     {
         //
         OpportunityType::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

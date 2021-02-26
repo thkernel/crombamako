@@ -31,10 +31,10 @@
     <div class="col-md-12">
 
         <div class="form-group">
-           <label for="action_names[]" class="required">Action:</label>
+           <label for="action_names[]" class="required">Actions:</label>
             <select name="action_names[]" id="action_names" class="form-control" required multiple>
-                @foreach($actions as $action)
-                    <option value="{{ $action}}" @if (selected_abilities($permission->permission_items , $action)) selected @endif>{{ $action }}</option>
+                @foreach($actions as $action => $value)
+                    <option value="{{ $action}}" @if (selected_abilities($permission->permission_items , $action)) selected @endif>{{ $value }}</option>
                 @endforeach
             </select>
         </div>

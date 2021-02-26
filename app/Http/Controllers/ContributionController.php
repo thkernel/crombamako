@@ -24,7 +24,7 @@ class ContributionController extends Controller
     public function index()
     {
         //
-        $contributions =  Contribution::orderBy('id', 'asc')->paginate(10)->setPath('contributions');
+        $contributions =  Contribution::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("contributions.index", compact(['contributions']) );
     }
@@ -121,7 +121,7 @@ class ContributionController extends Controller
         \Mail::to($doctor->email)->send(new ContributionMail($contribution));
    
         return redirect()->route('contributions.index')
-            ->with('success','Contribution created successfully.');
+            ->with('success','Cotisation créée avec succès.');
     }
 
     /**
@@ -165,7 +165,7 @@ class ContributionController extends Controller
 
         return redirect()->route('contributions.index')
 
-                        ->with('success','Paiement a été annulé avec succès.');
+                        ->with('success','Cotisation a été annulé avec succès.');
 
     }
 
@@ -214,7 +214,7 @@ class ContributionController extends Controller
 
         return redirect()->route('contributions.index')
 
-                        ->with('success','Contribution updated successfully');
+                        ->with('success','La cotisation a bien été mise à jour');
     }
 
     public function statement(Request $request){
@@ -296,6 +296,6 @@ class ContributionController extends Controller
     {
         //
         Contribution::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }
