@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\DocumentRequest;
 use App\Models\DocumentType;
+use App\Models\StructureCategory;
 use Illuminate\Http\Request;
+use PDF;
 
 class DocumentRequestController extends Controller
 {
@@ -31,7 +33,8 @@ class DocumentRequestController extends Controller
         //
         $document_request = new DocumentRequest;
         $document_types =  DocumentType::all();
-        return view('document_requests.create', compact(['document_request', 'document_types']));
+        $structure_categories =  StructureCategory::all();
+        return view('document_requests.create', compact(['document_request', 'document_types', 'structure_categories']));
     }
 
     /**
@@ -43,23 +46,37 @@ class DocumentRequestController extends Controller
     public function store(Request $request)
     {
         //
-        //
-        $request['doctor_id'] = current_user()->id;
+        // If doctor profile.
+
+       
+
+        if (current_user()->isDoctor()){
+           $request['doctor_id'] = current_user()->userable_id;
+        
+           $request['request_location'] = "Bamako";
+        //$request['doctor_id'] = current_user()->id;
      
+       
 
         $request->validate([
-            'certificate_type_id' => 'required',
-            'content' => 'required',
+            'doctor_id' => 'required',
+            'document_type_id' => 'required',
+            'recipient_civility' => 'required',
+            'recipient_function' => 'required',
 
         ]);
 
         
 
-        CertificateRequest::create($request->all());
+        DocumentRequest::create($request->all());
 
    
-        return redirect()->route('certificate_requests.index')
-            ->with('success','Demande de document a été créé avec succès.');
+        return redirect()->route('document_requests.index')
+            ->with('success','La demande a été créé avec succès.');
+
+        }else{
+            return back()->withError("Seul un médecin peut faire une demande de document.")->withInput();
+        }
     }
 
     /**
@@ -79,10 +96,12 @@ class DocumentRequestController extends Controller
      * @param  \App\Models\CertificateRequest  $certificateRequest
      * @return \Illuminate\Http\Response
      */
-    public function edit(CertificateRequest $certificate_request)
+    public function edit(DocumentRequest $document_request)
     {
         //
-        return view('certificate_requests.edit',compact('certificate_request'));
+        $document_types =  DocumentType::all();
+        $structure_categories =  StructureCategory::all();
+        return view('document_requests.edit',compact(['document_request', 'document_types', 'structure_categories']));
 
     }
 
@@ -93,24 +112,25 @@ class DocumentRequestController extends Controller
      * @param  \App\Models\CertificateRequest  $certificateRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CertificateRequest $certificate_request)
+    public function update(Request $request, DocumentRequest $document_request)
     {
         //
 
         $request->validate([
-            'certificate_type' => 'required',
-            'content' => 'required',
+            'document_type_id' => 'required',
+            'recipient_civility' => 'required',
+            'recipient_function' => 'required',
 
         ]);
 
 
-        $certificate_request->update($request->all());
+        $document_request->update($request->all());
 
   
 
-        return redirect()->route('certificate_requests.index')
+        return redirect()->route('document_requests.index')
 
-                        ->with('success','Demande de document mise à jour avec succès');
+                        ->with('success','La eemande a été mise à jour avec succès');
     }
 
     /**
@@ -122,7 +142,31 @@ class DocumentRequestController extends Controller
     public function destroy($id)
     {
         //
-        CertificateRequest::where('id',$id)->delete();
+        DocumentRequest::where('id',$id)->delete();
         return redirect()->back()->with('success','Supprimer avec succès');
+    }
+
+    public function download_document_request_pdf($id){
+       
+        
+
+        $document_request = DocumentRequest::findOrFail($id);
+        //dd($document_request);
+        
+        
+        
+        
+
+        if ($document_request->document_type->name == "Demande d’agrément"){
+            $pdf = PDF::loadView('document_requests.demande_agrement_pdf', compact(['document_request']));
+            return $pdf->download("demande_agrement_pdf.pdf");
+
+            //return view('document_requests.demande_agrement_pdf',compact(['document_request']));
+        }
+        else if($document_request->document_type->name == "Demande de licence d’exploitation"){
+            $pdf = PDF::loadView('document_requests.demande_licence_exploitation_pdf', compact(['document_request']));
+            return $pdf->download("demande_licence_exploitation_pdf.pdf");
+        }
+        
     }
 }

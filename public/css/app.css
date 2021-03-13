@@ -14706,13 +14706,14 @@ section {
   padding: 30px 0px 30px 0px !important;
 }
 
-.structure {
-  background-color: blue;
+/*
+.structure{
+    background-color: blue;
 }
-
-.structure a {
-  color: white;
+.structure a{
+    color: white;
 }
+*/
 
 .structure-logo a img {
   width: 100% !important;
@@ -14937,6 +14938,10 @@ body {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   background-color: transparent !important;
+}
+
+p.error {
+  color: red;
 }
 
 /*!

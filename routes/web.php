@@ -51,11 +51,6 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 
 
 
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -181,6 +176,8 @@ Route::resource('permissions', PermissionController::class)->middleware(['auth']
 Route::get('neighborhoods/get/{id}', [NeighborhoodController::class, "getNeighborhoods"]);
 
 Route::get('/pdf/statement',[ContributionController::class, 'download_statement_pdf'])->name("download_statement_pdf_path");
+
+Route::get('/document_requests/{id}/pdf/',[DocumentRequestController::class, 'download_document_request_pdf'])->name("download_document_request_pdf_path");
 
 
 

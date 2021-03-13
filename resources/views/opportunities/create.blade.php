@@ -8,7 +8,8 @@
 <div class="br-pagebody mg-b-30">
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
-      
+      <h2>Nouvelle - Opportunité</h2>
+      <hr />
     </div>
     <div class="section-body">
     	<div class="row">
@@ -17,7 +18,7 @@
 
                 <div class="pull-left">
 
-                    <h2>Nouvelle - Opportunité</h2>
+                    
 
                 </div>
 
@@ -34,7 +35,7 @@
 
     <div class="alert alert-danger">
 
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>Oups!</strong> Il y a eu des problèmes avec les données saisie.<br><br>
 
         <ul>
 

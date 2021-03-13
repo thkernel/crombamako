@@ -26,7 +26,7 @@
 
     <div class="alert alert-danger">
 
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>Oups!</strong> Il y a eu des problèmes avec les données saisie.<br><br>
 
         <ul>
 

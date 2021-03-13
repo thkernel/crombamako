@@ -697,12 +697,15 @@ a:hover{
 section{
     padding: 30px 0px 30px 0px !important;
 }
+
+/*
 .structure{
     background-color: blue;
 }
 .structure a{
     color: white;
 }
+*/
 .structure-logo a img {
     width: 100% !important;
 }
@@ -900,4 +903,7 @@ html, body {
     
     background-color: transparent !important;
     
+}
+p.error{
+    color: red;
 }

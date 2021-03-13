@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\DoctorProfile;
 use App\Models\User;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class DoctorProfilePolicy

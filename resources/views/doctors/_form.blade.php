@@ -1,7 +1,7 @@
 
     <div class="row">
 
-        <div class="col-md-2">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="sex" class="required">Sexe:</label>
                 <select name="sex" class="form-control" required>
@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="first_name" class="required">Prénom:</label>
                 <input type="text" class="form-control" placeholder="Prénom"  name="first_name" value="{{  old('first_name') ?? $doctor->first_name }}" >
@@ -22,7 +22,7 @@
             </div><!-- form-group -->
         </div><!-- form-group -->
                 
-        <div class="col-md-5">
+        <div class="col-md-4">
             <div class="form-group">
                 <label for="last_name" class="required">Nom:</label>
                 <input type="text" class="form-control" placeholder="Nom"  name="last_name" value="{{  old('last_name') ?? $doctor->last_name }}" >

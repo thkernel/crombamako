@@ -3,10 +3,16 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
+
+set :application, 'Crom'
+set :deploy_to, '/var/www/crombamako/crombamako.staging'
+set :laravel_dotenv_file, '/var/www/secrets/staging/.env'
+set :branch, ENV["branch"] || "staging"
+
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-
+server "crombamako.ml", user: "root", roles: %w{web app laravel composer}
 
 
 # role-based syntax

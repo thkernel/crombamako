@@ -37,7 +37,7 @@
 
     <div class="alert alert-danger">
 
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>Oups!</strong> Il y a eu des problèmes avec les données saisie.<br><br>
 
         <ul>
 
@@ -55,14 +55,14 @@
 
    
 
-<form action="{{ route('certificate_requests.update', $certificate_request->id) }}" method="POST">
+<form action="{{ route('document_requests.update', $document_request->id) }}" method="POST">
 
     @csrf
     @method('PUT')
 
   
 
-     @include('certificate_requests/_form')
+     @include('document_requests/_form')
 
          <div class="col-xs-12 col-sm-12 col-md-12">
 

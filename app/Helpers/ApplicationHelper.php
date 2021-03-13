@@ -103,12 +103,12 @@
 
         $feature = Feature::where('subject_class', $class_name )->first();
 
+        
 
         if ($feature){
             $permission = Permission::where('user_id', current_user()->id)->where('feature_id', $feature->id)->first();
 
 
-           
         
             $abilities = [];
 
@@ -129,9 +129,12 @@
 
         }
         else{
+
+
             return false;
         }
         
+           
 
 
     }

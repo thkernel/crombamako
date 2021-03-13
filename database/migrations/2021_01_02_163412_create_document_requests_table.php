@@ -23,7 +23,11 @@ class CreateDocumentRequestsTable extends Migration
             $table->string('request_location');
             $table->text('content')->nullable();
             $table->string('status')->nullable();
-            $table->string('thumbnail')->nullable();
+
+            $table->integer('structure_category_id')->nullable()->unsigned();
+            $table->foreign('structure_category_id')->references('id')->on('structure_categories')->onDelete('cascade');
+
+            $table->string('structure_name')->nullable();
 
             $table->integer('document_type_id')->unsigned();
             $table->foreign('document_type_id')->references('id')->on('document_types')->onDelete('cascade');

@@ -2,7 +2,7 @@
     <tr>
         <td>{{$document_request->created_at}}</td>
         <td>{{$document_request->document_type->name}}</td>
-        <td>{{$document_request->doctor_id}}</td>
+        <td>{{$document_request->doctor->full_name}}</td>
     
    
     
@@ -11,8 +11,13 @@
 			
 
          <a  href="{{ route('document_requests.edit', $document_request->id) }}">
-            <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
+            <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
             Modifier
+         </a>
+
+         <a  href="{{ route('download_document_request_pdf_path', $document_request->id) }}">
+            <i class="fa fa-file-pdf-o" aria-hidden="true" title="Télécharger"></i>
+            Télécharger
          </a>
 
 
