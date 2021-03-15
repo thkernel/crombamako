@@ -7,12 +7,14 @@
 set :application, 'Crom'
 set :deploy_to, '/var/www/crombamako/crombamako.staging'
 set :laravel_dotenv_file, '/var/www/secrets/staging/.env'
-set :branch, ENV["branch"] || "staging"
+set :branch,8001
+set :nginx_config_name, "crombamako.staging"
+set :nginx_server_name, "crombamako.staging"
 
 # server "example.com", user: "deploy", roles: %w{app db web}, my_property: :my_value
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
-server "crombamako.ml", user: "root", roles: %w{web app laravel composer}
+server "crombamako.ml", user: "crom", roles: %w{web app laravel composer}
 
 
 # role-based syntax

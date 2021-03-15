@@ -16825,3 +16825,267 @@ tar: Exiting with failure status due to previous errors
   INFO [3ca07080] Running /usr/bin/env echo "Branch master (at f685448cd9092ea75f86cf06f961d9693dd48350) deployed as release 20210218110429 by thekernel" >> /var/www/medplatform/revisions.log as root@gescomph.be
  DEBUG [3ca07080] Command: cd /var/www/medplatform/releases && /usr/bin/env echo "Branch master (at f685448cd9092ea75f86cf06f961d9693dd48350) deployed as release 20210218110429 by thekernel" >> /var/www/medplatform/revisions.log
   INFO [3ca07080] Finished in 1.640 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-13 03:57:29 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ba1aae61] Running /usr/bin/env mkdir -p /tmp as root@crombamako.ml
+ DEBUG [ba1aae61] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-13 03:58:41 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ded090c5] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [ded090c5] Command: /usr/bin/env mkdir -p /tmp
+  INFO [ded090c5] Finished in 14.982 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-80fc4b296be339a39f05.sh 0.0%
+  INFO Uploading /tmp/git-ssh-80fc4b296be339a39f05.sh 100.0%
+  INFO [14dc091a] Running /usr/bin/env chmod 700 /tmp/git-ssh-80fc4b296be339a39f05.sh as crom@crombamako.ml
+ DEBUG [14dc091a] Command: /usr/bin/env chmod 700 /tmp/git-ssh-80fc4b296be339a39f05.sh
+  INFO [14dc091a] Finished in 1.530 seconds with exit status 0 (successful).
+  INFO [37c08da5] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [37c08da5] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-80fc4b296be339a39f05.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [37c08da5] 	/usr/bin/env: ‘git’: No such file or directory
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-13 03:59:55 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [eea7ea18] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [eea7ea18] Command: /usr/bin/env mkdir -p /tmp
+  INFO [eea7ea18] Finished in 6.386 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-192932094636ec27eb3a.sh 0.0%
+  INFO Uploading /tmp/git-ssh-192932094636ec27eb3a.sh 100.0%
+  INFO [c9c03760] Running /usr/bin/env chmod 700 /tmp/git-ssh-192932094636ec27eb3a.sh as crom@crombamako.ml
+ DEBUG [c9c03760] Command: /usr/bin/env chmod 700 /tmp/git-ssh-192932094636ec27eb3a.sh
+  INFO [c9c03760] Finished in 1.523 seconds with exit status 0 (successful).
+  INFO [e2b588cb] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [e2b588cb] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-192932094636ec27eb3a.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [e2b588cb] 	10db765b905e27142bdbf05d82928b98dd1d8770	HEAD
+  INFO [e2b588cb] Finished in 1.815 seconds with exit status 0 (successful).
+  INFO [6a7888e3] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases as crom@crombamako.ml
+ DEBUG [6a7888e3] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases
+ DEBUG [6a7888e3] 	mkdir: cannot create directory ‘/var/www/crombamako/crombamako.staging/shared’: Permission denied
+mkdir: cannot create directory ‘/var/www/crombamako/crombamako.staging/releases’: Permission denied
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-13 04:04:45 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [2fa26513] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [2fa26513] Command: /usr/bin/env mkdir -p /tmp
+  INFO [2fa26513] Finished in 8.029 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-38d7325fef4021cb08f2.sh 0.0%
+  INFO Uploading /tmp/git-ssh-38d7325fef4021cb08f2.sh 100.0%
+  INFO [2ffd9942] Running /usr/bin/env chmod 700 /tmp/git-ssh-38d7325fef4021cb08f2.sh as crom@crombamako.ml
+ DEBUG [2ffd9942] Command: /usr/bin/env chmod 700 /tmp/git-ssh-38d7325fef4021cb08f2.sh
+  INFO [2ffd9942] Finished in 1.441 seconds with exit status 0 (successful).
+  INFO [1ccb2a92] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [1ccb2a92] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-38d7325fef4021cb08f2.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [1ccb2a92] 	10db765b905e27142bdbf05d82928b98dd1d8770	HEAD
+  INFO [1ccb2a92] Finished in 1.691 seconds with exit status 0 (successful).
+  INFO [8b25ecfd] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases as crom@crombamako.ml
+ DEBUG [8b25ecfd] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases
+ DEBUG [8b25ecfd] 	mkdir: cannot create directory ‘/var/www/crombamako/crombamako.staging/shared’: Permission denied
+mkdir: cannot create directory ‘/var/www/crombamako/crombamako.staging/releases’: Permission denied
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-13 04:06:12 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [ccb51cc7] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [ccb51cc7] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-13 04:07:10 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [87c9604c] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [87c9604c] Command: /usr/bin/env mkdir -p /tmp
+  INFO [87c9604c] Finished in 7.268 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-288a49d77bdd0e341232.sh 0.0%
+  INFO Uploading /tmp/git-ssh-288a49d77bdd0e341232.sh 100.0%
+  INFO [09986244] Running /usr/bin/env chmod 700 /tmp/git-ssh-288a49d77bdd0e341232.sh as crom@crombamako.ml
+ DEBUG [09986244] Command: /usr/bin/env chmod 700 /tmp/git-ssh-288a49d77bdd0e341232.sh
+  INFO [09986244] Finished in 1.533 seconds with exit status 0 (successful).
+  INFO [0f4b1569] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [0f4b1569] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-288a49d77bdd0e341232.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [0f4b1569] 	10db765b905e27142bdbf05d82928b98dd1d8770	HEAD
+  INFO [0f4b1569] Finished in 1.782 seconds with exit status 0 (successful).
+  INFO [480e9c86] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases as crom@crombamako.ml
+ DEBUG [480e9c86] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases
+  INFO [480e9c86] Finished in 1.518 seconds with exit status 0 (successful).
+  INFO [11b4e9c8] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared/storage/app /var/www/crombamako/crombamako.staging/shared/storage/framework/cache /var/www/crombamako/crombamako.staging/shared/storage/framework/sessions /var/www/crombamako/crombamako.staging/shared/storage/framework/views /var/www/crombamako/crombamako.staging/shared/storage/logs as crom@crombamako.ml
+ DEBUG [11b4e9c8] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared/storage/app /var/www/crombamako/crombamako.staging/shared/storage/framework/cache /var/www/crombamako/crombamako.staging/shared/storage/framework/sessions /var/www/crombamako/crombamako.staging/shared/storage/framework/views /var/www/crombamako/crombamako.staging/shared/storage/logs
+  INFO [11b4e9c8] Finished in 1.338 seconds with exit status 0 (successful).
+ DEBUG [18633052] Running [ -f /var/www/crombamako/crombamako.staging/current/REVISION ] as crom@crombamako.ml
+ DEBUG [18633052] Command: [ -f /var/www/crombamako/crombamako.staging/current/REVISION ]
+ DEBUG [18633052] Finished in 1.504 seconds with exit status 1 (failed).
+ DEBUG [2fd7ab7e] Running [ -f /var/www/crombamako/crombamako.staging/repo/HEAD ] as crom@crombamako.ml
+ DEBUG [2fd7ab7e] Command: [ -f /var/www/crombamako/crombamako.staging/repo/HEAD ]
+ DEBUG [2fd7ab7e] Finished in 1.493 seconds with exit status 1 (failed).
+ DEBUG [508c7dc6] Running if test ! -d /var/www/crombamako/crombamako.staging; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [508c7dc6] Command: if test ! -d /var/www/crombamako/crombamako.staging; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging'" 1>&2; false; fi
+ DEBUG [508c7dc6] Finished in 1.508 seconds with exit status 0 (successful).
+  INFO [a2dde9c2] Running /usr/bin/env git clone --mirror https://github.com/thkernel/medplatform.git /var/www/crombamako/crombamako.staging/repo as crom@crombamako.ml
+ DEBUG [a2dde9c2] Command: cd /var/www/crombamako/crombamako.staging && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-288a49d77bdd0e341232.sh" ; /usr/bin/env git clone --mirror https://github.com/thkernel/medplatform.git /var/www/crombamako/crombamako.staging/repo )
+ DEBUG [a2dde9c2] 	Cloning into bare repository '/var/www/crombamako/crombamako.staging/repo'...
+  INFO [a2dde9c2] Finished in 3.443 seconds with exit status 0 (successful).
+ DEBUG [073d2340] Running if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [073d2340] Command: if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi
+ DEBUG [073d2340] Finished in 1.490 seconds with exit status 0 (successful).
+  INFO [9762c7cb] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as crom@crombamako.ml
+ DEBUG [9762c7cb] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-288a49d77bdd0e341232.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [9762c7cb] Finished in 1.503 seconds with exit status 0 (successful).
+  INFO [674b0f09] Running /usr/bin/env git remote update --prune as crom@crombamako.ml
+ DEBUG [674b0f09] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-288a49d77bdd0e341232.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [674b0f09] 	Fetching origin
+  INFO [674b0f09] Finished in 1.791 seconds with exit status 0 (successful).
+ DEBUG [62a98f09] Running if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [62a98f09] Command: if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi
+ DEBUG [62a98f09] Finished in 1.488 seconds with exit status 0 (successful).
+  INFO [8c68fa5e] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/releases/20210313040728 as crom@crombamako.ml
+ DEBUG [8c68fa5e] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-288a49d77bdd0e341232.sh" ; /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/releases/20210313040728 )
+  INFO [8c68fa5e] Finished in 1.497 seconds with exit status 0 (successful).
+  INFO [f45ed17b] Running /usr/bin/env git archive 8001 | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.staging/releases/20210313040728 as crom@crombamako.ml
+ DEBUG [f45ed17b] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-288a49d77bdd0e341232.sh" ; /usr/bin/env git archive 8001 | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.staging/releases/20210313040728 )
+ DEBUG [f45ed17b] 	fatal: Not a valid object name
+tar: This does not look like a tar archive
+tar: Exiting with failure status due to previous errors
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-13 04:17:12 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [34ef4eee] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [34ef4eee] Command: /usr/bin/env mkdir -p /tmp
+  INFO [34ef4eee] Finished in 7.892 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-435a88d5552c813e2c04.sh 0.0%
+  INFO Uploading /tmp/git-ssh-435a88d5552c813e2c04.sh 100.0%
+  INFO [bb87d0bd] Running /usr/bin/env chmod 700 /tmp/git-ssh-435a88d5552c813e2c04.sh as crom@crombamako.ml
+ DEBUG [bb87d0bd] Command: /usr/bin/env chmod 700 /tmp/git-ssh-435a88d5552c813e2c04.sh
+  INFO [bb87d0bd] Finished in 1.537 seconds with exit status 0 (successful).
+  INFO [66193b11] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [66193b11] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-435a88d5552c813e2c04.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [66193b11] 	10db765b905e27142bdbf05d82928b98dd1d8770	HEAD
+  INFO [66193b11] Finished in 1.821 seconds with exit status 0 (successful).
+  INFO [3a8b3567] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases as crom@crombamako.ml
+ DEBUG [3a8b3567] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases
+  INFO [3a8b3567] Finished in 1.531 seconds with exit status 0 (successful).
+  INFO [eb569712] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared/storage/app /var/www/crombamako/crombamako.staging/shared/storage/framework/cache /var/www/crombamako/crombamako.staging/shared/storage/framework/sessions /var/www/crombamako/crombamako.staging/shared/storage/framework/views /var/www/crombamako/crombamako.staging/shared/storage/logs as crom@crombamako.ml
+ DEBUG [eb569712] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared/storage/app /var/www/crombamako/crombamako.staging/shared/storage/framework/cache /var/www/crombamako/crombamako.staging/shared/storage/framework/sessions /var/www/crombamako/crombamako.staging/shared/storage/framework/views /var/www/crombamako/crombamako.staging/shared/storage/logs
+  INFO [eb569712] Finished in 1.356 seconds with exit status 0 (successful).
+ DEBUG [c0264c1d] Running [ -f /var/www/crombamako/crombamako.staging/current/REVISION ] as crom@crombamako.ml
+ DEBUG [c0264c1d] Command: [ -f /var/www/crombamako/crombamako.staging/current/REVISION ]
+ DEBUG [c0264c1d] Finished in 1.545 seconds with exit status 1 (failed).
+ DEBUG [f5b410b7] Running [ -f /var/www/crombamako/crombamako.staging/repo/HEAD ] as crom@crombamako.ml
+ DEBUG [f5b410b7] Command: [ -f /var/www/crombamako/crombamako.staging/repo/HEAD ]
+ DEBUG [f5b410b7] Finished in 1.512 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/crombamako/crombamako.staging/repo
+ DEBUG [17b34896] Running if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [17b34896] Command: if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi
+ DEBUG [17b34896] Finished in 1.522 seconds with exit status 0 (successful).
+  INFO [125f26ac] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as crom@crombamako.ml
+ DEBUG [125f26ac] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-435a88d5552c813e2c04.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [125f26ac] Finished in 1.511 seconds with exit status 0 (successful).
+  INFO [240f1c82] Running /usr/bin/env git remote update --prune as crom@crombamako.ml
+ DEBUG [240f1c82] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-435a88d5552c813e2c04.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [240f1c82] 	Fetching origin
+  INFO [240f1c82] Finished in 1.810 seconds with exit status 0 (successful).
+ DEBUG [b1cb7087] Running if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [b1cb7087] Command: if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi
+ DEBUG [b1cb7087] Finished in 1.518 seconds with exit status 0 (successful).
+  INFO [a45e4498] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/releases/20210313041731 as crom@crombamako.ml
+ DEBUG [a45e4498] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-435a88d5552c813e2c04.sh" ; /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/releases/20210313041731 )
+  INFO [a45e4498] Finished in 1.519 seconds with exit status 0 (successful).
+  INFO [621d4e9e] Running /usr/bin/env git archive 8001 | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.staging/releases/20210313041731 as crom@crombamako.ml
+ DEBUG [621d4e9e] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-435a88d5552c813e2c04.sh" ; /usr/bin/env git archive 8001 | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.staging/releases/20210313041731 )
+ DEBUG [621d4e9e] 	fatal: Not a valid object name
+tar: This does not look like a tar archive
+tar: Exiting with failure status due to previous errors
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-13 04:29:13 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [cf7dea0c] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [cf7dea0c] Command: /usr/bin/env mkdir -p /tmp
+  INFO [cf7dea0c] Finished in 68.883 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-b9e6fd55d0bafce6d21b.sh 0.0%
+  INFO Uploading /tmp/git-ssh-b9e6fd55d0bafce6d21b.sh 100.0%
+  INFO [a0ff99b7] Running /usr/bin/env chmod 700 /tmp/git-ssh-b9e6fd55d0bafce6d21b.sh as crom@crombamako.ml
+ DEBUG [a0ff99b7] Command: /usr/bin/env chmod 700 /tmp/git-ssh-b9e6fd55d0bafce6d21b.sh
+  INFO [a0ff99b7] Finished in 1.455 seconds with exit status 0 (successful).
+  INFO [41a24523] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [41a24523] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b9e6fd55d0bafce6d21b.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [41a24523] 	10db765b905e27142bdbf05d82928b98dd1d8770	HEAD
+  INFO [41a24523] Finished in 1.742 seconds with exit status 0 (successful).
+  INFO [f125a61c] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases as crom@crombamako.ml
+ DEBUG [f125a61c] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases
+  INFO [f125a61c] Finished in 1.438 seconds with exit status 0 (successful).
+  INFO [4f8776d2] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared/storage/app /var/www/crombamako/crombamako.staging/shared/storage/framework/cache /var/www/crombamako/crombamako.staging/shared/storage/framework/sessions /var/www/crombamako/crombamako.staging/shared/storage/framework/views /var/www/crombamako/crombamako.staging/shared/storage/logs as crom@crombamako.ml
+ DEBUG [4f8776d2] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared/storage/app /var/www/crombamako/crombamako.staging/shared/storage/framework/cache /var/www/crombamako/crombamako.staging/shared/storage/framework/sessions /var/www/crombamako/crombamako.staging/shared/storage/framework/views /var/www/crombamako/crombamako.staging/shared/storage/logs
+  INFO [4f8776d2] Finished in 1.270 seconds with exit status 0 (successful).
+ DEBUG [35807e2c] Running [ -f /var/www/crombamako/crombamako.staging/current/REVISION ] as crom@crombamako.ml
+ DEBUG [35807e2c] Command: [ -f /var/www/crombamako/crombamako.staging/current/REVISION ]
+ DEBUG [35807e2c] Finished in 1.453 seconds with exit status 1 (failed).
+ DEBUG [0c1d609f] Running [ -f /var/www/crombamako/crombamako.staging/repo/HEAD ] as crom@crombamako.ml
+ DEBUG [0c1d609f] Command: [ -f /var/www/crombamako/crombamako.staging/repo/HEAD ]
+ DEBUG [0c1d609f] Finished in 1.455 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/crombamako/crombamako.staging/repo
+ DEBUG [dba9174d] Running if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [dba9174d] Command: if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi
+ DEBUG [dba9174d] Finished in 1.438 seconds with exit status 0 (successful).
+  INFO [13556810] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as crom@crombamako.ml
+ DEBUG [13556810] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b9e6fd55d0bafce6d21b.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [13556810] Finished in 1.429 seconds with exit status 0 (successful).
+  INFO [e6958508] Running /usr/bin/env git remote update --prune as crom@crombamako.ml
+ DEBUG [e6958508] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b9e6fd55d0bafce6d21b.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [e6958508] 	Fetching origin
+  INFO [e6958508] Finished in 1.730 seconds with exit status 0 (successful).
+ DEBUG [a68bbdf7] Running if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [a68bbdf7] Command: if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi
+ DEBUG [a68bbdf7] Finished in 1.449 seconds with exit status 0 (successful).
+  INFO [8b5d3e22] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/releases/20210313043032 as crom@crombamako.ml
+ DEBUG [8b5d3e22] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b9e6fd55d0bafce6d21b.sh" ; /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/releases/20210313043032 )
+  INFO [8b5d3e22] Finished in 1.437 seconds with exit status 0 (successful).
+  INFO [49f955e0] Running /usr/bin/env git archive 8001 | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.staging/releases/20210313043032 as crom@crombamako.ml
+ DEBUG [49f955e0] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b9e6fd55d0bafce6d21b.sh" ; /usr/bin/env git archive 8001 | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.staging/releases/20210313043032 )
+ DEBUG [49f955e0] 	fatal: Not a valid object name
+tar: This does not look like a tar archive
+tar: Exiting with failure status due to previous errors
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-13 05:04:15 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [02445d25] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [02445d25] Command: /usr/bin/env mkdir -p /tmp
+  INFO [02445d25] Finished in 8.385 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-f359c3f644fadaa0385e.sh 0.0%
+  INFO Uploading /tmp/git-ssh-f359c3f644fadaa0385e.sh 100.0%
+  INFO [e635c9e8] Running /usr/bin/env chmod 700 /tmp/git-ssh-f359c3f644fadaa0385e.sh as crom@crombamako.ml
+ DEBUG [e635c9e8] Command: /usr/bin/env chmod 700 /tmp/git-ssh-f359c3f644fadaa0385e.sh
+  INFO [e635c9e8] Finished in 1.505 seconds with exit status 0 (successful).
+  INFO [2343a5de] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [2343a5de] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-f359c3f644fadaa0385e.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [2343a5de] 	10db765b905e27142bdbf05d82928b98dd1d8770	HEAD
+  INFO [2343a5de] Finished in 1.689 seconds with exit status 0 (successful).
+  INFO [85c3d443] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases as crom@crombamako.ml
+ DEBUG [85c3d443] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases
+  INFO [85c3d443] Finished in 1.423 seconds with exit status 0 (successful).
+  INFO [27728ba3] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared/storage/app /var/www/crombamako/crombamako.staging/shared/storage/framework/cache /var/www/crombamako/crombamako.staging/shared/storage/framework/sessions /var/www/crombamako/crombamako.staging/shared/storage/framework/views /var/www/crombamako/crombamako.staging/shared/storage/logs as crom@crombamako.ml
+ DEBUG [27728ba3] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared/storage/app /var/www/crombamako/crombamako.staging/shared/storage/framework/cache /var/www/crombamako/crombamako.staging/shared/storage/framework/sessions /var/www/crombamako/crombamako.staging/shared/storage/framework/views /var/www/crombamako/crombamako.staging/shared/storage/logs
+  INFO [27728ba3] Finished in 1.266 seconds with exit status 0 (successful).
+ DEBUG [5fa5feb1] Running [ -f /var/www/crombamako/crombamako.staging/current/REVISION ] as crom@crombamako.ml
+ DEBUG [5fa5feb1] Command: [ -f /var/www/crombamako/crombamako.staging/current/REVISION ]
+ DEBUG [5fa5feb1] Finished in 1.474 seconds with exit status 1 (failed).
+ DEBUG [2d215940] Running [ -f /var/www/crombamako/crombamako.staging/repo/HEAD ] as crom@crombamako.ml
+ DEBUG [2d215940] Command: [ -f /var/www/crombamako/crombamako.staging/repo/HEAD ]
+ DEBUG [2d215940] Finished in 1.427 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/crombamako/crombamako.staging/repo
+ DEBUG [132f2b87] Running if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [132f2b87] Command: if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi
+ DEBUG [132f2b87] Finished in 1.859 seconds with exit status 0 (successful).
+  INFO [79fe603a] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as crom@crombamako.ml
+ DEBUG [79fe603a] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-f359c3f644fadaa0385e.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [79fe603a] Finished in 1.427 seconds with exit status 0 (successful).
+  INFO [04073a84] Running /usr/bin/env git remote update --prune as crom@crombamako.ml
+ DEBUG [04073a84] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-f359c3f644fadaa0385e.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [04073a84] 	Fetching origin
+  INFO [04073a84] Finished in 1.710 seconds with exit status 0 (successful).
+ DEBUG [26575763] Running if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [26575763] Command: if test ! -d /var/www/crombamako/crombamako.staging/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.staging/repo'" 1>&2; false; fi
+ DEBUG [26575763] Finished in 1.425 seconds with exit status 0 (successful).
+  INFO [9b0799be] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/releases/20210313050434 as crom@crombamako.ml
+ DEBUG [9b0799be] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-f359c3f644fadaa0385e.sh" ; /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/releases/20210313050434 )
+  INFO [9b0799be] Finished in 1.421 seconds with exit status 0 (successful).
+  INFO [61c35369] Running /usr/bin/env git archive 8001 | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.staging/releases/20210313050434 as crom@crombamako.ml
+ DEBUG [61c35369] Command: cd /var/www/crombamako/crombamako.staging/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-f359c3f644fadaa0385e.sh" ; /usr/bin/env git archive 8001 | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.staging/releases/20210313050434 )
+ DEBUG [61c35369] 	fatal: Not a valid object name
+tar: This does not look like a tar archive
+tar: Exiting with failure status due to previous errors
