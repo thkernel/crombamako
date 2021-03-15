@@ -17089,3 +17089,34 @@ tar: Exiting with failure status due to previous errors
  DEBUG [61c35369] 	fatal: Not a valid object name
 tar: This does not look like a tar archive
 tar: Exiting with failure status due to previous errors
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-15 10:16:42 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [09a5fcc8] Running /usr/bin/env mkdir -p /tmp as root@gescomph.be
+ DEBUG [09a5fcc8] Command: /usr/bin/env mkdir -p /tmp
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-15 10:18:01 +0000 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [2ce23293] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [2ce23293] Command: /usr/bin/env mkdir -p /tmp
+  INFO [2ce23293] Finished in 10.594 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-32a668e65285005c7474.sh 0.0%
+  INFO Uploading /tmp/git-ssh-32a668e65285005c7474.sh 100.0%
+  INFO [2c0e8be4] Running /usr/bin/env chmod 700 /tmp/git-ssh-32a668e65285005c7474.sh as crom@crombamako.ml
+ DEBUG [2c0e8be4] Command: /usr/bin/env chmod 700 /tmp/git-ssh-32a668e65285005c7474.sh
+  INFO [2c0e8be4] Finished in 1.545 seconds with exit status 0 (successful).
+  INFO [0a3195ee] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [0a3195ee] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-32a668e65285005c7474.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [0a3195ee] 	10db765b905e27142bdbf05d82928b98dd1d8770	HEAD
+  INFO [0a3195ee] Finished in 1.829 seconds with exit status 0 (successful).
+  INFO [1873f3ac] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases as crom@crombamako.ml
+ DEBUG [1873f3ac] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared /var/www/crombamako/crombamako.staging/releases
+  INFO [1873f3ac] Finished in 1.554 seconds with exit status 0 (successful).
+  INFO [3967c8ef] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared/storage/app /var/www/crombamako/crombamako.staging/shared/storage/framework/cache /var/www/crombamako/crombamako.staging/shared/storage/framework/sessions /var/www/crombamako/crombamako.staging/shared/storage/framework/views /var/www/crombamako/crombamako.staging/shared/storage/logs as crom@crombamako.ml
+ DEBUG [3967c8ef] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.staging/shared/storage/app /var/www/crombamako/crombamako.staging/shared/storage/framework/cache /var/www/crombamako/crombamako.staging/shared/storage/framework/sessions /var/www/crombamako/crombamako.staging/shared/storage/framework/views /var/www/crombamako/crombamako.staging/shared/storage/logs
+  INFO [3967c8ef] Finished in 1.432 seconds with exit status 0 (successful).
+ DEBUG [1bfcbd87] Running [ -f /var/www/crombamako/crombamako.staging/current/REVISION ] as crom@crombamako.ml
+ DEBUG [1bfcbd87] Command: [ -f /var/www/crombamako/crombamako.staging/current/REVISION ]
+ DEBUG [1bfcbd87] Finished in 1.548 seconds with exit status 1 (failed).
+ DEBUG [27e4ae16] Running [ -f /var/www/crombamako/crombamako.staging/repo/HEAD ] as crom@crombamako.ml
+ DEBUG [27e4ae16] Command: [ -f /var/www/crombamako/crombamako.staging/repo/HEAD ]

@@ -7,7 +7,9 @@
 set :application, 'Crom'
 set :deploy_to, '/var/www/crombamako/crombamako.staging'
 set :laravel_dotenv_file, '/var/www/secrets/staging/.env'
-set :branch,8001
+set :branch, ENV["branch"] || "staging"
+set :port, 8001
+
 set :nginx_config_name, "crombamako.staging"
 set :nginx_server_name, "crombamako.staging"
 
