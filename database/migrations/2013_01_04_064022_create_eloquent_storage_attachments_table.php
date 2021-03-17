@@ -15,10 +15,10 @@ class CreateEloquentStorageAttachmentsTable extends Migration
     {
         Schema::create('eloquent_storage_attachments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->morphs('attachmentable');
-            $table->bigInteger('eloquent_storage_blob_id')->unsigned();
-            $table->foreign('eloquent_storage_blob_id')->references('id')->on('eloquent_storage_blobs')->onDelete('cascade');
+            $table->string('name');#Filename
+            $table->morphs('attachable');
+            $table->bigInteger('blob_id')->unsigned();
+            $table->foreign('blob_id')->references('id')->on('eloquent_storage_blobs')->onDelete('cascade');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'));
         });

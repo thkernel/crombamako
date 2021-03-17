@@ -1,13 +1,13 @@
 # config valid for current version and patch releases of Capistrano
 
-lock "~> 3.14.1"
-set :application, 'MedPlatform'
+
+lock "~> 3.15.0"
+
 set :repo_url, 'https://github.com/thkernel/medplatform.git'
 # Default branch is :master
-set :branch, ENV["branch"] || "master"
+
 # Default deploy_to directory is /var/www/laravel-capistrano
-set :deploy_to, '/var/www/medplatform'
-set :laravel_dotenv_file, '/var/www/secrets/.env'
+
 # Default value for keep_releases is 5
 set :keep_releases, 5
 append :linked_dirs, 

@@ -17,7 +17,7 @@
         <div class="text-right">
             
 
-            <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('doctor_orders.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
+           
 
         </div>
 
@@ -29,15 +29,15 @@
 
   <thead>
     <tr>
-      <th>ID</th>
+      
       <th>Date</th>
-      <th>Réference</th>
+      <th>N°Inscription</th>
       <th>Médecin</th>
       <th>Année</th>
 
      
       
-      <th>Actions</th>
+      
     </tr>
   </thead>
 

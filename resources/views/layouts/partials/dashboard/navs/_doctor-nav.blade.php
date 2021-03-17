@@ -24,7 +24,7 @@
       </li>
 
       <li class="sub-item">
-        <a class="sub-link" href="{{ route('staffs.index') }}">Personnel</a>
+        <a class="sub-link" href="{{ route('structure_staffs.index') }}">Personnel</a>
 
       </li>
 

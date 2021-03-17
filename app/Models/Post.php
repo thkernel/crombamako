@@ -18,16 +18,16 @@ class Post extends Model
     use Sluggable;
 
 
-    protected $fillable = ['post_category_id','title','content', 'thumbnail', 'user_id'];
+    protected $fillable = ['post_category_id','title','content',  'user_id'];
 
     public function post_category(){
         return $this->belongsTo(PostCategory::class);
     }
 
 
-    public function eloquent_storage_attachment()
+    public function attachment()
     {
-        return $this->morphMany(EloquentStorageAttachment::class, 'attachable');
+        return $this->morphOne(EloquentStorageAttachment::class, 'attachable');
     }
 
     public function user(){

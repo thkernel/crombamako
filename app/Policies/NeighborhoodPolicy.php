@@ -4,6 +4,7 @@ namespace App\Policies;
 
 use App\Models\Neighborhood;
 use App\Models\User;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class NeighborhoodPolicy
@@ -32,6 +33,16 @@ class NeighborhoodPolicy
     {
         //
     }
+
+    public function index(User $user)
+    {
+        dd(authorize_resource('read', 'Neighborhood'));
+        //
+        //return authorize_resource('read', 'Neighborhood')
+               // ? Response::allow()
+                //: Response::deny('Not authorized.');
+    }
+
 
     /**
      * Determine whether the user can view the model.

@@ -1,8 +1,8 @@
-@extends("layouts.pdf")
+@extends("layouts.statement")
 
 @section("content")
 <div class="container">
-
+  <h1>ETAT DES COTISATIONS</h1>
     <table class="table table-bordered">
 
 

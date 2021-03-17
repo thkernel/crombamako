@@ -90,6 +90,7 @@
 .footer-widget-title{
     text-transform: uppercase;
     color: white;
+    text-decoration: underline;
 }
 .footer-widget-content ul {
     list-style: none;
@@ -129,15 +130,8 @@
 .featured-properties .property-item{
     margin-bottom: 15px;
 }
-.featured-properties .card-title a {
-    color: #837e7e;
-}
-.featured-properties .card-title {
 
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
 
-}
 .featured-properties .load-more-button{
     margin-left: auto;
     margin-right: auto;
@@ -686,23 +680,19 @@ a:hover{
     color: rgb(134, 139, 161) !important;
 }
 
-.products .card-title {
 
-    color: rgb(134, 139, 161) !important;
-    
-    margin-bottom: 15px !important;
-    margin-top: 15px !important;
-
-}
 section{
     padding: 30px 0px 30px 0px !important;
 }
+
+/*
 .structure{
     background-color: blue;
 }
 .structure a{
     color: white;
 }
+*/
 .structure-logo a img {
     width: 100% !important;
 }
@@ -721,11 +711,13 @@ section{
 
 .card-thumbnail img{
     width: 100% !important;
+    height: 150px;
 }
 .card-thumbnail{
     margin-top: -1.25rem;
 margin-left: -1.25rem;
 margin-right: -1.25rem;
+height: 150px;
 }
 
 
@@ -873,8 +865,8 @@ html, body {
     background-color: #009fff;
     color: white;
     margin: 2px;
-    padding: 5;
-    border-radius: 14px;
+    /*padding: 5px;*/
+    /*border-radius: 14px;*/
   }
   .responsive-img img{
     width: 100% !important;
@@ -900,4 +892,36 @@ html, body {
     
     background-color: transparent !important;
     
+}
+p.error{
+    color: red;
+}
+
+.post-item .card-title {
+    color: #212529;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    
+    padding: 5px 0px 0px 0px;
+    margin-bottom: 0px !important;
+}
+.item-author{
+    display: inline-block !important;
+}
+
+.card-title a {
+    color: #212324 !important;
+}
+
+.opportunity-type, .post-category{
+    background-color: #0866c6;
+    display: inline;
+    padding: 2px;
+    border-radius: 6px;
+    color: white;
+    font-size: 8pt;
+}
+
+.post-labels-wrap span{
+    margin: 5px;
 }

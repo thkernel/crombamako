@@ -9,7 +9,7 @@
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
       
-         <h2>Modification - Agent</h2>
+         <h2>Modification - Personnel</h2>
          <hr />
     </div>
     <div class="section-body">
@@ -38,7 +38,7 @@
 
     <div class="alert alert-danger">
 
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>Oups!</strong> Il y a eu des problèmes avec les données saisie.<br><br>
 
         <ul>
 

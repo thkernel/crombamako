@@ -17,7 +17,7 @@ class StructureCategoryController extends Controller
     public function index()
     {
         //
-        $structure_categories =  StructureCategory::orderBy('id', 'asc')->paginate(10)->setPath('structure_categories');
+        $structure_categories =  StructureCategory::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("structure_categories.index", compact(['structure_categories']) );
     }
@@ -70,7 +70,7 @@ class StructureCategoryController extends Controller
 
        
             return redirect()->route('structure_categories.index')
-                ->with('success','StructureCategory created successfully.');
+                ->with('success','Catégorie de structure créée avec succès.');
 
         
     }
@@ -123,7 +123,7 @@ class StructureCategoryController extends Controller
 
             return redirect()->route('structure_categories.index')
 
-                            ->with('success','StructureCategory updated successfully');
+                            ->with('success','Catégorie de structure mise à jour avec succès');
 
         
     }
@@ -138,6 +138,6 @@ class StructureCategoryController extends Controller
     {
         //
         StructureCategory::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

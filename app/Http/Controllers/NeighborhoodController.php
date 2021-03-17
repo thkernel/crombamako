@@ -19,7 +19,7 @@ class NeighborhoodController extends Controller
     {
         //
 
-        $neighborhoods =  Neighborhood::orderBy('id', 'asc')->paginate(10)->setPath('neighborhoods');
+        $neighborhoods =  Neighborhood::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("neighborhoods.index", compact(['neighborhoods']) );
     }
@@ -68,7 +68,7 @@ class NeighborhoodController extends Controller
 
        
             return redirect()->route('neighborhoods.index')
-                ->with('success','Neighborhood created successfully.');
+                ->with('success','Quartier créé avec succès.');
 
         
 
@@ -111,12 +111,12 @@ class NeighborhoodController extends Controller
         //
 
         $request->validate([
-        'name' => 'required',   
+        'name' => 'required|unique:neighborhoods',   
         'town_id' => 'required',   
 
         ]);
 
-        try{
+        
 
             $neighborhood->update($request->all());
 
@@ -124,19 +124,8 @@ class NeighborhoodController extends Controller
 
             return redirect()->route('neighborhoods.index')
 
-                            ->with('success','Neighborhood updated successfully');
-        }catch(QueryException $e){
-             $error_code = $e->errorInfo[0];
-             
-            if($error_code == 23505){
-                
-                return back()->withError("'".$request['name']. "'".', existe déjà.')->withInput();
-            }
-            else{
-                return back()->withError($e->getMessage())->withInput();
-            }
-            
-        }
+                            ->with('success','Le quartier a bien été mis à jour');
+        
 
 
     }
@@ -151,6 +140,6 @@ class NeighborhoodController extends Controller
     {
         //
          Neighborhood::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

@@ -34,3 +34,5 @@ require('./init_select2');
 
 require('./get_neighborhoods');
 require('./custom');
+require('./document_request');
+require('./subscription_requests');

@@ -57,6 +57,22 @@
         return collect($models_array)->except(['Application']);
     }
 
+
+    /* Display side menu based on user role */
+
+    function isDoctorEnable(DoctorProfile $doctor_profile){
+
+        
+        if ($doctor_profile->status == "enable"){
+            return true;
+        }
+        else {
+            return false;
+        }
+        
+       
+    }
+
     /* Display side menu based on user role */
 
 	function sidebar_menu(){
@@ -87,12 +103,12 @@
 
         $feature = Feature::where('subject_class', $class_name )->first();
 
+        
 
         if ($feature){
             $permission = Permission::where('user_id', current_user()->id)->where('feature_id', $feature->id)->first();
 
 
-           
         
             $abilities = [];
 
@@ -113,9 +129,12 @@
 
         }
         else{
+
+
             return false;
         }
         
+           
 
 
     }
@@ -124,67 +143,123 @@
 
 	function eloquent_storage_service($record, $request, $allowedfileExtension, $fileInputName, $storage_directory){
 		
+
 		if ($record){
+
             if($request->hasFile($fileInputName)){
                 
                 $files = $request->file($fileInputName);
-
                 
-                foreach($files as $file){
-                    // For blob
-                    $key = Str::random(40);
-                    $filename = $file->getFileName();
-                    $original_filename = $file->getClientOriginalName();
-                    $content_type = $file->getClientMimeType();
-                    $meta_data = '';
-                    $byte_size = $file->getSize();
-                    $checksum = md5_file($file->getPathName());
-                    $extension = $file->getClientOriginalExtension();
-                    $check = in_array($extension,$allowedfileExtension);
+                if (is_array($files)){
+                
+                    foreach($files as $file){
+                        $current_timestamp = Carbon::now()->timestamp;
 
-                    $tab = [$key, $filename, $original_filename, $content_type, $meta_data, $byte_size, $checksum];
-                    
-                    
-                    
-                    if($check){
+                        // For blob
+                        $key = Str::random(40);
+                        $filename = $file->getFileName();
+                        $original_filename = $file->getClientOriginalName();
+                        $content_type = $file->getClientMimeType();
+                        $meta_data = '';
+                        $byte_size = $file->getSize();
+                        $checksum = md5_file($file->getPathName());
+                        $extension = $file->getClientOriginalExtension();
+                        $check = in_array($extension,$allowedfileExtension);
 
+                        $tab = [$key, $filename, $original_filename, $content_type, $meta_data, $byte_size, $checksum];
                         
+                        
+                        
+                        if($check){
+
+                            
 
 
-                        // create blob
-                        $blob = new EloquentStorageBlob;
-                        $blob->key = $key;
-                        $blob->filename = $original_filename;
-                        $blob->content_type = $content_type;
-                        $blob->metadata = $meta_data;
-                        $blob->byte_size = $byte_size;
-                        $blob->checksum = $checksum;
-                        $blob->save();
+                            // create blob
+                            $blob = new EloquentStorageBlob;
+                            $blob->key = $key;
+                            $blob->filename = $current_timestamp."_".$original_filename;
+                            $blob->content_type = $content_type;
+                            $blob->metadata = $meta_data;
+                            $blob->byte_size = $byte_size;
+                            $blob->checksum = $checksum;
+                            $blob->save();
 
-                        //dd($blob);
+                            //dd($blob);
 
-                       	
-                        $attachment = $blob->eloquent_storage_attachment()->create(["name" => $filename, 
-                            "attachmentable_id" => $record->id,
-                            "attachmentable_type" => class_basename(get_class($record))
-                             ]);
+                           	
+                            $attachment = $record->attachments()->create([
+                                    "blob_id" => $blob->id,
+                                    "name" => $fileInputName
+                                ]
+                            );
 
-                            /*
+                               
+                               
 
-                             $attachment = new EloquentStorangeAttachment;
-                             $attachment->eloquent_storage_blob_id = $blob->id;
-                             $attachment->name = $filename;
+                            if ($attachment){
+                                $file->storeAs($storage_directory,$current_timestamp."_".$original_filename, 'public');
+                                
+                            }
 
-                            $attachment = $record->eloquent_storage_attachments()->save();
-                            */
-
-                        if ($attachment){
-                            $file->store(storage_path($storage_directory));
                             
                         }
+                    }
 
+                }
+                else{
+                        $current_timestamp = Carbon::now()->timestamp;
+                        // For blob
+                        $file = $files;
+                        $key = Str::random(40);
+                        $filename = $file->getFileName();
+                        $original_filename = $file->getClientOriginalName();
+                        $content_type = $file->getClientMimeType();
+                        $meta_data = '';
+                        $byte_size = $file->getSize();
+                        $checksum = md5_file($file->getPathName());
+                        $extension = $file->getClientOriginalExtension();
+                        $check = in_array($extension,$allowedfileExtension);
+
+                        $tab = [$key, $filename, $original_filename, $content_type, $meta_data, $byte_size, $checksum];
+                        
+                        
+                        
+                        if($check){
+
+                            
+                            // create blob
+                            $blob = new EloquentStorageBlob;
+                            $blob->key = $key;
+                            $blob->filename = $current_timestamp."_".$original_filename;
+                            $blob->content_type = $content_type;
+                            $blob->metadata = $meta_data;
+                            $blob->byte_size = $byte_size;
+                            $blob->checksum = $checksum;
+                            $blob->save();
+
+
+
+                            
+
+                            $attachment = $record->attachment()->create([
+                                    "blob_id" => $blob->id,
+                                    "name" => $fileInputName
+                                ]
+                            );
+
+                               
+                            if ($attachment){
+                                
+                                $file->storeAs($storage_directory,$current_timestamp."_".$original_filename, 'public');
+                                
+                                
+                            }
+
+                            
                         
                     }
+
                 }
             }
         }
@@ -220,10 +295,9 @@
 	function doctor_factory($subscription_request){
 		try{
 
-    		// create account.
-    		$doctor_user = create_account($subscription_request->last_name, $subscription_request->email, 'Médecin' );
+    		
 
-            if ($doctor_user){
+            
                 // create profile
                 $doctor_profile = DoctorProfile::create([
                 "sex" => $subscription_request->sex,
@@ -239,11 +313,34 @@
                 "structure_id" => $subscription_request->structure_id,
                 ]);
 
-                $doctor_profile->user()->save($doctor_user);
+                // Save profile
+                //$doctor_profile = $doctor_profile->save();
+                //$doctor_profile->user()->save($doctor_user);
+
+                $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
+                
+                $reference = last_doctor_reference($year);
+                
+
+                // Add doctor to the doctor order.
+                $doctor_order = [
+                    "reference" => $reference,
+                    "doctor_id" => $doctor_profile->id,
+                    "year" => $year,
+                    "status" => 'enable',
+                    "user_id" => current_user()->id
+                ];
+
+                $doctor_order = DoctorOrder::create($doctor_order);
 
 
+                // create account.
+                if ($doctor_profile){
+                
+                    $doctor_user = create_doctor_account($doctor_profile, $doctor_order->reference, $subscription_request->email, 'Médecin' );
+                }
                
-            }
+            
 
             return $doctor_profile;
 
@@ -252,7 +349,7 @@
                  
             if($error_code == 23505){
                 
-                return back()->withError("Un médin avec la meme adresse email".' existe déjà.')->withInput();
+                return back()->withError("Un médecin avec la meme adresse email".' existe déjà.')->withInput();
             }else{
                 return back()->withError($e->getMessage())->withInput();
             }
@@ -267,28 +364,34 @@
 	}
 
     /* Create user account */
-	function create_account($last_name, $email, $role, $verified=true){
+	function create_doctor_account($doctor_profile, $doctor_order_reference, $email, $role, $verified=true){
         try{
 
     		$role = Role::whereName($role)->first();
 
             // generate login and password
-            $random_str = strtolower(Str::random(8));
-            $login = strtolower($last_name.'_'.$random_str);
-            $password = Hash::make($random_str);
+            //$random_str = strtolower(Str::random(8));
+            //$login = strtolower($last_name.'_'.$random_str);
+            $password = explode("@", $email)[0]."".$doctor_profile->id;
+            $login = explode("°", $doctor_order_reference)[1];
+            $password = Hash::make($password);
 
             
            
             
-            $user = User::create([
+            $user = [
                     "login" => $login,
                     "password" => $password,
-                    
+                    "userable_type" => get_class($doctor_profile),
+                    "userable_id" => $doctor_profile->id,
                     "email" => $email,
                     "role_id" => $role->id,
-            ]);
-            
+                    
+            ];
 
+            $user = User::create($user);
+            
+           
           
             event(new Registered($user));
             return $user;
@@ -306,6 +409,58 @@
         }
 
 	}
+
+
+
+    /* Create structure account */
+    function create_structure_account($structure_profile, $email, $role, $verified=true){
+        try{
+
+            $role = Role::whereName($role)->first();
+
+            // generate login and password
+            //$random_str = strtolower(Str::random(8));
+            //$login = strtolower($last_name.'_'.$random_str);
+            $password = explode("@", $email)[0]."".$structure_profile->id;
+            $login = explode("@", $email)[0];
+            $password = Hash::make($password);
+
+            
+           
+            
+            $user = [
+                    "login" => $login,
+                    "password" => $password,
+                    "userable_type" => get_class($structure_profile),
+                    "userable_id" => $structure_profile->id,
+                    "email" => $email,
+                    "role_id" => $role->id,
+                    
+            ];
+
+            $user = User::create($user);
+            
+           
+          
+            event(new Registered($user));
+            return $user;
+
+        }catch(QueryException $e){
+            $error_code = $e->errorInfo[0];
+                 
+            if($error_code == 23505){
+                
+                return back()->withError("Login ou Email".', existe déjà.')->withInput();
+            }else{
+                return back()->withError($e->getMessage())->withInput();
+            }
+            
+        }
+
+    }
+
+
+
 
     /* Get user IP */
 
@@ -420,6 +575,47 @@ function structure_logo($structure, $alt_tag, $class_name){
 
 }
 
+function post_thumbnail($post, $alt_tag, $class_name){
+    
+    
+
+      
+    if  ($post->attachment){
+        
+        //dd(asset("storage/app/public/posts/".$post->attachment->blob->filename));
+        return "<img src=". asset("storage/posts/".$post->attachment->blob->filename) .">";
+
+    }
+    
+    else{
+        return '<img src="/images/post-missing.jpg"  alt="">';
+         
+    }
+
+
+}
+
+function opportunity_thumbnail($opportunity, $alt_tag, $class_name){
+    
+    
+
+      
+    if  ($opportunity->attachment){
+        
+        return "<img src=". asset("storage/opportunities/".$opportunity->attachment->blob->filename) .">";
+
+    }
+    
+    else{
+        return '<img src="/images/post-missing.jpg"  alt="">';
+         
+    }
+
+
+}
+
+
+
 function doctor_avatar($doctor, $alt_tag, $class_name){
    
       
@@ -436,6 +632,11 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
 
 }
  
+ function translate_ability($ability){
+    $abilities = config('global.abilities');
+    return $abilities[$ability];
+
+ }
 
  function last_doctor_reference($year){
     
@@ -452,11 +653,11 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
             
             if ($id == 9){
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°00". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }else{
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°000". $sn  ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "N°00". $sn  ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
             }
             
         }
@@ -465,11 +666,11 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
             if ($id == 99){
                 $sn = $last_doctor_order->id + 1;
 
-                $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "N°". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }else{
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°00". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
             }
             
         }
@@ -480,7 +681,7 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
 
             }else{
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "N°". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }
             
@@ -489,7 +690,7 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
 
     }else{
 
-        $reference = "N°000". 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+        $reference = "N°00". 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
         
     }
 

@@ -20,6 +20,7 @@ class DoctorProfile extends Model
         'speciality_id',
         'structure_id',
         'town_id',
+        'is_specialist'
         'neighborhood_id',
         'address',
         'phone',

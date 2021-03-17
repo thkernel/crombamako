@@ -2,7 +2,7 @@ $(document).ready(function() {
     $('#datatable').DataTable({
     
         "searching": true,
-        "ordering": true,
+        "ordering": false,
         language: {
             processing: "Traitement en cours...",
             search: "Rechercher&nbsp;:",

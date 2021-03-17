@@ -40,7 +40,7 @@ class AuthServiceProvider extends ServiceProvider
             ->line("Vous avez reçu cet email suite à votre inscription sur notre plate-forme, si vous n'êtes pas à l'origine de cette inscription, veuillez ignorer tout simplement cet email.")
             ->line("Vos informations d'access: ")
             ->line("Identifiant: " . $notifiable->login)
-            ->line("Mot de passe: " . explode('_', $notifiable->login)[1])
+            ->line("Mot de passe: " . explode("@", $notifiable->email)[0]."".$notifiable->userable_id)
             ->line('Cliquez sur le bouton ci-dessous pour activer votre compte.')
             ->action('Activer mon compte', $url);
         });

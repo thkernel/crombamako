@@ -2,7 +2,7 @@
     <tr>
         <td>{{$document_request->created_at}}</td>
         <td>{{$document_request->document_type->name}}</td>
-        <td>{{$document_request->doctor_id}}</td>
+        <td>{{$document_request->doctor->full_name}}</td>
     
    
     
@@ -10,17 +10,22 @@
 	    <div class="action-buttons">
 			
 
- <a  href="{{ route('document_requests.edit', $document_request->id) }}">
-    <i class="fa fa-plus" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
+         <a  href="{{ route('document_requests.edit', $document_request->id) }}">
+            <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+            Modifier
+         </a>
+
+         <a  href="{{ route('download_document_request_pdf_path', $document_request->id) }}">
+            <i class="fa fa-file-pdf-o" aria-hidden="true" title="Télécharger"></i>
+            Télécharger
+         </a>
 
 
 
-<a href="#" data-toggle="modal" data-target="#document-request-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
-    Supprimer
-</a>
+        <a href="#" data-toggle="modal" data-target="#document-request-modal">
+            <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+            Supprimer
+        </a>
 
 <div id="document-request-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
@@ -54,6 +59,7 @@
                                 Oui
                             </a>
                         </form>
+                    </div>
         </div>
     </div>
 </div>

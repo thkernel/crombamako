@@ -10,10 +10,18 @@ class DocumentRequest extends Model
 {
     use HasFactory;
 
-     protected $fillable = ['document_type_id', 'title','content', 'doctor_id'];
+     protected $fillable = ['document_type_id', 'recipient_civility','content', 'doctor_id', 'recipient_function', 'request_location', 'structure_category_id', 'structure_name'];
 
 
-     public function document_type(){
+    public function document_type(){
         return $this->belongsTo(DocumentType::class);
+    }
+
+    public function doctor(){
+        return $this->belongsTo(DoctorProfile::class, 'doctor_id');
+    }
+
+    public function structure_category(){
+        return $this->belongsTo(StructureCategory::class, 'doctor_id');
     }
 }

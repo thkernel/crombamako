@@ -22,6 +22,20 @@
                     
                     <div class="post-labels-wrap"> 
                         
+                        <span class="opportunity-type">
+                              {{ $opportunity->opportunity_type->name}}              
+                        </span>
+
+                        <span class="item-author">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            {{ $opportunity->user->login }}
+                                        </span>
+                                       
+                                         <span class="item-view">
+                                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                            {{ format_date($opportunity->created_at, "d/m/Y") }}
+                                        </span>
+
 
                     </div> 
                     
@@ -32,8 +46,8 @@
                 
                 
 
-                <div class="cover">
-                    <img src="{{url('/images/opportunite1.jpg')}}" alt="">
+                <div class="cover mg-b-15">
+                    {!! opportunity_thumbnail($opportunity, "", "") !!}
 
                 </div>
                    

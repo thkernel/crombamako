@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\PostCategory;
 use Illuminate\Http\Request;
+use App\Models\EloquentStorageBlob;
 
 class PostController extends Controller
 {
@@ -16,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posts =  Post::orderBy('id', 'asc')->paginate(10)->setPath('posts');
+        $posts =  Post::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("posts.index", compact(['posts']) );
     }
@@ -61,17 +62,21 @@ class PostController extends Controller
 
         ]);
 
-        if ($request->hasFile('thumbnail')){
-            $fileName = time().'.'.$request->file('thumbnail')->extension();  
-            $request->file('thumbnail')->store(public_path('storage'), $fileName);
-            $request['thumbnail'] = $fileName;
-        }
+        
 
-        Post::create($request->all());
+        $post = Post::create($request->all());
+
+        if ($request->hasFile('thumbnail')){
+
+             // Attach record
+            $allowedfileExtension = ['jpeg','jpg','png'];
+
+            eloquent_storage_service($post, $request, $allowedfileExtension, 'thumbnail', 'posts');
+        }
 
    
         return redirect()->route('posts.index')
-            ->with('success','Post created successfully.');
+            ->with('success','Article créé avec succès.');
     }
 
     /**
@@ -119,18 +124,23 @@ class PostController extends Controller
 
         ]);
 
-        if ($request->hasFile('thumbnail')){
-            $fileName = time().'.'.$request->file('thumbnail')->extension();  
-            $request->file('thumbnail')->move(public_path('storage'), $fileName);
-            $request['thumbnail'] = $fileName;
-        }
+
+        
         $post->update($request->all());
+
+        if ($request->hasFile('thumbnail')){
+
+             // Attach record
+            $allowedfileExtension = ['jpeg','jpg','png'];
+
+            eloquent_storage_service($post, $request, $allowedfileExtension, 'thumbnail', 'posts');
+        }
 
   
 
         return redirect()->route('posts.index')
 
-                        ->with('success','Post updated successfully');
+                        ->with('success','Article mis à jour avec succès');
     }
 
     /**
@@ -142,7 +152,15 @@ class PostController extends Controller
     public function destroy($id)
     {
         //
-        Post::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        $post = Post::find($id);
+
+        $blob_id = $post->attachment->blob_id;
+        $post->attachment()->delete();
+
+        $post->delete();
+        
+        EloquentStorageBlob::where('id',$blob_id)->delete();
+        
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

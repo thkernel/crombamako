@@ -17,7 +17,7 @@ class RoleController extends Controller
     public function index()
     {
         //
-        $roles =  Role::orderBy('id', 'asc')->paginate(10)->setPath('roles');
+        $roles =  Role::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("roles.index", compact(['roles']) );
     }
@@ -55,7 +55,7 @@ class RoleController extends Controller
 
        
             return redirect()->route('roles.index')
-                ->with('success','Role created successfully.');
+                ->with('success','Rôle créé avec succès.');
 
 
         
@@ -107,7 +107,7 @@ class RoleController extends Controller
 
             return redirect()->route('roles.index')
 
-                            ->with('success','Role updated successfully');
+                            ->with('success','Rôle mis à jour avec succès');
 
         
     }
@@ -122,7 +122,7 @@ class RoleController extends Controller
     {
         //
         Role::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }
 

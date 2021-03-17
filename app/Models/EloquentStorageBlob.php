@@ -21,7 +21,7 @@ class EloquentStorageBlob extends Model
 
 
 
-    public function eloquent_storage_attachment(){
+    public function attachment(){
         return $this->hasOne(EloquentStorageAttachment::class);
     }
 }

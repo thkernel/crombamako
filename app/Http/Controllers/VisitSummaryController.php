@@ -19,7 +19,7 @@ class VisitSummaryController extends Controller
     {
         //
 
-        $visit_summaries =  VisitSummary::orderBy('id', 'asc')->paginate(10)->setPath('visit_summaries');
+        $visit_summaries =  VisitSummary::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("visit_summaries.index", compact(['visit_summaries']) );
     }
@@ -80,7 +80,7 @@ class VisitSummaryController extends Controller
 
    
         return redirect()->route('visit_summaries.index')
-            ->with('success','VisitSummary created successfully.');
+            ->with('success','Résumé de la visite créé avec succès.');
     }
 
     /**
@@ -156,7 +156,7 @@ class VisitSummaryController extends Controller
 
         return redirect()->route('visit_summaries.index')
 
-                        ->with('success','VisitSummary updated successfully');
+                        ->with('success','Résumé de la visite mis à jour avec succès');
     }
 
     /**
@@ -169,6 +169,6 @@ class VisitSummaryController extends Controller
     {
         //
         VisitSummary::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

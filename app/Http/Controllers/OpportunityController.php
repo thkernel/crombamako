@@ -16,7 +16,7 @@ class OpportunityController extends Controller
     public function index()
     {
         //
-        $opportunities =  Opportunity::orderBy('id', 'asc')->paginate(10)->setPath('opportunities');
+        $opportunities =  Opportunity::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("opportunities.index", compact(['opportunities']) );
         
@@ -56,18 +56,27 @@ class OpportunityController extends Controller
      
 
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|unique:opportunities',
             'opportunity_type_id' => 'required',
 
         ]);
 
         
 
-        Opportunity::create($request->all());
+        $opportunity = Opportunity::create($request->all());
 
    
+        if ($request->hasFile('thumbnail')){
+
+             // Attach record
+            $allowedfileExtension = ['jpeg','jpg','png'];
+
+            eloquent_storage_service($opportunity, $request, $allowedfileExtension, 'thumbnail', 'opportunities');
+        }
+
+
         return redirect()->route('opportunities.index')
-            ->with('success','Opportunity created successfully.');
+            ->with('success','Opportunité créée avec succès.');
     }
 
     /**
@@ -117,11 +126,22 @@ class OpportunityController extends Controller
   
         $opportunity->update($request->all());
 
-  
+       
+
+        if ($request->hasFile('thumbnail')){
+
+             // Attach record
+            $allowedfileExtension = ['jpeg','jpg','png'];
+
+            eloquent_storage_service($opportunity, $request, $allowedfileExtension, 'thumbnail', 'opportunities');
+        }
+
+
+
 
         return redirect()->route('opportunities.index')
 
-                        ->with('success','Opportunity updated successfully');
+                        ->with('success','Opportunité mise à jour avec succès');
 
     }
 
@@ -134,7 +154,15 @@ class OpportunityController extends Controller
     public function destroy($id)
     {
         //
-        Opportunity::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+         $opportunity = Opportunity::find($id);
+
+        //$blob_id = $$opportunity->attachments->blob_id;
+        //$post->attachment()->delete();
+
+        $$opportunity->delete();
+        
+        //EloquentStorageBlob::where('id',$blob_id)->delete();
+
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

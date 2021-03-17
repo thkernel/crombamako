@@ -14,11 +14,17 @@ class Opportunity extends Model
     use HasFactory;
     use Sluggable;
     
-        protected $fillable = ['opportunity_type_id','title','content', 'thumbnail',  'user_id'];
+        protected $fillable = ['opportunity_type_id','title','content',   'user_id'];
 
 
 public function opportunity_type(){
         return $this->belongsTo(OpportunityType::class);
+    }
+
+
+    public function attachment()
+    {
+        return $this->morphOne(EloquentStorageAttachment::class, 'attachable');
     }
 
 

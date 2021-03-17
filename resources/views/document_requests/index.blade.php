@@ -32,9 +32,6 @@
       <th>Date</th>
      <th>Type</th>
      <th>Médecin</th>
-      
-     
-      
       <th>Actions</th>
     </tr>
   </thead>

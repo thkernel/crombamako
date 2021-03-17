@@ -16,7 +16,7 @@ class SpecialityController extends Controller
     public function index()
     {
         //
-        $specialities =  Speciality::orderBy('id', 'asc')->paginate(10)->setPath('specialities');
+        $specialities =  Speciality::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("specialities.index", compact(['specialities']) );
     }
@@ -49,25 +49,14 @@ class SpecialityController extends Controller
         ]);
 
   
-        try{
+        
 
-            Speciality::create($request->all());
+        Speciality::create($request->all());
 
-       
-            return redirect()->route('specialities.index')
-                ->with('success','Speciality created successfully.');
-        }catch(QueryException $e){
-             $error_code = $e->errorInfo[0];
-             
-            if($error_code == 23505){
-                
-                return back()->withError("'".$request['name']. "'".', existe déjà.')->withInput();
-            }
-            else{
-                return back()->withError($e->getMessage())->withInput();
-            }
-            
-        }
+   
+        return redirect()->route('specialities.index')
+            ->with('success','Spécialité créée avec succès.');
+        
     }
 
     /**
@@ -118,7 +107,7 @@ class SpecialityController extends Controller
 
         return redirect()->route('specialities.index')
 
-                        ->with('success','Speciality updated successfully');
+                        ->with('success','Spécialité mise à jour avec succès');
 
 
         
@@ -135,6 +124,6 @@ class SpecialityController extends Controller
     {
         //
         Speciality::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

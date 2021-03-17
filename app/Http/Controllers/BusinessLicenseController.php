@@ -15,7 +15,7 @@ class BusinessLicenseController extends Controller
     public function index()
     {
         //
-        $business_licenses =  BusinessLicense::orderBy('id', 'asc')->paginate(10)->setPath('business_licenses');
+        $business_licenses =  BusinessLicense::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("business_licenses.index", compact(['business_licenses']) );
     }
@@ -57,7 +57,7 @@ class BusinessLicenseController extends Controller
 
    
         return redirect()->route('business_licenses.index')
-            ->with('success','Business license created successfully.');
+            ->with('success',"Licence d'exploitation créée avec succès.");
 
 
     }
@@ -110,7 +110,7 @@ class BusinessLicenseController extends Controller
 
         return redirect()->route('business_licenses.index')
 
-                        ->with('success','BusinessLicense updated successfully');
+                        ->with('success',"Licence d'exploitation mise à jour avec succès");
     }
 
     /**
@@ -123,6 +123,6 @@ class BusinessLicenseController extends Controller
     {
         //
         BusinessLicense::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

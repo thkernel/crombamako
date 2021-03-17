@@ -15,7 +15,7 @@ class PrestationController extends Controller
     public function index()
     {
         //
-         $prestations =  Prestation::orderBy('id', 'asc')->paginate(10)->setPath('prestations');
+         $prestations =  Prestation::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("prestations.index", compact(['prestations']) );
 
@@ -56,7 +56,7 @@ class PrestationController extends Controller
 
    
         return redirect()->route('prestations.index')
-            ->with('success','Prestation created successfully.');
+            ->with('success','Prestation créée avec succès.');
     }
 
     /**
@@ -105,7 +105,7 @@ class PrestationController extends Controller
 
         return redirect()->route('prestations.index')
 
-                        ->with('success','Prestation updated successfully');
+                        ->with('success','Prestation mise à jour avec succès');
 
 
     }
@@ -120,6 +120,6 @@ class PrestationController extends Controller
     {
         //
         Prestation::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

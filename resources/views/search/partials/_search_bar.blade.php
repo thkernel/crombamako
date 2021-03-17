@@ -46,8 +46,8 @@
 			 
 
 			  	
-						<div class="col-md-3">
-							<div class="form-group">
+						<div class="col-md-3 ">
+							<div class="form-group mg-t-20">
 					  			<input type="submit" value="RECHERCHER" class= "btn btn-primary btn-block" />
 							</div>
 						</div>

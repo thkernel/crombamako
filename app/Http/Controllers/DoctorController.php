@@ -70,13 +70,13 @@ class DoctorController extends Controller
     public function store(Request $request)
     {
         //
+        $request["status"] = "enable";
         $request->validate([
             'sex' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
             'phone' => 'required',
             'town_id' => 'required',
-            'neighborhood_id' => 'required',
             'email' => 'required',
             'speciality_id' => 'required',
 
@@ -86,11 +86,13 @@ class DoctorController extends Controller
         // Create doctor and his account.
         $doctor = doctor_factory($request);
 
+
+        /*
         $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
         $reference = last_doctor_reference($year);
         
 
-        // Add doctor to the doctor order.
+
         $doctor_order = [
             "reference" => $reference,
             "doctor_id" => $doctor->id,
@@ -100,11 +102,12 @@ class DoctorController extends Controller
         ];
 
         DoctorOrder::create($doctor_order);
+        */
 
 
    
         return redirect()->route('doctors.index')
-            ->with('success','Doctor created successfully.');
+            ->with('success','Médecin créé avec succès.');
     }
 
     /**
@@ -151,7 +154,6 @@ class DoctorController extends Controller
             'last_name' => 'required',
             'phone' => 'required',
             'town_id' => 'required',
-            'neighborhood_id' => 'required',
             'email' => 'required',
             'speciality_id' => 'required',
 
@@ -163,8 +165,39 @@ class DoctorController extends Controller
 
         return redirect()->route('doctors.index')
 
-                        ->with('success','Doctor updated successfully');
+                        ->with('success','Médecin mis à jour avec succès');
     }
+
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Role  $role
+     * @return \Illuminate\Http\Response
+     */
+    public function change_status($id)
+    {
+        //
+       
+        $doctor = DoctorProfile::find($id);
+        if (isDoctorEnable($doctor)){
+            $doctor->status = "disable";
+        }
+        else{
+            $doctor->status = "enable";
+        }
+        
+        //dd($doctor);
+        $doctor->update();
+
+  
+
+        return redirect()->route('doctors.index')
+
+                        ->with('success','Statut changé avec succès');
+    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -183,7 +216,7 @@ class DoctorController extends Controller
        
 
 
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }
 

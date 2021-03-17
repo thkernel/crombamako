@@ -18,6 +18,8 @@ class DashboardController extends Controller
     {
         //
 
+      
+
         $total_doctors =  count(DoctorOrder::all());
         $total_structures =  count(StructureProfile::all());
         $subscription_requests =  SubscriptionRequest::where("status", '<>', "validated")->get();

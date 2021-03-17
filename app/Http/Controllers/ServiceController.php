@@ -15,7 +15,7 @@ class ServiceController extends Controller
     public function index()
     {
         //
-         $services =  Service::orderBy('id', 'asc')->paginate(10)->setPath('services');
+         $services =  Service::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("services.index", compact(['services']) );
 
@@ -57,7 +57,7 @@ class ServiceController extends Controller
 
    
         return redirect()->route('services.index')
-            ->with('success','Service created successfully.');
+            ->with('success','Service créé avec succès.');
     }
 
     /**
@@ -105,7 +105,7 @@ class ServiceController extends Controller
 
         return redirect()->route('services.index')
 
-                        ->with('success','Service updated successfully');
+                        ->with('success','Service mis à jour avec succès');
 
     }
 
@@ -119,6 +119,6 @@ class ServiceController extends Controller
     {
         //
          Service::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

@@ -9,7 +9,8 @@
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
       
-
+        <h2>Modification - Opportunité</h2>
+        <hr />
     </div>
     <div class="section-body">
 		<div class="row">
@@ -18,7 +19,7 @@
 
                 <div class="pull-left">
 
-                    <h2>Modification - Opportunité</h2>
+                    
 
                 </div>
 
@@ -37,7 +38,7 @@
 
     <div class="alert alert-danger">
 
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+        <strong>Oups!</strong> Il y a eu des problèmes avec les données saisie.<br><br>
 
         <ul>
 
@@ -55,7 +56,7 @@
 
    
 
-<form action="{{ route('opportunities.update',$opportunity->id) }}" method="POST">
+<form action="{{ route('opportunities.update',$opportunity->id) }}" method="POST" enctype="multipart/form-data">
 
     @csrf
     @method('PUT')

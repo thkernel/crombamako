@@ -66,10 +66,9 @@ class SubscriptionRequestController extends Controller
             'sex' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|unique:subscription_requests',
             'town_id' => 'required',
-            'neighborhood_id' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:subscription_requests',
             'speciality_id' => 'required',
 
 
@@ -80,14 +79,19 @@ class SubscriptionRequestController extends Controller
 
 
        
-        // Attach record
+       
+
+       if ($request->hasFile('files[]')){
+
+             // Attach record
        $allowedfileExtension = ['pdf','jpg','png','docx'];
 
-       eloquent_storage_service($subscription_request, $request, $allowedfileExtension, 'files', 'uploads');
+            eloquent_storage_service($subscription_request, $request, $allowedfileExtension, 'files', 'files');
+        }
 
    
         return redirect()->route('home_path')
-            ->with('success','Subscription created successfully.');
+            ->with('success','La préinscription a bien été créé.');
     }
 
     /**
@@ -138,7 +142,6 @@ class SubscriptionRequestController extends Controller
             'last_name' => 'required',
             'phone' => 'required',
             'town_id' => 'required',
-            'neighborhood_id' => 'required',
             'email' => 'required',
             'speciality_id' => 'required',
 
@@ -150,14 +153,17 @@ class SubscriptionRequestController extends Controller
 
 
        
-        // Attach record
+        if ($request->hasFile('files[]')){
+
+             // Attach record
        $allowedfileExtension = ['pdf','jpg','png','docx'];
 
-       eloquent_storage_service($subscription_request, $request, $allowedfileExtension, 'files', 'uploads');
+            eloquent_storage_service($subscription_request, $request, $allowedfileExtension, 'files', 'files');
+        }
 
    
         return redirect()->route('subscription_requests.index')
-            ->with('success','Subscription was edited successfully.');
+            ->with('success','La préinscription a été modifié avec succès.');
 
 
 
@@ -169,12 +175,14 @@ class SubscriptionRequestController extends Controller
 
         // create doctor account and send credentials
         $doctor = doctor_factory($subscription_request);
+        
+/*
         $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
 
         $reference = last_doctor_reference($year);
         
 
-        // Add doctor to the doctor order.
+        
         $doctor_order = [
             "reference" => $reference,
             "doctor_id" => $doctor->id,
@@ -183,7 +191,7 @@ class SubscriptionRequestController extends Controller
             "user_id" => current_user()->id
         ];
 
-        DoctorOrder::create($doctor_order);
+        DoctorOrder::create($doctor_order);*/
 
         
 
@@ -197,7 +205,7 @@ class SubscriptionRequestController extends Controller
 
         return redirect()->route('subscription_requests.index')
 
-                        ->with('success','SubscriptionRequest validated successfully');
+                        ->with('success','La préinscription a été validée avec succès');
     }
 
     /**

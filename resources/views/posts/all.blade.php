@@ -2,8 +2,8 @@
 
 @section("content")
 	<div class="container">
-		<div class="contact-content mt-30 mb-30">
-		<div class="box box-primary">
+		<div class="contact-content mg-t-30 mg-b-30">
+		<div class="box box-primary ">
 			<h1 class="box-header">Actualité</h1>
 			<div class="box-body">
 				<div class="row">
@@ -14,7 +14,7 @@
 							        <div class="card-thumbnail">
 							           <div class="contact-img">
 
-							            <img src="{{url('/images/post-missing.jpg')}}" alt="">
+							            {!! post_thumbnail($post, "", "") !!}
 
 							        </div></div>
 							        <div class="card-title">
@@ -22,6 +22,10 @@
 							            	 
 							            	<a  href="{{ route('show_post_path', $post->slug) }}">{{ $post->title }} </a>
 							            </h5>                         
+							        </div>
+
+							        <div class="post-category">
+							              {{ $post->post_category->name}}              
 							        </div>
 							            
 							        <div class="excerpt label-wrap label-right hide-on-list">
@@ -38,6 +42,9 @@
 							            </div>
 							           
 							             <div class="item-view pull-right">
+
+							             	<i class="fa fa-clock-o" aria-hidden="true"></i>
+							                {{ format_date($post->created_at, "d/m/Y") }}
 							                
 							            </div>
 							        </div>

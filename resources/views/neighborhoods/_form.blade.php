@@ -18,6 +18,7 @@
             <label for="name" class="required">Nom:</label>
 
             <input type="text" name="name" value="{{  old('name') ?? $neighborhood->name }}" class="form-control" placeholder="Nom" reauired>
+            {!! $errors->first('name', '<p class="error">:message</p>') !!}
 
         </div>
 

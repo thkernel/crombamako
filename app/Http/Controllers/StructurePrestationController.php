@@ -20,7 +20,7 @@ class StructurePrestationController extends Controller
     public function index()
     {
         //
-        $structure_prestations =  StructurePrestation::orderBy('id', 'asc')->paginate(10)->setPath('structure_prestations');
+        $structure_prestations =  StructurePrestation::orderBy('id', 'asc')->get();
       
         return view("structure_prestations.index", compact(['structure_prestations']) );
     }
@@ -80,7 +80,7 @@ class StructurePrestationController extends Controller
 
    
         return redirect()->route('structure_prestations.index')
-            ->with('success','StructurePrestation created successfully.');
+            ->with('success','Prestation de structure créée avec succès.');
 
 
     }
@@ -155,7 +155,7 @@ class StructurePrestationController extends Controller
 
         return redirect()->route('structure_prestations.index')
 
-                        ->with('success','StructurePrestation updated successfully');
+                        ->with('success','Prestation de structure mise à jour avec succès');
     }
 
     /**
@@ -168,6 +168,6 @@ class StructurePrestationController extends Controller
     {
         //
         StructurePrestation::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

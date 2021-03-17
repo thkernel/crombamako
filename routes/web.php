@@ -51,11 +51,6 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 
 
 
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -127,6 +122,8 @@ Route::get('/contributions/statement', [ContributionController::class, 'statemen
 
 Route::put('/contribution/{id}/cancel/', [ContributionController::class, 'cancel'])->name('contributions.cancel')->middleware(['auth']);
 
+Route::put('/doctor_profile/{id}/change-satus/', [DoctorController::class, 'change_status'])->name('doctors.change_status')->middleware(['auth']);
+
 
 
 Route::resource('admin_profiles', AdminProfileController::class)->middleware(['auth']);
@@ -179,6 +176,8 @@ Route::resource('permissions', PermissionController::class)->middleware(['auth']
 Route::get('neighborhoods/get/{id}', [NeighborhoodController::class, "getNeighborhoods"]);
 
 Route::get('/pdf/statement',[ContributionController::class, 'download_statement_pdf'])->name("download_statement_pdf_path");
+
+Route::get('/document_requests/{id}/pdf/',[DocumentRequestController::class, 'download_document_request_pdf'])->name("download_document_request_pdf_path");
 
 
 
