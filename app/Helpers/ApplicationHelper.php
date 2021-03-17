@@ -188,7 +188,7 @@
                             //dd($blob);
 
                            	
-                            $attachment = $record->attachment()->create([
+                            $attachment = $record->attachments()->create([
                                     "blob_id" => $blob->id,
                                     "name" => $fileInputName
                                 ]
@@ -349,7 +349,7 @@
                  
             if($error_code == 23505){
                 
-                return back()->withError("Un médin avec la meme adresse email".' existe déjà.')->withInput();
+                return back()->withError("Un médecin avec la meme adresse email".' existe déjà.')->withInput();
             }else{
                 return back()->withError($e->getMessage())->withInput();
             }
@@ -409,6 +409,58 @@
         }
 
 	}
+
+
+
+    /* Create structure account */
+    function create_structure_account($structure_profile, $email, $role, $verified=true){
+        try{
+
+            $role = Role::whereName($role)->first();
+
+            // generate login and password
+            //$random_str = strtolower(Str::random(8));
+            //$login = strtolower($last_name.'_'.$random_str);
+            $password = explode("@", $email)[0]."".$structure_profile->id;
+            $login = explode("@", $email)[0];
+            $password = Hash::make($password);
+
+            
+           
+            
+            $user = [
+                    "login" => $login,
+                    "password" => $password,
+                    "userable_type" => get_class($structure_profile),
+                    "userable_id" => $structure_profile->id,
+                    "email" => $email,
+                    "role_id" => $role->id,
+                    
+            ];
+
+            $user = User::create($user);
+            
+           
+          
+            event(new Registered($user));
+            return $user;
+
+        }catch(QueryException $e){
+            $error_code = $e->errorInfo[0];
+                 
+            if($error_code == 23505){
+                
+                return back()->withError("Login ou Email".', existe déjà.')->withInput();
+            }else{
+                return back()->withError($e->getMessage())->withInput();
+            }
+            
+        }
+
+    }
+
+
+
 
     /* Get user IP */
 

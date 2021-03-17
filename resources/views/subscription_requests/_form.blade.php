@@ -62,8 +62,8 @@
 		</div>
 		<div class="col-md-4">
             <div class="form-group">
-             	<label for="neighborhood_id" class="required">Quartier:</label>
-                <select name="neighborhood_id" id="neighborhood_id" class="form-control" required>
+             	<label for="neighborhood_id">Quartier:</label>
+                <select name="neighborhood_id" id="neighborhood_id" class="form-control">
                     @if ($subscription_request->neighborhood_id)
                         <option value = "{{ $subscription_request->neighborhood_id }} selected">
                             {{ $subscription_request->neighborhood->name}}

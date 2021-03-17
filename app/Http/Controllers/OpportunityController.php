@@ -154,7 +154,15 @@ class OpportunityController extends Controller
     public function destroy($id)
     {
         //
-        Opportunity::where('id',$id)->delete();
+         $opportunity = Opportunity::find($id);
+
+        //$blob_id = $$opportunity->attachments->blob_id;
+        //$post->attachment()->delete();
+
+        $$opportunity->delete();
+        
+        //EloquentStorageBlob::where('id',$blob_id)->delete();
+
         return redirect()->back()->with('success','Supprimer avec succès');
     }
 }

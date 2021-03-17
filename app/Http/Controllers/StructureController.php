@@ -82,15 +82,14 @@ class StructureController extends Controller
 
         ]);
 
+
+        $structure_profile = StructureProfile::create($request->all());
+
         
-        $account = create_account('stru', $request->email, 'Structure' );
+       create_structure_account($structure_profile, $request->email, 'Structure' );
         
-        // If account is create succesfull.
-        if ($account){ 
-            $structure = StructureProfile::create($request->all());
-            $structure->user()->save($account);
-            event(new Registered($account));
-        }
+        
+        
 
         return redirect()->route('structures.index')
             ->with('success','Structure créée avec succès.');

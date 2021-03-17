@@ -77,7 +77,6 @@ class DoctorController extends Controller
             'last_name' => 'required',
             'phone' => 'required',
             'town_id' => 'required',
-            'neighborhood_id' => 'required',
             'email' => 'required',
             'speciality_id' => 'required',
 
@@ -87,11 +86,13 @@ class DoctorController extends Controller
         // Create doctor and his account.
         $doctor = doctor_factory($request);
 
+
+        /*
         $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
         $reference = last_doctor_reference($year);
         
 
-        // Add doctor to the doctor order.
+
         $doctor_order = [
             "reference" => $reference,
             "doctor_id" => $doctor->id,
@@ -101,6 +102,7 @@ class DoctorController extends Controller
         ];
 
         DoctorOrder::create($doctor_order);
+        */
 
 
    
@@ -152,7 +154,6 @@ class DoctorController extends Controller
             'last_name' => 'required',
             'phone' => 'required',
             'town_id' => 'required',
-            'neighborhood_id' => 'required',
             'email' => 'required',
             'speciality_id' => 'required',
 

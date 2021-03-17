@@ -55,7 +55,7 @@
 
 		<div class="row mg-t-20">
 			<div class="col-md-12 copyright text-center">
-				&copy;2021 Conseil Régional de l'Ordre des Médecins de Bamako - Tous droits réservés designe by <a href="http://www.certesmali.org/">CERTES</a>
+				&copy;2021 Conseil Régional de l'Ordre des Médecins de Bamako - Tous droits réservés designe by <a href="http://www.certesmali.org/" target="_blank">CERTES</a>
 			</div>
 
 			<!-- 

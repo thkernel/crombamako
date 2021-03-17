@@ -57,6 +57,6 @@ class SubscriptionRequest extends Model
 
     public function attachments()
     {
-        return $this->morphMany(EloquentStorageAttachment::class, 'attachmentable');
+        return $this->morphMany(EloquentStorageAttachment::class, 'attachable');
     }
 }
