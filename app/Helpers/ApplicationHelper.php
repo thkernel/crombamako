@@ -143,67 +143,123 @@
 
 	function eloquent_storage_service($record, $request, $allowedfileExtension, $fileInputName, $storage_directory){
 		
+
 		if ($record){
+
             if($request->hasFile($fileInputName)){
                 
                 $files = $request->file($fileInputName);
-
                 
-                foreach($files as $file){
-                    // For blob
-                    $key = Str::random(40);
-                    $filename = $file->getFileName();
-                    $original_filename = $file->getClientOriginalName();
-                    $content_type = $file->getClientMimeType();
-                    $meta_data = '';
-                    $byte_size = $file->getSize();
-                    $checksum = md5_file($file->getPathName());
-                    $extension = $file->getClientOriginalExtension();
-                    $check = in_array($extension,$allowedfileExtension);
+                if (is_array($files)){
+                
+                    foreach($files as $file){
+                        $current_timestamp = Carbon::now()->timestamp;
 
-                    $tab = [$key, $filename, $original_filename, $content_type, $meta_data, $byte_size, $checksum];
-                    
-                    
-                    
-                    if($check){
+                        // For blob
+                        $key = Str::random(40);
+                        $filename = $file->getFileName();
+                        $original_filename = $file->getClientOriginalName();
+                        $content_type = $file->getClientMimeType();
+                        $meta_data = '';
+                        $byte_size = $file->getSize();
+                        $checksum = md5_file($file->getPathName());
+                        $extension = $file->getClientOriginalExtension();
+                        $check = in_array($extension,$allowedfileExtension);
 
+                        $tab = [$key, $filename, $original_filename, $content_type, $meta_data, $byte_size, $checksum];
                         
+                        
+                        
+                        if($check){
+
+                            
 
 
-                        // create blob
-                        $blob = new EloquentStorageBlob;
-                        $blob->key = $key;
-                        $blob->filename = $original_filename;
-                        $blob->content_type = $content_type;
-                        $blob->metadata = $meta_data;
-                        $blob->byte_size = $byte_size;
-                        $blob->checksum = $checksum;
-                        $blob->save();
+                            // create blob
+                            $blob = new EloquentStorageBlob;
+                            $blob->key = $key;
+                            $blob->filename = $current_timestamp."_".$original_filename;
+                            $blob->content_type = $content_type;
+                            $blob->metadata = $meta_data;
+                            $blob->byte_size = $byte_size;
+                            $blob->checksum = $checksum;
+                            $blob->save();
 
-                        //dd($blob);
+                            //dd($blob);
 
-                       	
-                        $attachment = $blob->eloquent_storage_attachment()->create(["name" => $filename, 
-                            "attachmentable_id" => $record->id,
-                            "attachmentable_type" => class_basename(get_class($record))
-                             ]);
+                           	
+                            $attachment = $record->attachment()->create([
+                                    "blob_id" => $blob->id,
+                                    "name" => $fileInputName
+                                ]
+                            );
 
-                            /*
+                               
+                               
 
-                             $attachment = new EloquentStorangeAttachment;
-                             $attachment->eloquent_storage_blob_id = $blob->id;
-                             $attachment->name = $filename;
+                            if ($attachment){
+                                $file->storeAs($storage_directory,$current_timestamp."_".$original_filename, 'public');
+                                
+                            }
 
-                            $attachment = $record->eloquent_storage_attachments()->save();
-                            */
-
-                        if ($attachment){
-                            $file->store(storage_path($storage_directory));
                             
                         }
+                    }
 
+                }
+                else{
+                        $current_timestamp = Carbon::now()->timestamp;
+                        // For blob
+                        $file = $files;
+                        $key = Str::random(40);
+                        $filename = $file->getFileName();
+                        $original_filename = $file->getClientOriginalName();
+                        $content_type = $file->getClientMimeType();
+                        $meta_data = '';
+                        $byte_size = $file->getSize();
+                        $checksum = md5_file($file->getPathName());
+                        $extension = $file->getClientOriginalExtension();
+                        $check = in_array($extension,$allowedfileExtension);
+
+                        $tab = [$key, $filename, $original_filename, $content_type, $meta_data, $byte_size, $checksum];
+                        
+                        
+                        
+                        if($check){
+
+                            
+                            // create blob
+                            $blob = new EloquentStorageBlob;
+                            $blob->key = $key;
+                            $blob->filename = $current_timestamp."_".$original_filename;
+                            $blob->content_type = $content_type;
+                            $blob->metadata = $meta_data;
+                            $blob->byte_size = $byte_size;
+                            $blob->checksum = $checksum;
+                            $blob->save();
+
+
+
+                            
+
+                            $attachment = $record->attachment()->create([
+                                    "blob_id" => $blob->id,
+                                    "name" => $fileInputName
+                                ]
+                            );
+
+                               
+                            if ($attachment){
+                                
+                                $file->storeAs($storage_directory,$current_timestamp."_".$original_filename, 'public');
+                                
+                                
+                            }
+
+                            
                         
                     }
+
                 }
             }
         }
@@ -466,6 +522,47 @@ function structure_logo($structure, $alt_tag, $class_name){
 
 
 }
+
+function post_thumbnail($post, $alt_tag, $class_name){
+    
+    
+
+      
+    if  ($post->attachment){
+        
+        //dd(asset("storage/app/public/posts/".$post->attachment->blob->filename));
+        return "<img src=". asset("storage/posts/".$post->attachment->blob->filename) .">";
+
+    }
+    
+    else{
+        return '<img src="/images/post-missing.jpg"  alt="">';
+         
+    }
+
+
+}
+
+function opportunity_thumbnail($opportunity, $alt_tag, $class_name){
+    
+    
+
+      
+    if  ($opportunity->attachment){
+        
+        return "<img src=". asset("storage/opportunities/".$opportunity->attachment->blob->filename) .">";
+
+    }
+    
+    else{
+        return '<img src="/images/post-missing.jpg"  alt="">';
+         
+    }
+
+
+}
+
+
 
 function doctor_avatar($doctor, $alt_tag, $class_name){
    

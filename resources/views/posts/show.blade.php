@@ -21,7 +21,19 @@
                     </div>
                     
                     <div class="post-labels-wrap"> 
-                        
+                        <span class="post-category">
+                          {{ $post->post_category->name}}              
+                        </span>
+
+                        <span class="item-author">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            {{ $post->user->login }}
+                                        </span>
+                                       
+                                         <span class="item-view">
+                                            <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                            {{ format_date($post->created_at, "d/m/Y") }}
+                                        </span>
 
                     </div> 
                     
@@ -32,8 +44,8 @@
                 
                 
 
-                <div class="cover">
-                    <img src="{{url('/images/post-missing.jpg')}}" alt="">
+                <div class="cover mg-b-15">
+                    {!! post_thumbnail($post, "", "") !!}
 
                 </div>
                    

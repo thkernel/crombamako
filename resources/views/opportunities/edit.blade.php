@@ -56,7 +56,7 @@
 
    
 
-<form action="{{ route('opportunities.update',$opportunity->id) }}" method="POST">
+<form action="{{ route('opportunities.update',$opportunity->id) }}" method="POST" enctype="multipart/form-data">
 
     @csrf
     @method('PUT')

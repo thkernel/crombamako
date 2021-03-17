@@ -51,7 +51,7 @@
 
 @endif
 
-		<form action="{{ route('opportunities.store') }}" method="POST">
+		<form action="{{ route('opportunities.store') }}" method="POST" enctype="multipart/form-data">
 
     	@csrf
 		@include("opportunities/_form")

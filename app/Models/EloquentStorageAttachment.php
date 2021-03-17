@@ -12,15 +12,15 @@ class EloquentStorageAttachment extends Model
 
     protected $fillable = [
     	'name',
-    	'attachmentable_id', 
-        'attachmentable_type', 
-    	'eloquent_storage_blob_id',
+    	'attachable_id', 
+        'attachable_type', 
+    	'blob_id',
  
     ];
 
 
 
-    public function attachmentable()
+    public function attachable()
     {
         return $this->morphTo();
     }
@@ -29,7 +29,7 @@ class EloquentStorageAttachment extends Model
 
     
 
-    public function eloquent_storage_blob(){
-        return $this->belongsTo(EloquentStorageBlob::class);
+    public function blob(){
+        return $this->belongsTo(EloquentStorageBlob::class, 'blob_id');
     }
 }

@@ -65,30 +65,11 @@
 
      <div class="row">
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        @include("post_categories/_form")
 
-            <div class="form-group">
+    </div>
+        <div class="row">
 
-                <strong>Nom:</strong>
-
-                <input type="text" name="name" value="{{ $post_category->name }}" class="form-control" placeholder="Nom" reauired>
-
-            </div>
-
-        </div>
-<!--
-        <div class="col-xs-12 col-sm-12 col-md-12">
-
-            <div class="form-group">
-
-                <strong>Detail:</strong>
-
-                <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail"></textarea>
-
-            </div>
-
-        </div>
--->
          <div class="col-xs-12 col-sm-12 col-md-12">
 
         <div class="form-group text-right">

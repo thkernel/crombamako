@@ -14034,6 +14034,7 @@ a.text-dark:focus {
 .footer-widget-title {
   text-transform: uppercase;
   color: white;
+  text-decoration: underline;
 }
 
 .footer-widget-content ul {
@@ -14078,15 +14079,6 @@ a.text-dark:focus {
 
 .featured-properties .property-item {
   margin-bottom: 15px;
-}
-
-.featured-properties .card-title a {
-  color: #837e7e;
-}
-
-.featured-properties .card-title {
-  margin-top: 10px !important;
-  margin-bottom: 10px !important;
 }
 
 .featured-properties .load-more-button {
@@ -14696,12 +14688,6 @@ img.contact-img {
   color: #868ba1 !important;
 }
 
-.products .card-title {
-  color: #868ba1 !important;
-  margin-bottom: 15px !important;
-  margin-top: 15px !important;
-}
-
 section {
   padding: 30px 0px 30px 0px !important;
 }
@@ -14737,12 +14723,14 @@ section {
 
 .card-thumbnail img {
   width: 100% !important;
+  height: 150px;
 }
 
 .card-thumbnail {
   margin-top: -1.25rem;
   margin-left: -1.25rem;
   margin-right: -1.25rem;
+  height: 150px;
 }
 
 .features .icon .fa {
@@ -14942,6 +14930,36 @@ body {
 
 p.error {
   color: red;
+}
+
+.post-item .card-title {
+  color: #212529;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 5px 0px 0px 0px;
+  margin-bottom: 0px !important;
+}
+
+.item-author {
+  display: inline-block !important;
+}
+
+.card-title a {
+  color: #212324 !important;
+}
+
+.opportunity-type,
+.post-category {
+  background-color: #0866c6;
+  display: inline;
+  padding: 2px;
+  border-radius: 6px;
+  color: white;
+  font-size: 8pt;
+}
+
+.post-labels-wrap span {
+  margin: 5px;
 }
 
 /*!

@@ -63,9 +63,18 @@ class OpportunityController extends Controller
 
         
 
-        Opportunity::create($request->all());
+        $opportunity = Opportunity::create($request->all());
 
    
+        if ($request->hasFile('thumbnail')){
+
+             // Attach record
+            $allowedfileExtension = ['jpeg','jpg','png'];
+
+            eloquent_storage_service($opportunity, $request, $allowedfileExtension, 'thumbnail', 'opportunities');
+        }
+
+
         return redirect()->route('opportunities.index')
             ->with('success','Opportunité créée avec succès.');
     }
@@ -110,14 +119,25 @@ class OpportunityController extends Controller
         //
          $request->validate([
             'opportunity_type_id' => 'required',   
-            'title' => 'required|unique:opportunities',   
+            'title' => 'required',   
 
         ]);
 
   
         $opportunity->update($request->all());
 
-  
+       
+
+        if ($request->hasFile('thumbnail')){
+
+             // Attach record
+            $allowedfileExtension = ['jpeg','jpg','png'];
+
+            eloquent_storage_service($opportunity, $request, $allowedfileExtension, 'thumbnail', 'opportunities');
+        }
+
+
+
 
         return redirect()->route('opportunities.index')
 

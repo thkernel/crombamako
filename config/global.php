@@ -1,11 +1,11 @@
 
 <?php
 	return [
-		'application_name' => env('APP_NAME', 'Cinz@n'),
+		'application_name' => env('APP_NAME', 'CROM'),
 		'env' => env('APP_ENV', 'production'),
-		'company_phone' => '+223 20 20 20',
-		'company_email' => 'infos@cinzan.com',
-		'company_addresses' => 'Kalaban-Coura ACI , Rue 60 , Porte 473, Bamako - Mali',
+		'company_phone' => '+223 20 23 26 88',
+		'company_email' => '',
+		'company_addresses' => 'Hamdallaye ACI 2000, Rue : 338 , Porte : 69',
 		"abilities" => collect(["Create" => "Créer", "Read" => "Lecture", "Update" => "Modifier", "Delete" => "Supprimer"])
 
 

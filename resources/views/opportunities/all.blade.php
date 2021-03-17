@@ -2,7 +2,7 @@
 
 @section("content")
 	<div class="container">
-		<div class="contact-content mt-30 mb-30">
+		<div class="contact-content mg-t-30 mg-b-30">
 		<div class="box box-primary">
 			<h1 class="box-header">Opportunités</h1>
 			<div class="box-body">
@@ -14,7 +14,7 @@
 							        <div class="card-thumbnail">
 							           <div class="contact-img">
 
-							            <img src="{{url('/images/opportunite1.jpg')}}" alt="">
+							            {!! opportunity_thumbnail($opportunity, "", "") !!}
 
 							        </div></div>
 							        <div class="card-title">
@@ -22,6 +22,9 @@
 							            	 
 							            	<a  href="{{ route('show_opportunity_path', $opportunity->slug) }}">{{ $opportunity->title }} </a>
 							            </h5>                         
+							        </div>
+							        <div class="opportunity-type">
+							              {{ $opportunity->opportunity_type->name}}              
 							        </div>
 							            
 							        <div class="excerpt label-wrap label-right hide-on-list">

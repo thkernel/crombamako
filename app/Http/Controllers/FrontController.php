@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Town;
 use App\Models\StructureCategory;
 use App\Models\Neighborhood;
+use App\Models\Post;
+use App\Models\Opportunity;
 
 class FrontController extends Controller
 {
@@ -21,9 +23,13 @@ class FrontController extends Controller
         $towns =  Town::all();
         $neighborhoods = Neighborhood::all();
         $structure_categories =  StructureCategory::all();
+        $posts =  Post::orderBy('id', 'desc')->take(3)->get();
+        $opportunities =  Opportunity::orderBy('id', 'desc')->take(3)->get();
+        
+        
         $structure_category_id = null;
         
-        return view("front.index", compact(['towns','neighborhoods', 'structure_categories', 'structure_category_id']) );
+        return view("front.index", compact(['towns','neighborhoods', 'structure_categories', 'structure_category_id', 'posts','opportunities']) );
     }
 
     /**
