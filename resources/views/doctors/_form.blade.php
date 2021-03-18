@@ -50,7 +50,7 @@
 
             <div class="form-group">
                 <label for="speciality_id" class="required">Spécialité:</label>
-                <select name="speciality_id" id="speciality_id" class="form-control" required>
+                <select name="speciality_id" id="speciality_id" class="form-control">
                     <option {{ $doctor->speciality_id  ? '' : 'disabled selected value'}}> 
                     @foreach($specialities as $speciality)
                         <option value = "{{ $speciality->id }}" {{ $speciality->id == $doctor->speciality_id ?  'selected' : ''}}>{{ $speciality->name }}</option>
