@@ -16,9 +16,9 @@
 
         <div class="text-right">
             
-
+          @if (current_user()->isDoctor() && current_user()->userable->approval == null)  
             <a class="btn btn-primary tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('approvals.create') }}"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</a>
-
+          @endif
         </div>
 
     </div>

@@ -62,8 +62,8 @@
         </div>
         <div class="col-md-4">
             <div class="form-group">
-                <label for="neighborhood_id" class="required">Quartier:</label>
-                <select name="neighborhood_id" class="form-control" required>
+                <label for="neighborhood_id">Quartier:</label>
+                <select name="neighborhood_id" class="form-control">
                     @if ($doctor->neighborhood_id)
                         <option value = "{{ $doctor->neighborhood_id }} selected">
                             {{ $doctor->neighborhood->name}}

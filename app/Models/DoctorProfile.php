@@ -53,6 +53,13 @@ class DoctorProfile extends Model
     public function contributions(){
         return $this->hasMany(Contribution::class,'doctor_id');
     }
+    public function approval(){
+        return $this->hasMany(Approval::class,'doctor_id');
+    }
+
+    public function business_license(){
+        return $this->hasMany(BusinessLicense::class,'doctor_id');
+    }
 
 
     public function speciality(){

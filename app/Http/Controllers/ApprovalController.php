@@ -15,7 +15,12 @@ class ApprovalController extends Controller
     public function index()
     {
         //
-        $approvals =  Approval::orderBy('id', 'asc')->get();
+        if (current_user()->isDoctor()){
+            $approvals = current_user()->userable->approval;
+        }else{
+            $approvals =  Approval::orderBy('id', 'asc')->get();
+        }
+        
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("approvals.index", compact(['approvals']) );
     }

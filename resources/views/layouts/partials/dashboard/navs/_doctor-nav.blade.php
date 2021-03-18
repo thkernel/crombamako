@@ -45,10 +45,7 @@
 
       </li>
 
-      <li class="sub-item">
-        <a class="sub-link" href="{{ route('visit_summaries.index') }}">Résumés de visite</a>
-
-      </li>
+     
 
     </ul>
   </li>

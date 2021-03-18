@@ -15,7 +15,13 @@ class BusinessLicenseController extends Controller
     public function index()
     {
         //
-        $business_licenses =  BusinessLicense::orderBy('id', 'asc')->get();
+        if (current_user()->isDoctor()){
+            $business_licenses = current_user()->userable->business_license;
+
+        }else{
+             $business_licenses =  BusinessLicense::orderBy('id', 'asc')->get();
+        }
+       
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("business_licenses.index", compact(['business_licenses']) );
     }

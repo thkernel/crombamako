@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         SpecialitySeeder::class,
         ServiceSeeder::class,
         PrestationSeeder::class,
+        NeighborhoodSeeder::class,
         //StructureCategorySeeder::class,
         
     ]);
