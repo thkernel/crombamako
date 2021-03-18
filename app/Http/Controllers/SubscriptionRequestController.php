@@ -75,7 +75,7 @@ class SubscriptionRequestController extends Controller
 
         ]);
 
-  
+         try{
         $subscription_request = SubscriptionRequest::create($request->all());
 
 
@@ -93,6 +93,15 @@ class SubscriptionRequestController extends Controller
    
         return redirect()->route('home_path')
             ->with('success','La préinscription a bien été créé.');
+
+        }catch(QueryException $e){
+            //$error_code = $e->errorInfo[0];
+                 
+           
+                return back()->withError($e->getMessage())->withInput();
+           
+            
+        }
     }
 
     /**
