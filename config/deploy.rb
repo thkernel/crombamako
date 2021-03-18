@@ -51,6 +51,8 @@ namespace :app do
             within release_path do
                 execute "rm -rf #{release_path}/storage"
                 execute "ln -s #{shared_path}/storage/ #{release_path}"
+                execute :php, "artisan storage:link" 
+
             end
         end
     end

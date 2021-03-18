@@ -12,7 +12,12 @@
 							<div class="card">
 							    <div class="card-body">
 							        <div class="card-thumbnail">
+							        	<div class="post-category">
+							              {{ $post->post_category->name}}              
+							        </div>
+							        
 							           <div class="contact-img">
+							           	
 
 							            {!! post_thumbnail($post, "", "") !!}
 
@@ -24,9 +29,7 @@
 							            </h5>                         
 							        </div>
 
-							        <div class="post-category">
-							              {{ $post->post_category->name}}              
-							        </div>
+							        
 							            
 							        <div class="excerpt label-wrap label-right hide-on-list">
 							                              

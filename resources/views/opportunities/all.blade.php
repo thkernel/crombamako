@@ -12,6 +12,10 @@
 							<div class="card">
 							    <div class="card-body">
 							        <div class="card-thumbnail">
+							        	<div class="opportunity-type">
+							              {{ $opportunity->opportunity_type->name}}              
+							        </div>
+							        
 							           <div class="contact-img">
 
 							            {!! opportunity_thumbnail($opportunity, "", "") !!}
@@ -23,9 +27,7 @@
 							            	<a  href="{{ route('show_opportunity_path', $opportunity->slug) }}">{{ $opportunity->title }} </a>
 							            </h5>                         
 							        </div>
-							        <div class="opportunity-type">
-							              {{ $opportunity->opportunity_type->name}}              
-							        </div>
+							        
 							            
 							        <div class="excerpt label-wrap label-right hide-on-list">
 							                              
