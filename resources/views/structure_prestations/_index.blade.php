@@ -6,21 +6,21 @@
     
     <td>
 	    <div class="action-buttons">
-            @can('update', App\Models\StructurePrestation::class)
+            
 			
 
              <a  href="{{ route('structure_prestations.edit', $structure_prestation->id) }}">
                 <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
                 Modifier
              </a>
-            @endcan
+            
 
-            @can('delete', App\Models\StructurePrestation::class)
+            
                 <a href="#" data-toggle="modal" data-target="#structure-prestation-{{$structure_prestation->id}}-modal">
                     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
                     Supprimer
                 </a>
-            @endcan
+            
 
 <div id="structure-prestation-{{$structure_prestation->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
