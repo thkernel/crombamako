@@ -42,8 +42,22 @@ namespace :laravel do
         end
     end
 end
+
+namespace :app do 
+    desc "Symbolic link for shared folders"
+    task :create_symlink do
+        on roles(:app) do
+            within release_path do
+                execute "rm -rf #{release_path}/storage"
+                execute "ln -s #{shared_path}/storage/ #{release_path}"
+            end
+        end
+    end
+end
+
 namespace :deploy do
     after :updated, "composer:install"
     after :updated, "laravel:fix_permission"
     after :updated, "laravel:configure_dot_env"
+    after :published, "app:create_symlink" #to create symlink
 end
