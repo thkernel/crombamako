@@ -79,8 +79,40 @@
 		  padding: 0.5rem;
 		  text-align: left;
 		}
-		
-		
+		.report-header{
+			
+			width: 100%;
+			margin-bottom: 30px;
+		}
+		.logo{
+			width: 100px;
+		}
+		.logo img{
+			width: 100%;
+		}
+		.report-details .title{
+			text-align: center;
+		}
+		.title{
+			text-decoration: underline;
+		}
+
+		.report-details{
+			width: 100%;
+			margin-top: 63px;
+		}
+		.tfoot-bg{
+			background-color: #0087ff;
+			color: white;
+		}
+		.amount-words{
+			margin-top: 30px;
+			width: 100%;
+		}
+		.signature{
+			float: right;
+			margin-top: 40px;
+		}
 		
 
 	</style>

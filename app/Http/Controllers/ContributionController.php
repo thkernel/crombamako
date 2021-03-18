@@ -12,6 +12,7 @@ use App\Models\Town;
 use App\Models\Neighborhood;
 use App\Mail\ContributionMail;
 use PDF;
+use NumberToWords\NumberToWords;
 //use Illuminate\Mail\Mailable;
 
 class ContributionController extends Controller
@@ -41,12 +42,23 @@ class ContributionController extends Controller
         if ($contributions){
             $sum_total = $contributions->sum('total_amount');
         }else{
-            $sum_total = 0.0;
+            $sum_total = 0;
         }
+
+        // create the number to words "manager" class
+        $numberToWords = new NumberToWords();
+
+        // build a new number transformer using the RFC 3066 language identifier
+        $numberTransformer = $numberToWords->getNumberTransformer('fr');
+
+        $amount_words = $numberTransformer->toWords($sum_total);
+        $amount_words = ucwords($amount_words). " (". $sum_total .")". " F CFA" ;
         
-        $pdf = PDF::loadView('contributions.statement_pdf', compact(['contributions','sum_total']));
+        $pdf = PDF::loadView('contributions.statement_pdf', compact(['contributions','sum_total', 'amount_words']));
         
         return $pdf->download('etat-paiement.pdf');
+
+        /*return view('contributions.statement_pdf',compact(['contributions','sum_total','amount_words']));*/
     }
 
     /**
