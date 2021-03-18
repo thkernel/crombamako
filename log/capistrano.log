@@ -26642,3 +26642,535 @@ The links have been created.
   INFO [11ed0390] Running /usr/bin/env echo "Branch master (at 50cd4a508f7aad072b497a611d10c17057c0084d) deployed as release 20210318142220 by thekernel" >> /var/www/crombamako/crombamako.prod/revisions.log as crom@crombamako.ml
  DEBUG [11ed0390] Command: cd /var/www/crombamako/crombamako.prod/releases && /usr/bin/env echo "Branch master (at 50cd4a508f7aad072b497a611d10c17057c0084d) deployed as release 20210318142220 by thekernel" >> /var/www/crombamako/crombamako.prod/revisions.log
   INFO [11ed0390] Finished in 1.522 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-18 14:28:42 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [fdea0062] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [fdea0062] Command: /usr/bin/env mkdir -p /tmp
+  INFO [fdea0062] Finished in 7.601 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-0f2f694d80a091780e40.sh 0.0%
+  INFO Uploading /tmp/git-ssh-0f2f694d80a091780e40.sh 100.0%
+  INFO [2e9103bb] Running /usr/bin/env chmod 700 /tmp/git-ssh-0f2f694d80a091780e40.sh as crom@crombamako.ml
+ DEBUG [2e9103bb] Command: /usr/bin/env chmod 700 /tmp/git-ssh-0f2f694d80a091780e40.sh
+  INFO [2e9103bb] Finished in 1.575 seconds with exit status 0 (successful).
+  INFO [ea2c75c9] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [ea2c75c9] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0f2f694d80a091780e40.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [ea2c75c9] 	aa95035686c167c0008f0fd1ec805b1d6a0d8e51	HEAD
+  INFO [ea2c75c9] Finished in 1.860 seconds with exit status 0 (successful).
+  INFO [76c61506] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared /var/www/crombamako/crombamako.prod/releases as crom@crombamako.ml
+ DEBUG [76c61506] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared /var/www/crombamako/crombamako.prod/releases
+  INFO [76c61506] Finished in 1.731 seconds with exit status 0 (successful).
+  INFO [6af3217b] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/shared/storage/logs as crom@crombamako.ml
+ DEBUG [6af3217b] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/shared/storage/logs
+  INFO [6af3217b] Finished in 1.861 seconds with exit status 0 (successful).
+ DEBUG [e401f447] Running [ -f /var/www/crombamako/crombamako.prod/current/REVISION ] as crom@crombamako.ml
+ DEBUG [e401f447] Command: [ -f /var/www/crombamako/crombamako.prod/current/REVISION ]
+ DEBUG [e401f447] Finished in 1.559 seconds with exit status 0 (successful).
+ DEBUG [8a7adab3] Running /usr/bin/env cat /var/www/crombamako/crombamako.prod/current/REVISION 2>/dev/null as crom@crombamako.ml
+ DEBUG [8a7adab3] Command: /usr/bin/env cat /var/www/crombamako/crombamako.prod/current/REVISION 2>/dev/null
+ DEBUG [8a7adab3] 	50cd4a508f7aad072b497a611d10c17057c0084d
+ DEBUG [8a7adab3] Finished in 1.966 seconds with exit status 0 (successful).
+ DEBUG [d62e291b] Running [ -f /var/www/crombamako/crombamako.prod/repo/HEAD ] as crom@crombamako.ml
+ DEBUG [d62e291b] Command: [ -f /var/www/crombamako/crombamako.prod/repo/HEAD ]
+ DEBUG [d62e291b] Finished in 1.615 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/crombamako/crombamako.prod/repo
+ DEBUG [bd4092f9] Running if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [bd4092f9] Command: if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi
+ DEBUG [bd4092f9] Finished in 1.591 seconds with exit status 0 (successful).
+  INFO [695a9f4a] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as crom@crombamako.ml
+ DEBUG [695a9f4a] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0f2f694d80a091780e40.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [695a9f4a] Finished in 1.606 seconds with exit status 0 (successful).
+  INFO [2434185e] Running /usr/bin/env git remote update --prune as crom@crombamako.ml
+ DEBUG [2434185e] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0f2f694d80a091780e40.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [2434185e] 	Fetching origin
+ DEBUG [2434185e] 	From https://github.com/thkernel/medplatform
+   50cd4a5..aa95035  master     -> master
+  INFO [2434185e] Finished in 2.529 seconds with exit status 0 (successful).
+ DEBUG [983480ae] Running if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [983480ae] Command: if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi
+ DEBUG [983480ae] Finished in 1.810 seconds with exit status 0 (successful).
+  INFO [0294b7f2] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318142903 as crom@crombamako.ml
+ DEBUG [0294b7f2] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0f2f694d80a091780e40.sh" ; /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318142903 )
+  INFO [0294b7f2] Finished in 1.735 seconds with exit status 0 (successful).
+  INFO [779e0a22] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.prod/releases/20210318142903 as crom@crombamako.ml
+ DEBUG [779e0a22] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0f2f694d80a091780e40.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.prod/releases/20210318142903 )
+  INFO [779e0a22] Finished in 1.821 seconds with exit status 0 (successful).
+ DEBUG [0b688e47] Running if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [0b688e47] Command: if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi
+ DEBUG [0b688e47] Finished in 2.174 seconds with exit status 0 (successful).
+ DEBUG [760503dc] Running /usr/bin/env git rev-list --max-count=1 master as crom@crombamako.ml
+ DEBUG [760503dc] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-0f2f694d80a091780e40.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [760503dc] 	aa95035686c167c0008f0fd1ec805b1d6a0d8e51
+ DEBUG [760503dc] Finished in 2.487 seconds with exit status 0 (successful).
+ DEBUG [42b69d7a] Running if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318142903; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318142903'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [42b69d7a] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318142903; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318142903'" 1>&2; false; fi
+ DEBUG [42b69d7a] Finished in 1.705 seconds with exit status 0 (successful).
+  INFO [690a1b91] Running /usr/bin/env echo "aa95035686c167c0008f0fd1ec805b1d6a0d8e51" > REVISION as crom@crombamako.ml
+ DEBUG [690a1b91] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318142903 && /usr/bin/env echo "aa95035686c167c0008f0fd1ec805b1d6a0d8e51" > REVISION
+  INFO [690a1b91] Finished in 1.747 seconds with exit status 0 (successful).
+  INFO [31636e0b] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318142903/storage /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework as crom@crombamako.ml
+ DEBUG [31636e0b] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318142903/storage /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework
+  INFO [31636e0b] Finished in 2.315 seconds with exit status 0 (successful).
+ DEBUG [8c6fda92] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/app ] as crom@crombamako.ml
+ DEBUG [8c6fda92] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/app ]
+ DEBUG [8c6fda92] Finished in 1.839 seconds with exit status 1 (failed).
+ DEBUG [f2b501b3] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/app ] as crom@crombamako.ml
+ DEBUG [f2b501b3] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/app ]
+ DEBUG [f2b501b3] Finished in 1.679 seconds with exit status 0 (successful).
+  INFO [cb18f525] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/app as crom@crombamako.ml
+ DEBUG [cb18f525] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/app
+  INFO [cb18f525] Finished in 1.672 seconds with exit status 0 (successful).
+  INFO [e315769f] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/app as crom@crombamako.ml
+ DEBUG [e315769f] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/app
+  INFO [e315769f] Finished in 1.750 seconds with exit status 0 (successful).
+ DEBUG [5803236a] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/cache ] as crom@crombamako.ml
+ DEBUG [5803236a] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/cache ]
+ DEBUG [5803236a] Finished in 1.820 seconds with exit status 1 (failed).
+ DEBUG [96711691] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/cache ] as crom@crombamako.ml
+ DEBUG [96711691] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/cache ]
+ DEBUG [96711691] Finished in 1.603 seconds with exit status 0 (successful).
+  INFO [1b94a887] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/cache as crom@crombamako.ml
+ DEBUG [1b94a887] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/cache
+  INFO [1b94a887] Finished in 1.657 seconds with exit status 0 (successful).
+  INFO [584beac0] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/cache as crom@crombamako.ml
+ DEBUG [584beac0] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/cache
+  INFO [584beac0] Finished in 1.688 seconds with exit status 0 (successful).
+ DEBUG [0dfe2c27] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/sessions ] as crom@crombamako.ml
+ DEBUG [0dfe2c27] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/sessions ]
+ DEBUG [0dfe2c27] Finished in 1.718 seconds with exit status 1 (failed).
+ DEBUG [77631a1e] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/sessions ] as crom@crombamako.ml
+ DEBUG [77631a1e] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/sessions ]
+ DEBUG [77631a1e] Finished in 1.642 seconds with exit status 0 (successful).
+  INFO [72d8333e] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/sessions as crom@crombamako.ml
+ DEBUG [72d8333e] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/sessions
+  INFO [72d8333e] Finished in 1.774 seconds with exit status 0 (successful).
+  INFO [37919d6f] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/sessions as crom@crombamako.ml
+ DEBUG [37919d6f] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/sessions
+  INFO [37919d6f] Finished in 1.720 seconds with exit status 0 (successful).
+ DEBUG [0a5de6b2] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/views ] as crom@crombamako.ml
+ DEBUG [0a5de6b2] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/views ]
+ DEBUG [0a5de6b2] Finished in 1.809 seconds with exit status 1 (failed).
+ DEBUG [b882fc23] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/views ] as crom@crombamako.ml
+ DEBUG [b882fc23] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/views ]
+ DEBUG [b882fc23] Finished in 1.942 seconds with exit status 0 (successful).
+  INFO [ec8324fc] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/views as crom@crombamako.ml
+ DEBUG [ec8324fc] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/views
+  INFO [ec8324fc] Finished in 1.884 seconds with exit status 0 (successful).
+  INFO [26a3c3a0] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/views as crom@crombamako.ml
+ DEBUG [26a3c3a0] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/framework/views
+  INFO [26a3c3a0] Finished in 1.571 seconds with exit status 0 (successful).
+ DEBUG [2b84616f] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/logs ] as crom@crombamako.ml
+ DEBUG [2b84616f] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/logs ]
+ DEBUG [2b84616f] Finished in 1.666 seconds with exit status 1 (failed).
+ DEBUG [c0c780eb] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/logs ] as crom@crombamako.ml
+ DEBUG [c0c780eb] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/logs ]
+ DEBUG [c0c780eb] Finished in 1.562 seconds with exit status 0 (successful).
+  INFO [d7622397] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/logs as crom@crombamako.ml
+ DEBUG [d7622397] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/logs
+  INFO [d7622397] Finished in 1.786 seconds with exit status 0 (successful).
+  INFO [651b4ab1] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/logs /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/logs as crom@crombamako.ml
+ DEBUG [651b4ab1] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/logs /var/www/crombamako/crombamako.prod/releases/20210318142903/storage/logs
+  INFO [651b4ab1] Finished in 1.650 seconds with exit status 0 (successful).
+ DEBUG [b931fb10] Running if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318142903; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318142903'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [b931fb10] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318142903; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318142903'" 1>&2; false; fi
+ DEBUG [b931fb10] Finished in 1.812 seconds with exit status 0 (successful).
+  INFO [14f39df0] Running /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader as crom@crombamako.ml
+ DEBUG [14f39df0] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318142903 && /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader
+  INFO [14f39df0] Finished in 17.428 seconds with exit status 0 (successful).
+  INFO [7169f131] Running /usr/bin/env chmod u+x artisan as crom@crombamako.ml
+ DEBUG [7169f131] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318142903 && /usr/bin/env chmod u+x artisan
+  INFO [7169f131] Finished in 1.718 seconds with exit status 0 (successful).
+  INFO [91698db4] Running /usr/bin/env cp /var/www/secrets/prod/.env /var/www/crombamako/crombamako.prod/releases/20210318142903/.env as crom@crombamako.ml
+ DEBUG [91698db4] Command: /usr/bin/env cp /var/www/secrets/prod/.env /var/www/crombamako/crombamako.prod/releases/20210318142903/.env
+  INFO [91698db4] Finished in 1.573 seconds with exit status 0 (successful).
+  INFO [6db0e8e0] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/releases/20210318142903 /var/www/crombamako/crombamako.prod/releases/current as crom@crombamako.ml
+ DEBUG [6db0e8e0] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/releases/20210318142903 /var/www/crombamako/crombamako.prod/releases/current
+  INFO [6db0e8e0] Finished in 1.697 seconds with exit status 0 (successful).
+  INFO [96624970] Running /usr/bin/env mv /var/www/crombamako/crombamako.prod/releases/current /var/www/crombamako/crombamako.prod as crom@crombamako.ml
+ DEBUG [96624970] Command: /usr/bin/env mv /var/www/crombamako/crombamako.prod/releases/current /var/www/crombamako/crombamako.prod
+  INFO [96624970] Finished in 1.720 seconds with exit status 0 (successful).
+ DEBUG [4844da97] Running if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318142903; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318142903'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [4844da97] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318142903; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318142903'" 1>&2; false; fi
+ DEBUG [4844da97] Finished in 1.600 seconds with exit status 0 (successful).
+  INFO [fca8b8cd] Running rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage as crom@crombamako.ml
+ DEBUG [fca8b8cd] Command: rm -rf /var/www/crombamako/crombamako.prod/releases/20210318142903/storage
+  INFO [fca8b8cd] Finished in 1.578 seconds with exit status 0 (successful).
+  INFO [253c38ef] Running ln -s /var/www/crombamako/crombamako.prod/shared/storage/ /var/www/crombamako/crombamako.prod/releases/20210318142903 as crom@crombamako.ml
+ DEBUG [253c38ef] Command: ln -s /var/www/crombamako/crombamako.prod/shared/storage/ /var/www/crombamako/crombamako.prod/releases/20210318142903
+  INFO [253c38ef] Finished in 1.888 seconds with exit status 0 (successful).
+  INFO [7a25537e] Running /usr/bin/env php artisan storage:link as crom@crombamako.ml
+ DEBUG [7a25537e] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318142903 && /usr/bin/env php artisan storage:link
+ DEBUG [7a25537e] 	
+The [/var/www/crombamako/crombamako.prod/releases/20210318142903/public/storage] link has been connected to [/var/www/crombamako/crombamako.prod/releases/20210318142903/storage/app/public].
+The links have been created.
+  INFO [7a25537e] Finished in 2.116 seconds with exit status 0 (successful).
+ DEBUG [9d9980b4] Running /usr/bin/env ls -x /var/www/crombamako/crombamako.prod/releases as crom@crombamako.ml
+ DEBUG [9d9980b4] Command: /usr/bin/env ls -x /var/www/crombamako/crombamako.prod/releases
+ DEBUG [9d9980b4] 	20210318125152	20210318132948	20210318134021	20210318141702	20210318142220
+20210318142903
+ DEBUG [9d9980b4] Finished in 1.658 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on crombamako.ml
+ DEBUG [38c65903] Running [ -d /var/www/crombamako/crombamako.prod/current ] as crom@crombamako.ml
+ DEBUG [38c65903] Command: [ -d /var/www/crombamako/crombamako.prod/current ]
+ DEBUG [38c65903] Finished in 1.753 seconds with exit status 0 (successful).
+ DEBUG [ee8f0bcb] Running /usr/bin/env readlink /var/www/crombamako/crombamako.prod/current as crom@crombamako.ml
+ DEBUG [ee8f0bcb] Command: /usr/bin/env readlink /var/www/crombamako/crombamako.prod/current
+ DEBUG [ee8f0bcb] 	/var/www/crombamako/crombamako.prod/releases/20210318142903
+ DEBUG [ee8f0bcb] Finished in 2.103 seconds with exit status 0 (successful).
+  INFO [51c59713] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318125152 as crom@crombamako.ml
+ DEBUG [51c59713] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318125152
+  INFO [51c59713] Finished in 1.793 seconds with exit status 0 (successful).
+ DEBUG [74366879] Running if test ! -d /var/www/crombamako/crombamako.prod/releases; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [74366879] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases'" 1>&2; false; fi
+ DEBUG [74366879] Finished in 1.634 seconds with exit status 0 (successful).
+  INFO [30fe2938] Running /usr/bin/env echo "Branch master (at aa95035686c167c0008f0fd1ec805b1d6a0d8e51) deployed as release 20210318142903 by thekernel" >> /var/www/crombamako/crombamako.prod/revisions.log as crom@crombamako.ml
+ DEBUG [30fe2938] Command: cd /var/www/crombamako/crombamako.prod/releases && /usr/bin/env echo "Branch master (at aa95035686c167c0008f0fd1ec805b1d6a0d8e51) deployed as release 20210318142903 by thekernel" >> /var/www/crombamako/crombamako.prod/revisions.log
+  INFO [30fe2938] Finished in 1.569 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-18 14:33:40 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e5e535a2] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [e5e535a2] Command: /usr/bin/env mkdir -p /tmp
+  INFO [e5e535a2] Finished in 118.047 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-b509119f1d2292c5161a.sh 0.0%
+  INFO Uploading /tmp/git-ssh-b509119f1d2292c5161a.sh 100.0%
+  INFO [35959951] Running /usr/bin/env chmod 700 /tmp/git-ssh-b509119f1d2292c5161a.sh as crom@crombamako.ml
+ DEBUG [35959951] Command: /usr/bin/env chmod 700 /tmp/git-ssh-b509119f1d2292c5161a.sh
+  INFO [35959951] Finished in 1.590 seconds with exit status 0 (successful).
+  INFO [3600932a] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [3600932a] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b509119f1d2292c5161a.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [3600932a] 	aa95035686c167c0008f0fd1ec805b1d6a0d8e51	HEAD
+  INFO [3600932a] Finished in 2.334 seconds with exit status 0 (successful).
+  INFO [0fd00051] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared /var/www/crombamako/crombamako.prod/releases as crom@crombamako.ml
+ DEBUG [0fd00051] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared /var/www/crombamako/crombamako.prod/releases
+  INFO [0fd00051] Finished in 1.544 seconds with exit status 0 (successful).
+  INFO [041ae05a] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/shared/storage/logs as crom@crombamako.ml
+ DEBUG [041ae05a] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/shared/storage/logs
+  INFO [041ae05a] Finished in 1.643 seconds with exit status 0 (successful).
+ DEBUG [0862ffb3] Running [ -f /var/www/crombamako/crombamako.prod/current/REVISION ] as crom@crombamako.ml
+ DEBUG [0862ffb3] Command: [ -f /var/www/crombamako/crombamako.prod/current/REVISION ]
+ DEBUG [0862ffb3] Finished in 1.644 seconds with exit status 0 (successful).
+ DEBUG [48671f48] Running /usr/bin/env cat /var/www/crombamako/crombamako.prod/current/REVISION 2>/dev/null as crom@crombamako.ml
+ DEBUG [48671f48] Command: /usr/bin/env cat /var/www/crombamako/crombamako.prod/current/REVISION 2>/dev/null
+ DEBUG [48671f48] 	aa95035686c167c0008f0fd1ec805b1d6a0d8e51
+ DEBUG [48671f48] Finished in 2.036 seconds with exit status 0 (successful).
+ DEBUG [f3baf799] Running [ -f /var/www/crombamako/crombamako.prod/repo/HEAD ] as crom@crombamako.ml
+ DEBUG [f3baf799] Command: [ -f /var/www/crombamako/crombamako.prod/repo/HEAD ]
+ DEBUG [f3baf799] Finished in 1.683 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/crombamako/crombamako.prod/repo
+ DEBUG [8bcdeeda] Running if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [8bcdeeda] Command: if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi
+ DEBUG [8bcdeeda] Finished in 1.701 seconds with exit status 0 (successful).
+  INFO [c6ff883d] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as crom@crombamako.ml
+ DEBUG [c6ff883d] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b509119f1d2292c5161a.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [c6ff883d] Finished in 1.568 seconds with exit status 0 (successful).
+  INFO [c359c605] Running /usr/bin/env git remote update --prune as crom@crombamako.ml
+ DEBUG [c359c605] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b509119f1d2292c5161a.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [c359c605] 	Fetching origin
+  INFO [c359c605] Finished in 2.006 seconds with exit status 0 (successful).
+ DEBUG [0215851b] Running if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [0215851b] Command: if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi
+ DEBUG [0215851b] Finished in 2.086 seconds with exit status 0 (successful).
+  INFO [10b18702] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318143553 as crom@crombamako.ml
+ DEBUG [10b18702] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b509119f1d2292c5161a.sh" ; /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318143553 )
+  INFO [10b18702] Finished in 1.648 seconds with exit status 0 (successful).
+  INFO [6a60ca33] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.prod/releases/20210318143553 as crom@crombamako.ml
+ DEBUG [6a60ca33] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b509119f1d2292c5161a.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.prod/releases/20210318143553 )
+  INFO [6a60ca33] Finished in 1.650 seconds with exit status 0 (successful).
+ DEBUG [05ddfcd6] Running if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [05ddfcd6] Command: if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi
+ DEBUG [05ddfcd6] Finished in 1.645 seconds with exit status 0 (successful).
+ DEBUG [4aeefdc0] Running /usr/bin/env git rev-list --max-count=1 master as crom@crombamako.ml
+ DEBUG [4aeefdc0] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-b509119f1d2292c5161a.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [4aeefdc0] 	aa95035686c167c0008f0fd1ec805b1d6a0d8e51
+ DEBUG [4aeefdc0] Finished in 1.646 seconds with exit status 0 (successful).
+ DEBUG [86dff755] Running if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143553; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143553'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [86dff755] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143553; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143553'" 1>&2; false; fi
+ DEBUG [86dff755] Finished in 1.560 seconds with exit status 0 (successful).
+  INFO [12258b2c] Running /usr/bin/env echo "aa95035686c167c0008f0fd1ec805b1d6a0d8e51" > REVISION as crom@crombamako.ml
+ DEBUG [12258b2c] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318143553 && /usr/bin/env echo "aa95035686c167c0008f0fd1ec805b1d6a0d8e51" > REVISION
+  INFO [12258b2c] Finished in 1.707 seconds with exit status 0 (successful).
+  INFO [e9819795] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318143553/storage /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework as crom@crombamako.ml
+ DEBUG [e9819795] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318143553/storage /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework
+  INFO [e9819795] Finished in 1.701 seconds with exit status 0 (successful).
+ DEBUG [37906e19] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/app ] as crom@crombamako.ml
+ DEBUG [37906e19] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/app ]
+ DEBUG [37906e19] Finished in 1.540 seconds with exit status 1 (failed).
+ DEBUG [57176d91] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/app ] as crom@crombamako.ml
+ DEBUG [57176d91] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/app ]
+ DEBUG [57176d91] Finished in 1.678 seconds with exit status 0 (successful).
+  INFO [23f363ea] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/app as crom@crombamako.ml
+ DEBUG [23f363ea] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/app
+  INFO [23f363ea] Finished in 1.702 seconds with exit status 0 (successful).
+  INFO [e5489064] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/app as crom@crombamako.ml
+ DEBUG [e5489064] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/app
+  INFO [e5489064] Finished in 2.099 seconds with exit status 0 (successful).
+ DEBUG [814e09da] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/cache ] as crom@crombamako.ml
+ DEBUG [814e09da] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/cache ]
+ DEBUG [814e09da] Finished in 1.752 seconds with exit status 1 (failed).
+ DEBUG [71eaa55c] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/cache ] as crom@crombamako.ml
+ DEBUG [71eaa55c] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/cache ]
+ DEBUG [71eaa55c] Finished in 1.538 seconds with exit status 0 (successful).
+  INFO [8cbeaec1] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/cache as crom@crombamako.ml
+ DEBUG [8cbeaec1] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/cache
+  INFO [8cbeaec1] Finished in 1.628 seconds with exit status 0 (successful).
+  INFO [4e22e7b9] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/cache as crom@crombamako.ml
+ DEBUG [4e22e7b9] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/cache
+  INFO [4e22e7b9] Finished in 1.972 seconds with exit status 0 (successful).
+ DEBUG [2e445d9d] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/sessions ] as crom@crombamako.ml
+ DEBUG [2e445d9d] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/sessions ]
+ DEBUG [2e445d9d] Finished in 1.638 seconds with exit status 1 (failed).
+ DEBUG [dac99c21] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/sessions ] as crom@crombamako.ml
+ DEBUG [dac99c21] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/sessions ]
+ DEBUG [dac99c21] Finished in 1.684 seconds with exit status 0 (successful).
+  INFO [6cac8195] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/sessions as crom@crombamako.ml
+ DEBUG [6cac8195] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/sessions
+  INFO [6cac8195] Finished in 1.573 seconds with exit status 0 (successful).
+  INFO [817bbcac] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/sessions as crom@crombamako.ml
+ DEBUG [817bbcac] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/sessions
+  INFO [817bbcac] Finished in 1.579 seconds with exit status 0 (successful).
+ DEBUG [73ebb7d9] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/views ] as crom@crombamako.ml
+ DEBUG [73ebb7d9] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/views ]
+ DEBUG [73ebb7d9] Finished in 1.533 seconds with exit status 1 (failed).
+ DEBUG [af0c46ad] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/views ] as crom@crombamako.ml
+ DEBUG [af0c46ad] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/views ]
+ DEBUG [af0c46ad] Finished in 1.581 seconds with exit status 0 (successful).
+  INFO [c4fae399] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/views as crom@crombamako.ml
+ DEBUG [c4fae399] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/views
+  INFO [c4fae399] Finished in 1.679 seconds with exit status 0 (successful).
+  INFO [d46c054a] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/views as crom@crombamako.ml
+ DEBUG [d46c054a] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/framework/views
+  INFO [d46c054a] Finished in 1.765 seconds with exit status 0 (successful).
+ DEBUG [bf583a68] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/logs ] as crom@crombamako.ml
+ DEBUG [bf583a68] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/logs ]
+ DEBUG [bf583a68] Finished in 1.591 seconds with exit status 1 (failed).
+ DEBUG [9c71494c] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/logs ] as crom@crombamako.ml
+ DEBUG [9c71494c] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/logs ]
+ DEBUG [9c71494c] Finished in 1.536 seconds with exit status 0 (successful).
+  INFO [90760584] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/logs as crom@crombamako.ml
+ DEBUG [90760584] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/logs
+  INFO [90760584] Finished in 1.543 seconds with exit status 0 (successful).
+  INFO [d7de6f32] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/logs /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/logs as crom@crombamako.ml
+ DEBUG [d7de6f32] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/logs /var/www/crombamako/crombamako.prod/releases/20210318143553/storage/logs
+  INFO [d7de6f32] Finished in 1.996 seconds with exit status 0 (successful).
+ DEBUG [07bfa2d9] Running if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143553; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143553'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [07bfa2d9] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143553; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143553'" 1>&2; false; fi
+ DEBUG [07bfa2d9] Finished in 1.611 seconds with exit status 0 (successful).
+  INFO [ae642629] Running /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader as crom@crombamako.ml
+ DEBUG [ae642629] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318143553 && /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader
+  INFO [ae642629] Finished in 18.363 seconds with exit status 0 (successful).
+  INFO [72db2652] Running /usr/bin/env chmod u+x artisan as crom@crombamako.ml
+ DEBUG [72db2652] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318143553 && /usr/bin/env chmod u+x artisan
+  INFO [72db2652] Finished in 1.512 seconds with exit status 0 (successful).
+  INFO [d1d56e7f] Running /usr/bin/env cp /var/www/secrets/prod/.env /var/www/crombamako/crombamako.prod/releases/20210318143553/.env as crom@crombamako.ml
+ DEBUG [d1d56e7f] Command: /usr/bin/env cp /var/www/secrets/prod/.env /var/www/crombamako/crombamako.prod/releases/20210318143553/.env
+  INFO [d1d56e7f] Finished in 1.513 seconds with exit status 0 (successful).
+  INFO [a273b7ae] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/releases/20210318143553 /var/www/crombamako/crombamako.prod/releases/current as crom@crombamako.ml
+ DEBUG [a273b7ae] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/releases/20210318143553 /var/www/crombamako/crombamako.prod/releases/current
+  INFO [a273b7ae] Finished in 1.556 seconds with exit status 0 (successful).
+  INFO [0c7c6c05] Running /usr/bin/env mv /var/www/crombamako/crombamako.prod/releases/current /var/www/crombamako/crombamako.prod as crom@crombamako.ml
+ DEBUG [0c7c6c05] Command: /usr/bin/env mv /var/www/crombamako/crombamako.prod/releases/current /var/www/crombamako/crombamako.prod
+  INFO [0c7c6c05] Finished in 1.876 seconds with exit status 0 (successful).
+ DEBUG [a6f483a7] Running if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143553; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143553'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [a6f483a7] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143553; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143553'" 1>&2; false; fi
+ DEBUG [a6f483a7] Finished in 1.723 seconds with exit status 0 (successful).
+  INFO [3a9f1246] Running rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage as crom@crombamako.ml
+ DEBUG [3a9f1246] Command: rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143553/storage
+  INFO [3a9f1246] Finished in 1.652 seconds with exit status 0 (successful).
+  INFO [9ecfbd2a] Running ln -s /var/www/crombamako/crombamako.prod/shared/storage/ /var/www/crombamako/crombamako.prod/releases/20210318143553 as crom@crombamako.ml
+ DEBUG [9ecfbd2a] Command: ln -s /var/www/crombamako/crombamako.prod/shared/storage/ /var/www/crombamako/crombamako.prod/releases/20210318143553
+  INFO [9ecfbd2a] Finished in 1.797 seconds with exit status 0 (successful).
+  INFO [15a576bc] Running /usr/bin/env php artisan storage:link as crom@crombamako.ml
+ DEBUG [15a576bc] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318143553 && /usr/bin/env php artisan storage:link
+ DEBUG [15a576bc] 	
+The [/var/www/crombamako/crombamako.prod/releases/20210318143553/public/storage] link has been connected to [/var/www/crombamako/crombamako.prod/releases/20210318143553/storage/app/public].
+The links have been created.
+  INFO [15a576bc] Finished in 1.588 seconds with exit status 0 (successful).
+ DEBUG [fe6a6eb6] Running /usr/bin/env ls -x /var/www/crombamako/crombamako.prod/releases as crom@crombamako.ml
+ DEBUG [fe6a6eb6] Command: /usr/bin/env ls -x /var/www/crombamako/crombamako.prod/releases
+ DEBUG [fe6a6eb6] 	20210318132948	20210318134021	20210318141702	20210318142220	20210318142903
+20210318143553
+ DEBUG [fe6a6eb6] Finished in 1.524 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on crombamako.ml
+ DEBUG [3c62cb35] Running [ -d /var/www/crombamako/crombamako.prod/current ] as crom@crombamako.ml
+ DEBUG [3c62cb35] Command: [ -d /var/www/crombamako/crombamako.prod/current ]
+ DEBUG [3c62cb35] Finished in 1.516 seconds with exit status 0 (successful).
+ DEBUG [563aaa15] Running /usr/bin/env readlink /var/www/crombamako/crombamako.prod/current as crom@crombamako.ml
+ DEBUG [563aaa15] Command: /usr/bin/env readlink /var/www/crombamako/crombamako.prod/current
+ DEBUG [563aaa15] 	/var/www/crombamako/crombamako.prod/releases/20210318143553
+ DEBUG [563aaa15] Finished in 1.810 seconds with exit status 0 (successful).
+  INFO [533407f8] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318132948 as crom@crombamako.ml
+ DEBUG [533407f8] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318132948
+  INFO [533407f8] Finished in 1.564 seconds with exit status 0 (successful).
+ DEBUG [e6dfede6] Running if test ! -d /var/www/crombamako/crombamako.prod/releases; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [e6dfede6] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases'" 1>&2; false; fi
+ DEBUG [e6dfede6] Finished in 1.521 seconds with exit status 0 (successful).
+  INFO [9faadf7b] Running /usr/bin/env echo "Branch master (at aa95035686c167c0008f0fd1ec805b1d6a0d8e51) deployed as release 20210318143553 by thekernel" >> /var/www/crombamako/crombamako.prod/revisions.log as crom@crombamako.ml
+ DEBUG [9faadf7b] Command: cd /var/www/crombamako/crombamako.prod/releases && /usr/bin/env echo "Branch master (at aa95035686c167c0008f0fd1ec805b1d6a0d8e51) deployed as release 20210318143553 by thekernel" >> /var/www/crombamako/crombamako.prod/revisions.log
+  INFO [9faadf7b] Finished in 1.741 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2021-03-18 14:39:20 +0000 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [a092b98e] Running /usr/bin/env mkdir -p /tmp as crom@crombamako.ml
+ DEBUG [a092b98e] Command: /usr/bin/env mkdir -p /tmp
+  INFO [a092b98e] Finished in 5.542 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-5731c9a6f11d0fe3c20c.sh 0.0%
+  INFO Uploading /tmp/git-ssh-5731c9a6f11d0fe3c20c.sh 100.0%
+  INFO [7964fb94] Running /usr/bin/env chmod 700 /tmp/git-ssh-5731c9a6f11d0fe3c20c.sh as crom@crombamako.ml
+ DEBUG [7964fb94] Command: /usr/bin/env chmod 700 /tmp/git-ssh-5731c9a6f11d0fe3c20c.sh
+  INFO [7964fb94] Finished in 1.504 seconds with exit status 0 (successful).
+  INFO [847eeb5b] Running /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD as crom@crombamako.ml
+ DEBUG [847eeb5b] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-5731c9a6f11d0fe3c20c.sh" ; /usr/bin/env git ls-remote https://github.com/thkernel/medplatform.git HEAD )
+ DEBUG [847eeb5b] 	aa95035686c167c0008f0fd1ec805b1d6a0d8e51	HEAD
+  INFO [847eeb5b] Finished in 1.777 seconds with exit status 0 (successful).
+  INFO [35cefc4c] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared /var/www/crombamako/crombamako.prod/releases as crom@crombamako.ml
+ DEBUG [35cefc4c] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared /var/www/crombamako/crombamako.prod/releases
+  INFO [35cefc4c] Finished in 1.553 seconds with exit status 0 (successful).
+  INFO [d7aa262f] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/shared/storage/logs as crom@crombamako.ml
+ DEBUG [d7aa262f] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/shared/storage/logs
+  INFO [d7aa262f] Finished in 1.344 seconds with exit status 0 (successful).
+ DEBUG [6d4862f6] Running [ -f /var/www/crombamako/crombamako.prod/current/REVISION ] as crom@crombamako.ml
+ DEBUG [6d4862f6] Command: [ -f /var/www/crombamako/crombamako.prod/current/REVISION ]
+ DEBUG [6d4862f6] Finished in 1.523 seconds with exit status 1 (failed).
+ DEBUG [9d7d6c42] Running [ -f /var/www/crombamako/crombamako.prod/repo/HEAD ] as crom@crombamako.ml
+ DEBUG [9d7d6c42] Command: [ -f /var/www/crombamako/crombamako.prod/repo/HEAD ]
+ DEBUG [9d7d6c42] Finished in 1.886 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/crombamako/crombamako.prod/repo
+ DEBUG [6ee481ad] Running if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [6ee481ad] Command: if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi
+ DEBUG [6ee481ad] Finished in 1.530 seconds with exit status 0 (successful).
+  INFO [fa2fc3a6] Running /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git as crom@crombamako.ml
+ DEBUG [fa2fc3a6] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-5731c9a6f11d0fe3c20c.sh" ; /usr/bin/env git remote set-url origin https://github.com/thkernel/medplatform.git )
+  INFO [fa2fc3a6] Finished in 1.498 seconds with exit status 0 (successful).
+  INFO [d847e644] Running /usr/bin/env git remote update --prune as crom@crombamako.ml
+ DEBUG [d847e644] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-5731c9a6f11d0fe3c20c.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [d847e644] 	Fetching origin
+  INFO [d847e644] Finished in 1.828 seconds with exit status 0 (successful).
+ DEBUG [c3b28f4b] Running if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [c3b28f4b] Command: if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi
+ DEBUG [c3b28f4b] Finished in 1.512 seconds with exit status 0 (successful).
+  INFO [6ee138c4] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318143936 as crom@crombamako.ml
+ DEBUG [6ee138c4] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-5731c9a6f11d0fe3c20c.sh" ; /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318143936 )
+  INFO [6ee138c4] Finished in 1.502 seconds with exit status 0 (successful).
+  INFO [43aba7e3] Running /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.prod/releases/20210318143936 as crom@crombamako.ml
+ DEBUG [43aba7e3] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-5731c9a6f11d0fe3c20c.sh" ; /usr/bin/env git archive master | /usr/bin/env tar -x -f - -C /var/www/crombamako/crombamako.prod/releases/20210318143936 )
+  INFO [43aba7e3] Finished in 1.712 seconds with exit status 0 (successful).
+ DEBUG [32dc094a] Running if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [32dc094a] Command: if test ! -d /var/www/crombamako/crombamako.prod/repo; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/repo'" 1>&2; false; fi
+ DEBUG [32dc094a] Finished in 1.527 seconds with exit status 0 (successful).
+ DEBUG [e30bb3b4] Running /usr/bin/env git rev-list --max-count=1 master as crom@crombamako.ml
+ DEBUG [e30bb3b4] Command: cd /var/www/crombamako/crombamako.prod/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-5731c9a6f11d0fe3c20c.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [e30bb3b4] 	aa95035686c167c0008f0fd1ec805b1d6a0d8e51
+ DEBUG [e30bb3b4] Finished in 1.517 seconds with exit status 0 (successful).
+ DEBUG [685502fd] Running if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143936; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143936'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [685502fd] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143936; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143936'" 1>&2; false; fi
+ DEBUG [685502fd] Finished in 1.513 seconds with exit status 0 (successful).
+  INFO [7e86ab7f] Running /usr/bin/env echo "aa95035686c167c0008f0fd1ec805b1d6a0d8e51" > REVISION as crom@crombamako.ml
+ DEBUG [7e86ab7f] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318143936 && /usr/bin/env echo "aa95035686c167c0008f0fd1ec805b1d6a0d8e51" > REVISION
+  INFO [7e86ab7f] Finished in 1.500 seconds with exit status 0 (successful).
+  INFO [dd62801c] Running /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318143936/storage /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework as crom@crombamako.ml
+ DEBUG [dd62801c] Command: /usr/bin/env mkdir -p /var/www/crombamako/crombamako.prod/releases/20210318143936/storage /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework
+  INFO [dd62801c] Finished in 1.511 seconds with exit status 0 (successful).
+ DEBUG [f78d5dec] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/app ] as crom@crombamako.ml
+ DEBUG [f78d5dec] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/app ]
+ DEBUG [f78d5dec] Finished in 1.495 seconds with exit status 1 (failed).
+ DEBUG [3733e621] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/app ] as crom@crombamako.ml
+ DEBUG [3733e621] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/app ]
+ DEBUG [3733e621] Finished in 1.513 seconds with exit status 0 (successful).
+  INFO [4e6b4bb3] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/app as crom@crombamako.ml
+ DEBUG [4e6b4bb3] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/app
+  INFO [4e6b4bb3] Finished in 1.507 seconds with exit status 0 (successful).
+  INFO [89852f47] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/app as crom@crombamako.ml
+ DEBUG [89852f47] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/app /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/app
+  INFO [89852f47] Finished in 1.517 seconds with exit status 0 (successful).
+ DEBUG [8ecfb9f6] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/cache ] as crom@crombamako.ml
+ DEBUG [8ecfb9f6] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/cache ]
+ DEBUG [8ecfb9f6] Finished in 1.586 seconds with exit status 1 (failed).
+ DEBUG [0900a0b4] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/cache ] as crom@crombamako.ml
+ DEBUG [0900a0b4] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/cache ]
+ DEBUG [0900a0b4] Finished in 1.570 seconds with exit status 0 (successful).
+  INFO [c277ef81] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/cache as crom@crombamako.ml
+ DEBUG [c277ef81] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/cache
+  INFO [c277ef81] Finished in 1.579 seconds with exit status 0 (successful).
+  INFO [3ec06901] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/cache as crom@crombamako.ml
+ DEBUG [3ec06901] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/cache /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/cache
+  INFO [3ec06901] Finished in 1.625 seconds with exit status 0 (successful).
+ DEBUG [8c44e717] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/sessions ] as crom@crombamako.ml
+ DEBUG [8c44e717] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/sessions ]
+ DEBUG [8c44e717] Finished in 1.586 seconds with exit status 1 (failed).
+ DEBUG [15cf4220] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/sessions ] as crom@crombamako.ml
+ DEBUG [15cf4220] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/sessions ]
+ DEBUG [15cf4220] Finished in 1.597 seconds with exit status 0 (successful).
+  INFO [56a5a668] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/sessions as crom@crombamako.ml
+ DEBUG [56a5a668] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/sessions
+  INFO [56a5a668] Finished in 1.599 seconds with exit status 0 (successful).
+  INFO [9efe6bdc] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/sessions as crom@crombamako.ml
+ DEBUG [9efe6bdc] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/sessions /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/sessions
+  INFO [9efe6bdc] Finished in 1.578 seconds with exit status 0 (successful).
+ DEBUG [8057c4ea] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/views ] as crom@crombamako.ml
+ DEBUG [8057c4ea] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/views ]
+ DEBUG [8057c4ea] Finished in 1.605 seconds with exit status 1 (failed).
+ DEBUG [538a364d] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/views ] as crom@crombamako.ml
+ DEBUG [538a364d] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/views ]
+ DEBUG [538a364d] Finished in 1.558 seconds with exit status 0 (successful).
+  INFO [215e52c9] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/views as crom@crombamako.ml
+ DEBUG [215e52c9] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/views
+  INFO [215e52c9] Finished in 1.623 seconds with exit status 0 (successful).
+  INFO [a50e1e8a] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/views as crom@crombamako.ml
+ DEBUG [a50e1e8a] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/framework/views /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/framework/views
+  INFO [a50e1e8a] Finished in 1.485 seconds with exit status 0 (successful).
+ DEBUG [8be3723d] Running [ -L /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/logs ] as crom@crombamako.ml
+ DEBUG [8be3723d] Command: [ -L /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/logs ]
+ DEBUG [8be3723d] Finished in 1.503 seconds with exit status 1 (failed).
+ DEBUG [9f3f64eb] Running [ -d /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/logs ] as crom@crombamako.ml
+ DEBUG [9f3f64eb] Command: [ -d /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/logs ]
+ DEBUG [9f3f64eb] Finished in 1.482 seconds with exit status 0 (successful).
+  INFO [61d305ed] Running /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/logs as crom@crombamako.ml
+ DEBUG [61d305ed] Command: /usr/bin/env rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/logs
+  INFO [61d305ed] Finished in 1.516 seconds with exit status 0 (successful).
+  INFO [de7c66b1] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/logs /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/logs as crom@crombamako.ml
+ DEBUG [de7c66b1] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/shared/storage/logs /var/www/crombamako/crombamako.prod/releases/20210318143936/storage/logs
+  INFO [de7c66b1] Finished in 1.490 seconds with exit status 0 (successful).
+ DEBUG [c912057c] Running if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143936; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143936'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [c912057c] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143936; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143936'" 1>&2; false; fi
+ DEBUG [c912057c] Finished in 1.509 seconds with exit status 0 (successful).
+  INFO [f8c23f44] Running /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader as crom@crombamako.ml
+ DEBUG [f8c23f44] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318143936 && /usr/bin/env composer install --no-dev --quiet --prefer-dist --optimize-autoloader
+  INFO [f8c23f44] Finished in 18.505 seconds with exit status 0 (successful).
+  INFO [e7dca265] Running /usr/bin/env chmod u+x artisan as crom@crombamako.ml
+ DEBUG [e7dca265] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318143936 && /usr/bin/env chmod u+x artisan
+  INFO [e7dca265] Finished in 1.528 seconds with exit status 0 (successful).
+  INFO [045f8fe3] Running /usr/bin/env cp /var/www/secrets/prod/.env /var/www/crombamako/crombamako.prod/releases/20210318143936/.env as crom@crombamako.ml
+ DEBUG [045f8fe3] Command: /usr/bin/env cp /var/www/secrets/prod/.env /var/www/crombamako/crombamako.prod/releases/20210318143936/.env
+  INFO [045f8fe3] Finished in 1.568 seconds with exit status 0 (successful).
+  INFO [554a2b06] Running /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/releases/20210318143936 /var/www/crombamako/crombamako.prod/releases/current as crom@crombamako.ml
+ DEBUG [554a2b06] Command: /usr/bin/env ln -s /var/www/crombamako/crombamako.prod/releases/20210318143936 /var/www/crombamako/crombamako.prod/releases/current
+  INFO [554a2b06] Finished in 1.507 seconds with exit status 0 (successful).
+  INFO [c51adffe] Running /usr/bin/env mv /var/www/crombamako/crombamako.prod/releases/current /var/www/crombamako/crombamako.prod as crom@crombamako.ml
+ DEBUG [c51adffe] Command: /usr/bin/env mv /var/www/crombamako/crombamako.prod/releases/current /var/www/crombamako/crombamako.prod
+  INFO [c51adffe] Finished in 1.506 seconds with exit status 0 (successful).
+ DEBUG [0bad79b9] Running if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143936; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143936'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [0bad79b9] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases/20210318143936; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases/20210318143936'" 1>&2; false; fi
+ DEBUG [0bad79b9] Finished in 1.498 seconds with exit status 0 (successful).
+  INFO [21acdccb] Running rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage as crom@crombamako.ml
+ DEBUG [21acdccb] Command: rm -rf /var/www/crombamako/crombamako.prod/releases/20210318143936/storage
+  INFO [21acdccb] Finished in 1.504 seconds with exit status 0 (successful).
+  INFO [367293fb] Running ln -s /var/www/crombamako/crombamako.prod/shared/storage/ /var/www/crombamako/crombamako.prod/releases/20210318143936 as crom@crombamako.ml
+ DEBUG [367293fb] Command: ln -s /var/www/crombamako/crombamako.prod/shared/storage/ /var/www/crombamako/crombamako.prod/releases/20210318143936
+  INFO [367293fb] Finished in 1.500 seconds with exit status 0 (successful).
+  INFO [4dd9be4e] Running /usr/bin/env php artisan storage:link as crom@crombamako.ml
+ DEBUG [4dd9be4e] Command: cd /var/www/crombamako/crombamako.prod/releases/20210318143936 && /usr/bin/env php artisan storage:link
+ DEBUG [4dd9be4e] 	
+The [/var/www/crombamako/crombamako.prod/releases/20210318143936/public/storage] link has been connected to [/var/www/crombamako/crombamako.prod/releases/20210318143936/storage/app/public].
+The links have been created.
+  INFO [4dd9be4e] Finished in 1.518 seconds with exit status 0 (successful).
+ DEBUG [3d1c1adf] Running /usr/bin/env ls -x /var/www/crombamako/crombamako.prod/releases as crom@crombamako.ml
+ DEBUG [3d1c1adf] Command: /usr/bin/env ls -x /var/www/crombamako/crombamako.prod/releases
+ DEBUG [3d1c1adf] 	20210318143936
+ DEBUG [3d1c1adf] Finished in 1.523 seconds with exit status 0 (successful).
+ DEBUG [b57360ae] Running if test ! -d /var/www/crombamako/crombamako.prod/releases; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases'" 1>&2; false; fi as crom@crombamako.ml
+ DEBUG [b57360ae] Command: if test ! -d /var/www/crombamako/crombamako.prod/releases; then echo "Directory does not exist '/var/www/crombamako/crombamako.prod/releases'" 1>&2; false; fi
+ DEBUG [b57360ae] Finished in 1.499 seconds with exit status 0 (successful).
+  INFO [a7fadea4] Running /usr/bin/env echo "Branch master (at aa95035686c167c0008f0fd1ec805b1d6a0d8e51) deployed as release 20210318143936 by thekernel" >> /var/www/crombamako/crombamako.prod/revisions.log as crom@crombamako.ml
+ DEBUG [a7fadea4] Command: cd /var/www/crombamako/crombamako.prod/releases && /usr/bin/env echo "Branch master (at aa95035686c167c0008f0fd1ec805b1d6a0d8e51) deployed as release 20210318143936 by thekernel" >> /var/www/crombamako/crombamako.prod/revisions.log
+  INFO [a7fadea4] Finished in 1.501 seconds with exit status 0 (successful).
