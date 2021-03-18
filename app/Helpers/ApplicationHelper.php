@@ -309,6 +309,7 @@
                 "town_id" => $subscription_request->town_id,
                 "neighborhood_id" => $subscription_request->neighborhood_id,
                 "service_id" => $subscription_request->service_id,
+                "is_specialist" => $subscription_request->is_specialist,
                 "speciality_id" => $subscription_request->speciality_id,
                 "structure_id" => $subscription_request->structure_id,
                 ]);

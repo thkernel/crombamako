@@ -1,30 +1,34 @@
 $(document).ready(function() {
-   $("#is_specialist").on('change', function(){
+  
+  $("#is_specialist").on('change', function(){
+    selected = $("#is_specialist").val();
+
+    
    
-    if(this.checked) {
+    if (selected == "Oui"){
         $(".speciality").css("display", "block");
-    }
-    else{
+      }else{
         $(".speciality").css("display", "none");
     }
-
     });
 
-   is_check();
+   is_specialist();
 });
 
 
 
-function is_check(){
+function is_specialist(){
+  
 
+    selected = $("#is_specialist").val();
 
-    checked = $('#is_specialist').is(':checked');
-
-    if (checked == 'true'){
+    if (selected == "Oui"){
         $(".speciality").css("display", "block");
-      } else {
-        (".speciality").css("display", "none");
-      }
+      }else{
+        $(".speciality").css("display", "none");
+    }
+  
+
   
 
 

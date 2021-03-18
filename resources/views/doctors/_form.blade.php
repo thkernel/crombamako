@@ -32,7 +32,20 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 ">
+            <div class="form-group">
+                <label for="is_specialist" class="required"> Spécialiste</label><br>
+                <select name="is_specialist" id="is_specialist" class="form-control" required>
+                    <option disabled selected value> Sélectionner </option>
+                    
+                    <option value = "Oui" {{ $doctor->is_specialist == "Oui" ?  'selected' : ''}} >Oui</option>
+                    <option value = "Non" {{ $doctor->is_specialist == "Non" ?  'selected' : ''}}>Non</option>
+                    
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-4 speciality">
             
 
             <div class="form-group">
@@ -60,6 +73,13 @@
                 </select>
             </div>
         </div>
+        
+
+        
+
+    </div>
+
+    <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 <label for="neighborhood_id">Quartier:</label>
@@ -74,11 +94,6 @@
             </div>
         </div>
 
-        
-
-    </div>
-
-    <div class="row">
         <div class="col-md-4">
             <div class="form-group">
                 <label for="structure_id">Structure:</label>
@@ -104,9 +119,17 @@
         </div>
 
 
-        
+    
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="email" class="required">Email:</label>
+              <input type="email" class="form-control" placeholder="Votre email"  name="email" value="{{  old('email') ?? $doctor->email }}" {{$doctor->email ? "readonly" : ''}} required >
+            </div><!-- form-group -->
+        </div><!-- form-group -->
 
-         <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
                 <label for="phone" class="required">Téléphone:</label>
                 <input type="tel" id="phone" class="form-control" placeholder="Téléphone"  name="phone" value="{{  old('phone') ?? $doctor->phone }}" >
@@ -117,7 +140,7 @@
 
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="form-group">
                 <label for="address">Adresse (Rue, porte etc...):</label>
                 <input type="text" class="form-control" placeholder="Adresse (Rue, porte etc...)"  name="address" value="{{  old('address') ?? $doctor->address }}" >
@@ -125,12 +148,7 @@
             </div><!-- form-group -->
          </div><!-- form-group -->
 
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="email" class="required">Email:</label>
-              <input type="email" class="form-control" placeholder="Votre email"  name="email" value="{{  old('email') ?? $doctor->email }}" {{$doctor->email ? "readonly" : ''}} required >
-            </div><!-- form-group -->
-        </div><!-- form-group -->
+        
     </div>
 
     <div class="row">

@@ -34,8 +34,14 @@
 	<div class="row">
 		<div class="col-md-3 ">
 			<div class="form-group">
-				<label for="is_specialist"> Spécialiste</label><br>
-				<input type="checkbox" id="is_specialist" name="is_specialist" />
+				<label for="is_specialist" class="required"> Spécialiste</label><br>
+                <select name="is_specialist" id="is_specialist" class="form-control" required>
+                    <option disabled selected value> Sélectionner </option>
+                    
+                    <option value = "Oui" {{ $subscription_request->is_specialist == "Oui" ?  'selected' : ''}} >Oui</option>
+                    <option value = "Non" {{ $subscription_request->is_specialist == "Non" ?  'selected' : ''}}>Non</option>
+                    
+                </select>
 			</div>
 		</div>
 

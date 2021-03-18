@@ -29,7 +29,8 @@ class CreateDoctorProfilesTable extends Migration
             $table->integer('neighborhood_id')->nullable()->unsigned();
             $table->foreign('neighborhood_id')->references('id')->on('neighborhoods')->onDelete('cascade');
             
-            $table->boolean('is_specialist')->nullable();
+            $table->string('is_specialist');
+
 
             $table->integer('speciality_id')->nullable()->unsigned();
             $table->foreign('speciality_id')->references('id')->on('specialities')->onDelete('cascade');
