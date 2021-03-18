@@ -8,7 +8,11 @@
 						<div class="col-md-4 post-item">	
 							<div class="card">
 							    <div class="card-body">
+
 							        <div class="card-thumbnail">
+							        	<div class="post-category">
+							              {{ $post->post_category->name}}              
+							        </div>
 							        	<a  href="{{ route('show_post_path', $post->slug) }}">
 							           <div class="post-thumbnail">
 
@@ -26,9 +30,7 @@
 							            </h5>                         
 							        </div>
 
-							        <div class="post-category">
-							              {{ $post->post_category->name}}              
-							        </div>
+							        
 							            
 							        <div class="excerpt label-wrap label-right hide-on-list">
 							                              

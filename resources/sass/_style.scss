@@ -914,14 +914,20 @@ p.error{
 }
 
 .opportunity-type, .post-category{
-    background-color: #0866c6;
+    background-color: #c60808;
     display: inline;
     padding: 2px;
-    border-radius: 6px;
+    /*border-radius: 6px;*/
     color: white;
-    font-size: 8pt;
+    font-size: 11pt;
+    text-transform: uppercase;
+    margin-top: 8px;
+    position: absolute;
 }
 
 .post-labels-wrap span{
     margin: 5px;
+}
+.post-item {
+    margin-bottom: 15px;
 }
