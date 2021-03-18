@@ -20,6 +20,15 @@ class ResourceController extends Controller
         return view("resources.index", compact(['resources']) );
     }
 
+    public function all()
+    {
+        //
+        $resources =  Resource::orderBy('id', 'desc')->paginate(10)->setPath('resources');
+        return view("resources.all", compact(['resources']) );
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *

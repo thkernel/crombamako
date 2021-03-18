@@ -95,6 +95,9 @@ Route::get('/structures/category/{slug}', [StructureController::class, 'category
 Route::get('/opportunities/all', [OpportunityController::class, 'all'])->name('opportunities.all');
 Route::get('/posts/all', [PostController::class, 'all'])->name('all_posts_path');
 
+Route::get('/ressources/all', [ResourceController::class, 'all'])->name('all_resources_path');
+
+
 Route::get('/opportunity/show/{slug}', [OpportunityController::class, 'show'])->name('show_opportunity_path');
 Route::get('/post/show/{slug}', [PostController::class, 'show'])->name('show_post_path');
 

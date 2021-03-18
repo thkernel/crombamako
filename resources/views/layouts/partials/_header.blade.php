@@ -22,6 +22,10 @@
               <a class="nav-link" href="{{ route('administrative_procedures_path') }}">Démarches administratives</a>
             </li>
 
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('all_resources_path') }}">Ressources</a>
+            </li>
+
            
              <li class="nav-item">
               <a class="nav-link" href="{{ route('contact_forms.create') }}">Contactez-nous</a>
