@@ -204,6 +204,19 @@
 
     </li><!-- br-menu-item -->
   @endcan
+
+
+    <li class="br-menu-item">
+      
+
+      <a class="br-menu-link" href="{{ route('resources.index') }}">
+        <i class="fa fa-archive tx-20" aria-hidden="true"></i> <span class="menu-item-label">Ressources</span>
+      
+      </a>
+
+    </li><!-- br-menu-item -->
+  
+
        
         
         

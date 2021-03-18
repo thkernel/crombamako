@@ -39,6 +39,7 @@ use App\Http\Controllers\DoctorOrderController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\StructureServiceController;
+use App\Http\Controllers\ResourceController;
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\VerifyEmailController;
@@ -174,6 +175,9 @@ Route::resource('doctor_orders', DoctorOrderController::class)->middleware(['aut
 
 Route::resource('features', FeatureController::class)->middleware(['auth']);
 Route::resource('permissions', PermissionController::class)->middleware(['auth']);
+
+Route::resource('resources', ResourceController::class)->middleware(['auth']);
+
 
 Route::get('neighborhoods/get/{id}', [NeighborhoodController::class, "getNeighborhoods"]);
 
