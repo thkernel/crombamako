@@ -8,7 +8,7 @@
 <div class="br-pagebody mg-b-30">
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
-      <h2>Nouvelle - Page</h2>
+      <h2>Nouvelle - Resource</h2>
       <hr />
 
     </div>
@@ -57,12 +57,12 @@
 
    
 
-<form action="{{ route('pages.store') }}" method="POST">
+<form action="{{ route('resources.store') }}" method="POST">
 
     @csrf
 
   
-    @include("pages/_form")
+    @include("resources/_form")
      	<div class="row">
 
          <div class="col-xs-12 col-sm-12 col-md-12">
