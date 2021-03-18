@@ -91,7 +91,7 @@ class PageController extends Controller
     {
         //
         $request->validate([
-        'title' => 'required|unique:pages',   
+        'title' => 'required',   
 
         ]);
 
