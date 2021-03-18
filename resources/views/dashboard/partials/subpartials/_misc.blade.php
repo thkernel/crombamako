@@ -34,7 +34,7 @@
                       <td>{{$subscription_request->first_name}}</td>
                       <td>{{$subscription_request->last_name}}</td>
                       <td>{{$subscription_request->town->name}}</td>
-                      <td>{{$subscription_request->speciality->name}}</td>
+                      <td>{{$subscription_request->speciality ? $subscription_request->speciality->name : ''}}</td>
                       <td>{{ $subscription_request->structure_profile ? $subscription_request->structure_profile->name : ''}}</td>
                       <td>{{$subscription_request->phone}}</td>
 

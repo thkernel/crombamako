@@ -51,7 +51,7 @@
               </li>
               <li class="detail-city">
                 <strong>Spécialité: </strong> 
-                <span>{{ $subscription_request->speciality->name}}</span>
+                <span>{{$subscription_request->speciality ? $subscription_request->speciality->name : ''}}</span>
               </li>
               <li class="detail-city">
                 <strong>Lieu de travail: </strong> 

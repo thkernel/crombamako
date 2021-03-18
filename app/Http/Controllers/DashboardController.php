@@ -18,15 +18,23 @@ class DashboardController extends Controller
     {
         //
 
-      
+     
 
         $total_doctors =  count(DoctorOrder::all());
         $total_structures =  count(StructureProfile::all());
         $subscription_requests =  SubscriptionRequest::where("status", '<>', "validated")->get();
         $total_pending_subscription = count($subscription_requests);
 
+        if (current_user()->isDoctor()){
+        $contributions = current_user()->userable->contributions;
+        }
+        else{
+            $contributions = [];
+        }
+
+        
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
-        return view("dashboard.index", compact(['total_doctors', 'total_structures', 'total_pending_subscription', 'subscription_requests']) );
+        return view("dashboard.index", compact(['total_doctors', 'total_structures', 'total_pending_subscription', 'subscription_requests','contributions']) );
 
 
     }
@@ -140,7 +148,7 @@ class DashboardController extends Controller
     {
         //
         Feature::where('id',$id)->delete();
-        return redirect()->back()->with('success','Delete Successfully');
+        return redirect()->back()->with('success',"Compte d'utilisateur supprimé.");
 
     }
 }

@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Speciality;
 use App\Models\Town;
 use App\Models\Role;
+use App\Models\AdminProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\QueryException;
@@ -68,26 +69,22 @@ class UserController extends Controller
         $request['email_verified_at'] =  date('Y-m-d H:i:s');
 
   
-        try{
+        
 
-            User::create($request->all());
+        $admin_user = User::create($request->all());
 
-       
-            return redirect()->route('users.index')
+        $admin_user_profile = AdminProfile::create([
+                "first_name" => "", 
+                "last_name" => "",
+                    
+        ]);
+
+        $admin_user_profile->user()->save($admin_user);
+
+        return redirect()->route('users.index')
                 ->with('success',"Compte d'utilisateur créer avec succès.");
 
-        }catch(QueryException $e){
-             $error_code = $e->errorInfo[0];
-             
-            if($error_code == 23505){
-                
-                return back()->withError('Login ou Email existe déjà.')->withInput();
-            }
-            else{
-                return back()->withError($e->getMessage())->withInput();
-            }
-            
-        }
+        
     }
 
     /**

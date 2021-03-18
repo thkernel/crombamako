@@ -16,7 +16,7 @@
 
         <div class="row row-sm mg-t-20">
           <!-- Stats -->
-          @include("dashboard/partials/subpartials/_misc")
+          @include("dashboard/partials/subpartials/_last-contributions")
             
         </div><!-- row -->
 

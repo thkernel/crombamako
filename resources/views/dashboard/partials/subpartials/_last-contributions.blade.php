@@ -7,41 +7,36 @@
               <!-- Table -->
               <table class="table table-responsive mg-b-0 tx-12">
                 <thead>
-                  <tr class="tx-10">
+                  
                   
                     
 
                     <tr>
-                      <th class="pd-y-5">Date</th>
-                      <th class="pd-y-5">Prénom</th>
-                      <th class="pd-y-5">Nom</th>
-                      <th class="pd-y-5">Commune</th>
-                      <th class="pd-y-5">Spécialité</th>
-                      <th class="pd-y-5">Structure</th>
-                      <th class="pd-y-5">Téléphone</th>
+                      <th>Date</th>
+                      <th>Médecin</th>
+                      <th>Années</th>
+                      <th>Montant</th>
                      
                     </tr>
 
 
                    
-                  </tr>
+                 
                 </thead>
                 <tbody>
-                  @foreach($subscription_requests as $subscription_request)
+                  @foreach($contributions as $contribution)
                     <tr>
-                      <td>{{format_date($subscription_request->created_at, "d/m/Y")}}</td>
-
-                      <td>{{$subscription_request->first_name}}</td>
-                      <td>{{$subscription_request->last_name}}</td>
-                      <td>{{$subscription_request->town->name}}</td>
-                      <td>{{$subscription_request->speciality->name}}</td>
-                      <td>{{ $subscription_request->structure_profile ? $subscription_request->structure_profile->name : ''}}</td>
-                      <td>{{$subscription_request->phone}}</td>
-
-
-                    </tr>
+                    <td>{{format_date($contribution->created_at, "d/m/Y")}}</td>
+                    <td>{{$contribution->doctor->fullname}}</td>
+                    <td>
+                        @foreach($contribution->contribution_items as $contribution_item)
+                            <span class="contribution-year-item">
+                            {{ $contribution_item->year }}
+                            </span>
+                        @endforeach
+                    </td>
+                    <td>{{$contribution->total_amount}}</td>
                   @endforeach
-                  
                 </tbody>
               </table>
               <!--

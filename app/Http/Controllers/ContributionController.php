@@ -24,7 +24,13 @@ class ContributionController extends Controller
     public function index()
     {
         //
+        if (current_user()->isDoctor()){
+            $contributions = current_user()->userable->contributions;
+        }
+        else{
         $contributions =  Contribution::orderBy('id', 'asc')->get();
+        }
+
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("contributions.index", compact(['contributions']) );
     }

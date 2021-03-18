@@ -50,6 +50,11 @@ class DoctorProfile extends Model
         return $this->belongsTo(Service::class);
     }
 
+    public function contributions(){
+        return $this->hasMany(Contribution::class,'doctor_id');
+    }
+
+
     public function speciality(){
         return $this->belongsTo(Speciality::class);
     }
