@@ -11,9 +11,9 @@
 
          <div class="form-group">
 
-            <label for="decision_date" class="required">Date:</label>
+            <label for="year" class="required">Année d'obtention:</label>
 
-                <input type="text" name="decision_date" value="{{  old('decision_date') ?? $business_license->decision_date }}" class="form-control" placeholder="Année" reauired>
+                <input type="number" name="year" value="{{  old('year') ?? $business_license->year }}" class="form-control" placeholder="Année" reauired>
 
         </div>
   
@@ -22,7 +22,7 @@
     
         <div class="form-group">
             <label for="description" class="required">Description:</label>
-            <textarea rows="8" id="editor" name="description" class="form-control" placeholder="notes" required> {{ $business_license->description }}
+            <textarea rows="8" id="editor" name="description" class="form-control" placeholder="notes"> {{ $business_license->description }}
             </textarea>
         </div>
 

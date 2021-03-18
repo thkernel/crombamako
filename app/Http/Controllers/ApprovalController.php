@@ -41,21 +41,28 @@ class ApprovalController extends Controller
     public function store(Request $request)
     {
         //
-        $request['status'] = "enable";
-        $request['doctor_id'] = current_user()->id;
-        $request->validate([
-            'reference' => 'required',
-            'year' => 'required',
 
-        ]);
+        if (current_user()->isDoctor()){
 
-  
+            $request['status'] = "enable";
+            $request['doctor_id'] = current_user()->userable_id;
+            $request->validate([
+                'reference' => 'required|unique:approvals',
+                'year' => 'required',
 
-        Approval::create($request->all());
+            ]);
 
-   
-        return redirect()->route('approvals.index')
-            ->with('success','Agrément créée avec succès.');
+      
+
+            Approval::create($request->all());
+
+       
+            return redirect()->route('approvals.index')
+                ->with('success','Agrément créée avec succès.');
+
+        }else{
+            return back()->withError("Seul un médecin peut enrigistrer son agrément.")->withInput();
+        }
     }
 
     /**

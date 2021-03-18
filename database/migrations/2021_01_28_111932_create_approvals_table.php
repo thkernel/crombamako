@@ -17,7 +17,7 @@ class CreateApprovalsTable extends Migration
             $table->id();
             $table->string('uid')->unique()->nullable();
             $table->string('reference');
-            $table->date('decision_date');
+            $table->integer('year');
             $table->text('description')->nullable();
             $table->string('status')->nullable();
             $table->bigInteger('doctor_id')->unsigned();

@@ -41,23 +41,28 @@ class BusinessLicenseController extends Controller
     public function store(Request $request)
     {
         //
+        if (current_user()->isDoctor()){
 
-        $request['doctor_id'] = current_user()->id;
-     
 
-        $request->validate([
-            'reference' => 'required',
-            'year' => 'required',
+            $request['doctor_id'] = current_user()->userable_id;
+         
 
-        ]);
+            $request->validate([
+                'reference' => 'required|unique:business_licenses',
+                'year' => 'required',
 
-        
+            ]);
 
-        BusinessLicense::create($request->all());
+            
 
-   
-        return redirect()->route('business_licenses.index')
-            ->with('success',"Licence d'exploitation créée avec succès.");
+            BusinessLicense::create($request->all());
+
+       
+            return redirect()->route('business_licenses.index')
+                ->with('success',"Licence d'exploitation créée avec succès.");
+        }else{
+            return back()->withError("Seul un médecin peut enrigistrer sa licence d'exploitation.")->withInput();
+        }
 
 
     }
