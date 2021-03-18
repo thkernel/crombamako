@@ -73,10 +73,10 @@ Route::name('search_structures_path')->get('/search/structures', [SearchControll
 Route::get('/contact-us',['as' => 'contact_us_path', function () {
     return view('pages/contact_us');
 }]);
-
+/*
 Route::get('/faq',['as' => 'faq_path', function () {
     return view('pages/faq');
-}]);
+}]);*/
 
 
 
@@ -102,6 +102,8 @@ Route::get('/structures/show/{slug}', [StructureController::class, 'show'])->nam
 Route::get('/structure_type/delete/{slug}', [StructureTypeController::class, 'delete'])->name('delete_structure_type_path')->middleware(['auth']);
 
 Route::get('/about', [StaticPageController::class, 'about'])->name('about_path');
+
+Route::get('/faq', [StaticPageController::class, 'faq'])->name('faq_path');
 
 Route::get('/demarches-administratives', [StaticPageController::class, 'administrative_procedures'])->name('administrative_procedures_path');
 

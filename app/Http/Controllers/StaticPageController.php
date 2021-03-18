@@ -43,6 +43,15 @@ class StaticPageController extends Controller
         return view("static_pages.cgu", compact(['page']) );
 
     }
+
+    public function faq()
+    {
+        //
+        $page =  Page::where('slug', 'faq')->first();
+        
+        return view("static_pages.faq", compact(['page']) );
+
+    }
     /**
      * Display a listing of the resource.
      *
