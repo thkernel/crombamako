@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 
 
-lock "~> 3.15.0"
+lock "~> 3.14.1"
 
 set :repo_url, 'https://github.com/thkernel/medplatform.git'
 # Default branch is :master
@@ -32,8 +32,8 @@ end
 namespace :laravel do
     task :fix_permission do
         on roles(:laravel) do
-            execute :chmod, "-R ug+rwx #{shared_path}/storage/ #{release_path}/bootstrap/cache/"
-            execute :chgrp, "-R www-data #{shared_path}/storage/ #{release_path}/bootstrap/cache/"
+            #execute :chmod, "-R ug+rwx #{shared_path}/storage/ #{release_path}/bootstrap/cache/"
+            #execute :chgrp, "-R www-data #{shared_path}/storage/ #{release_path}/bootstrap/cache/"
         end
     end
     task :configure_dot_env do
