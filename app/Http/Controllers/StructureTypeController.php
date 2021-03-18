@@ -102,7 +102,7 @@ class StructureTypeController extends Controller
     {
         //
         $request->validate([
-        'name' => 'required|unique:structure_types',   
+        'name' => 'required',   
 
         ]);
 

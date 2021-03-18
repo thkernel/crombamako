@@ -28,10 +28,11 @@ class CreateSubscriptionRequestsTable extends Migration
             $table->integer('town_id')->unsigned();
             $table->foreign('town_id')->references('id')->on('towns')->onDelete('cascade');
 
-            $table->integer('neighborhood_id')->unsigned();
+            $table->integer('neighborhood_id')->nullable()->unsigned();
             $table->foreign('neighborhood_id')->references('id')->on('neighborhoods')->onDelete('cascade');
-            
-            $table->integer('speciality_id')->unsigned();
+
+            $table->boolean('is_specialist')->nullable();
+            $table->integer('speciality_id')->unsigned()->nullable();
             $table->foreign('speciality_id')->references('id')->on('specialities')->onDelete('cascade');
             
             $table->integer('structure_id')->nullable()->unsigned();

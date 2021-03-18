@@ -111,7 +111,7 @@ class NeighborhoodController extends Controller
         //
 
         $request->validate([
-        'name' => 'required|unique:neighborhoods',   
+        'name' => 'required',   
         'town_id' => 'required',   
 
         ]);

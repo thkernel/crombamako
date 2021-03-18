@@ -68,9 +68,9 @@ class StructureProfile extends Model
         return $this->hasMany(VisitSummary::class);
     }
 
-     public function logo()
+    public function attachment()
     {
-        return $this->morphMany(EloquentStorageAttachment::class, 'attachable');
+        return $this->morphOne(EloquentStorageAttachment::class, 'attachable');
     }
 
 }

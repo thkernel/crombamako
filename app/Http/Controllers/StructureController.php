@@ -85,8 +85,19 @@ class StructureController extends Controller
 
         $structure_profile = StructureProfile::create($request->all());
 
+         create_structure_account($structure_profile, $request->email, 'Structure' );
+
+
+        if ($request->hasFile('logo')){
+
+             // Attach record
+            $allowedfileExtension = ['jpeg','jpg','png'];
+
+            eloquent_storage_service($structure_profile, $request, $allowedfileExtension, 'logo', 'logos');
+        }
+
         
-       create_structure_account($structure_profile, $request->email, 'Structure' );
+      
         
         
         
@@ -143,9 +154,9 @@ class StructureController extends Controller
         //
         $request->validate([
             'structure_type_id' => 'required',   
-            'name' => 'required|unique:structure_profiles',  
-            'phone' => 'required|unique:structure_profiles',
-            'email' => 'required|unique:structure_profiles',
+            'name' => 'required',  
+            'phone' => 'required',
+            'email' => 'required',
             'town_id' => 'required',
             'neighborhood_id' => 'required',
             'structure_type_id' => 'required',
@@ -155,9 +166,15 @@ class StructureController extends Controller
 
         
 
-            $structure->update($request->all());
+        $structure->update($request->all());
+        
+      if ($request->hasFile('logo')){
 
-      
+             // Attach record
+            $allowedfileExtension = ['jpeg','jpg','png'];
+
+            eloquent_storage_service($structure, $request, $allowedfileExtension, 'logo', 'logos');
+        }
 
             return redirect()->route('structures.index')
 

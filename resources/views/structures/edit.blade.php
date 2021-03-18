@@ -48,7 +48,7 @@
 
    
 
-    <form action="{{ route('structures.update',$structure->id) }}" method="POST">
+    <form action="{{ route('structures.update',$structure->id) }}" method="POST" enctype="multipart/form-data">
 
         @csrf
         @method('PUT')

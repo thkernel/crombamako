@@ -111,7 +111,7 @@ class StructureCategoryController extends Controller
         //
 
         $request->validate([
-        'name' => 'required|unique:structure_categories',   
+        'name' => 'required',   
 
         ]);
 

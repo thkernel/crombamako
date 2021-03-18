@@ -94,7 +94,7 @@ class SpecialityController extends Controller
     {
         //
         $request->validate([
-        'name' => 'required|unique:specialities',   
+        'name' => 'required',   
 
         ]);
 

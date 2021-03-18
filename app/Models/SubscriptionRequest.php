@@ -26,6 +26,7 @@ class SubscriptionRequest extends Model
     	'email',
     	'town_id',
         'neighborhood_id',
+        'is_specialist',
     	'speciality_id',
         'structure_id',
         'service_id',

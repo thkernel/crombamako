@@ -24,7 +24,18 @@
       </li>
 
       <li class="sub-item">
-        <a class="sub-link" href="{{ route('structure_staffs.index') }}">Personnel</a>
+        <a class="sub-link" href="{{ route('structure_staffs.index') }}">Personnels par structure</a>
+
+      </li>
+
+      <li class="sub-item">
+        <a class="sub-link" href="{{ route('structure_prestations.index') }}">Prestations par structure 
+          </a>
+
+      </li>
+
+      <li class="sub-item">
+          <a class="sub-link" href="{{ route('structure_services.index') }}">Services par structure</a>
 
       </li>
 

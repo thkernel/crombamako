@@ -9,7 +9,7 @@
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
       
-        <h2>Modification - Activité</h2>
+        <h2>Modification - Prestation</h2>
         <hr />
     </div>
     <div class="section-body">

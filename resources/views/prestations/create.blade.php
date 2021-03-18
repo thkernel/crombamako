@@ -8,7 +8,7 @@
 <div class="br-pagebody mg-b-30">
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
-      <h2>Nouvelle - Activité</h2>
+      <h2>Nouvelle - Prestation</h2>
       <hr />
 
     </div>

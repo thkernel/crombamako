@@ -32,12 +32,20 @@
 	</div>
 
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3 ">
+			<div class="form-group">
+				<label for="is_specialist"> Spécialiste</label><br>
+				<input type="checkbox" id="is_specialist" name="is_specialist" />
+			</div>
+		</div>
+
+
+		<div class="col-md-3 speciality">
 	        
 
             <div class="form-group">
 	            <label for="speciality_id" class="required">Spécialité:</label>
-	            <select name="speciality_id" id="speciality_id" class="form-control" required>
+	            <select name="speciality_id" id="speciality_id" class="form-control">
 	                <option {{ $subscription_request->speciality_id  ? '' : 'disabled selected value'}}> 
 	                @foreach($specialities as $speciality)
 	                    <option value = "{{ $speciality->id }}" {{ $speciality->id == $subscription_request->speciality_id ?  'selected' : ''}}>{{ $speciality->name }}</option>
@@ -49,7 +57,7 @@
 		</div>
 		
 
-	    <div class="col-md-4">
+	    <div class="col-md-3">
             <div class="form-group">
              	<label for="town_id" class="required">Commune:</label>
                 <select name="town_id" id="town_id" class="form-control" required>
@@ -60,15 +68,14 @@
                 </select>
             </div>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
             <div class="form-group">
              	<label for="neighborhood_id">Quartier:</label>
                 <select name="neighborhood_id" id="neighborhood_id" class="form-control">
-                    @if ($subscription_request->neighborhood_id)
-                        <option value = "{{ $subscription_request->neighborhood_id }} selected">
-                            {{ $subscription_request->neighborhood->name}}
-                        </option>
-                    @endif
+                    <option {{ $subscription_request->neighborhood_id  ? '' : 'disabled selected value'}}> 
+                    @foreach($neighborhoods as $neighborhood)
+                        <option value = "{{ $neighborhood->id }}" {{ $neighborhood->id == $subscription_request->neighborhood_id ?  'selected' : ''}}>{{ $neighborhood->name }}</option>
+                    @endforeach
                     
                 </select>
             </div>

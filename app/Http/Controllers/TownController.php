@@ -95,7 +95,7 @@ class TownController extends Controller
     {
         //
         $request->validate([
-        'name' => 'required|unique:towns',   
+        'name' => 'required',   
 
         ]);
 

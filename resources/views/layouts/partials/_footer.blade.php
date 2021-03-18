@@ -5,13 +5,13 @@
 			<div class="col-md-4 footer-widget">
 				<h4 class="footer-widget-title">A propos</h4>
 				<p class="footer-widget-content">
-					{{ config('global.application_name')}} est une base de données régionale des médecins et structure sanitaires de Bamako.
+					Cinz@n GGSP est une base de données de Gestion Géolocalisée des Structures et Professionels de santé.
 				</p>
 			</div>
 			
             
 			
-				
+			
 
 			<!-- Footer widget 4 -->
 			<div class="col-md-4 footer-widget">
@@ -55,7 +55,7 @@
 
 		<div class="row mg-t-20">
 			<div class="col-md-12 copyright text-center">
-				&copy;2021 Conseil Régional de l'Ordre des Médecins de Bamako - Tous droits réservés designe by <a href="http://www.certesmali.org/" target="_blank">CERTES</a>
+				&copy;2021 Conseil Régional de l'Ordre des Médecins de Bamako - Tous droits réservés - Designed by <a href="http://www.certesmali.org/" target="_blank">CERTES</a>
 			</div>
 
 			<!-- 

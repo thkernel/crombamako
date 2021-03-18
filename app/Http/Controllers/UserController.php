@@ -36,7 +36,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        $excluded_roles = ['demo', 'superuser'];
+        $excluded_roles = ['demo', 'superuser', 'Médecin'];
         $user = new User;
         $roles =  Role::whereNotIn('name', $excluded_roles )->get();
 
@@ -74,7 +74,7 @@ class UserController extends Controller
 
        
             return redirect()->route('users.index')
-                ->with('success','User created successfully.');
+                ->with('success',"Compte d'utilisateur créer avec succès.");
 
         }catch(QueryException $e){
              $error_code = $e->errorInfo[0];
@@ -110,7 +110,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-       $excluded_roles = ['demo', 'superuser'];
+       $excluded_roles = ['demo', 'superuser', 'Médecin'];
         $roles =  Role::whereNotIn('name', $excluded_roles )->get();
         return view('users.edit',compact(['user', 'roles']));
     }
@@ -142,7 +142,7 @@ class UserController extends Controller
 
         return redirect()->route('users.index')
 
-                        ->with('success','User updated successfully');
+                        ->with('success',"Compte d'utilisateur mise à jour.");
     }
 
     /**

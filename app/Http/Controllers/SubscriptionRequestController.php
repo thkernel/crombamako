@@ -69,7 +69,7 @@ class SubscriptionRequestController extends Controller
             'phone' => 'required|unique:subscription_requests',
             'town_id' => 'required',
             'email' => 'required|unique:subscription_requests',
-            'speciality_id' => 'required',
+            
 
 
         ]);
@@ -143,7 +143,7 @@ class SubscriptionRequestController extends Controller
             'phone' => 'required',
             'town_id' => 'required',
             'email' => 'required',
-            'speciality_id' => 'required',
+            
 
 
         ]);

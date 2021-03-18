@@ -25,7 +25,7 @@
 
         @can('read', App\Models\StructureStaff::class)
           <li class="sub-item">
-            <a class="sub-link" href="{{ route('structure_staffs.index') }}">Personnel</a>
+            <a class="sub-link" href="{{ route('structure_staffs.index') }}">Personnels par structure</a>
 
           </li>
         @endcan
@@ -33,7 +33,7 @@
         @can('read', App\Models\StructurePrestation::class)
 
           <li class="sub-item">
-            <a class="sub-link" href="{{ route('structure_prestations.index') }}">Activités </a>
+            <a class="sub-link" href="{{ route('structure_prestations.index') }}">Prestations par structure </a>
 
           </li>
         @endcan
@@ -41,7 +41,7 @@
         @can('read', App\Models\StructureService::class)
 
           <li class="sub-item">
-            <a class="sub-link" href="{{ route('structure_services.index') }}">Services</a>
+            <a class="sub-link" href="{{ route('structure_services.index') }}">Services par structure</a>
 
           </li>
         @endcan
@@ -236,11 +236,7 @@
             @endcan
 
            
-            @can('read', App\Models\StructureType::class)
-              <li class="sub-item">
-                  <a class="sub-link" href="{{ route('structure_types.index') }}">Types de structures</a>
-              </li>
-            @endcan
+            
 
             @can('read', App\Models\StructureCategory::class)
               <li class="sub-item">
@@ -283,7 +279,7 @@
 
             @can('read', App\Models\Prestation::class)
               <li class="sub-item">
-                  <a class="sub-link" href="{{ route('prestations.index') }}">Activités</a>
+                  <a class="sub-link" href="{{ route('prestations.index') }}">Prestations</a>
               </li>
             @endcan
 

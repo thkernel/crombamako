@@ -55,14 +55,13 @@
             <div class="form-group">
             <label for="neighborhood_id" class="required">Quartier:</label>
             <select name="neighborhood_id" class="form-control" required>
-                    @if ($structure->neighborhood_id)
-                        <option value = "{{ $structure->neighborhood_id }} selected">
-                            {{ $structure->neighborhood->name}}
-                        </option>
-                    @endif
+                <option {{ $structure->neighborhood_id  ? '' : 'disabled selected value'}}> Sélectionner </option>
+                @foreach($neighborhoods as $neighborhood)
+                    <option value = "{{ $neighborhood->id }}" {{ $neighborhood->id === $structure->neighborhood_id ?  'selected' : ''}}>{{ $neighborhood->name }}</option>
+                @endforeach
                     
                 </select>
-        </div>
+            </div>
         </div>
 
          <div class="col-md-6">
