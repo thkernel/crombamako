@@ -159,7 +159,7 @@ class OpportunityController extends Controller
         //$blob_id = $$opportunity->attachments->blob_id;
         //$post->attachment()->delete();
 
-        $$opportunity->delete();
+        $opportunity->delete();
         
         //EloquentStorageBlob::where('id',$blob_id)->delete();
 
