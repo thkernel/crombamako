@@ -8,7 +8,7 @@
 <div class="br-pagebody mg-b-30">
   <div class="br-section-wrapper">
     <div class="headers mg-b-5">
-      <h2>Modification - Page</h2>
+      <h2>Modification - Resource</h2>
       <hr />
 
     </div>
@@ -56,12 +56,12 @@
 
    
 
-<form action="{{ route('pages.update',$page->id) }}" method="POST">
+<form action="{{ route('resources.update',$resource->id) }}" method="POST" enctype="multipart/form-data">
 
     @csrf
     @method('PUT')
 
-  @include("pages/_form")
+  @include("resources/_form")
 
      <div class="row">
 

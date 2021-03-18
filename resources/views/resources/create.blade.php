@@ -57,7 +57,7 @@
 
    
 
-<form action="{{ route('resources.store') }}" method="POST">
+<form action="{{ route('resources.store') }}" method="POST" enctype="multipart/form-data">
 
     @csrf
 

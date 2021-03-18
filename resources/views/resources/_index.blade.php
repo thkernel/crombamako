@@ -5,22 +5,22 @@
     <td>
 	    <div class="action-buttons">
 			
-            @can('read', App\Models\Page::class)
-             <a  href="{{ route('resource.edit', $resource->id) }}">
+            @can('read', App\Models\Resource::class)
+             <a  href="{{ route('resources.edit', $resource->id) }}">
                 <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
                 Modifier
              </a>
             @endcan
 
 
-            @can('delete', App\Models\Page::class)
+            @can('delete', App\Models\Resource::class)
                 <a href="#" data-toggle="modal" data-target="#page-{{$resource->id}}-modal">
                     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
                     Supprimer
                 </a>
             @endcan
 
-<div id="page-{{$resource->id}}-modal" class="c-modal modal fade" data-backdrop="static">
+<div id="resource-{{$resource->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->
 <div class="modal-dialog">
     <div class="modal-content">

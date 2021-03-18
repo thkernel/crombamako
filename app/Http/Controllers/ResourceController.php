@@ -42,6 +42,29 @@ class ResourceController extends Controller
     public function store(Request $request)
     {
         //
+
+        //
+        $request['user_id'] = current_user()->id;
+        $request->validate([
+            'title' => 'required',
+
+        ]);
+
+  
+
+        $resource = Resource::create($request->all());
+
+        if ($request->hasFile('file')){
+
+             // Attach record
+            $allowedfileExtension = ['pdf', 'docs','jpeg','jpg','png', 'xls', 'xlsx'];
+
+            eloquent_storage_service($resource, $request, $allowedfileExtension, 'file', 'resources');
+        }
+   
+        return redirect()->route('resources.index')
+            ->with('success','Ressource ajoutée avec succès.');
+
     }
 
     /**
@@ -64,6 +87,7 @@ class ResourceController extends Controller
     public function edit(Resource $resource)
     {
         //
+         return view('resources.edit',compact('resource'));
     }
 
     /**
@@ -76,6 +100,32 @@ class ResourceController extends Controller
     public function update(Request $request, Resource $resource)
     {
         //
+         $request->validate([
+        'title' => 'required',   
+
+        ]);
+
+  
+        $resource->update($request->all());
+
+  
+
+        
+        dd($request->hasFile('file'));
+
+        if ($request->hasFile('file')){
+
+             // Attach record
+            $allowedfileExtension = ['pdf', 'docs','jpeg','jpg','png', 'xls', 'xlsx'];
+
+            eloquent_storage_service($resource, $request, $allowedfileExtension, 'file', 'resources');
+        }
+
+        return redirect()->route('resources.index')
+
+                        ->with('success','Ressource mise à jour avec succès');
+
+
     }
 
     /**
