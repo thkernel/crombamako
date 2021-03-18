@@ -5,7 +5,7 @@
   <div class="container page-wrapper mg-t-80 mg-b-30">
  
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-8">
         <!-- -->
         <div class="card shadow-base bd-0">
           <div class="card-header bg-transparent pd-20">
@@ -43,7 +43,7 @@
               </li>
                <li class="detail-city">
                 <strong>Quartier: </strong> 
-                <span>{{ $subscription_request->neighborhood->name}}</span>
+                <span>{{ $subscription_request->neighborhood ? $subscription_request->neighborhood->name :''}}</span>
               </li>
               <li class="detail-city">
                 <strong>Adresse: </strong> 
@@ -91,7 +91,7 @@
         
 
        
-      <div class="col-md-3">
+      <div class="col-md-4">
          
        
 
@@ -110,7 +110,7 @@
                   <p class="mg-b-0">
                     <i class="fa fa-file-text-o tx-info mg-r-8"></i>
                     <strong class="tx-inverse tx-medium">
-                   {{ $attachment->id}}                    
+                   {{ $attachment->blob->filename}}                    
                     </strong>
                   
                     

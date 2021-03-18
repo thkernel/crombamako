@@ -69,6 +69,7 @@ class SubscriptionRequestController extends Controller
             'phone' => 'required|unique:subscription_requests',
             'town_id' => 'required',
             'email' => 'required|unique:subscription_requests',
+            'is_specialist' => 'required'
             
 
 
@@ -81,7 +82,7 @@ class SubscriptionRequestController extends Controller
        
        
 
-       if ($request->hasFile('files[]')){
+       if ($request->hasFile('files')){
 
              // Attach record
        $allowedfileExtension = ['pdf','jpg','png','docx'];

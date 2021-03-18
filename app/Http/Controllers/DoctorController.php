@@ -78,7 +78,8 @@ class DoctorController extends Controller
             'phone' => 'required',
             'town_id' => 'required',
             'email' => 'required',
-            'speciality_id' => 'required',
+            'is_specialist' => 'required',
+           
 
         ]);
 
@@ -104,7 +105,13 @@ class DoctorController extends Controller
         DoctorOrder::create($doctor_order);
         */
 
+        if ($request->hasFile('files')){
 
+             // Attach record
+       $allowedfileExtension = ['pdf','jpg','png','docx'];
+
+            eloquent_storage_service($doctor, $request, $allowedfileExtension, 'files', 'files');
+        }
    
         return redirect()->route('doctors.index')
             ->with('success','Médecin créé avec succès.');
@@ -155,11 +162,21 @@ class DoctorController extends Controller
             'phone' => 'required',
             'town_id' => 'required',
             'email' => 'required',
-            'speciality_id' => 'required',
+            'is_specialist' => 'required',
+            
 
         ]);
 
         $doctor->update($request->all());
+
+        if ($request->hasFile('files')){
+
+             // Attach record
+       $allowedfileExtension = ['pdf','jpg','png','docx'];
+
+            eloquent_storage_service($doctor, $request, $allowedfileExtension, 'files', 'files');
+        }
+
 
   
 

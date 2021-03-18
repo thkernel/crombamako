@@ -85,7 +85,9 @@ class DoctorProfile extends Model
         return $this->first_name . ' ' . $this->last_name . ' | '. $this->doctor_order->reference;
     }
 
-     public function avatar()
+     
+
+    public function attachments()
     {
         return $this->morphMany(EloquentStorageAttachment::class, 'attachable');
     }
