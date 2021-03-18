@@ -56,7 +56,7 @@ class OpportunityController extends Controller
      
 
         $request->validate([
-            'title' => 'required|unique:opportunities',
+            'title' => 'required',
             'opportunity_type_id' => 'required',
 
         ]);

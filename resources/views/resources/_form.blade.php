@@ -4,9 +4,9 @@
 
         <div class="form-group">
 
-            <label for="title" class="required">Titre:</label>
+            <label for="title">Titre:</label>
 
-            <input type="text" name="title" value="{{  old('title') ?? $resource->title }}" class="form-control" placeholder="Titre de la page" reauired>
+            <input type="text" name="title" value="{{  old('title') ?? $resource->title }}" class="form-control" placeholder="Titre" reauired>
 
         </div>
 
@@ -16,13 +16,14 @@
     <div class="form-group">
                 <label for="content" class="required">Notes:</label>
                 <textarea rows="8" id="editor" name="content" class="form-control" placeholder="Contenu">
-                    {{  old('content') ?? $resources->content }}
+                    {{  old('content') ?? $resource->content }}
                 </textarea>
             </div>
-        </div>
-        <div class="form-group">
-
+            <div class="form-group">
+                    <label for="files[]">Fichiers</label>
                     <input type="file" name="files[]" class="form-control">
 
                 </div>
+        </div>
+        
 </div>

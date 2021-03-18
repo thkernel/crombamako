@@ -28,6 +28,9 @@ class ResourceController extends Controller
     public function create()
     {
         //
+        $resource = new Resource;
+        return view('resources.create', compact(['resource']));
+
     }
 
     /**
