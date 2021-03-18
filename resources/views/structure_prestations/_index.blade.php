@@ -2,6 +2,14 @@
     <tr>
     
         <td>{{$structure_prestation->structure->name}}</td>
+        <td>
+          @foreach($structure_prestation->structure_prestation_items as $structure_prestation_item)
+            <span class="contribution-year-item">
+            {{ $structure_prestation_item->prestation->name }}
+            </span>
+        @endforeach
+          
+        </td>
 
     
     <td>

@@ -111,7 +111,7 @@ class ResourceController extends Controller
   
 
         
-        dd($request->hasFile('file'));
+       
 
         if ($request->hasFile('file')){
 

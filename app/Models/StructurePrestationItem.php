@@ -9,4 +9,8 @@ class StructurePrestationItem extends Model
 {
     use HasFactory;
     protected $fillable = ['structure_prestation_id' , 'prestation_id'];
+
+    public function prestation(){
+        return $this->belongsTo(Prestation::class);
+    }
 }

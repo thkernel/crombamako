@@ -33,6 +33,7 @@
      
       
       <th>Structure</th>
+      <th>Prestations</th>
      
       
       <th>Actions</th>
