@@ -28,7 +28,7 @@
 
 
          <div class="form-group">
-
+                <label for="file">Copie de l'agrément:</label>
                 <input type="file" name="file" class="form-control">
 
             </div>

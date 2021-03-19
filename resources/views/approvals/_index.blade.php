@@ -11,18 +11,20 @@
 <td>
 	    <div class="action-buttons">
 			
+            @if (current_user()->isDoctor())
+                 <a  href="{{ route('approvals.edit', $approval->id) }}">
+                    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
+                    Modifier
+                 </a>
+            @endif
 
- <a  href="{{ route('approvals.edit', $approval->id) }}">
-    <i class="fa fa-pencil" aria-hidden="true" title="Modifier"></i>
-    Modifier
- </a>
 
-
-
+@if (current_user()->isDoctor())
 <a href="#" data-toggle="modal" data-target="#approval-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Supprimer
 </a>
+@endif
 
 <div id="approval-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

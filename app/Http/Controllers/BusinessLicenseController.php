@@ -17,6 +17,7 @@ class BusinessLicenseController extends Controller
         //
         if (current_user()->isDoctor()){
             $business_licenses = current_user()->userable->business_license;
+           
 
         }else{
              $business_licenses =  BusinessLicense::orderBy('id', 'asc')->get();
@@ -61,9 +62,16 @@ class BusinessLicenseController extends Controller
 
             
 
-            BusinessLicense::create($request->all());
+            $business_license = BusinessLicense::create($request->all());
 
-       
+            if ($request->hasFile('file')){
+
+             // Attach record
+            $allowedfileExtension = ['pdf','jpeg','jpg','png'];
+
+            eloquent_storage_service($business_license, $request, $allowedfileExtension, 'file', 'business_licenses');
+            }
+
             return redirect()->route('business_licenses.index')
                 ->with('success',"Licence d'exploitation créée avec succès.");
         }else{
@@ -118,6 +126,13 @@ class BusinessLicenseController extends Controller
         $business_license->update($request->all());
 
   
+        if ($request->hasFile('file')){
+
+             // Attach record
+            $allowedfileExtension = ['pdf','jpeg','jpg','png'];
+
+            eloquent_storage_service($business_license, $request, $allowedfileExtension, 'file', 'business_licenses');
+            }
 
         return redirect()->route('business_licenses.index')
 

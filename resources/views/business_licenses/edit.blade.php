@@ -55,7 +55,7 @@
 
    
 
-<form action="{{ route('business_licenses.update', $business_license->id) }}" method="POST">
+<form action="{{ route('business_licenses.update', $business_license->id) }}" method="POST" enctype="multipart/form-data">
 
     @csrf
     @method('PUT')

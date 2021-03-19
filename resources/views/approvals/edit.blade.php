@@ -55,7 +55,7 @@
 
    
 
-<form action="{{ route('approvals.update', $approval->id) }}" method="POST">
+<form action="{{ route('approvals.update', $approval->id) }}" method="POST" enctype="multipart/form-data">
 
     @csrf
     @method('PUT')

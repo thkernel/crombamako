@@ -15,4 +15,9 @@ class BusinessLicense extends Model
     public function doctor(){
         return $this->belongsTo(DoctorProfile::class, 'doctor_id');
     }
+
+    public function attachment()
+    {
+        return $this->morphOne(EloquentStorageAttachment::class, 'attachable');
+    }
 }

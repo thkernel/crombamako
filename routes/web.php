@@ -207,6 +207,10 @@ Route::post('/email/verification-notification', function (Request $request) {
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
 
+ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+     \UniSharp\LaravelFilemanager\Lfm::routes();
+ });
+
 
 
 

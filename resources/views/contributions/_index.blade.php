@@ -18,11 +18,12 @@
  
 
 
-
+@if (!current_user()->isDoctor())
 <a href="#" data-toggle="modal" data-target="#contribution-{{$contribution->id}}-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
     Annuler
 </a>
+@endif
 
 <div id="contribution-{{$contribution->id}}-modal" class="c-modal modal fade" data-backdrop="static">
 <!-- Modal -->

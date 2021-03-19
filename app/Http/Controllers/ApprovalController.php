@@ -17,6 +17,7 @@ class ApprovalController extends Controller
         //
         if (current_user()->isDoctor()){
             $approvals = current_user()->userable->approval;
+            
         }else{
             $approvals =  Approval::orderBy('id', 'asc')->get();
         }
@@ -59,7 +60,16 @@ class ApprovalController extends Controller
 
       
 
-            Approval::create($request->all());
+            $approval = Approval::create($request->all());
+
+            if ($request->hasFile('file')){
+
+             // Attach record
+            $allowedfileExtension = ['pdf','jpeg','jpg','png'];
+
+            eloquent_storage_service($approval, $request, $allowedfileExtension, 'file', 'approvals');
+        }
+
 
        
             return redirect()->route('approvals.index')
@@ -115,7 +125,13 @@ class ApprovalController extends Controller
   
         $approval->update($request->all());
 
-  
+        if ($request->hasFile('file')){
+
+             // Attach record
+            $allowedfileExtension = ['pdf','jpeg','jpg','png'];
+
+            eloquent_storage_service($approval, $request, $allowedfileExtension, 'file', 'approvals');
+        }
 
         return redirect()->route('approvals.index')
 
