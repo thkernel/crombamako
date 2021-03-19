@@ -13,6 +13,7 @@ use App\Models\Neighborhood;
 use App\Mail\ContributionMail;
 use PDF;
 use NumberToWords\NumberToWords;
+use Carbon\Carbon;
 //use Illuminate\Mail\Mailable;
 
 class ContributionController extends Controller
@@ -38,6 +39,8 @@ class ContributionController extends Controller
 
     public function download_statement_pdf()
     {
+        $current_timestamp = Carbon::now()->timestamp;
+
         $contributions = Contribution::all();
         if ($contributions){
             $sum_total = $contributions->sum('total_amount');
@@ -56,7 +59,7 @@ class ContributionController extends Controller
         
         $pdf = PDF::loadView('contributions.statement_pdf', compact(['contributions','sum_total', 'amount_words']));
         
-        return $pdf->download('etat-paiement.pdf');
+        return $pdf->download('etat-paiement-'.$current_timestamp.'.pdf');
 
         /*return view('contributions.statement_pdf',compact(['contributions','sum_total','amount_words']));*/
     }
