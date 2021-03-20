@@ -30,7 +30,7 @@ class ContributionController extends Controller
             $contributions = current_user()->userable->contributions;
         }
         else{
-        $contributions =  Contribution::orderBy('id', 'asc')->get();
+        $contributions =  Contribution::where("status", '<>', "Annulée")->get();;
         }
 
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');

@@ -40,9 +40,11 @@ use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\StructureServiceController;
 use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\CkeditorController;
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+
 
 
 
@@ -215,7 +217,8 @@ Route::post('/email/verification-notification', function (Request $request) {
      \UniSharp\LaravelFilemanager\Lfm::routes();
  });
 
-
+Route::get('ckeditor', [CkeditorController::class, 'index']);
+Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('upload');
 
 
 /* Auth routes */

@@ -57,7 +57,7 @@
 
    
 
-<form action="{{ route('pages.store') }}" method="POST">
+<form action="{{ route('pages.store') }}" method="POST" enctype="multipart/form-data">
 
     @csrf
 
@@ -88,3 +88,4 @@
 </div>
 
 @endsection
+

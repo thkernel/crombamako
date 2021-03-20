@@ -14,10 +14,18 @@ $(document).ready(function() {
 			*/
 
 
-			    CKEDITOR.replace('editor', {
-        //filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-        //filebrowserUploadMethod: 'form'
-    });
+				
+
+			    CKEDITOR.replace('editor', 
+			    {
+			    	
+
+                filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+                filebrowserImageUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+
+        		filebrowserUploadMethod: 'form',
+
+    			});
 
 	} catch (e) {}
 

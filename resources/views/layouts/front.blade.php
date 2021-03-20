@@ -28,5 +28,12 @@
         <footer>
             @include("layouts/partials/_footer")
         </footer>
+
+        <script type="text/javascript">
+    CKEDITOR.replace('editor', {
+        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
+    </script> 
     </body>
 </html>

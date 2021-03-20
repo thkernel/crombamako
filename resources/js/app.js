@@ -29,7 +29,7 @@ require('./init_datatables');
 require('./ckeditor_4.16.0_standard/ckeditor/ckeditor.js');
 //require('./ckeditor_4.16.0_standard/ckeditor/config.js');
 
-require('./init_ckeditor');
+//require('./init_ckeditor');
 
 require('./init_intl_tel_input');
 require('./init_select2');

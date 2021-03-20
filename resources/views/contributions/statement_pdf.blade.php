@@ -8,7 +8,7 @@
       <img src="{{ public_path("images/Logo-CNOM.png")}}" />
     </span>
     <span class="company">
-      <h3>{{ config('global.application_name')}} </h3><br/>
+      <h3>CROM </h3><br/>
       
         Téléphone: {{ config('global.company_phone')}}<br />
         Email: {{ config('global.company_email')}}<br />
