@@ -31,7 +31,9 @@
     <tr>
       <th>Date</th>
      <th>Type</th>
+     <th>N°Insc.</th>
      <th>Médecin</th>
+     <th>Etat</th>
       <th>Actions</th>
     </tr>
   </thead>

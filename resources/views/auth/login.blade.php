@@ -7,25 +7,39 @@
         <div class="tx-center mg-b-60">Veuillez vous connecter</div>
         <form method="POST" action="{{ route('login') }}">
             @csrf
-            <div class="form-group">
-            	@include('layouts/partials/_flash-message')
-            </div><!-- form-group -->
-	        <div class="form-group">
-	          <input type="text" class="form-control" placeholder="Votre login"  name="login" required >
-	        </div><!-- form-group -->
-	        <div class="form-group">
-	          <input type="password" name="password" id="password" class="form-control" placeholder="Votre mot de passe" required>
-	          @if (Route::has('password.request'))
-	          <a href="{{ route('password.request') }}" class="tx-info tx-12 d-block mg-t-10">Mot de passe oublié?</a>
-	          @endif
-	        </div><!-- form-group -->
-	        <input type="submit" value="Se connecter" class="btn btn-primary btn-block">
+
+            <div class="row">
+            	<div class="col-md-12">
+
+		            <div class="form-group">
+		            	@include('layouts/partials/_flash-message')
+		            </div><!-- form-group -->
+		        </div>
+
+		        <div class="col-md-12">
+
+			        <div class="form-group">
+			          <input type="text" class="form-control" placeholder="Votre login"  name="login" required >
+			        </div><!-- form-group -->
+			    </div>
+
+			    <div class="col-md-12">
+			        <div class="form-group">
+			          <input type="password" name="password" id="password" class="form-control" placeholder="Votre mot de passe" required>
+			          @if (Route::has('password.request'))
+			          <a href="{{ route('password.request') }}" class="tx-info tx-12 d-block mg-t-10">Mot de passe oublié?</a>
+			          @endif
+			        </div><!-- form-group -->
+			    </div>
+			    <div class="col-md-12">
+			    	<div class="form-group">
+				        <input type="submit" value="Se connecter" class="btn btn-primary btn-block">
+				    </div>
+			    </div>
+		     </div>
 	        	
 	        
 	    </form>
-	    <!--
-        <div class="mg-t-60 tx-center">Vous n'avez pas encore de compte? <a href="{{ route('register') }}" class="tx-info">S'inscrire</a></div>
-      </div>
-      -->
+	    
 
 @endsection

@@ -10,7 +10,7 @@ class DocumentRequest extends Model
 {
     use HasFactory;
 
-     protected $fillable = ['document_type_id', 'recipient_civility','content', 'doctor_id', 'recipient_function', 'request_location', 'structure_category_id', 'structure_name'];
+     protected $fillable = ['document_type_id', 'recipient_civility','content', 'doctor_id', 'recipient_function', 'request_location', 'structure_category_id', 'structure_name', 'status'];
 
 
     public function document_type(){

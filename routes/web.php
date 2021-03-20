@@ -128,6 +128,10 @@ Route::get('/contributions/statement', [ContributionController::class, 'statemen
 
 Route::put('/contribution/{id}/cancel/', [ContributionController::class, 'cancel'])->name('contributions.cancel')->middleware(['auth']);
 
+Route::put('/document_requests/{id}/validate/', [DocumentRequestController::class, 'validate_request'])->name('document_requests.validate')->middleware(['auth']);
+
+Route::put('/document_requests/{id}/cancel/', [DocumentRequestController::class, 'cancel_request'])->name('document_requests.cancel')->middleware(['auth']);
+
 Route::put('/doctor_profile/{id}/change-satus/', [DoctorController::class, 'change_status'])->name('doctors.change_status')->middleware(['auth']);
 
 

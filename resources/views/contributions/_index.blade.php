@@ -1,6 +1,7 @@
 @foreach($contributions as $contribution)
     <tr>
     <td>{{format_date($contribution->created_at, "d/m/Y")}}</td>
+    <td>{{$contribution->doctor->doctor_order->reference}} </td>
     <td>{{$contribution->doctor->fullname}}</td>
     <td>
         @foreach($contribution->contribution_items as $contribution_item)
@@ -10,6 +11,7 @@
         @endforeach
     </td>
     <td>{{$contribution->total_amount}}</td>
+    <td>{{$contribution->status}}</td>
     
 <td>
 	    <div class="action-buttons">
@@ -20,7 +22,7 @@
 
 @if (!current_user()->isDoctor())
 <a href="#" data-toggle="modal" data-target="#contribution-{{$contribution->id}}-modal">
-    <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
+    <i class="fa fa-ban" aria-hidden="true" title="Annuler" ></i>
     Annuler
 </a>
 @endif

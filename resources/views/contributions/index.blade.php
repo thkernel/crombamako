@@ -35,10 +35,12 @@
   <thead>
     <tr>
       <th>Date</th>
+      <th>N°Inscrip.</th>
       <th>Médecin</th>
       <th>Années</th>
       <th>Montant</th>
-      @if (!current_user()->isDoctor())
+      <th>Statut</th>
+        @if (!current_user()->isDoctor())
       <th>Actions</th>
       @endif
     </tr>

@@ -55,7 +55,7 @@ class DocumentRequestController extends Controller
         
            $request['request_location'] = "Bamako";
         //$request['doctor_id'] = current_user()->id;
-     
+        $request['status'] = "En attente";
        
 
         $request->validate([
@@ -133,6 +133,9 @@ class DocumentRequestController extends Controller
                         ->with('success','La eemande a été mise à jour avec succès');
     }
 
+
+   
+
     /**
      * Remove the specified resource from storage.
      *
@@ -169,4 +172,33 @@ class DocumentRequestController extends Controller
         }
         
     }
+
+
+
+     public function validate_request($id)
+    {
+        $document_request = DocumentRequest::findOrFail($id);
+        $document_request->status = "Validée";
+        $document_request->update();
+        //dd($contribution);
+
+        return redirect()->route('document_requests.index')
+
+                        ->with('success','Demande de document validée avec succès.');
+
+    }
+
+     public function cancel_request($id)
+    {
+        $document_request = DocumentRequest::findOrFail($id);
+        $document_request->status = "Annulée";
+        $document_request->update();
+        //dd($contribution);
+
+        return redirect()->route('document_requests.index')
+
+                        ->with('success','Demande de document annulée avec succès.');
+
+    }
+
 }

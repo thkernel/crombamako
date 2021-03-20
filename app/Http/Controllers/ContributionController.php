@@ -92,8 +92,7 @@ class ContributionController extends Controller
         //
         $request['user_id'] = current_user()->id;
 
-        
-     
+        $request['status'] = "Payée";
 
         $request->validate([
             'doctor_id' => 'required',
@@ -104,7 +103,6 @@ class ContributionController extends Controller
 
 
         $contribution_items = array_filter($request['year']); // Remove empty element into array.
-
 
         $amount = $request['amount'];
         
@@ -119,6 +117,31 @@ class ContributionController extends Controller
 
         $contribution = Contribution::create($request->all());
 
+
+        $doctor = DoctorProfile::find($request['doctor_id']);
+        $doctor_contributions = $doctor->contributions;
+
+         
+        $contribution_ids = [];
+        $contribution_item_years = [];
+
+        foreach($doctor_contributions as $doctor_contribution){
+            array_push($contribution_ids, $doctor_contribution->id);
+        }
+
+    
+        $insertion = false;
+
+        $doctor_contribution_items = ContributionItem::whereIn('contribution_id', $contribution_ids)->get();
+        
+
+        foreach($doctor_contribution_items as $doctor_contribution_item){
+            
+            array_push($contribution_item_years, $doctor_contribution_item->year);
+            
+        }
+
+        //dd($contribution_item_years);
         
         if ($contribution && $contribution_items){
             
@@ -126,11 +149,33 @@ class ContributionController extends Controller
             foreach($contribution_items as $contribution_item){
                 $item = [
                     "contribution_id" => $contribution->id,
-                    "year" => $contribution_item,
+                    "year" => intval($contribution_item),
                     "amount" => $amount
                 ];
+
+
                 
-                ContributionItem::create($item);
+
+               if (!in_array(intval($contribution_item), $contribution_item_years)){
+                    ContributionItem::create($item);
+                    $insertion = true;
+                }
+                else{
+                    if (!$insertion){
+                        $contribution->delete();
+                        return redirect()->route('contributions.index')
+            ->with('error','Opération annulée. La cotisation pour '.intval($contribution_item). ' a été déjà payée pour le médecin sélectionné.');
+
+                    }
+                }
+
+
+                            
+                            
+           
+
+               
+                
             } 
         }
 
@@ -180,7 +225,7 @@ class ContributionController extends Controller
     public function cancel($id)
     {
         $contribution = Contribution::findOrFail($id);
-        $contribution->status = "Cancel";
+        $contribution->status = "Annulée";
         $contribution->update();
         //dd($contribution);
 
@@ -214,7 +259,8 @@ class ContributionController extends Controller
         $contribution_items = $request['year'];
         $amount = $request['amount'];
 
-    
+        
+
         
         if ($contribution && $contribution_items ){
             // delete all items before.
