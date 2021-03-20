@@ -82,10 +82,13 @@
 		.report-header{
 			
 			width: 100%;
+			margin-top: 30px;
 			margin-bottom: 30px;
+			padding: 5px;
 		}
 		.logo{
 			width: 100px;
+			display: inline-block;
 		}
 		.logo img{
 			width: 100%;
@@ -112,6 +115,10 @@
 		.signature{
 			float: right;
 			margin-top: 40px;
+		}
+		.company{
+
+			display: inline-block;
 		}
 		
 

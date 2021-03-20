@@ -4,9 +4,17 @@
 
 <div class="container">
   <div class="report-header">
-    <div class="logo">
+    <span class="logo">
       <img src="{{ public_path("images/Logo-CNOM.png")}}" />
-    </div>
+    </span>
+    <span class="company">
+      <h3>{{ config('global.application_name')}} </h3><br/>
+      
+        Téléphone: {{ config('global.company_phone')}}<br />
+        Email: {{ config('global.company_email')}}<br />
+        Adresses: {{ config('global.company_addresses')}}<br />
+      
+    </span>
   </div>
 
   <div class="report-details">

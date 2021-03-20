@@ -8,7 +8,7 @@
 
         <script defer src="{{ asset('js/app.js') }}"></script>
         
-
+        <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
         <!-- Styles -->
 
         <link defer href="{{ asset('css/app.css') }}" rel="stylesheet" >

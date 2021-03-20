@@ -11,6 +11,7 @@
 
             <div class="row">
                 <div class="col-md-12">
+                    
                     <div class="form-group">
                         @include('layouts/partials/_flash-message')
                     </div><!-- form-group -->
@@ -22,7 +23,7 @@
 
             <div class="form-group">
                 <label for="email" class="required">Email</label>
-              <input type="email" name="email" id="email" class="form-control" placeholder="email" required autofocus>
+              <input type="email" name="email" id="email" class="form-control" placeholder="Saisir votre email" required autofocus>
               
             </div><!-- form-group -->
             <input type="submit" value="Envoyer le lien de réinitialisation" class="btn btn-primary btn-block">

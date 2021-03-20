@@ -1,24 +1,7 @@
 $(document).ready(function() {
 	try {
 
-/*
-		ClassicEditor.defaultConfig = {
-			filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-    		filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-    		filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-    		filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
-		};
-
-
-*/
-
-		var options = {
-		    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-		    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-		    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-		    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
-		    filebrowserUploadMethod: 'form'
-		  };
+		/*
 
 		ClassicEditor.create( document.querySelector( '#editor' ), options )
 			.then( editor => {
@@ -28,6 +11,13 @@ $(document).ready(function() {
 			.catch( error => {
 				console.error( 'There was a problem initializing the editor.', error );
 			} );
+			*/
+
+
+			    CKEDITOR.replace('editor', {
+        //filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
+        //filebrowserUploadMethod: 'form'
+    });
 
 	} catch (e) {}
 

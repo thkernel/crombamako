@@ -25,7 +25,10 @@ require('../../vendor/bracket/js/bracket.js');
 require('../../vendor/bracket/js/dashboard.js');
 
 require('./init_datatables');
-require('./ckeditor5-build-classic/ckeditor.js');
+//require('./ckeditor5-build-classic/ckeditor.js');
+require('./ckeditor_4.16.0_standard/ckeditor/ckeditor.js');
+//require('./ckeditor_4.16.0_standard/ckeditor/config.js');
+
 require('./init_ckeditor');
 
 require('./init_intl_tel_input');

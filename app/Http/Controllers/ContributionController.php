@@ -231,7 +231,7 @@ class ContributionController extends Controller
 
         return redirect()->route('contributions.index')
 
-                        ->with('success','Cotisation a été annulé avec succès.');
+                        ->with('success','Cotisation a été annulée avec succès.');
 
     }
 

@@ -53,17 +53,7 @@
 
 			@endif
 
-			@if ($message = Session::get('info'))
-
-				<div class="alert alert-info alert-block mg-t-20">
-
-					<button type="button" class="close" data-dismiss="alert">×</button>	
-
-					<strong>{{ $message }}</strong>
-
-				</div>
-
-			@endif
+			
 
 			@if ($errors->first('login'))
 				<div class="alert alert-danger">
@@ -74,6 +64,49 @@
 				    
 				</div>
 			@endif
+
+			@if ($errors->first('email'))
+				<div class="alert alert-danger">
+				    <button type="button" class="close" data-dismiss="alert">×</button>
+				    <strong>
+				    	{{ $errors->first('email') }}
+				    </strong>
+				    
+				</div>
+			@endif
+
+			
+
+			@if ($message = Session::get('status'))
+
+				<div class="alert alert-success alert-block mg-t-20">
+
+					<button type="button" class="close" data-dismiss="alert">×</button>	
+
+					<strong>{{ $message }}</strong>
+
+				</div>
+
+			@endif
+
+			@if ($message = Session::get('failure'))
+
+				<div class="alert alert-success alert-block mg-t-20">
+
+					<button type="button" class="close" data-dismiss="alert">×</button>	
+
+					<strong>{{ $message }}</strong>
+
+				</div>
+
+			@endif
+
+
+			
+
+
+
+
 
 
 			
