@@ -22,6 +22,6 @@ class DocumentRequest extends Model
     }
 
     public function structure_category(){
-        return $this->belongsTo(StructureCategory::class, 'doctor_id');
+        return $this->belongsTo(StructureCategory::class);
     }
 }
