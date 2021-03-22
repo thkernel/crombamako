@@ -75,9 +75,9 @@ class DoctorController extends Controller
             'sex' => 'required',
             'first_name' => 'required',
             'last_name' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|unique:doctor_profiles',
             'town_id' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:doctor_profiles',
             'is_specialist' => 'required',
            
 

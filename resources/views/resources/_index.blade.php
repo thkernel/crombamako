@@ -15,7 +15,7 @@
 
 
             @can('delete', App\Models\Resource::class)
-                <a href="#" data-toggle="modal" data-target="#page-{{$resource->id}}-modal">
+                <a href="#" data-toggle="modal" data-target="#resource-{{$resource->id}}-modal">
                     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>
                     Supprimer
                 </a>
