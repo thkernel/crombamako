@@ -226,12 +226,12 @@
                         
                         
                         if($check){
-
+                            $original_filename = str_replace(' ', '',$current_timestamp."_".$original_filename);
                             
                             // create blob
                             $blob = new EloquentStorageBlob;
                             $blob->key = $key;
-                            $blob->filename = $current_timestamp."_".$original_filename;
+                            $blob->filename = $original_filename;
                             $blob->content_type = $content_type;
                             $blob->metadata = $meta_data;
                             $blob->byte_size = $byte_size;
@@ -251,7 +251,7 @@
                                
                             if ($attachment){
                                 
-                                $file->storeAs($storage_directory,$current_timestamp."_".$original_filename, 'public');
+                                $file->storeAs($storage_directory,$original_filename, 'public');
                                 
                                 
                             }
