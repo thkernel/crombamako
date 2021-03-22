@@ -17,6 +17,13 @@
                 </a>
             @endif
 
+             @if ($business_license->attachment)
+                <a  href="{{ asset("storage/business_licenses/".$business_license->attachment->blob->filename)}}">
+                  <i class="fa fa-file-pdf-o" aria-hidden="true" title="Télécharger"></i>
+                  Télécharger
+                </a>
+            @endif
+
 
             @if (current_user()->isDoctor())
                 <a href="#" data-toggle="modal" data-target="#business-license-modal">

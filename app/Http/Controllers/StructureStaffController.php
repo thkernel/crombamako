@@ -78,7 +78,7 @@ class StructureStaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function show(Staff $staff)
+    public function show(StructureStaff $staff)
     {
         //
     }
@@ -89,13 +89,14 @@ class StructureStaffController extends Controller
      * @param  \App\Models\Staff  $staff
      * @return \Illuminate\Http\Response
      */
-    public function edit(StructureStaff $staff)
+    public function edit(StructureStaff $structure_staff)
     {
         //
-         $specialities =  Speciality::all();
+        $specialities =  Speciality::all();
         $services =  Service::all();
         $structures =  StructureProfile::all();
-        return view('structure_staffs.edit', compact(['staff','specialities', 'services','structures']));
+
+        return view('structure_staffs.edit', compact(['structure_staff','specialities', 'services','structures']));
 
     }
 

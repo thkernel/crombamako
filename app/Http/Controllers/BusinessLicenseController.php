@@ -67,7 +67,7 @@ class BusinessLicenseController extends Controller
             if ($request->hasFile('file')){
 
              // Attach record
-            $allowedfileExtension = ['pdf','jpeg','jpg','png'];
+            $allowedfileExtension = ['docx','pdf','jpeg','jpg','png'];
 
             eloquent_storage_service($business_license, $request, $allowedfileExtension, 'file', 'business_licenses');
             }
@@ -115,7 +115,7 @@ class BusinessLicenseController extends Controller
     {
         //
         $request['status'] = "enable";
-        $request['doctor_id'] = current_user()->id;
+        $request['doctor_id'] = current_user()->userable->id;
         $request->validate([
             'reference' => 'required',
             'year' => 'required',
@@ -129,7 +129,7 @@ class BusinessLicenseController extends Controller
         if ($request->hasFile('file')){
 
              // Attach record
-            $allowedfileExtension = ['pdf','jpeg','jpg','png'];
+            $allowedfileExtension = ['docx','pdf','jpeg','jpg','png'];
 
             eloquent_storage_service($business_license, $request, $allowedfileExtension, 'file', 'business_licenses');
             }

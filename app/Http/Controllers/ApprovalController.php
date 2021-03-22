@@ -65,7 +65,7 @@ class ApprovalController extends Controller
             if ($request->hasFile('file')){
 
              // Attach record
-            $allowedfileExtension = ['pdf','jpeg','jpg','png'];
+            $allowedfileExtension = ['docx','pdf','jpeg','jpg','png'];
 
             eloquent_storage_service($approval, $request, $allowedfileExtension, 'file', 'approvals');
         }
@@ -128,7 +128,7 @@ class ApprovalController extends Controller
         if ($request->hasFile('file')){
 
              // Attach record
-            $allowedfileExtension = ['pdf','jpeg','jpg','png'];
+            $allowedfileExtension = ['docx', 'pdf','jpeg','jpg','png'];
 
             eloquent_storage_service($approval, $request, $allowedfileExtension, 'file', 'approvals');
         }

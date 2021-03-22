@@ -19,6 +19,14 @@
             @endif
 
 
+            @if ($approval->attachment)
+                <a  href="{{ asset("storage/approvals/".$approval->attachment->blob->filename)}}">
+                  <i class="fa fa-file-pdf-o" aria-hidden="true" title="Télécharger"></i>
+                  Télécharger
+                </a>
+            @endif
+
+
 @if (current_user()->isDoctor())
 <a href="#" data-toggle="modal" data-target="#approval-modal">
     <i class="fa fa-trash" aria-hidden="true" title="Supprimer" ></i>

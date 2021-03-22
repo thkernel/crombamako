@@ -56,7 +56,7 @@
 
    
 
-<form action="{{ route('structure_staffs.update',$staff->id) }}" method="POST">
+<form action="{{ route('structure_staffs.update', $structure_staff->id) }}" method="POST">
 
     @csrf
     @method('PUT')

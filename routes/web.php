@@ -172,7 +172,9 @@ Route::resource('document_requests', DocumentRequestController::class)->middlewa
 Route::resource('visit_summaries', VisitSummaryController::class)->middleware(['auth']);
 Route::resource('services', ServiceController::class)->middleware(['auth']);
 Route::resource('prestations', PrestationController::class)->middleware(['auth']);
+
 Route::resource('structure_staffs', StructureStaffController::class)->middleware(['auth']);
+
 Route::resource('pages', PageController::class)->middleware(['auth']);
 Route::resource('structure_prestations', StructurePrestationController::class)->middleware(['auth']);
 Route::resource('structure_services', StructureServiceController::class)->middleware(['auth']);
