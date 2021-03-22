@@ -40,7 +40,7 @@
                         </tr>
 
                         <tr>
-                            <td class="table-td-title">Quartier:</td class="table-td-value"><td>{{ $structure->neighborhood->name}}</td>
+                            <td class="table-td-title">Quartier:</td class="table-td-value"><td>{{ $structure->neighborhood ? $structure->neighborhood->name :''}}</td>
                         </tr>
 
                         <tr>
