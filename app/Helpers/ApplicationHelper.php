@@ -557,14 +557,11 @@
 
 
 function structure_logo($structure, $alt_tag, $class_name){
-    $pharmacy = StructureCategory::where('name', strtolower("Pharmacie"));
-    $cabinet_medical = StructureCategory::where('name', strtolower("Cabinet médical"));
-    $clinique = StructureCategory::where('name', strtolower("Clinique"));
-    $polyclinique = StructureCategory::where('name', strtolower("Polyclinique"));
+    
 
       
-    if  ($structure->logo){
-        return '<img src="/images/post-missing.jpg"  alt="">';
+    if  ($structure->attachment){
+        return "<img src=". asset("storage/logos/".$structure->attachment->blob->filename) .">";
 
     }
     

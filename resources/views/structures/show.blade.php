@@ -66,6 +66,28 @@
     </div>
   </div>
 
+  <div class="card mg-t-20">
+    <div class="card-header">
+        <div class="pull-left">
+            <strong>Description</strong>
+        </div>
+        <div class="pull-right">
+            
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            
+            <div class="col-md-4">
+                {!! $structure->description !!}
+            </div>
+
+            
+            
+        </div>
+    </div>
+  </div>
+
   <div class="card m-t-30">
     <div class="card-header">
       <h6>Médecins</h6>

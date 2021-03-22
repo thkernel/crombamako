@@ -13,7 +13,7 @@
     
         <td>
           <div class="action-buttons">
-			
+			     @if (!current_user()->isDoctor())
             @if ($document_request->status != "Validée")
               <a href="#" data-toggle="modal" data-target="#validate-document-request-{{$document_request->id}}-modal">
                 <i class="fa fa-check" aria-hidden="true" title="Valider" ></i>
@@ -27,6 +27,7 @@
                 Annuler
               </a>
             @endif
+          @endif
 
 
 
