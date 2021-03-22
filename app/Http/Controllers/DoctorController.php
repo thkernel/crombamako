@@ -227,8 +227,9 @@ class DoctorController extends Controller
         //
         $doctor = DoctorProfile::find($id);
 
-        
-        $doctor->user->delete();
+        if ($doctor->user){
+            $doctor->user->delete();
+        }
         DoctorProfile::where('id',$id)->delete();
        
 
