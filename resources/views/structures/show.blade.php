@@ -112,10 +112,14 @@
                                     	</strong>
                                     </div>
                                     <div class="user-location title-normal title-black-light">
-                                        {{ $doctor->speciality->name }}
+                                        @if ($doctor->speciality)
+                                            {{ $doctor->speciality->name }}
+                                        @else
+                                            MÉDECIN GÉNÉRALISTE
+                                        @endif
                                     </div>
                                     <div class="user-location title-normal title-black-light">
-                                        {{ $doctor->town->name}}, {{ $doctor->neighborhood->name}}
+                                        {{ $doctor->town->name}}, {{ $doctor->neighborhood ? $doctor->neighborhood->name : ''}}
                                     </div>
                                     <div class="send-flirt">
                                        

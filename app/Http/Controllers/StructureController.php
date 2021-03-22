@@ -121,7 +121,7 @@ class StructureController extends Controller
 
         
         $structure_doctors = $structure->doctors;
-        dd([$structure,$structure_doctors ]);
+        //dd([$structure,$structure_doctors ]);
         //dd($structure_doctors);
         return view("structures.show", compact(['structure', 'structure_doctors']) );
 

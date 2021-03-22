@@ -573,6 +573,8 @@ function structure_logo($structure, $alt_tag, $class_name){
 
 }
 
+
+
 function post_thumbnail($post, $alt_tag, $class_name){
     
     
@@ -617,16 +619,12 @@ function opportunity_thumbnail($opportunity, $alt_tag, $class_name){
 function doctor_avatar($doctor, $alt_tag, $class_name){
    
       
-    if  ($doctor->avatar()){
-        return '<img src="/images/avatar-missing.png"  class="" alt="">';
-
-    }
     
-    else{
+    
+   
         return '<img src="/images/avatar-missing.png"  class="" alt="">';
          
-    }
-
+   
 
 }
  
