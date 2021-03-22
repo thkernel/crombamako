@@ -28,7 +28,7 @@
                         </tr>
                        
                          <tr>
-                            <td class="table-td-title">Catégorie:</td class="table-td-value"><td>{{ $structure->structure_category->name}}</td>
+                            <td class="table-td-title">Catégorie:</td class="table-td-value"><td>{{ $structure->structure_category ? $structure->structure_category->name : ''}}</td>
                         </tr>
 
                         <tr>
@@ -36,7 +36,7 @@
                         </tr>
 
                         <tr>
-                            <td class="table-td-title">Commune:</td class="table-td-value"><td>{{ $structure->town->name}}</td>
+                            <td class="table-td-title">Commune:</td class="table-td-value"><td>{{ $structure->town ? $structure->town->name : ''}}</td>
                         </tr>
 
                         <tr>
