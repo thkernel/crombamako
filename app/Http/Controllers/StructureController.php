@@ -117,8 +117,11 @@ class StructureController extends Controller
         //
 
         $structure = StructureProfile::where('slug',$slug)->first();
+
+
         
         $structure_doctors = $structure->doctors;
+        dd([$structure,$structure_doctors ]);
         //dd($structure_doctors);
         return view("structures.show", compact(['structure', 'structure_doctors']) );
 
