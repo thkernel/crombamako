@@ -17,8 +17,8 @@
 					<!-- Left content -->
 					<div class="head-left-content">
 						<b>Dr {{ $document_request->doctor->full_name }}</b>	<br />			
-						Médecin {{ $document_request->doctor->speciality->name}} <br />
-						{{ $document_request->doctor->neighborhood->name}}, {{ $document_request->doctor->town->name}}<br />       
+						Médecin {{ $document_request->doctor->speciality ? $document_request->doctor->speciality->name : ''}} <br />
+						{{ $document_request->doctor->neighborhood ? $document_request->doctor->neighborhood->name : ''}}, {{ $document_request->doctor->town->name}}<br />       
 						Tél. : {{ $document_request->doctor->phone}}  <br />
 						Email: {{ $document_request->doctor->email}} <br />
 
