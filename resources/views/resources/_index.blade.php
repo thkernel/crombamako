@@ -1,7 +1,12 @@
 @foreach($resources as $resource)
     <tr>
     <td>{{$resource->title}}</td>
-    <td><a href="{{ asset("storage/resources/".$resource->attachment->blob->filename)}}">{{$resource->attachment->blob->filename}}</a></td>
+
+    <td>
+        @if ($resource->attachment)
+        <a href="{{ asset("storage/resources/".$resource->attachment->blob->filename)}}">{{$resource->attachment->blob->filename}}</a>
+        @endif
+    </td>
     
     <td>
 	    <div class="action-buttons">
