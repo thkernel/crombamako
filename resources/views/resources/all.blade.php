@@ -12,7 +12,9 @@
 					<h5>
 					<li>
 						{{$resource->title}}
+						@if ($resource->attachment)
 						<a href="{{ asset("storage/resources/".$resource->attachment->blob->filename)}}">(Télécharger)</a>
+						@endif
 					</li>
 				</h5>
 					@endforeach

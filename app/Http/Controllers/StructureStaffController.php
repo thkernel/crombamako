@@ -33,11 +33,11 @@ class StructureStaffController extends Controller
     {
         //
         $structure_type = StructureType::where("slug", "privee")->first();
-        $staff = new StructureStaff;
+        $structure_staff = new StructureStaff;
         $specialities =  Speciality::all();
         $services =  Service::all();
         $structures =  StructureProfile::where('structure_type_id', $structure_type->id)->get();
-        return view('structure_staffs.create', compact(['staff','specialities', 'services','structures']));
+        return view('structure_staffs.create', compact(['structure_staff','specialities', 'services','structures']));
     }
 
     /**

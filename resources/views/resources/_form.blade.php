@@ -20,8 +20,8 @@
                 </textarea>
             </div>
             <div class="form-group">
-                    <label for="file">Veuillez joindre le fichier</label>
-                    <input type="file" name="file" class="form-control">
+                    <label for="file" class="required">Veuillez joindre le fichier</label>
+                    <input type="file" name="file" class="form-control" required="">
 
                 </div>
         </div>
