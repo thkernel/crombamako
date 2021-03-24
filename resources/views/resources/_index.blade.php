@@ -2,11 +2,7 @@
     <tr>
     <td>{{$resource->title}}</td>
 
-    <td>
-        @if ($resource->attachment)
-        <a href="{{ asset("storage/resources/".$resource->attachment->blob->filename)}}">{{$resource->attachment->blob->filename}}</a>
-        @endif
-    </td>
+    
     
     <td>
 	    <div class="action-buttons">

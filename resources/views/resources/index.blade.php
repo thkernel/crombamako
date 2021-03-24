@@ -32,7 +32,7 @@
     <tr>
      
       <th>Nom</th>
-      <th>Fichier</th>
+     
      
       
       <th>Actions</th>
