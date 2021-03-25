@@ -13,7 +13,7 @@
 
         <link defer href="{{ asset('css/app.css') }}" rel="stylesheet" >
 
-        <title>CROM</title>
+        <title>CROM BAMAKO</title>
 
        
     </head>

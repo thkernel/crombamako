@@ -16,7 +16,7 @@
         <link defer href="{{ asset('css/app.css') }}" rel="stylesheet">
         
 
-        <title>Tableau de bord - CROM </title>
+        <title>Tableau de bord - CROM BAMAKO </title>
 
        
     </head>
