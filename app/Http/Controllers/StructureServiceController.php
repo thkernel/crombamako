@@ -52,7 +52,7 @@ class StructureServiceController extends Controller
         $request['status'] = "enable";
         $request['user_id'] = current_user()->id;
         $request->validate([
-            'structure_id' => 'required',
+            'structure_id' => 'required|unique:structure_services',
            
 
         ]);

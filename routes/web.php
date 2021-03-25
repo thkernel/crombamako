@@ -19,6 +19,8 @@ use App\Http\Controllers\TownController;
 use App\Http\Controllers\NeighborhoodController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\StructureCategoryController;
+use App\Http\Controllers\PriceConfigurationController;
+
 use App\Http\Controllers\ContributionController;
 use App\Http\Controllers\SubscriptionRequestController;
 use App\Http\Controllers\ActivityLogController;
@@ -147,6 +149,9 @@ Route::resource('users', UserController::class)->middleware(['auth']);
 Route::resource('doctors', DoctorController::class)->middleware(['auth']);
 Route::resource('profiles', 'ProfileController')->middleware(['auth']);
 Route::resource('specialities', SpecialityController::class)->middleware(['auth']);
+
+Route::resource('price_configurations', PriceConfigurationController::class)->middleware(['auth']);
+
 Route::resource('opportunity_types', OpportunityTypeController::class)->middleware(['auth']);
 Route::resource('opportunities', OpportunityController::class, [
     'only' => ['index', 'create', 'store', 'edit', 'destroy', 'update']])->middleware(['auth']);

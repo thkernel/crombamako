@@ -5,7 +5,7 @@
         <td>{{$log->browser}}</td>
         <td>{{$log->controller}}</td>
         <td>{{$log->action}}</td>
-        <td>{{$log->user->login}}</td>
+        <td>{{$log->user ? $log->user->login : ''}}</td>
    
    
     

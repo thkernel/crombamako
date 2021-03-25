@@ -6,7 +6,7 @@ try{
         $(this).select2({
           dropdownParent: dropdownParent,
           width: 'resolve' ,
-          placeholder: 'Sélectionner',
+          //placeholder: 'Sélectionner',
           
         });
     });

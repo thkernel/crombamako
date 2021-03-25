@@ -296,6 +296,12 @@
               </li>
             @endcan
 
+            @can('read', App\Models\PriceConfiguration::class)
+              <li class="sub-item">
+                  <a class="sub-link" href="{{ route('price_configurations.index') }}">Montant cotisation</a>
+              </li>
+            @endcan
+
             @can('read', App\Models\ActivityLog::class)
               <li class="sub-item">
                   <a class="sub-link" href="{{ route('logs.index') }}">Logs</a>

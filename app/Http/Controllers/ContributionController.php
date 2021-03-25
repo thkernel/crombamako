@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contribution;
+use App\Models\PriceConfiguration;
 use App\Models\ContributionItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -72,13 +73,13 @@ class ContributionController extends Controller
     public function create()
     {
         //
-
+        $price_configuration = PriceConfiguration::get()->first();
         $contribution = new Contribution;
         //$doctor = DB::table('roles')->whereName('Médecin')->first();
         $doctors =  DoctorProfile::all();
         //$doctors =  User::all();
 
-        return view("contributions.create", compact(['doctors', 'contribution']) );
+        return view("contributions.create", compact(['doctors', 'contribution','price_configuration']) );
     }
 
     /**
@@ -212,12 +213,13 @@ class ContributionController extends Controller
     public function edit(Contribution $contribution)
     {
         //
+         $price_configuration = PriceConfiguration::get()->first();
         $doctors =  DoctorProfile::all();
 
 
 
         
-        return view('contributions.edit',compact(['contribution', 'doctors']));
+        return view('contributions.edit',compact(['contribution', 'doctors', 'price_configuration']));
 
     }
 

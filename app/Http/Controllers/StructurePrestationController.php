@@ -54,7 +54,7 @@ class StructurePrestationController extends Controller
         $request['status'] = "enable";
         
         $request->validate([
-            'structure_id' => 'required',
+            'structure_id' => 'required|unique:structure_prestations',
 
         ]);
 

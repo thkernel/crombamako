@@ -20,6 +20,8 @@
     <body>
         <header>
             @include("layouts/partials/_header")
+            @include("layouts/partials/_tawk")
+            
         </header>
         <div class="content-wrapper">
             @include('layouts/partials/_flash-message')

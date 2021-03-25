@@ -14,7 +14,7 @@ $(document).ready(function() {
                 success:function(data) {
 
                     $('select[name="neighborhood_id"]').empty();
-
+                    $('select[name="neighborhood_id"]').append('<option>Sélectionner</option>');
                     $.each(data, function(key, value){
 
                         $('select[name="neighborhood_id"]').append('<option value="'+ key +'">' + value + '</option>');

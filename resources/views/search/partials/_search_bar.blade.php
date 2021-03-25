@@ -7,12 +7,12 @@
 			<div class="row ">
 				<div class="col-md-3">
 			  		<div class="form-group">
-			            <label for="structure_category_id" class="required"> Catégorie </label>
-			            <select name="structure_category_id" id="structure_category_id" class="form-control" required>
+			            <label for="structure_category_id"> Catégorie </label>
+			            <select name="structure_category_id" id="structure_category_id" class="form-control">
 			                
-			                <option {{ $structure_category_id  ? '' : 'disabled selected value'}}> 
+			                <option value=""> Sélectionner</option>
 			                @foreach($structure_categories as $structure_category)
-			                    <option value = "{{ $structure_category->id }} ">{{ $structure_category->name }}</option>
+			                    <option value = "{{ $structure_category->id }}" {{ ($structure_category->id == $structure_category_id ?  ' selected' : '')}}>{{ $structure_category->name }}</option>
 			                @endforeach
 			            </select>
 			        </div>
@@ -22,7 +22,7 @@
 			  		<div class="form-group">
 			            <label for="town_id"> Commune </label>
 			            <select name="town_id" id="town_id" class="form-control">
-			                <option disabled selected value> Sélectionner </option>
+			               <option value=""> Sélectionner</option>
 			                @foreach($towns as $town)
 			                    <option value = "{{ $town->id }}">{{ $town->name }}</option>
 			                @endforeach
@@ -36,7 +36,7 @@
 			  		<div class="form-group">
 			            <label for="neighborhood_id"> Quartier </label>
 			            <select name="neighborhood_id" id="neighborhood_id" class="form-control">
-			                 <option disabled selected value> Sélectionner </option>
+			                <option value="">Sélectionner</option>
 			                @foreach($neighborhoods as $neighborhood)
 			                    <option value = "{{ $neighborhood->id }}">{{ $neighborhood->name }}</option>
 			                @endforeach

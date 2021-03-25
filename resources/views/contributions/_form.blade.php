@@ -37,7 +37,7 @@
 		<div class="form-group">
 
 		    <label for="name" class="required">Montant:</label>
-		    <input type="number" id="amount" name="amount" class="form-control" placeholder="Montant" value="{{  old('amount') ?? $contribution->amount }}" >
+		    <input type="number" id="amount" name="amount" class="form-control" placeholder="Montant" value="{{  $price_configuration ? $price_configuration->contribution_amount : '' }}" readonly>
 		    {!! $errors->first('amount', '<p class="error">:message</p>') !!}
 
 		</div>
