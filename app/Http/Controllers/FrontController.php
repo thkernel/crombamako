@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Town;
 use App\Models\StructureCategory;
+use App\Models\StructureProfile;
 use App\Models\Neighborhood;
 use App\Models\Post;
 use App\Models\Opportunity;
@@ -30,6 +31,8 @@ class FrontController extends Controller
         $structure_category_id = null;
         $neighborhood_id = null;
         $town_id = null;
+        $s = StructureProfile::get()->first();
+        //dd($s->attachment->blob);
 
         
         return view("front.index", compact(['towns','neighborhoods', 'structure_categories', 'structure_category_id', 'posts','opportunities', 'town_id', 'neighborhood_id']) );

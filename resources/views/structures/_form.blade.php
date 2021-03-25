@@ -131,7 +131,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="form-group">
-            <label for="description">Logo:</label>
+            <label for="logo">Logo:</label>
             <input type="file" class="form-control"  name="logo" />
 
         </div>

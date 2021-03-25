@@ -208,6 +208,9 @@
 
                 }
                 else{
+
+
+
                         $current_timestamp = Carbon::now()->timestamp;
                         // For blob
                         $file = $files;
@@ -240,7 +243,19 @@
 
 
 
-                            
+                            // Delete attachment
+                            $record_attachment = $record->attachment;
+                            if ($record_attachment){
+
+                                $temp_blob = $record_attachment->blob;
+
+                                $record_attachment->delete();
+                                $temp_blob->delete();
+                                dd($record_attachment);
+
+                            }
+                            // Delete blob
+
 
                             $attachment = $record->attachment()->create([
                                     "blob_id" => $blob->id,
@@ -255,6 +270,8 @@
                                 
                                 
                             }
+
+
 
                             
                         

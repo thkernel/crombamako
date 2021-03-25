@@ -38,22 +38,22 @@ class DoctorSituationController extends Controller
         // 1 - cas Structure
         
         if ($speciality_id && $town_id && $neighborhood_id){
-            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
+            $results = DoctorProfile::where('speciality_id', $structure_category_id)->where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
         }
         
         else if ($speciality_id && $town_id){
-            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('town_id', $town_id)->get();
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->where('town_id', $town_id)->get();
 
         }else if ($speciality_id && $neighborhood_id){
-            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('neighborhood_id', $neighborhood_id)->get();
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->where('neighborhood_id', $neighborhood_id)->get();
         }else if ($town_id && $neighborhood_id){
-            $results = StructureProfile::where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
+            $results = DoctorProfile::where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
         }else if ($speciality_id){
-            $results = StructureProfile::where('structure_category_id', $speciality_id)->get();
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->get();
             
         }
         else if ($town_id){
-            $results = StructureProfile::where('town_id', $town_id)->get();
+            $results = DoctorProfile::where('town_id', $town_id)->get();
             
         }
 

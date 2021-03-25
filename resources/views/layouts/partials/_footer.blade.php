@@ -5,7 +5,7 @@
 			<div class="col-md-4 footer-widget">
 				<h4 class="footer-widget-title">A propos</h4>
 				<p class="footer-widget-content">
-					Cinz@n GGSP est une base de données de Gestion Géolocalisée des Structures et Professionels de santé.
+					Cinz@n-GGSP est une base de données de Gestion Géolocalisée des Structures et Professionels de santé.
 				</p>
 			</div>
 			
