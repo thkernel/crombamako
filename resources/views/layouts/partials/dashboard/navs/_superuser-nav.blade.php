@@ -172,26 +172,7 @@
     </li>
   @endcan
 
-<!--
-    <li class="br-menu-item">
-      <a href="#" class="br-menu-link with-sub ">
-        <i class="fa fa-bar-chart tx-20"></i>
-        <span class="menu-item-label">Statistiques</span>
-      </a>
-      <ul class="br-menu-sub">
-        <li class="sub-item">
-          <a class="sub-link" href="{{ route('dashboard_path') }}">Médecins</a>
 
-        </li>
-
-        <li class="sub-item">
-          <a class="sub-link" href="{{ route('dashboard_path') }}">Structures</a>
-
-        </li>
-
-      </ul>
-    </li>
--->
 
   @can('read', App\Models\Page::class)
 
@@ -216,6 +197,27 @@
 
     </li><!-- br-menu-item -->
   
+
+    <li class="br-menu-item">
+      <a href="#" class="br-menu-link with-sub ">
+        <i class="fa fa-bar-chart tx-20"></i>
+        <span class="menu-item-label">Situations</span>
+      </a>
+      <ul class="br-menu-sub">
+        <li class="sub-item">
+          <a class="sub-link" href="{{ route('doctors_situation_path') }}">Médecins</a>
+
+        </li>
+
+
+        <li class="sub-item">
+          <a class="sub-link" href="{{ route('dashboard_path') }}">Structures</a>
+
+        </li>
+
+      </ul>
+    </li>
+
 
        
         

@@ -24,7 +24,7 @@
 			            <select name="town_id" id="town_id" class="form-control">
 			               <option value=""> Sélectionner</option>
 			                @foreach($towns as $town)
-			                    <option value = "{{ $town->id }}">{{ $town->name }}</option>
+			                    <option value = "{{ $town->id }}" {{ ($town->id == $town_id ?  ' selected' : '')}}>{{ $town->name }}</option>
 			                @endforeach
 			            </select>
 			        </div>
@@ -38,7 +38,7 @@
 			            <select name="neighborhood_id" id="neighborhood_id" class="form-control">
 			                <option value="">Sélectionner</option>
 			                @foreach($neighborhoods as $neighborhood)
-			                    <option value = "{{ $neighborhood->id }}">{{ $neighborhood->name }}</option>
+			                    <option value = "{{ $neighborhood->id }}" {{ ($neighborhood->id == $neighborhood_id ?  ' selected' : '')}}>{{ $neighborhood->name }}</option>
 			                @endforeach
 			            </select>
 			        </div>

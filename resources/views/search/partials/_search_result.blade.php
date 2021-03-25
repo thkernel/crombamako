@@ -1,12 +1,14 @@
 
-@if (!$results)
+@if ($results == null || $results->count() <= 0)
     <div class="container main-container">
         <div class="row">
-            <div class="card">
-                <div class="card-body text-center">
-                    <p>
-                        <h5>Pas de résultat pour cette recherche!</h5>
-                    </p>
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <p>
+                            <h5>Pas de résultat pour cette recherche!</h5>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>

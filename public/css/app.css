@@ -14969,6 +14969,10 @@ p.error {
   margin-bottom: 15px;
 }
 
+.navbar .nav-item:hover .nav-link {
+  color: #154194 !important;
+}
+
 /*!
  * Bracket Plus Responsive Dashboard Template
  * Version: 1.4.0

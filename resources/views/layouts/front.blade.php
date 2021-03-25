@@ -13,7 +13,7 @@
 
         <link defer href="{{ asset('css/app.css') }}" rel="stylesheet" >
 
-        <title>{{ config('global.application_name') }}</title>
+        <title>CROM</title>
 
        
     </head>

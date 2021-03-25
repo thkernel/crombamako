@@ -43,7 +43,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\StructureServiceController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\CkeditorController;
-
+use App\Http\Controllers\DoctorSituationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 
@@ -72,6 +72,8 @@ Route::name('search_doctors_path')->get('/search/doctors', [SearchController::cl
 
 Route::name('search_structures_path')->get('/search/structures', [SearchController::class, 'search_structures']);
 
+Route::get('/situation/doctors/', [DoctorSituationController::class, 'index'])->name('doctors_situation_path');
+
 
 
 
@@ -90,6 +92,7 @@ Route::get('/faq',['as' => 'faq_path', function () {
 Route::put('/validate-subscription/{subscription_request}', [SubscriptionRequestController::class, 'validate_subscription'])->middleware(['auth'])->name('subscription_request.validate_subscription');
 
 Route::get('/structures/categories', [StructureController::class, 'categories'])->name('structures.categories');
+
 
 Route::get('/structure_categories/all', [StructureCategoryController::class, 'all'])->name('structure_categories.all');
 
