@@ -251,7 +251,7 @@
 
                                 $record_attachment->delete();
                                 $temp_blob->delete();
-                                dd($record_attachment);
+                                //dd($record_attachment);
 
                             }
                             // Delete blob
