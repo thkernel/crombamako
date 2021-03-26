@@ -218,6 +218,18 @@ Route::get('/pdf/statement',[ContributionController::class, 'download_statement_
 Route::get('/document_requests/{id}/pdf/',[DocumentRequestController::class, 'download_document_request_pdf'])->name("download_document_request_pdf_path");
 
 
+Route::get('/pdf/doctors_situation_locality',[DoctorSituationController::class, 'download_doctor_situation_locality_pdf'])->name("download_doctor_situation_locality_pdf_path");
+
+Route::get('/pdf/doctors_situation_approval',[DoctorSituationController::class, 'download_doctor_situation_approval_pdf'])->name("download_doctor_situation_approval_pdf_path");
+
+Route::get('/pdf/doctors_situation_business_license',[DoctorSituationController::class, 'download_doctor_situation_business_license_pdf'])->name("download_doctor_situation_business_license_pdf_path");
+
+Route::get('/pdf/doctors_situation_contribution',[DoctorSituationController::class, 'download_doctor_situation_contribution_pdf'])->name("download_doctor_situation_contribution_pdf_path");
+
+Route::get('/pdf/structures_situation',[StructureController::class, 'download_structures_situation_pdf'])->name("download_structures_situation_pdf_path");
+
+
+
 
 /* Confirmation mail */
 

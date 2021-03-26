@@ -11,6 +11,11 @@
 	use App\Models\EloquentStorangeAttachment;
     use App\Models\Feature;
     use App\Models\Permission;
+    use App\Models\Town;
+    use App\Models\Neighborhood;
+    use App\Models\Speciality;
+
+
 	use Illuminate\Support\Facades\Hash;
 	use Illuminate\Support\Str;
 	use Carbon\Carbon;
@@ -21,6 +26,30 @@
     use Illuminate\Support\Facades\File;
 
     use Illuminate\Auth\Events\Registered;
+
+
+    function get_current_timestamp(){
+        $current_timestamp = Carbon::now()->timestamp;
+        return $current_timestamp;
+
+    }
+
+    function speciality_object($id){
+        $speciality = Speciality::find($id);
+        return $speciality;
+
+    }
+    function town_object($id){
+        $town = Town::find($id);
+        return $town;
+
+    }
+
+    function neighborhood_object($id){
+        $neighborhood = Neighborhood::find($id);
+        return $neighborhood;
+
+    }
 
     /* Get current user */
 
@@ -709,4 +738,417 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
 
     return $reference;
 }
+
+
+/* */
+function _situation_locality($speciality_id,$town_id,$neighborhood_id){
+   
+        $results = null;
+         // 1 - cas Structure
+        
+        if ($speciality_id && $town_id && $neighborhood_id){
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }
+        
+        else if ($speciality_id && $town_id){
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->where('town_id', $town_id)->get();
+
+        }else if ($speciality_id && $neighborhood_id){
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }else if ($town_id && $neighborhood_id){
+            $results = DoctorProfile::where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }else if ($speciality_id){
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->get();
+            
+        }
+        else if ($town_id){
+            $results = DoctorProfile::where('town_id', $town_id)->get();
+            
+        }
+
+        return $results;
+
+   }
+
+
+
+
+
+   function _situation_approval($speciality_id, $approval ){
+         //
+
+        $results = null;
+       
+       
+
+        
+        
+        // 1 - cas Structure
+        
+        if ($speciality_id  && $approval == "Sans agréement"){
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->get();
+
+            $doctors = $results;
+
+            $doctors_with_approval_ids = [];
+            
+
+          
+
+            foreach ($doctors as $doctor) {
+               $doctor_approval = $doctor->approval;
+
+               if (count($doctor_approval) <= 0){
+                array_push($doctors_with_approval_ids, $doctor->id);
+               }
+            }
+
+            
+            $results = DoctorProfile::whereIn('id', $doctors_with_approval_ids)->get();
+
+        }
+        
+        else if ($speciality_id && $approval == "Avec agréement"){
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->get();
+
+            $doctors = $results;
+
+            $doctors_with_approval_ids = [];
+            
+
+          
+
+            foreach ($doctors as $doctor) {
+               $doctor_approval = $doctor->approval;
+
+               if (count($doctor_approval) > 0){
+                array_push($doctors_with_approval_ids, $doctor->id);
+               }
+            }
+
+            
+            $results = DoctorProfile::whereIn('id', $doctors_with_approval_ids)->get();
+
+        }
+        else if ($approval == "Avec agréement"){
+            $doctors = DoctorProfile::all();
+
+            $doctors_with_approval_ids = [];
+            
+
+          
+
+            foreach ($doctors as $doctor) {
+               $doctor_approval = $doctor->approval;
+
+               if (count($doctor_approval) > 0){
+               
+                array_push($doctors_with_approval_ids, $doctor->id);
+               }
+            }
+
+           
+            $results = DoctorProfile::whereIn('id', $doctors_with_approval_ids)->get();
+
+            
+            
+
+            
+        }
+        else if ($approval == "Sans agréement"){
+            $doctors = DoctorProfile::all();
+
+            $doctors_with_approval_ids = [];
+            
+
+          
+
+            foreach ($doctors as $doctor) {
+               $doctor_approval = $doctor->approval;
+
+               if (count($doctor_approval) <= 0){
+                array_push($doctors_with_approval_ids, $doctor->id);
+               }
+            }
+
+            
+            $results = DoctorProfile::whereIn('id', $doctors_with_approval_ids)->get();
+        }
+
+        
+
+        return $results;
+    }
   
+
+
+  function _situation_business_license($speciality_id,$business_license){
+
+
+
+        $results = null;
+       
+    
+
+        
+        // 1 - cas Structure
+        
+        if ($speciality_id  && $business_license == "Sans licence"){
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->get();
+
+            $doctors = $results;
+
+            $doctors_with_business_license_ids = [];
+            
+
+          
+
+            foreach ($doctors as $doctor) {
+               $doctor_business_license = $doctor->business_license;
+
+               if (count($doctor_business_license) <= 0){
+                array_push($doctors_with_business_license_ids, $doctor->id);
+               }
+            }
+
+            
+            $results = DoctorProfile::whereIn('id', $doctors_with_business_license_ids)->get();
+
+        }
+        
+        else if ($speciality_id && $business_license == "Avec licence"){
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->get();
+
+            $doctors = $results;
+
+            $doctors_with_business_license_ids = [];
+            
+
+          
+
+            foreach ($doctors as $doctor) {
+               $doctor_business_license = $doctor->business_license;
+
+               if (count($doctor_business_license) > 0){
+                array_push($doctors_with_business_license_ids, $doctor->id);
+               }
+            }
+
+            
+            $results = DoctorProfile::whereIn('id', $doctors_with_business_license_ids)->get();
+
+        }
+        else if ($business_license == "Avec licence"){
+            $doctors = DoctorProfile::all();
+
+            $doctors_with_business_license_ids = [];
+            
+
+          
+
+            foreach ($doctors as $doctor) {
+               $doctor_business_license = $doctor->business_license;
+
+               if (count($doctor_business_license) > 0){
+               
+                array_push($doctors_with_business_license_ids, $doctor->id);
+               }
+            }
+
+           
+            $results = DoctorProfile::whereIn('id', $doctors_with_business_license_ids)->get();
+
+            
+            
+
+            
+        }
+        else if ($business_license == "Sans licence"){
+            $doctors = DoctorProfile::all();
+
+            $doctors_with_business_license_ids = [];
+            
+
+          
+
+            foreach ($doctors as $doctor) {
+               $doctor_business_license = $doctor->business_license;
+
+               if (count($doctor_business_license) <= 0){
+                array_push($doctors_with_business_license_ids, $doctor->id);
+               }
+            }
+
+            
+            $results = DoctorProfile::whereIn('id', $doctors_with_business_license_ids)->get();
+        }
+
+        
+
+        return $results;
+
+    }
+
+
+function _situation_contribution($speciality_id,$contribution_status, $selected_year ){
+        //
+
+        $results = null;
+       
+        
+
+        
+        // 1 - cas Structure
+        
+        if ($speciality_id  && $contribution_status == "A jour" && $selected_year){
+            
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->get();
+
+            $doctors = $results;
+
+            $doctors_with_contribution_ids = [];
+            
+
+            //dd($doctors);
+
+            foreach ($doctors as $doctor) {
+                $doctor_contributions = $doctor->contributions;
+
+                $flag = false;
+                foreach ($doctor_contributions as $doctor_contribution) {
+                    $doctor_contribution_items = $doctor_contribution->contribution_items->where('year', $selected_year);
+                    
+                    if ($doctor_contribution_items->count() > 0 && $doctor_contribution->status == "Payée"){
+                        $flag = true;
+                        array_push($doctors_with_contribution_ids, $doctor_contribution->doctor_id);
+                        break 1;
+                    }
+
+
+
+                    
+                }
+              
+            }
+
+            
+            $results = DoctorProfile::whereIn('id', $doctors_with_contribution_ids)->get();
+
+        }
+        else if ($speciality_id  && $contribution_status == "Non à jour" && $selected_year){
+            
+            $results = DoctorProfile::where('speciality_id', $speciality_id)->get();
+
+            $doctors = $results;
+
+            $doctors_with_contribution_ids = [];
+            
+
+            //dd($doctors);
+
+            foreach ($doctors as $doctor) {
+                $doctor_contributions = $doctor->contributions;
+
+                $flag = false;
+                foreach ($doctor_contributions as $doctor_contribution) {
+                    $doctor_contribution_items = $doctor_contribution->contribution_items->where('year', $selected_year);
+                    
+                    if ($doctor_contribution_items->count() <= 0 ){
+                        $flag = true;
+                        array_push($doctors_with_contribution_ids, $doctor_contribution->doctor_id);
+                        break 1;
+                    }
+
+
+
+                    
+                }
+              
+            }
+
+            
+            $results = DoctorProfile::whereIn('id', $doctors_with_contribution_ids)->get();
+
+        }
+        
+        else if ($contribution_status == "A jour" &&  $selected_year){
+            
+            $results = DoctorProfile::all();
+
+
+            $doctors = $results;
+
+            $doctors_with_contribution_ids = [];
+            
+
+            //dd($doctors);
+
+            foreach ($doctors as $doctor) {
+                $doctor_contributions = $doctor->contributions;
+
+                $flag = false;
+                foreach ($doctor_contributions as $doctor_contribution) {
+                    $doctor_contribution_items = $doctor_contribution->contribution_items->where('year', $selected_year);
+                    
+                    if ($doctor_contribution_items->count() > 0 && $doctor_contribution->status == "Payée"){
+
+                        $flag = true;
+                        array_push($doctors_with_contribution_ids, $doctor_contribution->doctor_id);
+                        break 1;
+                    }
+
+
+
+                    
+                }
+              
+            }
+
+            
+            $results = DoctorProfile::whereIn('id', $doctors_with_contribution_ids)->get();
+            
+            
+
+            
+        }
+        else if ($contribution_status == "Non à jour" && $selected_year){
+            $results = DoctorProfile::all();
+
+
+            $doctors = $results;
+
+            $doctors_with_contribution_ids = [];
+            
+
+            //dd($doctors);
+
+            foreach ($doctors as $doctor) {
+                $doctor_contributions = $doctor->contributions;
+
+                $flag = false;
+                foreach ($doctor_contributions as $doctor_contribution) {
+                    $doctor_contribution_items = $doctor_contribution->contribution_items->where('year', $selected_year);
+                    
+                    if ($doctor_contribution_items->count() <= 0){
+
+                        $flag = true;
+                        array_push($doctors_with_contribution_ids, $doctor_contribution->doctor_id);
+                        break 1;
+                    }
+
+
+
+                    
+                }
+              
+            }
+
+            
+            $results = DoctorProfile::whereIn('id', $doctors_with_contribution_ids)->get();
+        }
+
+        
+
+        return $results;
+
+    }

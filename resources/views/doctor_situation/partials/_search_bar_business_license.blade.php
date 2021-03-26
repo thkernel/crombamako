@@ -26,8 +26,8 @@
 
 			  	<div class="col-md-4">
 			  		<div class="form-group">
-		                <label for="business_license">Licence d'exploitation</label>
-		                <select name="business_license" class="form-control">
+		                <label for="business_license" class="required">Licence d'exploitation</label>
+		                <select name="business_license" class="form-control" required>
 		                    <option value=""> Sélectionner </option>
 		                    
 		                   

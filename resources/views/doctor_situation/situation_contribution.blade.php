@@ -37,6 +37,27 @@
             	<div class="card-body">
             		<div class="row">
                 		<div class="col-md-12">
+
+                			<div class="left-content">
+                				<form action="{{ route('download_doctor_situation_contribution_pdf_path')}}" method="GET">
+                            @csrf 
+
+                            <input type="hidden" name="pdf_speciality_id" value="{{$speciality_id ?? ''}}">
+
+                            <input type="hidden" name="pdf_selected_year" value="{{$selected_year ?? ''}}">
+
+                            <input type="hidden" name="pdf_contribution_status" value="{{$contribution_status ?? ''}}">
+
+                           
+                            <a href="route('download_doctor_situation_contribution_pdf_path')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();" class="btn btn-danger tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1">
+                                                <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Télécharger l'état</a>
+                            </a>
+                        </form>
+                			</div>
+
+
                 			<div class="pull-right result-wrapper">
                 			Résultat: <span class="result-total">{{$results ? $results->count() : ''}}</span>
                 		</div>
