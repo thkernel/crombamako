@@ -14,6 +14,7 @@
     use App\Models\Town;
     use App\Models\Neighborhood;
     use App\Models\Speciality;
+    use App\Models\StructureProfile;
 
 
 	use Illuminate\Support\Facades\Hash;
@@ -37,6 +38,11 @@
     function speciality_object($id){
         $speciality = Speciality::find($id);
         return $speciality;
+
+    }
+    function structure_category_object($id){
+        $s = StructureCategory::find($id);
+        return $s;
 
     }
     function town_object($id){
@@ -1151,4 +1157,47 @@ function _situation_contribution($speciality_id,$contribution_status, $selected_
 
         return $results;
 
+    }
+
+
+
+    function _structure_situation($structure_category_id,$town_id,$neighborhood_id )
+    {
+        //
+
+        $results = null;
+       
+
+        
+        // 1 - cas Structure
+        
+        if ($structure_category_id && $town_id && $neighborhood_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }
+        
+        else if ($structure_category_id && $town_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('town_id', $town_id)->get();
+
+        }else if ($structure_category_id && $neighborhood_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }else if ($town_id && $neighborhood_id){
+            $results = StructureProfile::where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }else if ($structure_category_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->get();
+            
+        }
+        else if ($town_id){
+            $results = StructureProfile::where('town_id', $town_id)->get();
+            
+        }
+
+        
+
+        
+        
+
+
+        //dd($request);
+
+        return $results;
     }

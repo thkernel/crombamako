@@ -226,7 +226,7 @@ Route::get('/pdf/doctors_situation_business_license',[DoctorSituationController:
 
 Route::get('/pdf/doctors_situation_contribution',[DoctorSituationController::class, 'download_doctor_situation_contribution_pdf'])->name("download_doctor_situation_contribution_pdf_path");
 
-Route::get('/pdf/structures_situation',[StructureController::class, 'download_structures_situation_pdf'])->name("download_structures_situation_pdf_path");
+Route::get('/pdf/structures_situation',[StructureController::class, 'download_structure_situation_pdf'])->name("download_structure_situation_pdf_path");
 
 
 

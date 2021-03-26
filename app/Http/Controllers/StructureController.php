@@ -11,6 +11,7 @@ use App\Models\Neighborhood;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Auth\Events\Registered;
+use PDF;
 
 
 class StructureController extends Controller
@@ -223,30 +224,7 @@ class StructureController extends Controller
         
 
         
-        // 1 - cas Structure
-        
-        if ($structure_category_id && $town_id && $neighborhood_id){
-            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
-        }
-        
-        else if ($structure_category_id && $town_id){
-            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('town_id', $town_id)->get();
-
-        }else if ($structure_category_id && $neighborhood_id){
-            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('neighborhood_id', $neighborhood_id)->get();
-        }else if ($town_id && $neighborhood_id){
-            $results = StructureProfile::where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
-        }else if ($structure_category_id){
-            $results = StructureProfile::where('structure_category_id', $structure_category_id)->get();
-            
-        }
-        else if ($town_id){
-            $results = StructureProfile::where('town_id', $town_id)->get();
-            
-        }
-
-        
-
+        $results = _structure_situation($structure_category_id,$town_id,$neighborhood_id);
         
         
 
@@ -254,6 +232,33 @@ class StructureController extends Controller
         //dd($request);
 
         return view("structures_situation.search_doctors", compact(['results', 'towns', 'structure_categories', 'neighborhoods', 'structure_category_id','town_id', 'neighborhood_id']) );
+    }
+
+    public function download_structure_situation_pdf(Request $request){
+        $results = null;
+        $towns =  Town::all();
+        $neighborhoods = Neighborhood::all();
+        $structure_categories =  StructureCategory::all();
+
+       
+        // Get search term
+
+        $structure_category_id = $request['pdf_structure_category_id'];
+        $town_id = $request['pdf_town_id'];
+        $neighborhood_id = $request['pdf_neighborhood_id'];
+
+        
+
+        
+        $results = _structure_situation($structure_category_id,$town_id,$neighborhood_id);
+
+
+        $pdf = PDF::loadView('structures_situation.pdf.structure_situation_pdf', compact(['results',  'structure_category_id', 'town_id', 'neighborhood_id']));
+        
+        return $pdf->download('structure-stituation-'.get_current_timestamp().'.pdf');
+
+        /*return view('contributions.statement_pdf',compact(['contributions','sum_total','amount_words']));*/
+        
     }
 
 
