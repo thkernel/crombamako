@@ -200,18 +200,32 @@
 
     <li class="br-menu-item">
       <a href="#" class="br-menu-link with-sub ">
-        <i class="fa fa-bar-chart tx-20"></i>
-        <span class="menu-item-label">Situations</span>
+        <i class="fa fa-newspaper-o tx-20"></i>
+        <span class="menu-item-label">Etats</span>
       </a>
       <ul class="br-menu-sub">
         <li class="sub-item">
-          <a class="sub-link" href="{{ route('doctors_situation_path') }}">Médecins</a>
+          <a class="sub-link" href="{{ route('doctors_situation_locality_path') }}">Médecins par localité</a>
+
+        </li>
+
+        <li class="sub-item">
+          <a class="sub-link" href="{{ route('doctors_situation_approval_path') }}">Médecins & agréements</a>
+
+        </li>
+        <li class="sub-item">
+          <a class="sub-link" href="{{ route('doctors_situation_business_license_path') }}">Médecins &  licences</a>
+
+        </li>
+
+        <li class="sub-item">
+          <a class="sub-link" href="{{ route('doctors_situation_contribution_path') }}">Médecins à jour </a>
 
         </li>
 
 
         <li class="sub-item">
-          <a class="sub-link" href="{{ route('dashboard_path') }}">Structures</a>
+          <a class="sub-link" href="{{ route('structures_situation_path') }}">Structures</a>
 
         </li>
 

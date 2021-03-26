@@ -37,7 +37,7 @@ class UserController extends Controller
     public function create()
     {
         //
-        $excluded_roles = ['demo', 'superuser'];
+        $excluded_roles = ['demo', 'superuser', 'Médecin', 'Structure'];
         $user = new User;
         $roles =  Role::whereNotIn('name', $excluded_roles )->get();
 
@@ -107,7 +107,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         //
-       $excluded_roles = ['demo', 'superuser'];
+       $excluded_roles = ['demo', 'superuser', 'Médecin', 'Structure'];
         $roles =  Role::whereNotIn('name', $excluded_roles )->get();
         return view('users.edit',compact(['user', 'roles']));
     }

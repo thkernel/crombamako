@@ -5,13 +5,13 @@
 		<div class="br-pageheader mg-t-20 mg-b-20">
 	      <nav class="breadcrumb pd-0 mg-0 tx-12">
 	        
-	        <span class="breadcrumb-item active"><h5>Situation des médecins</h5></span>
+	        <span class="breadcrumb-item active"><h5>Situation des médecins & licences</h5></span>
 	      </nav>
 	    </div><!-- br-pageheader -->
 
 		<div class="row">
 		    <div class="col-md-12">
-		    	@include('doctor_situation/partials/_search_bar')
+		    	@include('doctor_situation/partials/_search_bar_business_license')
 			</div>
 		</div>
 	</div>

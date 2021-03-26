@@ -72,7 +72,20 @@ Route::name('search_doctors_path')->get('/search/doctors', [SearchController::cl
 
 Route::name('search_structures_path')->get('/search/structures', [SearchController::class, 'search_structures']);
 
-Route::get('/situation/doctors/', [DoctorSituationController::class, 'index'])->name('doctors_situation_path');
+Route::get('/doctors/locality', [DoctorSituationController::class, 'situation_locality'])->name('doctors_situation_locality_path');
+
+Route::get('/doctors/approval', [DoctorSituationController::class, 'situation_approval'])->name('doctors_situation_approval_path');
+
+Route::get('/doctors/license', [DoctorSituationController::class, 'situation_license'])->name('doctors_situation_license_path');
+
+Route::get('/doctors/license', [DoctorSituationController::class, 'situation_business_license'])->name('doctors_situation_business_license_path');
+
+Route::get('/doctors/contribution', [DoctorSituationController::class, 'situation_contribution'])->name('doctors_situation_contribution_path');
+
+Route::get('/structures/situation', [StructureController::class, 'structure_situation'])->name('structures_situation_path');
+
+
+
 
 
 

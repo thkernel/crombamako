@@ -203,4 +203,58 @@ class StructureController extends Controller
         StructureProfile::where('id',$id)->delete();
         return redirect()->back()->with('success','Supprimer avec succès');
     }
+
+     public function structure_situation(Request $request)
+    {
+        //
+
+        $results = null;
+        $towns =  Town::all();
+        $neighborhoods = Neighborhood::all();
+        $structure_categories =  StructureCategory::all();
+
+       
+        // Get search term
+
+        $structure_category_id = $request['structure_category_id'];
+        $town_id = $request['town_id'];
+        $neighborhood_id = $request['neighborhood_id'];
+
+        
+
+        
+        // 1 - cas Structure
+        
+        if ($structure_category_id && $town_id && $neighborhood_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }
+        
+        else if ($structure_category_id && $town_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('town_id', $town_id)->get();
+
+        }else if ($structure_category_id && $neighborhood_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }else if ($town_id && $neighborhood_id){
+            $results = StructureProfile::where('town_id', $town_id)->where('neighborhood_id', $neighborhood_id)->get();
+        }else if ($structure_category_id){
+            $results = StructureProfile::where('structure_category_id', $structure_category_id)->get();
+            
+        }
+        else if ($town_id){
+            $results = StructureProfile::where('town_id', $town_id)->get();
+            
+        }
+
+        
+
+        
+        
+
+
+        //dd($request);
+
+        return view("structures_situation.search_doctors", compact(['results', 'towns', 'structure_categories', 'neighborhoods', 'structure_category_id','town_id', 'neighborhood_id']) );
+    }
+
+
 }
