@@ -57,14 +57,40 @@
             </div>
 
             <div class="col-md-6">
-                <p>
-                    <div id="map"></div>
-                </p>
+                
             </div>
             
         </div>
     </div>
   </div>
+
+  <!-- Géolocalisation -->
+  <div class="card mg-t-20">
+    <div class="card-header">
+        <div class="pull-left">
+            <strong>Géolocalisation</strong>
+        </div>
+        <div class="pull-right">
+            
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            
+            <div class="col-md-12">
+                <p>
+                    <div id="map"></div>
+                </p>
+                
+            </div>
+
+            
+            
+        </div>
+    </div>
+  </div>
+
+  <!-- Description -->
 
   <div class="card mg-t-20">
     <div class="card-header">
@@ -141,3 +167,14 @@
 
 	</div>
 @endsection
+
+<script>
+      let map;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8,
+        });
+      }
+    </script>
