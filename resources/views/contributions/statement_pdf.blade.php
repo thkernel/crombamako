@@ -21,6 +21,20 @@
       <div class="title">
         <h1>ETAT DES COTISATIONS</h1>
       </div>
+
+
+      <div class="term">
+        <u><b>Date début:</b></u> {{ format_date($start_date, "d/m/Y") }} <br />
+
+         <u><b>Date fin:</b></u> {{ format_date($end_date, "d/m/Y") }} <br />
+
+        <u><b>Commune:</b></u> {{ town_object($town_id) ? town_object($town_id)->name : ''}} <br />
+
+        <u><b>Quartier:</b></u> {{ neighborhood_object($neighborhood_id) ? neighborhood_object($neighborhood_id)->name : ''}} <br />
+      </div>
+
+
+
     <table class="table table-bordered">
 
 

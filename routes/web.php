@@ -35,6 +35,8 @@ use App\Http\Controllers\StructureStaffController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\StaticPageController;
 use App\Http\Controllers\StructurePrestationController;
+use App\Http\Controllers\OrganizationController;
+
 use App\Http\Controllers\BusinessLicenseController;
 use App\Http\Controllers\ApprovalController;
 use App\Http\Controllers\DoctorOrderController;
@@ -201,6 +203,9 @@ Route::resource('structure_prestations', StructurePrestationController::class)->
 Route::resource('structure_services', StructureServiceController::class)->middleware(['auth']);
 
 Route::resource('approvals', ApprovalController::class)->middleware(['auth']);
+
+Route::resource('organizations', OrganizationController::class)->middleware(['auth']);
+
 Route::resource('business_licenses', BusinessLicenseController::class)->middleware(['auth']);
 
 Route::resource('doctor_orders', DoctorOrderController::class)->middleware(['auth']);

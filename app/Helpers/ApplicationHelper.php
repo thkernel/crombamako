@@ -15,6 +15,8 @@
     use App\Models\Neighborhood;
     use App\Models\Speciality;
     use App\Models\StructureProfile;
+    use App\Models\Contribution;
+    use App\Models\Organization;
 
 
 	use Illuminate\Support\Facades\Hash;
@@ -40,6 +42,20 @@
         return $speciality;
 
     }
+    function hasOrganization(){
+        $organization = Organization::first();
+        if ($organization){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function organization(){
+        $organization = Organization::first();
+        return $organization;
+    }
+
     function structure_category_object($id){
         $s = StructureCategory::find($id);
         return $s;
@@ -1200,4 +1216,95 @@ function _situation_contribution($speciality_id,$contribution_status, $selected_
         //dd($request);
 
         return $results;
+    }
+
+
+
+    function _statement($start_date,$end_date,$town_id,$neighborhood_id ){
+
+        
+            
+
+
+        // Check if request content the  search terms
+        
+        // By date.
+        if (isset($start_date)  && isset($end_date) && $start_date != null && $end_date != null){
+
+        
+
+            $contributions = Contribution::whereDate('created_at','>=',$start_date)
+            ->whereDate('created_at','<=',$end_date)
+            ->where('status', "Payée")
+            ->get();
+
+        }
+
+        // By date and town.
+        if (isset($start_date)  && isset($end_date) && $start_date != null && $end_date != null && isset($town_id) && $town_id != null ){
+
+    
+            $contributions = Contribution::whereDate('created_at','>=',$start_date)
+            ->whereDate('created_at','<=',$end_date)
+            ->where('status', "Payée")
+            ->get();
+
+            $doctors = DoctorProfile::where("town_id",$town_id)->get();
+
+            $doctor_ids = [];
+            foreach ($doctors as $doctor) {
+                array_push($doctor_ids , $doctor->id);
+            }
+            $contributions->whereIn("doctor_id",$doctor_ids);
+
+        }
+
+        //By date and neighborhood.
+        if (isset($start_date)  && isset($end_date) && $start_date != null && $end_date != null  && isset($neighborhood_id) && $neighborhood_id != null ){
+
+            
+            
+            
+            $contributions = Contribution::whereDate('created_at','>=',$start_date)
+            ->whereDate('created_at','<=',$end_date)
+            ->where('status', "Payée")
+            ->get();
+
+            $doctors = DoctorProfile::where("neighborhood_id",$neighborhood_id)->get();
+
+            $doctor_ids = [];
+            foreach ($doctors as $doctor) {
+                array_push($doctor_ids , $doctor->id);
+            }
+
+            $contributions->whereIn("doctor_id",$doctor_ids);
+
+        }
+
+        //By date, town and neighborhood.
+        if (isset($start_date)  && isset($end_date) && $start_date != null && $end_date != null && isset($town_id) && $town_id != null && isset($neighborhood_id) && $neighborhood_id != null ){
+
+            
+            
+            
+            $contributions = Contribution::whereDate('created_at','>=',$start_date)
+            ->whereDate('created_at','<=',$end_date)
+            ->where('status', "Payée")
+            ->get();
+
+
+            $doctors = DoctorProfile::where("neighborhood_id",$neighborhood_id)->get();
+
+            $doctor_ids = [];
+            foreach ($doctors as $doctor) {
+                array_push($doctor_ids , $doctor->id);
+            }
+
+            $contributions->whereIn("doctor_id",$doctor_ids);
+
+        }
+       
+    
+
+        return $contributions;
     }

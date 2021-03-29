@@ -244,7 +244,14 @@
           </a><!-- br-menu-link -->
           <ul class="br-menu-sub">
 
+             <li class="sub-item">
+                @if (hasOrganization())
+                  <a class="sub-link" href="{{ route('organizations.show', organization()->id) }}">CROM</a>
+                  @else
+                  <a class="sub-link" href="{{ route('organizations.create') }}">CROM</a>
 
+                @endif
+              </li>
             
             @can('read', App\Models\User::class)
               <li class="sub-item">

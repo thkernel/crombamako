@@ -120,6 +120,12 @@
 
 			display: inline-block;
 		}
+
+		.term{
+			margin-bottom: 20px;
+			margin-top: 20px;
+			width: 100%;
+		}
 		
 
 	</style>

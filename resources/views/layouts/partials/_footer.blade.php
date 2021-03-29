@@ -39,12 +39,14 @@
 			<div class="col-md-4 footer-widget">
 				<h4 class="footer-widget-title"> Contacts</h4>
 				<div class="footer-widget-content">
-					
+					@if (hasOrganization())
 					<div class="addresses">
-            			<h6 class="">Téléphone: {{ config('global.company_phone')}}</h6>
-            			<h6 class="">Email: {{ config('global.company_email')}}</h6>
-            		<h6 class="">Adresses: {{ config('global.company_addresses')}}</h6>
+            			<h6 class="">Téléphone: {{ organization()->phone_1 }} / {{ organization()->phone_2 }}</h6>
+            			<h6 class="">Fax: {{ organization()->fax}} , BP: {{ organization()->po_box}}</h6>
+            			<h6 class="">Email: {{ organization()->email}}</h6>
+            		<h6 class="">Adresse: {{ organization()->address}}</h6>
           			</div>
+          			@endif
 				</div>
 
 				

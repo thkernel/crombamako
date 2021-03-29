@@ -23,8 +23,9 @@
           <select name="search_terms"  id="search_terms" class="form-control">
             <option disabled selected value> Sélectionner </option>
             <option value="0" {{ $search_terms == 0 ? 'selected' :''}}>Rechercher par date</option>
-            <option value="1" {{ $search_terms == 1 ? 'selected' :''}} >Rechercher par date et Médecin</option>
-            <option value="2" {{ $search_terms == 2 ? 'selected' :''}} >Rechercher par date, commune et quartier</option>
+            <option value="1" {{ $search_terms == 1 ? 'selected' :''}} >Rechercher par date et Commune</option>
+            <option value="2" {{ $search_terms == 2 ? 'selected' :''}} >Rechercher par date et quartier</option>
+            <option value="3" {{ $search_terms == 3 ? 'selected' :''}} >Rechercher par date, commune et quartier</option>
 
           </select>
         </div>
@@ -37,7 +38,7 @@
         <div class="col-md-6 start_date">
           <div class="form-group">
             <label for="start_date">Date début</label>
-            <input type="date" id= "start_date" name="start_date" value="{{ $start_date}}" class="form-control">
+            <input type="date" id= "start_date" name="start_date" value="{{ $start_date }}" class="form-control">
           </div>
         </div>
         <div class="col-md-6 end_date">
@@ -48,29 +49,16 @@
         </div>
       </div>
 
-      <div class="row">
-
-        <div class="col-md-12 doctor">
-            <div class="form-group">
-                  <label for="doctor_id"> Médecin </label>
-                  <select name="doctor_id" id="doctor_id" class="form-control">
-                      <option disabled selected value> Sélectionner </option>          
-                        @foreach($doctors as $doctor)
-                          <option value = "{{ $doctor->id }} ">{{ $doctor->full_name_with_reference }}</option>
-                        @endforeach
-                  </select>
-              </div>
-          </div>
-      </div>
+      
       <div class="row">
 
           <div class="col-md-6 town">
             <div class="form-group">
                   <label for="town_id"> Commune </label>
                   <select name="town_id" id="town_id" class="form-control">
-                      <option disabled selected value> Sélectionner </option>
+                      <option value=""> Sélectionner </option>
                       @foreach($towns as $town)
-                          <option value = "{{ $town->id }}">{{ $town->name }}</option>
+                          <option value = "{{ $town->id }}" {{ $town->id == $town_id ? "selected" : '' }}>{{ $town->name }}</option>
                       @endforeach
                   </select>
               </div>
@@ -82,7 +70,7 @@
             <div class="form-group">
                   <label for="neighborhood_id"> Quartier </label>
                   <select name="neighborhood_id" id="neighborhood_id" class="form-control">
-                       <option disabled selected value> Sélectionner </option>
+                       <option value=""> Sélectionner </option>
                       
                   </select>
               </div>
@@ -114,7 +102,28 @@
 
         <div class="text-right">
           @if ($contributions)
-            <a class="btn btn-danger tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1" href="{{ route('download_statement_pdf_path') }}"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Télécharger l'état de paiement</a>
+           
+                        
+            <form action="{{ route('download_statement_pdf_path')}}" method="GET">
+                  @csrf 
+
+                  <input type="hidden" name="pdf_start_date" value="{{$start_date ?? ''}}">
+
+                  <input type="hidden" name="pdf_end_date" value="{{$end_date ?? ''}}">
+                  <input type="hidden" name="pdf_town_id" value="{{$town_id ?? ''}}">
+
+                  <input type="hidden" name="pdf_neighborhood_id" value="{{$neighborhood_id ?? ''}}">
+                        <a href="route('download_statement_pdf_path')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();" class="btn btn-danger tx-mont tx-medium tx-11 tx-uppercase pd-y-12 pd-x-25 tx-spacing-1">
+                                                <i class="fa fa-file-pdf-o" aria-hidden="true"></i> Télécharger l'état</a>
+                            </a>
+                        </form>
+
+
+
+                        
+                      
          @endif
 
         </div>
@@ -128,6 +137,7 @@
   <thead>
     <tr>
       <th>Date</th>
+       <th>N°Inscrip.</th>
       <th>Médecin</th>
       <th>Années</th>
       <th>Montant</th>
@@ -140,7 +150,7 @@
   </tbody>
   <tfoot class="tfoot-bg">
     <tr>
-      <td colspan="3"><strong><center>TOTAL</center></strong></td>
+      <td colspan="4"><strong><center>TOTAL</center></strong></td>
       
       <td>
         <strong>

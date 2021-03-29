@@ -21,7 +21,7 @@
 
             <label for="title" class="required">Titre:</label>
 
-                <input type="text" name="title" value="{{  old('title') ?? $post->title }}" class="form-control" placeholder="Titre de l'article" reauired>
+                <input type="text" name="title" value="{{  old('title') ?? $post->title }}" class="form-control" placeholder="Titre de l'article" required>
 
             </div>
 

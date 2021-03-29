@@ -1,6 +1,8 @@
 @foreach($contributions as $contribution)
     <tr>
     <td>{{format_date($contribution->created_at, "d/m/Y")}}</td>
+        <td>{{$contribution->doctor->doctor_order->reference}} </td>
+
     <td>{{$contribution->doctor->fullname}}</td>
     <td>
         @foreach($contribution->contribution_items as $contribution_item)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\DoctorOrder;
 use App\Models\StructureProfile;
 use App\Models\SubscriptionRequest;
+use App\Models\Organization;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -19,6 +20,7 @@ class DashboardController extends Controller
         //
 
      
+        $organization = Organization::first();
 
         $total_doctors =  count(DoctorOrder::all());
         $total_structures =  count(StructureProfile::all());
@@ -34,7 +36,7 @@ class DashboardController extends Controller
 
         
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
-        return view("dashboard.index", compact(['total_doctors', 'total_structures', 'total_pending_subscription', 'subscription_requests','contributions']) );
+        return view("dashboard.index", compact(['total_doctors', 'total_structures', 'total_pending_subscription', 'subscription_requests','contributions', 'organization']) );
 
 
     }

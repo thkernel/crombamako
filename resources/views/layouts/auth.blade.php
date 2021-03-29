@@ -8,6 +8,8 @@
 
         <script defer src="{{ asset('js/app.js') }}"  data-turbolinks-track="true"></script>
 
+        @include('layouts/partials/_google_analytics')
+        
         <!-- Styles -->
 
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" data-turbolinks-track="true">

@@ -38,11 +38,22 @@ class ContributionController extends Controller
         return view("contributions.index", compact(['contributions']) );
     }
 
-    public function download_statement_pdf()
+    public function download_statement_pdf(Request $request)
     {
+
+        //$search_terms = $request['search_terms'];
+
+        $start_date = $request['pdf_start_date'];
+        $end_date = $request['pdf_end_date'];
+
+        $town_id = $request['pdf_town_id'];
+        $neighborhood_id = $request['pdf_neighborhood_id'];
+
+
         $current_timestamp = Carbon::now()->timestamp;
 
-        $contributions = Contribution::all();
+        $contributions = _statement($start_date, $end_date, $town_id, $neighborhood_id);
+
         if ($contributions){
             $sum_total = $contributions->sum('total_amount');
         }else{
@@ -58,7 +69,7 @@ class ContributionController extends Controller
         $amount_words = $numberTransformer->toWords($sum_total);
         $amount_words = ucwords($amount_words). " (". $sum_total .")". " F CFA" ;
         
-        $pdf = PDF::loadView('contributions.statement_pdf', compact(['contributions','sum_total', 'amount_words']));
+        $pdf = PDF::loadView('contributions.statement_pdf', compact(['contributions','sum_total', 'amount_words', 'start_date', 'end_date','town_id','neighborhood_id']));
         
         return $pdf->download('etat-paiement-'.$current_timestamp.'.pdf');
 
@@ -292,59 +303,19 @@ class ContributionController extends Controller
         $neighborhoods = Neighborhood::all();
         $doctors =  DoctorProfile::all();
         $contributions = Contribution::all();
+        
         $search_terms = $request['search_terms'];
 
-            $start_date = "";
-            $end_date = "";
-            
+        $start_date = $request['start_date'];
+        $end_date = $request['end_date'];
 
-
-        // Check if request content the  search terms
+        $town_id = $request['town_id'];
+        $neighborhood_id = $request['neighborhood_id'];
         
-        if (isset($request['start_date'])  && isset($request['end_date']) && $request['start_date'] != null && $request['end_date'] != null){
-
-            $start_date = $request['start_date'];
-            $end_date = $request['end_date'];
             
 
-            $contributions = Contribution::whereDate('created_at','>=',$start_date)
-            ->whereDate('created_at','<=',$end_date)
-            ->get();
 
-        }
-
-        if (isset($request['start_date'])  && isset($request['end_date']) && $request['start_date'] != null && $request['end_date'] != null && isset($request['doctor_id']) && $request['doctor_id'] != null ){
-
-            $start_date = $request['start_date'];
-            $end_date = $request['end_date'];
-         
-            $doctor_id = $request['doctor_id'];
-            
-    
-            $contributions = Contribution::whereDate('created_at','>=',$start_date)
-            ->whereDate('created_at','<=',$end_date)
-            ->where('doctor_id', $doctor_id)
-            ->get();
-
-        }
-
-        if (isset($request['start_date'])  && isset($request['end_date']) && $request['start_date'] != null && $request['end_date'] != null && isset($request['town_id']) && $request['town_id'] != null && isset($request['neighborhood_id']) && $request['neighborhood_id'] != null ){
-
-            $start_date = $request['start_date'];
-            $end_date = $request['end_date'];
-         
-            //$doctor_id = $request['doctor_id'];
-            $town_id = $request['town_id'];
-            $neighborhood_id = $request['neighborhood_id'];
-            
-            
-            $contributions = Contribution::whereDate('created_at','>=',$start_date)
-            ->whereDate('created_at','<=',$end_date)
-            ->where('town_id', $town_id)
-            ->where('neighborhood_id', $neighborhood_id)
-            ->get();
-
-        }
+        $contributions = _statement($start_date, $end_date, $town_id, $neighborhood_id);
        
         if ($contributions){
             $sum_total = $contributions->sum('total_amount');
@@ -352,7 +323,7 @@ class ContributionController extends Controller
             $sum_total = 0.0;
         }
 
-        return view('contributions.statement', compact(['contributions', 'towns', 'neighborhoods', 'doctors', 'sum_total', 'search_terms', 'start_date', 'end_date']));
+        return view('contributions.statement', compact(['contributions', 'towns', 'neighborhoods',  'sum_total', 'search_terms', 'start_date', 'end_date',  'town_id', 'neighborhood_id']));
     }
 
     /**
