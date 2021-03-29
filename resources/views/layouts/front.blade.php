@@ -5,19 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Scripts -->
-
+        
         <script defer src="{{ asset('js/app.js') }}"></script>
         
         <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
 
         @include('layouts/partials/_google_analytics')
-        @include('layouts/partials/_gmaps')
+        
         <!-- Styles -->
 
         <link defer href="{{ asset('css/app.css') }}" rel="stylesheet" >
 
         <title>CROM BAMAKO</title>
-
+         @yield("gmaps")
        
     </head>
     <body>
@@ -29,16 +29,17 @@
         <div class="content-wrapper">
             @include('layouts/partials/_flash-message')
             @yield("content")
+           
         </div>
         <footer>
+
             @include("layouts/partials/_footer")
+            @yield("ckeditor")
+            @include('layouts/partials/_gmaps')
+
+
         </footer>
 
-        <script type="text/javascript">
-    CKEDITOR.replace('editor', {
-        filebrowserUploadUrl: "{{route('upload', ['_token' => csrf_token() ])}}",
-        filebrowserUploadMethod: 'form'
-    });
-    </script> 
+        
     </body>
 </html>
