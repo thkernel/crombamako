@@ -1,16 +1,30 @@
 @extends("layouts.front")
 
 @section("gmaps")
-<script>
-      let map;
 
+
+
+
+    <script>
+      // Initialize and add the map
       function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: -34.397, lng: 150.644 },
-          zoom: 8,
+        // The location 
+        const location = { lat: {{ $structure->latitude }}, lng: {{ $structure->longitude }} };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: location,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: location,
+          map: map,
         });
       }
     </script>
+
+
+
 @endsection
 
 @section("content")

@@ -82,3 +82,4 @@
 </div>
 
 @endsection
+@include("layouts/partials/_ckeditor")
