@@ -18,7 +18,7 @@
 							        
 							           <div class="contact-img">
 
-							            {!! opportunity_thumbnail($opportunity, "", "") !!}
+							            {!! opportunity_thumbnail($opportunity, "", "", "medium") !!}
 
 							        </div></div>
 							        <div class="card-title">

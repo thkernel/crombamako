@@ -16,7 +16,7 @@
 							        	<a  href="{{ route('show_post_path', $post->slug) }}">
 							           <div class="post-thumbnail">
 
-							            {!! post_thumbnail($post, "", "") !!}
+							            {!! post_thumbnail($post, "", "", "medium") !!}
 
 
 

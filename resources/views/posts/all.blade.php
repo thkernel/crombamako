@@ -19,7 +19,7 @@
 							           <div class="contact-img">
 							           	
 
-							            {!! post_thumbnail($post, "", "") !!}
+							            {!! post_thumbnail($post, "", "", "medium") !!}
 
 							        </div></div>
 							        <div class="card-title">

@@ -14723,14 +14723,14 @@ section {
 
 .card-thumbnail img {
   width: 100% !important;
-  height: 150px;
+  /*height: 150px;*/
 }
 
 .card-thumbnail {
   margin-top: -1.25rem;
   margin-left: -1.25rem;
   margin-right: -1.25rem;
-  height: 150px;
+  /*height: 150px;*/
 }
 
 .features .icon .fa {
@@ -14959,6 +14959,18 @@ p.error {
   text-transform: uppercase;
   margin-top: 8px;
   position: absolute;
+}
+
+.show-post-category,
+.show-opportunity-type {
+  background-color: #c60808;
+  display: inline;
+  padding: 2px;
+  /*border-radius: 6px;*/
+  color: white;
+  font-size: 11pt;
+  text-transform: uppercase;
+  margin-top: 8px;
 }
 
 .post-labels-wrap span {

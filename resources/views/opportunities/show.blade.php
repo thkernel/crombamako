@@ -19,12 +19,13 @@
                         </div>
                         
                     </div>
+                    <div class="show-opportunity-type">
+                              {{ $opportunity->opportunity_type->name}}              
+                        </div>
                     
                     <div class="post-labels-wrap"> 
                         
-                        <span class="opportunity-type">
-                              {{ $opportunity->opportunity_type->name}}              
-                        </span>
+                        
 
                         <span class="item-author">
                                             <i class="fa fa-user" aria-hidden="true"></i>

@@ -11,6 +11,7 @@ use App\Models\Neighborhood;
 use App\Models\Post;
 use App\Models\Opportunity;
 
+
 class FrontController extends Controller
 {
     /**
@@ -20,7 +21,8 @@ class FrontController extends Controller
      */
     public function index()
     {
-        //
+       
+
         $towns =  Town::all();
         $neighborhoods = Neighborhood::all();
         $structure_categories =  StructureCategory::all();

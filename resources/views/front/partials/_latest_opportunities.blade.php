@@ -16,7 +16,7 @@
 							        	<a  href="{{ route('show_opportunity_path', $opportunity->slug) }}">
 							           <div class="post-thumbnail">
 
-							            {!! opportunity_thumbnail($opportunity, "", "") !!}
+							            {!! opportunity_thumbnail($opportunity, "", "", "medium") !!}
 
 
 

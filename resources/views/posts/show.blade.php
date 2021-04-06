@@ -19,11 +19,11 @@
                         </div>
                         
                     </div>
-                    
-                    <div class="post-labels-wrap"> 
-                        <span class="post-category">
+                    <div class="show-post-category">
                           {{ $post->post_category->name}}              
-                        </span>
+                    </div>
+                    <div class="post-labels-wrap"> 
+                        
 
                         <span class="item-author">
                                             <i class="fa fa-user" aria-hidden="true"></i>

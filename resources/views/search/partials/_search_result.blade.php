@@ -26,7 +26,7 @@
                                 <div class="structure-logo">
                                     <a href="{{ route('show_structure_path', $structure->slug)}}">
 
-                                      {!!  structure_logo($structure, "card-img-top", "") !!}
+                                      {!!  structure_logo($structure, "card-img-top", "", "medium") !!}
                                     </a>
                                 </div>
                                 <div class="card-body">

@@ -29,6 +29,7 @@
     use Illuminate\Support\Facades\File;
 
     use Illuminate\Auth\Events\Registered;
+    use Image;
 
 
     function get_current_timestamp(){
@@ -318,6 +319,14 @@
                             if ($attachment){
                                 
                                 $file->storeAs($storage_directory,$original_filename, 'public');
+
+                                $imageExtension = ['jpeg','jpg','png'];
+                                $isImage = in_array($extension,$imageExtension);
+                                // Resize image.
+                                // Before, we check if image file.
+                                if ($isImage){
+                                    resize_image($original_filename,$storage_directory);
+                                }
                                 
                                 
                             }
@@ -624,12 +633,19 @@
 
 
 
-function structure_logo($structure, $alt_tag, $class_name){
+function structure_logo($structure, $alt_tag, $class_name,  $dimension_name=null){
     
 
       
     if  ($structure->attachment){
-        return "<img src=". asset("storage/logos/".$structure->attachment->blob->filename) .">";
+        if ($dimension_name){
+            $filename = $structure->attachment->blob->filename;
+            $image_dimensions = config("global.image_dimensions");
+
+            $current_dimension = $image_dimensions[$dimension_name];
+            return "<img src=". asset("storage/logos/".$current_dimension."-".$filename).">";
+
+        }
 
     }
     
@@ -643,15 +659,27 @@ function structure_logo($structure, $alt_tag, $class_name){
 
 
 
-function post_thumbnail($post, $alt_tag, $class_name){
+function post_thumbnail($post, $alt_tag, $class_name, $dimension_name=null){
     
     
 
       
     if  ($post->attachment){
+        if ($dimension_name){
+            $filename = $post->attachment->blob->filename;
+            $image_dimensions = config("global.image_dimensions");
+
+            $current_dimension = $image_dimensions[$dimension_name];
+            return "<img src=". asset("storage/posts/".$current_dimension."-".$filename).">";
+
+        }
+        /*
+        else{
         
         //dd(asset("storage/app/public/posts/".$post->attachment->blob->filename));
         return "<img src=". asset("storage/posts/".$post->attachment->blob->filename) .">";
+        }
+        */
 
     }
     
@@ -663,14 +691,28 @@ function post_thumbnail($post, $alt_tag, $class_name){
 
 }
 
-function opportunity_thumbnail($opportunity, $alt_tag, $class_name){
+function opportunity_thumbnail($opportunity, $alt_tag, $class_name, $dimension_name=null){
     
     
 
       
     if  ($opportunity->attachment){
         
+       if ($dimension_name){
+            $filename = $opportunity->attachment->blob->filename;
+            $image_dimensions = config("global.image_dimensions");
+
+            $current_dimension = $image_dimensions[$dimension_name];
+            return "<img src=". asset("storage/opportunities/".$current_dimension."-".$filename).">";
+
+        }
+        /*
+        else{
+        
+       
         return "<img src=". asset("storage/opportunities/".$opportunity->attachment->blob->filename) .">";
+        }
+        */
 
     }
     
@@ -1307,4 +1349,22 @@ function _situation_contribution($speciality_id,$contribution_status, $selected_
     
 
         return $contributions;
+    }
+
+
+    //
+    function resize_image($file_name, $directory){
+        // Loop images dimensions.
+        $image_dimensions = collect(config('global.image_dimensions'));
+        
+        foreach ($image_dimensions as $key => $value) {
+            $sizes = explode("x", $value);
+            $width = $sizes[0];
+            $height = $sizes[1];
+
+            $img = Image::make(storage_path("app/public/".$directory."/".$file_name))->resize($width, $height);
+        
+        $img->save(storage_path("app/public/".$directory."/".$value."-".$file_name));
+            
+        }
     }
