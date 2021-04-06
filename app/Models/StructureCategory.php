@@ -27,7 +27,8 @@ class StructureCategory extends Model
     {
         return [
             'slug' => [
-                'source' => 'name'
+                'source' => 'name',
+                'unique' => true
             ]
         ];
     }

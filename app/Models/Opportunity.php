@@ -40,7 +40,8 @@ public function opportunity_type(){
     {
         return [
             'slug' => [
-                'source' => 'title'
+                'source' => 'title',
+                'unique' => true
             ]
         ];
     }
