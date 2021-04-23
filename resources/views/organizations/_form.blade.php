@@ -52,6 +52,17 @@
 
           <input type="text" name="country" value="{{  old('country') ?? $organization->country }}" class="form-control" placeholder="Pays">
         </div>
+
+        <div class="form-group">
+            <label for="latitude">Latitude:</label>
+            <input type="number" name="latitude" class="form-control" placeholder="Latitude" value="{{  old('latitude') ?? $organization->latitude }}" step="any">
+        </div>
+    
+        <div class="form-group">
+            <label for="longitude">Longitude:</label>
+            <input type="number" name="longitude" class="form-control" placeholder="Longitude" value="{{  old('longitude') ?? $organization->longitude }}" step="any">
+        </div>
+   
         <div class="form-group">
 
          <label for="email">Email</label>
