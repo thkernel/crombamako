@@ -42,7 +42,8 @@
 					@if (hasOrganization())
 					<div class="addresses">
             			<h6 class="">Téléphone: {{ organization()->phone_1 }} / {{ organization()->phone_2 }}</h6>
-            			<h6 class="">Fax: {{ organization()->fax}} , BP: {{ organization()->po_box}}</h6>
+            			<h6 class="">Fax: {{ organization()->fax}} </h6>
+            			<h6 class="">BP: {{ organization()->po_box}}</h6>
             			<h6 class="">Email: {{ organization()->email}}</h6>
             		<h6 class="">Adresse: {{ organization()->address}}</h6>
           			</div>

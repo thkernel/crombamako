@@ -1,5 +1,33 @@
 @extends("layouts.front")
 
+@section("gmaps")
+
+
+
+
+    <script>
+      // Initialize and add the map
+      function initMap() {
+        // The location 
+        const location = { lat: {{ organization()->latitude }}, lng: {{ organization()->longitude }} };
+        // The map, centered at Uluru
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 12,
+          center: location,
+        });
+        // The marker, positioned at Uluru
+        const marker = new google.maps.Marker({
+          position: location,
+          map: map,
+        });
+      }
+    </script>
+
+
+
+@endsection
+
+
 @section("content")
 <div class="container main-container">
 
@@ -30,18 +58,20 @@
 
 
           <div class="addresses">
-            <h6 class="">Téléphone: {{ config('global.company_phone')}}</h6>
-            <h6 class="">Email: {{ config('global.company_email')}}</h6>
+            <h6 class="">Téléphone: {{ organization()->phone_1 }} / {{ organization()->phone_2 }}</h6>
+            <h6 class="">Fax: {{ organization()->fax}} </h6>
+            <h6 class="">BP: {{ organization()->po_box}}</h6>
+            <h6 class="">Email: {{ organization()->address}}</h6>
             <h6 class="">Adresses: {{ config('global.company_addresses')}}</h6>
-
-
-
           </div>
               
+        </div>
+      </div>
 
-
-          
-          </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div id="map"></div>
+        </div>
       </div>
 
     </div>
