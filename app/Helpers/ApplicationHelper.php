@@ -29,7 +29,7 @@
     use Illuminate\Support\Facades\File;
 
     use Illuminate\Auth\Events\Registered;
-    use Image;
+    use Intervention\Image\Facades\Image as Image;
 
 
     function get_current_timestamp(){

@@ -233,7 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         // For DomPDF
         'PDF' => Barryvdh\DomPDF\Facade::class,
-        'Image' => Intervention\Image\Facades\Image::class,
+        'InterventionImage' => Intervention\Image\Facades\Image::class,
 
     ],
 
