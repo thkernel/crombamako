@@ -64,15 +64,15 @@
             <h6 class="">Email: {{ organization()->address}}</h6>
             <h6 class="">Adresses: {{ config('global.company_addresses')}}</h6>
           </div>
+
+
+          <div id="map"></div>
+        
               
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <div id="map"></div>
-        </div>
-      </div>
+      
 
     </div>
   </div>
