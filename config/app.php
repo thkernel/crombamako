@@ -178,7 +178,7 @@ return [
         // For DomPDF
         Barryvdh\DomPDF\ServiceProvider::class,
         // Toaster
-        //Yoeunes\Toastr\ToastrServiceProvider::class
+        //Yoeunes\Toastr\ToastrServiceProvider::class,
 
     ],
 
@@ -234,6 +234,8 @@ return [
         // For DomPDF
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'InterventionImage' => Intervention\Image\Facades\Image::class,
+        //'FastExcel' => Rap2hpoutre\FastExcel\Facades\FastExcel::class,
+
 
     ],
 

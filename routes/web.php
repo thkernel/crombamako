@@ -47,6 +47,9 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\DoctorSituationController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ImportExcelController;
+
+
 use App\Http\Controllers\Auth\VerifyEmailController;
 
 
@@ -260,6 +263,11 @@ Route::post('/email/verification-notification', function (Request $request) {
 Route::get('ckeditor', [CkeditorController::class, 'index']);
 Route::post('ckeditor/upload', [CkeditorController::class, 'upload'])->name('upload');
 
+Route::get('/import_excel', [ImportExcelController::class, 'index'])->name('import_excel.index')->middleware(['auth']);
+
+Route::post('/import_excel/import', [ImportExcelController::class, 'import'])->name('import_excel.import')->middleware(['auth']);
 
 /* Auth routes */
 require __DIR__.'/auth.php';
+
+

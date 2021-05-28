@@ -451,7 +451,8 @@
             //$random_str = strtolower(Str::random(8));
             //$login = strtolower($last_name.'_'.$random_str);
             $password = explode("@", $email)[0]."".$doctor_profile->id;
-            $login = explode("°", $doctor_order_reference)[1];
+            //$login = explode("°", $doctor_order_reference)[1];
+            $login = $doctor_order_reference;
             $password = Hash::make($password);
 
             
@@ -738,13 +739,13 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
 
 }
  
- function translate_ability($ability){
+function translate_ability($ability){
     $abilities = config('global.abilities');
     return $abilities[$ability];
 
- }
+}
 
- function last_doctor_reference($year){
+function last_doctor_reference($year){
     
 
     // Get the latest record.
@@ -759,11 +760,11 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
             
             if ($id == 9){
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }else{
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°00". $sn  ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "00". $sn  ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
             }
             
         }
@@ -772,22 +773,22 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
             if ($id == 99){
                 $sn = $last_doctor_order->id + 1;
 
-                $reference = "N°". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }else{
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
             }
             
         }
         else if ($str_size >= 3 ){
             if ($id >= 999){
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }else{
                 $sn = $last_doctor_order->id + 1;
-                $reference = "N°". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+                $reference = "". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }
             
@@ -796,7 +797,7 @@ function doctor_avatar($doctor, $alt_tag, $class_name){
 
     }else{
 
-        $reference = "N°00". 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
+        $reference = "00". 1 ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
         
     }
 
@@ -831,14 +832,11 @@ function _situation_locality($speciality_id,$town_id,$neighborhood_id){
         }
 
         return $results;
-
-   }
-
+}
 
 
 
-
-   function _situation_approval($speciality_id, $approval ){
+function _situation_approval($speciality_id, $approval ){
          //
 
         $results = null;
@@ -946,7 +944,7 @@ function _situation_locality($speciality_id,$town_id,$neighborhood_id){
   
 
 
-  function _situation_business_license($speciality_id,$business_license){
+function _situation_business_license($speciality_id,$business_license){
 
 
 
@@ -1367,4 +1365,105 @@ function _situation_contribution($speciality_id,$contribution_status, $selected_
         $img->save(storage_path("app/public/".$directory."/".$value."-".$file_name));
             
         }
+    }
+
+
+
+
+    function import_doctor_factory($fullname, $reference){
+        try{
+
+                $sex = "Masculin";
+                $town_id = Town::first()->id;
+               
+                $neighborhood_id = Neighborhood::first()->id;
+                $is_specialist = "Oui";
+                $speciality_id = Speciality::first()->id;
+                
+                $email = get_current_timestamp() ."@mail.com"  ;
+                $phone = get_current_timestamp();
+                $year = explode("/", $reference)[1];
+                
+
+                //dd($year);
+                
+            
+                $s_fullname = explode(" ", $fullname);
+                //dd($s_fullname);
+
+                if (count($s_fullname) >= 3){
+                    $last_name = $s_fullname[0] ." ". $s_fullname[1];
+                   
+                    array_shift($s_fullname);
+                    array_shift($s_fullname);
+                    $first_name = implode(" ",$s_fullname);
+                    
+                }
+                else{
+                    $last_name = $s_fullname[0] ;
+                    array_shift($s_fullname);
+                    $first_name =  implode(" ",$s_fullname);
+                }
+                
+               
+
+                
+        
+            
+
+                $new_doctor = array(
+                    "first_name" => $first_name,
+                    "last_name" => $last_name,
+                    "sex" => $sex,
+                    "town_id" => $town_id,
+                    "neighborhood_id" => $neighborhood_id,
+                    "is_specialist" => $is_specialist,
+                    "speciality_id" => $speciality_id,
+                    "email" => $email,
+                    "phone" => $phone
+
+                );
+
+                //dd($new_doctor);
+
+                // create profile
+                $doctor_profile = DoctorProfile::create($new_doctor);
+
+            
+
+                // Add doctor to the doctor order.
+                $doctor_order = [
+                    "reference" => $reference,
+                    "doctor_id" => $doctor_profile->id,
+                    "year" => $year,
+                    "status" => 'enable',
+                    "user_id" => current_user()->id
+                ];
+
+                $doctor_order = DoctorOrder::create($doctor_order);
+
+
+                // create account.
+                if ($doctor_profile){
+                
+                  $doctor_user = create_doctor_account($doctor_profile, $doctor_order->reference, $email, 'Médecin' );
+                }
+               
+            
+
+            return $doctor_profile;
+
+        }catch(QueryException $e){
+            $error_code = $e->errorInfo[0];
+                 
+            if($error_code == 23505){
+                
+                return back()->withError("Un médecin avec la meme adresse email".' existe déjà.')->withInput();
+            }else{
+                return back()->withError($e->getMessage())->withInput();
+            }
+            
+        }
+
+        
     }

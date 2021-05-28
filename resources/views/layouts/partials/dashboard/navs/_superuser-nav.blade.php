@@ -233,7 +233,6 @@
     </li>
 
 
-       
         
         
 
@@ -330,6 +329,10 @@
                   <a class="sub-link" href="{{ route('logs.index') }}">Logs</a>
               </li>
             @endcan
+
+            <li class="sub-item">
+                  <a class="sub-link" href="{{ route('import_excel.index') }}">Importations</a>
+              </li>
         
            
 
