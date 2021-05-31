@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Database\QueryException;
 
 
 class DoctorController extends Controller
@@ -172,22 +173,27 @@ class DoctorController extends Controller
         $old_email = $doctor->email;
         $new_email = $request->email;
         $email_arr = [$old_email, $new_email];
-        if ($old_email !== $new_email){
-            
-            // Update email user table.
-            $user = $doctor->user;
-            //dd($user->update(["email" => $new_email]));
-            if ($user->update(["email" => $new_email])){
-                $doctor->update($request->all());
 
-                event(new Registered($user));
-            }else{
-                return back()->withError("Erreur lors de la modification du médecin")->withInput();
+        try{
+
+            if ($old_email !== $new_email){
+                
+                // Update email user table.
+                $user = $doctor->user;
+                //dd($user->update(["email" => $new_email]));
+                if ($user->update(["email" => $new_email])){
+                    $doctor->update($request->all());
+
+                    if (empty($user->email_verified_at)){
+                        
+                    }
+                    event(new Registered($user));
+                }
             }
             
             
 
-        }
+
         
         
         
@@ -206,6 +212,20 @@ class DoctorController extends Controller
         return redirect()->route('doctors.index')
 
                         ->with('success','Médecin mis à jour avec succès');
+
+
+        }catch(QueryException $e){
+            $error_code = $e->errorInfo[0];
+                 
+            if($error_code == 23505){
+                
+                return back()->withError("Un médecin avec la meme adresse email".' existe déjà.')->withInput();
+            }else{
+                return back()->withError($e->getMessage())->withInput();
+            }
+            
+        }
+
     }
 
 
