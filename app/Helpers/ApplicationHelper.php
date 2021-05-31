@@ -393,6 +393,7 @@
 
                 // Save profile
                 //$doctor_profile = $doctor_profile->save();
+                
                 //$doctor_profile->user()->save($doctor_user);
 
                 $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
@@ -427,7 +428,7 @@
                  
             if($error_code == 23505){
                 
-                return back()->withError("Un médecin avec la meme adresse email".' existe déjà.')->withInput();
+                return back()->withError("Un médecin avec la même adresse email".' existe déjà.')->withInput();
             }else{
                 return back()->withError($e->getMessage())->withInput();
             }

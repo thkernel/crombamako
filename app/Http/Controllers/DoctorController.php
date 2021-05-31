@@ -13,6 +13,8 @@ use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use Illuminate\Auth\Events\Registered;
+
 
 class DoctorController extends Controller
 {
@@ -167,7 +169,28 @@ class DoctorController extends Controller
 
         ]);
 
-        $doctor->update($request->all());
+        $old_email = $doctor->email;
+        $new_email = $request->email;
+        $email_arr = [$old_email, $new_email];
+        if ($old_email !== $new_email){
+            
+            // Update email user table.
+            $user = $doctor->user;
+            //dd($user->update(["email" => $new_email]));
+            if ($user->update(["email" => $new_email])){
+                $doctor->update($request->all());
+
+                event(new Registered($user));
+            }else{
+                return back()->withError("Erreur lors de la modification du médecin")->withInput();
+            }
+            
+            
+
+        }
+        
+        
+        
 
         if ($request->hasFile('files')){
 

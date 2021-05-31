@@ -83,14 +83,15 @@
         <div class="col-md-4">
             <div class="form-group">
                 <label for="neighborhood_id">Quartier:</label>
-                <select name="neighborhood_id" class="form-control">
-                    @if ($doctor->neighborhood_id)
-                        <option value = "{{ $doctor->neighborhood_id }} selected">
-                            {{ $doctor->neighborhood->name}}
-                        </option>
-                    @endif
-                    
+                
+
+                <select name="neighborhood_id" class="form-control" required>
+                    <option {{ $doctor->neighborhood_id  ? '' : 'disabled selected value'}}> 
+                    @foreach($neighborhoods as $neighborhood)
+                        <option value = "{{ $neighborhood->id }}" {{ $neighborhood->id == $doctor->neighborhood_id ?  'selected' : ''}}>{{ $neighborhood->name }}</option>
+                    @endforeach
                 </select>
+
             </div>
         </div>
 
@@ -125,7 +126,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="email" class="required">Email:</label>
-              <input type="email" class="form-control" placeholder="Votre email"  name="email" value="{{  old('email') ?? $doctor->email }}" {{$doctor->email ? "readonly" : ''}} required >
+              <input type="email" class="form-control" placeholder="Votre email"  name="email" value="{{  old('email') ?? $doctor->email }}"  required >
             </div><!-- form-group -->
         </div><!-- form-group -->
 

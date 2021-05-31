@@ -186,36 +186,25 @@ class SubscriptionRequestController extends Controller
         // create doctor account and send credentials
         $doctor = doctor_factory($subscription_request);
         
-/*
-        $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
-
-        $reference = last_doctor_reference($year);
-        
-
-        
-        $doctor_order = [
-            "reference" => $reference,
-            "doctor_id" => $doctor->id,
-            "year" => $year,
-            "status" => 'enable',
-            "user_id" => current_user()->id
-        ];
-
-        DoctorOrder::create($doctor_order);*/
-
-        
 
         // change subscription request status to valided
 
         $request['status'] = "validated";
         //$request['user_id'] = current_user()->id;
-        $subscription_request->update($request->all());
+
+        if ($doctor !== null){
+            $subscription_request->update($request->all());
+
         
     
 
-        return redirect()->route('subscription_requests.index')
+            return redirect()->route('subscription_requests.index')
 
                         ->with('success','La préinscription a été validée avec succès');
+        }
+        else{
+            return back()->withError("Erreur lors de la validation")->withInput();
+        }
     }
 
     /**
