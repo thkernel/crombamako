@@ -43,7 +43,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-md-2 responsive-img">
-              {!! structure_logo($structure, '', '') !!}
+              {!!  structure_logo($structure, "card-img-top", "", "medium") !!}
 
             </div>
             <div class="col-md-4">
