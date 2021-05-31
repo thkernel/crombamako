@@ -176,20 +176,24 @@ class DoctorController extends Controller
 
         try{
 
-            if ($old_email !== $new_email){
+            
                 
                 // Update email user table.
                 $user = $doctor->user;
+                
                 //dd($user->update(["email" => $new_email]));
                 if ($user->update(["email" => $new_email])){
                     $doctor->update($request->all());
 
                     if (empty($user->email_verified_at)){
-                        
+                        event(new Registered($user));
                     }
-                    event(new Registered($user));
+
+                    
+                    
+                    
                 }
-            }
+            
             
             
 
