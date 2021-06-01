@@ -190,7 +190,13 @@ class DoctorController extends Controller
                     }
 
                     
-                    
+                    if ($request->hasFile('files')){
+
+                        // Attach record
+                        $allowedfileExtension = ['pdf','jpg','png','docx'];
+
+                        eloquent_storage_service($doctor, $request, $allowedfileExtension, 'files', 'files');
+                    }
                     
                 }
             
@@ -201,15 +207,6 @@ class DoctorController extends Controller
         
         
         
-
-        if ($request->hasFile('files')){
-
-             // Attach record
-       $allowedfileExtension = ['pdf','jpg','png','docx'];
-
-            eloquent_storage_service($doctor, $request, $allowedfileExtension, 'files', 'files');
-        }
-
 
   
 

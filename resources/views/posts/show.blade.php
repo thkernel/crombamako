@@ -45,7 +45,7 @@
                 
 
                 <div class="cover mg-b-15">
-                   {!! post_thumbnail($post, "", "", "medium") !!}
+                   {!! post_thumbnail($post, "", "", "large") !!}
 
                 </div>
                    

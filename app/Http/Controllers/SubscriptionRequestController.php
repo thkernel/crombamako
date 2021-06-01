@@ -60,7 +60,14 @@ class SubscriptionRequestController extends Controller
     public function store(Request $request)
     {
         //
+        $doctor_profile = DoctorProfile::where('email', $request['email'])->get();
+       
+        if ($doctor_profile->count() > 0){
+            return back()->withError("Un médecin avec la même adresse email".' existe déjà.')->withInput();
+        }
+
         $request['status'] = "En attente";
+        
 
         $request->validate([
             'sex' => 'required',
@@ -76,23 +83,26 @@ class SubscriptionRequestController extends Controller
         ]);
 
          try{
-        $subscription_request = SubscriptionRequest::create($request->all());
+
+
+
+            $subscription_request = SubscriptionRequest::create($request->all());
 
 
        
        
 
-       if ($request->hasFile('files')){
+           if ($request->hasFile('files')){
 
-             // Attach record
-       $allowedfileExtension = ['pdf','jpg','png','docx'];
+                 // Attach record
+           $allowedfileExtension = ['pdf','jpg','png','docx'];
 
-            eloquent_storage_service($subscription_request, $request, $allowedfileExtension, 'files', 'files');
-        }
+                eloquent_storage_service($subscription_request, $request, $allowedfileExtension, 'files', 'files');
+            }
 
-   
-        return redirect()->route('home_path')
-            ->with('success','La préinscription a bien été créé.');
+       
+            return redirect()->route('home_path')
+                ->with('success','La préinscription a bien été créé.');
 
         }catch(QueryException $e){
             //$error_code = $e->errorInfo[0];
@@ -182,7 +192,9 @@ class SubscriptionRequestController extends Controller
     public function validate_subscription(Request $request, SubscriptionRequest $subscription_request){
         //
     
+        
 
+        
         // create doctor account and send credentials
         $doctor = doctor_factory($subscription_request);
         
@@ -192,7 +204,9 @@ class SubscriptionRequestController extends Controller
         $request['status'] = "validated";
         //$request['user_id'] = current_user()->id;
 
-        if ($doctor !== null){
+        
+        if (class_basename($doctor) == "DoctorProfile"){
+            
             $subscription_request->update($request->all());
 
         
@@ -201,10 +215,10 @@ class SubscriptionRequestController extends Controller
             return redirect()->route('subscription_requests.index')
 
                         ->with('success','La préinscription a été validée avec succès');
+        }else{
+            return back();
         }
-        else{
-            return back()->withError("Erreur lors de la validation")->withInput();
-        }
+        
     }
 
     /**

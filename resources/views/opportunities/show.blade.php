@@ -48,7 +48,7 @@
                 
 
                 <div class="cover mg-b-15">
-                    {!! opportunity_thumbnail($opportunity, "", "", "medium") !!}
+                    {!! opportunity_thumbnail($opportunity, "", "", "large") !!}
 
                 </div>
                    
