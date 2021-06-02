@@ -428,7 +428,8 @@
                  
             if($error_code == 23505){
                 
-                return back()->withError("Un médecin avec la même adresse email".' existe déjà.')->withInput();
+                //return back()->withError("Un médecin avec la même adresse email".' existe déjà.')->withInput();
+                return back()->withError($e->getMessage())->withInput();
             }else{
                 return back()->withError($e->getMessage())->withInput();
             }

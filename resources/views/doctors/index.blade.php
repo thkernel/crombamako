@@ -37,7 +37,7 @@
       <th>Spécialité</th>
       <th>Commune</th>
       <th>Quartier</th>
-      <th>Email</th>
+     
       
 
 
