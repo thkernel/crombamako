@@ -533,7 +533,7 @@
                  
             if($error_code == 23505){
                 
-                return back()->withError("Login ou Email".', existe déjà.')->withInput();
+                return back()->withError("Une structure avec cette adresse email".' existe déjà.')->withInput();
             }else{
                 return back()->withError($e->getMessage())->withInput();
             }
