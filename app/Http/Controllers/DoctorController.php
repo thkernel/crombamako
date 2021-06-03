@@ -27,6 +27,10 @@ class DoctorController extends Controller
     public function index()
     {
 
+
+
+        
+    //dd(Carbon::now()->timestamp);
         
         //
         //$doctor_role = Role::whereName('Médecin')->first();

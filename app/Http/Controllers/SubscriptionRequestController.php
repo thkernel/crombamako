@@ -204,7 +204,7 @@ class SubscriptionRequestController extends Controller
         $request['status'] = "validated";
         //$request['user_id'] = current_user()->id;
 
-        
+        //dd($doctor);
         if (class_basename($doctor) == "DoctorProfile"){
             
             $subscription_request->update($request->all());

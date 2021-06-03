@@ -398,23 +398,25 @@
 
                 $year = Carbon::parse(date('Y-m-d H:i:s'))->format("Y");
                 
-                $reference = last_doctor_reference($year);
                 
-
-                // Add doctor to the doctor order.
-                $doctor_order = [
-                    "reference" => $reference,
-                    "doctor_id" => $doctor_profile->id,
-                    "year" => $year,
-                    "status" => 'enable',
-                    "user_id" => current_user()->id
-                ];
-
-                $doctor_order = DoctorOrder::create($doctor_order);
 
 
                 // create account.
                 if ($doctor_profile){
+
+                    $reference = last_doctor_reference($year);
+                
+
+                    // Add doctor to the doctor order.
+                    $doctor_order = [
+                        "reference" => $reference,
+                        "doctor_id" => $doctor_profile->id,
+                        "year" => $year,
+                        "status" => 'enable',
+                        "user_id" => current_user()->id
+                    ];
+
+                    $doctor_order = DoctorOrder::create($doctor_order);
                 
                     $doctor_user = create_doctor_account($doctor_profile, $doctor_order->reference, $subscription_request->email, 'Médecin' );
                 }
@@ -753,18 +755,20 @@ function last_doctor_reference($year){
     $last_doctor_order = DoctorOrder::where('year', $year)->latest()->first();
 
     if ($last_doctor_order){
-        $id = $last_doctor_order->id;
+
+        //$id = $last_doctor_order->id;
+        $id = explode("/", $last_doctor_order->reference)[0];
         $id_to_str = strval($id);
         $str_size = strlen($id_to_str);
 
         if ($str_size == 1 ){
             
             if ($id == 9){
-                $sn = $last_doctor_order->id + 1;
+                $sn = $id + 1;
                 $reference = "0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }else{
-                $sn = $last_doctor_order->id + 1;
+                $sn = $id + 1;
                 $reference = "00". $sn  ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
             }
             
@@ -772,23 +776,23 @@ function last_doctor_reference($year){
         else if ($str_size == 2 ){
 
             if ($id == 99){
-                $sn = $last_doctor_order->id + 1;
+                $sn = $id + 1;
 
                 $reference = "". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }else{
-                $sn = $last_doctor_order->id + 1;
+                $sn = $id + 1;
                 $reference = "0". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
             }
             
         }
         else if ($str_size >= 3 ){
             if ($id >= 999){
-                $sn = $last_doctor_order->id + 1;
+                $sn = $id + 1;
                 $reference = "". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }else{
-                $sn = $last_doctor_order->id + 1;
+                $sn = $id + 1;
                 $reference = "". $sn ."/". Carbon::parse(date('Y-m-d H:i:s'))->format("y") . "/D";
 
             }
@@ -1381,12 +1385,14 @@ function _situation_contribution($speciality_id,$contribution_status, $selected_
                 $is_specialist = "Oui";
                 $speciality_id = Speciality::first()->id;
                 
-                $email = get_current_timestamp() ."@mail.com"  ;
+                sleep(2);
+                $email = get_current_timestamp()."@domain.com"  ;
                 $phone = get_current_timestamp();
                 $year = explode("/", $reference)[1];
                 
-
-                //dd($year);
+        
+                $date = date("Y-m-d", strtotime($year."-01-01"));
+                $year = explode("-",$date)[0];
                 
             
                 $s_fullname = explode(" ", $fullname);
@@ -1408,9 +1414,6 @@ function _situation_contribution($speciality_id,$contribution_status, $selected_
                 
                
 
-                
-        
-            
 
                 $new_doctor = array(
                     "first_name" => $first_name,
@@ -1432,20 +1435,22 @@ function _situation_contribution($speciality_id,$contribution_status, $selected_
 
             
 
-                // Add doctor to the doctor order.
-                $doctor_order = [
-                    "reference" => $reference,
-                    "doctor_id" => $doctor_profile->id,
-                    "year" => $year,
-                    "status" => 'enable',
-                    "user_id" => current_user()->id
-                ];
-
-                $doctor_order = DoctorOrder::create($doctor_order);
+                
 
 
                 // create account.
                 if ($doctor_profile){
+                    // Add doctor to the doctor order.
+                    $doctor_order = [
+                        "reference" => $reference,
+                        "doctor_id" => $doctor_profile->id,
+                        "year" => $year,
+                        "status" => 'enable',
+                        "user_id" => current_user()->id
+                    ];
+
+                    $doctor_order = DoctorOrder::create($doctor_order);
+
                 
                   $doctor_user = create_doctor_account($doctor_profile, $doctor_order->reference, $email, 'Médecin' );
                 }
@@ -1459,7 +1464,9 @@ function _situation_contribution($speciality_id,$contribution_status, $selected_
                  
             if($error_code == 23505){
                 
-                return back()->withError("Un médecin avec la meme adresse email".' existe déjà.')->withInput();
+                //return back()->withError("Un médecin avec la meme adresse email".' existe déjà.')->withInput();
+
+                return back()->withError($e->getMessage())->withInput();
             }else{
                 return back()->withError($e->getMessage())->withInput();
             }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Speciality;
 use App\Models\Town;
+use App\Models\DoctorProfile;
 use App\Models\Role;
 use App\Models\AdminProfile;
 use Illuminate\Http\Request;
@@ -151,8 +152,18 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+        //dd(User::find($id));
+        $user = User::find($id);
         
-        User::where('id',$id)->delete();
+       
+        if (class_basename($user->userable_type) == "DoctorProfile"){
+            DoctorProfile::where('id',$user->userable_id)->delete();
+
+        }else{
+            User::where('id',$id)->delete();
+        }
+        
+
         return redirect()->back()->with('success','Supprimer avec succès!');
     }
 }
