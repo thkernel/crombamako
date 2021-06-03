@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminProfileController;
-use App\Http\Controllers\DoctorProfileController;
+//use App\Http\Controllers\DoctorProfileController;
 use App\Http\Controllers\SpecialityController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StructureTypeController;
@@ -158,6 +158,9 @@ Route::put('/document_requests/{id}/validate/', [DocumentRequestController::clas
 Route::put('/document_requests/{id}/cancel/', [DocumentRequestController::class, 'cancel_request'])->name('document_requests.cancel')->middleware(['auth']);
 
 Route::put('/doctor_profile/{id}/change-satus/', [DoctorController::class, 'change_status'])->name('doctors.change_status')->middleware(['auth']);
+
+
+Route::put('/change_password/profile/{id}/', [DoctorController::class, 'change_password'])->name('users.change_password')->middleware(['auth']);
 
 
 

@@ -35,8 +35,8 @@
                         Mon profil
                     </a>
                 @else
-                    <a href="{{route('doctor_profiles.edit', current_user()->userable)}}">
-                        Mon profil
+                    <a href="{{route('users.change_password', current_user()->userable)}}">
+                        Changer mon mot de passe
                     </a>
                 @endif
             </li>

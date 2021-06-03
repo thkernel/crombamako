@@ -100,6 +100,22 @@ class UserController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Role  $role
+     * @return \Illuminate\Http\Response
+     */
+    public function change_password($id)
+    {
+        //
+
+        $user = User::find($id);
+        $roles =  Role::where('id', $user->role_id )->get();
+
+        return view('users.change_password', compact(['user','roles']));
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Role  $role
