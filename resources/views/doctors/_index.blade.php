@@ -6,6 +6,7 @@
     <td>{{$doctor->speciality ? $doctor->speciality->name :''}}</td>
     <td>{{$doctor->town->name}}</td>
     <td>{{$doctor->neighborhood ? $doctor->neighborhood->name :''}}</td>
+   
     
     
 
