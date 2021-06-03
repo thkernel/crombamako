@@ -35,7 +35,7 @@
                         Mon profil
                     </a>
                 @else
-                    <a href="{{route('users.change_password', current_user()->userable)}}">
+                    <a href="{{route('users.change_password', current_user()->id)}}">
                         Changer mon mot de passe
                     </a>
                 @endif
