@@ -115,6 +115,31 @@ class UserController extends Controller
         return view('users.change_password', compact(['user','roles']));
     }
 
+    public function update_password(Request $request, User $user)
+    {
+        //
+        /*$request->validate([
+            'login' => 'required|string',
+            'email' => 'required|email',
+            'role_id'=> 'required',
+            
+
+        ]);
+        */
+
+        if ($request['password']){
+            $request['password'] =  Hash::make($request['password']);
+        }
+        $user->update($request->all());
+
+  
+
+        return redirect()->route('dashboard.index')
+
+                        ->with('success',"Mot de passe a été modifié.");
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -153,10 +178,18 @@ class UserController extends Controller
         $user->update($request->all());
 
   
+        if (current_user()->role->name === 'Médecin'){
+            return redirect()->route('dashboard_path')
 
-        return redirect()->route('users.index')
+                        ->with('success',"Mot de passe modifié.");
+        }else{
+            return redirect()->route('users.index')
 
                         ->with('success',"Compte d'utilisateur mise à jour.");
+
+        }
+
+        
     }
 
     /**
