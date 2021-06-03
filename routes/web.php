@@ -160,7 +160,7 @@ Route::put('/document_requests/{id}/cancel/', [DocumentRequestController::class,
 Route::put('/doctor_profile/{id}/change-satus/', [DoctorController::class, 'change_status'])->name('doctors.change_status')->middleware(['auth']);
 
 
-Route::get('/change_password/profile/{id}/', [DoctorController::class, 'change_password'])->name('users.change_password')->middleware(['auth']);
+Route::get('/change_password/profile/{id}/', [UserController::class, 'change_password'])->name('users.change_password')->middleware(['auth']);
 
 
 
