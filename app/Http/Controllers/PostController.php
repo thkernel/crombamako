@@ -25,7 +25,8 @@ class PostController extends Controller
     public function all()
     {
         //
-        $posts =  Post::orderBy('id', 'desc')->paginate(10)->setPath('posts');
+        //$posts =  Post::orderBy('id', 'desc')->paginate(3)->setPath('posts');
+        $posts =  Post::orderBy('id', 'desc')->paginate(10);
         return view("posts.all", compact(['posts']) );
     }
 
