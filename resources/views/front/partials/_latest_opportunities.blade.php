@@ -26,7 +26,7 @@
 							        <div class="card-title">
 							            <h5> 
 							            	 
-							            	<a  href="{{ route('show_opportunity_path', $opportunity->slug) }}">{{ $opportunity->title }} </a>
+							            	<a  href="{{ route('show_opportunity_path', $opportunity->slug) }}">{{ Str::words($opportunity->title,7) }} </a>
 							            </h5>                         
 							        </div>
 							        
