@@ -25,7 +25,9 @@ class OpportunityController extends Controller
     public function all()
     {
         //
-        $opportunities =  Opportunity::orderBy('id', 'desc')->paginate(10)->setPath('opportunities');
+        //$opportunities =  Opportunity::orderBy('id', 'desc')->paginate(10)->setPath('opportunities');
+
+        $opportunities =  Opportunity::orderBy('id', 'desc')->paginate(10);
         return view("opportunities.all", compact(['opportunities']) );
         
     }

@@ -52,7 +52,9 @@
 						</div>
 					@endforeach
 				</div>
-				
+				<div class="d-flex justify-content-center">
+            		{!! $opportunities->links() !!}
+        		</div> 
 			</div>
 		</div>
 
