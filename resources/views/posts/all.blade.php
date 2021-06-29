@@ -25,7 +25,7 @@
 							        <div class="card-title">
 							            <h5> 
 							            	 
-							            	<a  href="{{ route('show_post_path', $post->slug) }}">{{ $post->title }} </a>
+							            	<a  href="{{ route('show_post_path', $post->slug) }}">{{ Str::words($post->title,10) }} </a>
 							            </h5>                         
 							        </div>
 
