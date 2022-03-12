@@ -1270,7 +1270,7 @@ function _situation_contribution($speciality_id,$contribution_status, $selected_
 
         
             
-
+        $contributions = [];
 
         // Check if request content the  search terms
         
