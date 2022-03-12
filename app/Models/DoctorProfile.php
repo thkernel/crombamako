@@ -82,7 +82,11 @@ class DoctorProfile extends Model
 	}
 
     public function getFullNameWithReferenceAttribute() {
-        return $this->first_name . ' ' . $this->last_name . ' | '. $this->doctor_order->reference;
+        if ($this->doctor_order->reference){
+            return $this->first_name . ' ' . $this->last_name . ' | '. $this->doctor_order->reference;
+        }else{
+            return $this->first_name . ' ' . $this->last_name;
+        }
     }
 
      

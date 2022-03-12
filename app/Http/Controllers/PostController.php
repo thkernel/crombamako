@@ -17,6 +17,8 @@ class PostController extends Controller
     public function index()
     {
         //
+        $this->authorize('read-post', Post::class);
+        
         $posts =  Post::orderBy('id', 'asc')->get();
         activities_logger($this->getCurrentControllerName(), $this->getCurrentActionName(),'');
         return view("posts.index", compact(['posts']) );

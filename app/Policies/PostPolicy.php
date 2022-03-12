@@ -10,6 +10,12 @@ class PostPolicy
 {
     use HandlesAuthorization;
 
+
+    public function index(User $user){
+        return authorize_resource('read', 'Post')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
+    }
     /**
      * Determine whether the user can view any models.
      *
@@ -19,6 +25,10 @@ class PostPolicy
     public function viewAny(User $user)
     {
         //
+        //
+        return authorize_resource('read', 'Post')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
     }
 
     /**
@@ -31,6 +41,10 @@ class PostPolicy
     public function view(User $user, Post $post)
     {
         //
+        //
+        return authorize_resource('read', 'Post')
+                ? Response::allow()
+                : Response::deny('Not authorized.');
     }
 
     /**

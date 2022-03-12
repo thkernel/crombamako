@@ -9,7 +9,8 @@ use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Notifications\Messages\MailMessage;
 
-
+use App\Models\Feature;
+use App\Models\Post;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -62,6 +63,21 @@ class AuthServiceProvider extends ServiceProvider
         Gate::before(function ($user, $ability) {
             if ($user->isSuperUser()) {
                 return true;
+            }
+            else{
+                //dd($user->permissions);
+
+                foreach ($user->permissions as $permission) {
+                    //dd($permission);
+                    foreach($permission->permission_items as $permission_item){
+                        $model = $permission_item->permission->feature->subject_class;
+                        //dd($model);
+                        $action_name = strtolower($permission_item->action_name);
+                        //dd($action_name."-".strtolower($model));
+                        Gate::define($action_name."-".strtolower($model), Post::class);
+
+                    }
+                }
             }
             
         });
