@@ -3,7 +3,7 @@
 
 lock "~> 3.16.0"
 
-set :repo_url, 'https://github.com/thkernel/medplatform.git'
+set :repo_url, 'https://github.com/thkernel/crombamako.git'
 # Default branch is :master
 
 # Default deploy_to directory is /var/www/laravel-capistrano

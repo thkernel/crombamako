@@ -4,7 +4,7 @@
 # You can define all roles on a single server, or split them:
 
 
-set :application, 'Crom'
+set :application, 'CromBamako'
 set :deploy_to, '/var/www/crombamako/crombamako.prod'
 set :laravel_dotenv_file, '/var/www/secrets/prod/.env'
 set :branch, ENV["branch"] || "master"
