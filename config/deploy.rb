@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 
 
-lock "~> 3.16.0"
+lock "~> 3.17.0"
 
 set :repo_url, 'https://github.com/thkernel/crombamako.git'
 # Default branch is :master
@@ -21,8 +21,10 @@ namespace :composer do
     task :install do
         on roles(:composer) do
             within release_path do
+                #execute :composer, "install --no-dev --quiet" # install dependencies
                 execute :composer, "install --no-dev --quiet --prefer-dist --optimize-autoloader"
                 execute :chmod, "u+x artisan" # make artisan executable
+                #execute :php, "artisan migrate --no-interaction" #run migrations
                 #execute :php, "artisan migrate:install" run migrations
                 #execute :php, "artisan migrate --no-interaction --force" # run migrations
             end
