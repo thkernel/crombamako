@@ -4,6 +4,9 @@
 lock "~> 3.17.0"
 
 set :repo_url, 'https://github.com/thkernel/crombamako.git'
+set :git_http_username, 'thkernel'
+ask(:github_token, "github_token", echo: false)
+set :git_http_password, fetch((:github_token))
 # Default branch is :master
 
 # Default deploy_to directory is /var/www/laravel-capistrano
@@ -30,6 +33,7 @@ namespace :composer do
             end
         end
     end
+    
 end
 namespace :laravel do
     task :fix_permission do

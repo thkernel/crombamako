@@ -1,7 +1,12 @@
 <div class="front-menu">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="{{ route('home_path') }}"><h3>{{ config('global.application_name')}}</h3></a>
+        <a class="navbar-brand" href="{{ route('home_path') }}">
+          <!-- <h3>{{ config('global.application_name')}}</h3> -->
+          <div class="logo mg-r-30">
+            <img src="/images/Logo-CNOM.png"  alt="Logo-CNOM">
+          </div>
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>

@@ -648,6 +648,7 @@ function structure_logo($structure, $alt_tag, $class_name,  $dimension_name=null
             $image_dimensions = config("global.image_dimensions");
 
             $current_dimension = $image_dimensions[$dimension_name];
+            //dd(asset("storage/logos/".$current_dimension."-".$filename));
             return "<img src=". asset("storage/logos/".$current_dimension."-".$filename).">";
 
         }
