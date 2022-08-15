@@ -20,7 +20,7 @@
 					@endforeach
 					</ul>
 				</div>
-				
+				{!! $resources->links() !!}
 			</div>
 		</div>
 
