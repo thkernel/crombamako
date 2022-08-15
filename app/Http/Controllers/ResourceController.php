@@ -23,7 +23,7 @@ class ResourceController extends Controller
     public function all()
     {
         //
-        $resources =  Resource::orderBy('id', 'desc')->paginate(10)->setPath('resources');
+        $resources =  Resource::orderBy('id', 'desc')->paginate(10);
         return view("resources.all", compact(['resources']) );
     }
 
