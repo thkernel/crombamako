@@ -30,7 +30,8 @@ class ResourceCategoryController extends Controller
     public function create()
     {
         //
-        return view('resource_categories.create');
+         $resource_category = new ResourceCategory;
+        return view('resource_categories.create', compact(['resource_category']));
     }
 
     /**
@@ -77,6 +78,7 @@ class ResourceCategoryController extends Controller
     public function edit(ResourceCategory $resource_category)
     {
         //
+       
         return view('resource_categories.edit',compact('resource_category'));
 
     }
