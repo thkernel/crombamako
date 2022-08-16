@@ -26,7 +26,8 @@ class ResourceController extends Controller
         //
         $resource_category = ResourceCategory::whereName("DEMARCHE ADMINISTRATIVE")->first();
         $resources =  Resource::where("resource_category_id",'!=',$resource_category->id)->orderBy('id', 'desc')->paginate(10);
-        return view("resources.all", compact(['resources']) );
+        $resource_category = null;
+        return view("resources.all", compact(['resources', 'resource_category']) );
     }
 
 
