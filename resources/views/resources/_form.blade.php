@@ -4,12 +4,24 @@
 
         <div class="form-group">
 
-            <label for="title">Titre:</label>
+            <label for="title" class="required">Titre:</label>
 
             <input type="text" name="title" value="{{  old('title') ?? $resource->title }}" class="form-control" placeholder="Titre" required>
 
         </div>
 
+    </div>
+    <div class="col-md-12">
+
+        <div class="form-group">
+            <label for="resource_category_id" class="required">Catégorie:</label>
+            <select name="resource_category_id" id="resource_category_id" class="form-control" required>
+                <option {{ $resource->resource_category_id  ? '' : 'disabled selected value'}}> 
+                @foreach($resource_categories as $resource_category)
+                    <option value = "{{ $resource_category->id }}" {{ $resource_category->id === $resource->resource_category_id ?  'selected' : ''}}>{{ $resource_category->name }}</option>
+                @endforeach
+            </select>
+        </div>
     </div>
      <div class="col-md-12">
 

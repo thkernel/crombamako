@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="contact-content mg-t-30 mg-b-30">
 		<div class="box box-primary ">
-			<h1 class="box-header">Nos ressources</h1>
+			<h1 class="box-header">{{$resource_category ? "Démarches administratives" : "Nos ressources"}}</h1>
 			<div class="box-body">
 				<div class="row">
 					<ul>

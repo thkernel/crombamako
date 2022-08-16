@@ -8,7 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Resource extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','content',  'user_id'];
+    protected $fillable = ['title','content', 'resource_category_id',  'user_id'];
+
+    public function resource_category(){
+        return $this->belongsTo(ResourceCategory::class);
+    }
 
     public function attachment()
     {

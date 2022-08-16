@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Resource;
+use App\Models\ResourceCategory;
 use Illuminate\Http\Request;
 
 class ResourceController extends Controller
@@ -23,8 +24,17 @@ class ResourceController extends Controller
     public function all()
     {
         //
-        $resources =  Resource::orderBy('id', 'desc')->paginate(10);
+        $resource_category = ResourceCategory::whereName("DEMARCHE ADMINISTRATIVE")->first();
+        $resources =  Resource::where("resource_category_id",'!=',$resource_category->id)->orderBy('id', 'desc')->paginate(10);
         return view("resources.all", compact(['resources']) );
+    }
+
+
+    public function administrative_procedures()
+    {
+        $resource_category = ResourceCategory::whereName("DEMARCHE ADMINISTRATIVE")->first();
+        $resources =  Resource::whereResourceCategoryId($resource_category->id)->orderBy('id', 'desc')->paginate(10);
+        return view("resources.all", compact(['resources', 'resource_category']) );
     }
 
 
@@ -37,8 +47,9 @@ class ResourceController extends Controller
     public function create()
     {
         //
+         $resource_categories =  ResourceCategory::all();
         $resource = new Resource;
-        return view('resources.create', compact(['resource']));
+        return view('resources.create', compact(['resource','resource_categories']));
 
     }
 
@@ -56,6 +67,7 @@ class ResourceController extends Controller
         $request['user_id'] = current_user()->id;
         $request->validate([
             'title' => 'required',
+            'resource_category_id' => 'required',
 
         ]);
 
@@ -96,7 +108,8 @@ class ResourceController extends Controller
     public function edit(Resource $resource)
     {
         //
-         return view('resources.edit',compact('resource'));
+         $resource_categories =  ResourceCategory::all();
+         return view('resources.edit',compact(['resource','resource_categories' ]));
     }
 
     /**

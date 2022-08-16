@@ -1,5 +1,11 @@
 @foreach($resources as $resource)
     <tr>
+
+    <td>
+        
+        {{$resource->resource_category ? $resource->resource_category->name : ''}}
+        
+    </td>
     <td>{{$resource->title}}</td>
 
     

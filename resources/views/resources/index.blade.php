@@ -30,7 +30,7 @@
 
   <thead>
     <tr>
-     
+      <th>Catégorie</th>
       <th>Nom</th>
      
      

@@ -48,6 +48,7 @@ use App\Http\Controllers\CkeditorController;
 use App\Http\Controllers\DoctorSituationController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ImportExcelController;
+use App\Http\Controllers\ResourceCategoryController;
 
 
 use App\Http\Controllers\Auth\VerifyEmailController;
@@ -121,6 +122,9 @@ Route::get('/opportunities/all', [OpportunityController::class, 'all'])->name('o
 Route::get('/posts/all', [PostController::class, 'all'])->name('all_posts_path');
 
 Route::get('/ressources/all', [ResourceController::class, 'all'])->name('all_resources_path');
+
+Route::get('/ressources/administrative_procedures', [ResourceController::class, 'administrative_procedures'])->name('all_administrative_procedures_path');
+
 
 
 Route::get('/opportunity/show/{slug}', [OpportunityController::class, 'show'])->name('show_opportunity_path');
@@ -218,7 +222,8 @@ Route::resource('doctor_orders', DoctorOrderController::class)->middleware(['aut
 
 Route::resource('features', FeatureController::class)->middleware(['auth']);
 Route::resource('permissions', PermissionController::class)->middleware(['auth']);
-
+Route::resource('resource_categories', ResourceCategoryController::class)->middleware(['auth'], [
+    'only' => ['index', 'create', 'store', 'edit', 'destroy', 'update']])->middleware(['auth']);
 Route::resource('resources', ResourceController::class)->middleware(['auth']);
 
 

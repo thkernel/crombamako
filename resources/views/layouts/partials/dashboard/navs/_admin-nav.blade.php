@@ -250,6 +250,12 @@
               </li>
             @endcan
 
+            @can('read', App\Models\ResourceCategory::class)
+              <li class="sub-item">
+                  <a class="sub-link" href="{{ route('resource_categories.index') }}">Catégories de ressource</a>
+              </li>
+            @endcan
+
 
             @can('read', App\Models\Speciality::class)
 
