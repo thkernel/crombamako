@@ -9,7 +9,7 @@
       // Initialize and add the map
       function initMap() {
         // The location 
-        const location = { lat: {{ organization()->latitude }}, lng: {{ organization()->longitude }} };
+        const location = { lat: {{ organization() ? organization()->latitude : 0 }}, lng: {{ organization() ? organization()->longitude : 0 }} };
         // The map, centered at Uluru
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 12,
@@ -58,10 +58,10 @@
 
 
           <div class="addresses">
-            <h6 class="">Téléphone: {{ organization()->phone_1 }} / {{ organization()->phone_2 }}</h6>
-            <h6 class="">Fax: {{ organization()->fax}} </h6>
-            <h6 class="">BP: {{ organization()->po_box}}</h6>
-            <h6 class="">Email: {{ organization()->address}}</h6>
+            <h6 class="">Téléphone: {{ organization() ? organization()->phone_1 : ""  }} / {{ organization() ? organization()->phone_2 : ""}}</h6>
+            <h6 class="">Fax: {{ organization() ? organization()->fax : ""}} </h6>
+            <h6 class="">BP: {{ organization() ? organization()->po_box : ""}}</h6>
+            <h6 class="">Email: {{ organization() ? organization()->email : ""}}</h6>
             <h6 class="">Adresses: {{ config('global.company_addresses')}}</h6>
           </div>
 
