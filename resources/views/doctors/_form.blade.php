@@ -1,7 +1,32 @@
 
     <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="reference_cnom" class="required">Réf. CNOM:</label>
+                <input type="text" class="form-control" placeholder="Réf. CNOM"  name="reference_cnom" value="{{  old('reference_cnom') ?? $doctor->doctor_order->reference_cnom }}" >
+            
+            </div><!-- form-group -->
+        </div>
 
-        <div class="col-md-4">
+        
+
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="first_name" class="required">Prénom:</label>
+                <input type="text" class="form-control" placeholder="Prénom"  name="first_name" value="{{  old('first_name') ?? $doctor->first_name }}" >
+            {!! $errors->first('first_name', '<p class="error">:message</p>') !!}
+            </div><!-- form-group -->
+        </div><!-- form-group -->
+                
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="last_name" class="required">Nom:</label>
+                <input type="text" class="form-control" placeholder="Nom"  name="last_name" value="{{  old('last_name') ?? $doctor->last_name }}" >
+                {!! $errors->first('last_name', '<p class="error">:message</p>') !!}
+            </div><!-- form-group -->
+         </div><!-- form-group -->
+
+         <div class="col-md-3">
             <div class="form-group">
                 <label for="sex" class="required">Sexe:</label>
                 <select name="sex" class="form-control" required>
@@ -13,22 +38,6 @@
                 </select>
             </div>
         </div>
-
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="first_name" class="required">Prénom:</label>
-                <input type="text" class="form-control" placeholder="Prénom"  name="first_name" value="{{  old('first_name') ?? $doctor->first_name }}" >
-            {!! $errors->first('first_name', '<p class="error">:message</p>') !!}
-            </div><!-- form-group -->
-        </div><!-- form-group -->
-                
-        <div class="col-md-4">
-            <div class="form-group">
-                <label for="last_name" class="required">Nom:</label>
-                <input type="text" class="form-control" placeholder="Nom"  name="last_name" value="{{  old('last_name') ?? $doctor->last_name }}" >
-                {!! $errors->first('last_name', '<p class="error">:message</p>') !!}
-            </div><!-- form-group -->
-         </div><!-- form-group -->
     </div>
 
     <div class="row">

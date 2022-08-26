@@ -1,6 +1,7 @@
 @foreach($doctors as $doctor)
     <tr>
     <td>{{$doctor->doctor_order ? $doctor->doctor_order->reference : ''}}</td>
+    <td>{{$doctor->doctor_order ? $doctor->doctor_order->reference_cnom : ''}}</td>
     <td>{{$doctor->first_name}}</td>
     <td>{{$doctor->last_name}}</td>
     <td>{{$doctor->speciality ? $doctor->speciality->name :''}}</td>

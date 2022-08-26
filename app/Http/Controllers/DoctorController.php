@@ -144,6 +144,7 @@ class DoctorController extends Controller
     public function edit(DoctorProfile $doctor)
     {
         //s
+        error_log('DOCTOR DATA : ' . json_encode($doctor->doctor_order->reference_nom));
         $specialities =  Speciality::all();
         $towns =  Town::all();
         $neighborhoods =  Neighborhood::all();
@@ -162,6 +163,7 @@ class DoctorController extends Controller
     public function update(Request $request, DoctorProfile $doctor)
     {
         //
+        error_log('REQUEST DATA : ' . json_encode($request->all()));
         $request->validate([
             'sex' => 'required',
             'first_name' => 'required',
@@ -174,6 +176,8 @@ class DoctorController extends Controller
 
         ]);
 
+        $reference_cnom = $request->reference_cnom;
+        error_log('REFERENCE CNOM : ' . json_encode($reference_cnom));
         $old_email = $doctor->email;
         $new_email = $request->email;
         $email_arr = [$old_email, $new_email];
@@ -188,6 +192,7 @@ class DoctorController extends Controller
                 //dd($user->update(["email" => $new_email]));
                 if ($user->update(["email" => $new_email])){
                     $doctor->update($request->all());
+                    $doctor->doctor_order()->update(['reference_cnom' => $reference_cnom]);
 
                     if (empty($user->email_verified_at)){
                         event(new Registered($user));

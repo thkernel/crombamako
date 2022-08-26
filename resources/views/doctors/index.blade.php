@@ -31,7 +31,8 @@
   <thead>
     <tr>
      
-      <th>Réf.</th>
+      <th>Réf. CROM</th>
+      <th>Réf. CNOM</th>
       <th>Prénom</th>
       <th>Nom</th>
       <th>Spécialité</th>
